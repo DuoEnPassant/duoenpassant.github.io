@@ -25,6 +25,7 @@
       text-align: center;
       background-color: var(--bg);
       padding: 0;
+      position: relative;
     }
 
     .logo-header {
@@ -35,10 +36,30 @@
       margin: 0 auto;
     }
 
+    .lang-switch {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--gold);
+      font-family: 'Cinzel', serif;
+    }
+
+    .lang-switch a {
+      color: var(--gold);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .lang-switch a:hover {
+      text-decoration: underline;
+    }
+
     main {
       max-width: 850px;
       margin: 2rem auto;
       padding: 0 1rem;
+      transition: opacity 0.3s ease;
     }
 
     h2 {
@@ -86,71 +107,134 @@
       display: inline-block;
     }
 
-    .lang-switch {
-      text-align: right;
-      padding: 1rem 1rem 0;
-      font-size: 0.9rem;
-      color: var(--gold);
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 
 <body>
-  <div class="lang-switch">
-    🇬🇧 English | <a href="et.html">🇪🇪 Eesti keel</a>
-  </div>
-
   <header class="hero-header">
+    <div class="lang-switch">
+      <a id="en-btn">EN</a> | <a id="et-btn">EST</a>
+    </div>
     <img src="Logo.png" alt="Duo EnPassant logo" class="logo-header" />
   </header>
 
   <main>
-    <section id="about">
-      <h2>About</h2>
-      <p>
-        Duo EnPassant is a new violin and cello duo featuring <strong>Merily Leotoots</strong> and
-        <strong>Anna Ryland-Jones</strong>. Although the ensemble was founded only recently,
-        the two musicians have been performing together for nearly a year in various chamber
-        groups and festivals across <strong>Estonia, Finland, and the United Kingdom</strong>.
-      </p>
-      <p>
-        Both Merily and Anna studied at London’s renowned
-        <strong>Guildhall School of Music & Drama</strong>. Interestingly, their first meeting did not
-        take place in the UK but in <strong>Estonia</strong>, where a natural musical connection
-        quickly developed. Their collaboration soon evolved into the idea of forming a
-        dedicated duo — a space to grow together artistically and to craft a shared sound world.
-      </p>
-      <p>
-        The name <strong>EnPassant</strong> comes from the chess term meaning “in passing,”
-        symbolising fleeting moments and unexpected opportunities — themes that resonate
-        deeply with the duo’s musical philosophy and expressive approach.
-      </p>
-    </section>
+    <!-- English content -->
+    <div id="content-en">
+      <section id="about">
+        <h2>About</h2>
+        <p>
+          Duo EnPassant is a new violin and cello duo featuring <strong>Merily Leotoots</strong> and
+          <strong>Anna Ryland-Jones</strong>. Although the ensemble was founded only recently,
+          the two musicians have been performing together for nearly a year in various chamber
+          groups and festivals across Estonia, Finland, and the United Kingdom.
+        </p>
+        <p>
+          Both Merily and Anna studied at London’s renowned
+          Guildhall School of Music & Drama. Interestingly, their first meeting did not
+          take place in the UK but in Estonia, where a natural musical connection
+          quickly developed. Their collaboration soon evolved into the idea of forming a
+          dedicated duo — a space to grow together artistically and to craft a shared sound world.
+        </p>
+        <p>
+          The name <strong>EnPassant</strong> comes from the chess term meaning “in passing,”
+          symbolising fleeting moments and unexpected opportunities — themes that resonate
+          deeply with the duo’s musical philosophy and expressive approach.
+        </p>
+      </section>
 
-    <section id="concerts">
-      <h2>Upcoming Concerts</h2>
-      <ul>
-        <li>📍 London — December 2025 — St Martin-in-the-Fields</li>
-        <li>📍 Tallinn — February 2026 — EMTA Concert Hall</li>
-        <li>📍 Kraków — April 2026 — Capella Cracoviensis Series</li>
-      </ul>
-    </section>
+      <section id="concerts">
+        <h2>Upcoming Concerts</h2>
+        <ul>
+          <li>📍 London — December 2025 — St Martin-in-the-Fields</li>
+          <li>📍 Tallinn — February 2026 — EMTA Concert Hall</li>
+          <li>📍 Kraków — April 2026 — Capella Cracoviensis Series</li>
+        </ul>
+      </section>
 
-    <section id="contact">
-      <h2>Contact & Social Media</h2>
-      <p>For bookings and inquiries:</p>
-      <p>📧 <a href="mailto:duoenpassant@gmail.com">duoenpassant@gmail.com</a></p>
+      <section id="contact">
+        <h2>Contact & Social Media</h2>
+        <p>For bookings and inquiries:</p>
+        <p>📧 <a href="mailto:info@duoenpassant.com">info@duoenpassant.com</a></p>
 
-      <div class="socials">
-        <a href="https://www.instagram.com/duo_enpassant/" target="_blank">📸 Instagram</a>
-        <a href="https://www.facebook.com/profile.php?id=61576658983538#" target="_blank">📘 Facebook</a>
-        <a href="https://www.tiktok.com/@duo.enpassant" target="_blank">🎶 TikTok</a>
-      </div>
-    </section>
+        <div class="socials">
+          <a href="https://www.instagram.com/duo_enpassant/" target="_blank">📸 Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61576658983538#" target="_blank">📘 Facebook</a>
+          <a href="https://www.tiktok.com/@duo.enpassant" target="_blank">🎶 TikTok</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- Estonian content -->
+    <div id="content-et" class="hidden">
+      <section id="about">
+        <h2>Meist</h2>
+        <p>
+          Duo EnPassant on uus viiuli- ja tšelloduo, kuhu kuuluvad <strong>Merily Leotoots</strong> ja
+          <strong>Anna Ryland-Jones</strong>. Kuigi ansambel loodi alles hiljuti, on muusikud mänginud koos juba ligi aasta,
+          esinedes mitmesugustes koosseisudes ja muusikafestivalidel nii Eestis, Soomes kui ka Ühendkuningriigis.
+        </p>
+        <p>
+          Merily ja Anna on mõlemad õppinud Londonis mainekas
+          Guildhall School of Music & Drama’s. Huvitaval kombel ei kohtunud nad esmakordselt mitte Inglismaal,
+          vaid hoopis Eestis, kus kujunes kiiresti välja hea loominguline klapp. Ühise koostöö käigus kasvas välja idee luua
+          püsiv duo, mis looks võimaluse areneda koos muusikutena ning kujundada ühine kõlapilt.
+        </p>
+        <p>
+          Duo <strong>EnPassant</strong> sai nime šahhitermini järgi, viidates mööduvatele hetkedele ja ootamatutele võimalustele – teemadele,
+          mis peegelduvad ka nende muusikalises käsitluses.
+        </p>
+      </section>
+
+      <section id="concerts">
+        <h2>Tulevased kontserdid</h2>
+        <ul>
+          <li>📍 London — detsember 2025 — St Martin-in-the-Fields</li>
+          <li>📍 Tallinn — veebruar 2026 — EMTA kontserdisaal</li>
+          <li>📍 Kraków — aprill 2026 — Capella Cracoviensis sari</li>
+        </ul>
+      </section>
+
+      <section id="contact">
+        <h2>Kontakt ja sotsiaalmeedia</h2>
+        <p>Broneeringud ja päringud:</p>
+        <p>📧 <a href="mailto:info@duoenpassant.com">info@duoenpassant.com</a></p>
+
+        <div class="socials">
+          <a href="https://www.instagram.com/duo_enpassant/" target="_blank">📸 Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61576658983538#" target="_blank">📘 Facebook</a>
+          <a href="https://www.tiktok.com/@duo.enpassant" target="_blank">🎶 TikTok</a>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer>
     © 2025 Duo EnPassant — All rights reserved.
   </footer>
+
+  <script>
+    const enBtn = document.getElementById("en-btn");
+    const etBtn = document.getElementById("et-btn");
+    const enContent = document.getElementById("content-en");
+    const etContent = document.getElementById("content-et");
+
+    enBtn.addEventListener("click", () => {
+      enContent.classList.remove("hidden");
+      etContent.classList.add("hidden");
+      enBtn.style.textDecoration = "underline";
+      etBtn.style.textDecoration = "none";
+    });
+
+    etBtn.addEventListener("click", () => {
+      etContent.classList.remove("hidden");
+      enContent.classList.add("hidden");
+      etBtn.style.textDecoration = "underline";
+      enBtn.style.textDecoration = "none";
+    });
+  </script>
 </body>
 </html>
