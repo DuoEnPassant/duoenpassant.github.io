@@ -1,6 +1,30 @@
 <!doctype html>
 <html lang="en">
-<head>
+<style>
+  /* Clickable overlay for Canva contact images */
+  .contact-wrap { position: relative; max-width: 1200px; margin: 2rem auto; }
+  .contact-wrap img { width: 100%; height: auto; display: block; }
+
+  .hotlink {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    display: block;
+    z-index: 5;
+    /* Make the hit-area visible for testing; set to 0 for invisible */
+    background: transparent; 
+    width: 8%;  /* icon hotspot size (adjust anytime) */
+    height: 10%;
+  }
+
+  /* Positions are percentages relative to the image (1366×768 base), responsive on all screens */
+  .hl-email   { top: 55%; left: 50%; width: 25%; height: 5%; }   /* email text bar */
+  .hl-ig      { top: 70%; left: 40%; }
+  .hl-fb      { top: 70%; left: 50%; }
+  .hl-tt      { top: 70%; left: 60%; }
+  .hl-yt      { top: 70%; left: 70%; }
+</style>
+
+  <head>
   <!-- Favicons -->
   <link rel="icon" href="favicon-dark.ico" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="favicon-light.ico" media="(prefers-color-scheme: light)">
@@ -152,17 +176,41 @@
         </ul>
       </section>
 
-    <section id="contact">
-  <img src="Contact.png" alt="Contact Duo EnPassant" style="width:100%; height:auto;">
+  <section id="contact">
+  <div class="contact-wrap">
+    <img src="Contact.png" alt="Contact — Duo EnPassant">
+
+    <!-- Email (opens mail app immediately) -->
+    <a class="hotlink hl-email"
+       href="mailto:info@duoenpassant.com?subject=Booking%20Enquiry&body=Hello%20Duo%20EnPassant,%0A"
+       title="Email Duo EnPassant"></a>
+
+    <!-- Instagram: open app on mobile, web on desktop -->
+    <a class="hotlink hl-ig"
+       href="https://www.instagram.com/duo_enpassant/"
+       title="Instagram"
+       onclick="if(/(iPhone|Android)/i.test(navigator.userAgent)){window.location='instagram://user?username=duo_enpassant'; setTimeout(()=>window.location='https://www.instagram.com/duo_enpassant/',300); return false;}"></a>
+
+    <!-- Facebook -->
+    <a class="hotlink hl-fb"
+       href="https://www.facebook.com/people/Duo-EnPassant/61576658983538/"
+       title="Facebook"
+       onclick="if(/(iPhone|Android)/i.test(navigator.userAgent)){window.location='fb://page/61576658983538'; setTimeout(()=>window.location='https://www.facebook.com/people/Duo-EnPassant/61576658983538/',300); return false;}"></a>
+
+    <!-- TikTok -->
+    <a class="hotlink hl-tt"
+       href="https://www.tiktok.com/@duo.enpassant?_t=ZN-90eH7B8lIOM&_r=1"
+       title="TikTok"
+       onclick="if(/(iPhone|Android)/i.test(navigator.userAgent)){window.location='tiktok://user?unique_id=duo.enpassant'; setTimeout(()=>window.location='https://www.tiktok.com/@duo.enpassant?_t=ZN-90eH7B8lIOM&_r=1',300); return false;}"></a>
+
+    <!-- YouTube -->
+    <a class="hotlink hl-yt"
+       href="https://www.youtube.com/@DuoEnPassant"
+       title="YouTube"
+       onclick="if(/(iPhone|Android)/i.test(navigator.userAgent)){window.location='youtube://www.youtube.com/@DuoEnPassant'; setTimeout(()=>window.location='https://www.youtube.com/@DuoEnPassant',300); return false;}"></a>
+  </div>
 </section>
 
-    </div>
-
-    <!-- Estonian content -->
-    <div id="content-et" class="hidden">
-      <section id="about" style="text-align:center; margin: 2rem 0;">
-  <img src="Meist.png" alt="Meist — Duo EnPassant" style="width:100%; height:auto; max-width:1200px;">
-</section>
 
 
       <section id="concerts">
@@ -175,8 +223,40 @@
       </section>
 
     <section id="contact">
-  <img src="Kontakt.png" alt="Kontakt Duo EnPassant" style="width:100%; height:auto;">
+  <div class="contact-wrap">
+    <img src="Kontakt.png" alt="Kontakt — Duo EnPassant">
+
+    <!-- E-post -->
+    <a class="hotlink hl-email"
+       href="mailto:info@duoenpassant.com?subject=Broneeringu%20päring&body=Tere%20Duo%20EnPassant,%0A"
+       title="Saada e-kiri"></a>
+
+    <!-- Instagram -->
+    <a class="hotlink hl-ig"
+       href="https://www.instagram.com/duo_enpassant/"
+       title="Instagram"
+       onclick="if(/(iPhone|Android)/i.test(navigator.userAgent)){window.location='instagram://user?username=duo_enpassant'; setTimeout(()=>window.location='https://www.instagram.com/duo_enpassant/',300); return false;}"></a>
+
+    <!-- Facebook -->
+    <a class="hotlink hl-fb"
+       href="https://www.facebook.com/people/Duo-EnPassant/61576658983538/"
+       title="Facebook"
+       onclick="if(/(iPhone|Android)/i.test(navigator.userAgent)){window.location='fb://page/61576658983538'; setTimeout(()=>window.location='https://www.facebook.com/people/Duo-EnPassant/61576658983538/',300); return false;}"></a>
+
+    <!-- TikTok -->
+    <a class="hotlink hl-tt"
+       href="https://www.tiktok.com/@duo.enpassant?_t=ZN-90eH7B8lIOM&_r=1"
+       title="TikTok"
+       onclick="if(/(iPhone|Android)/i.test(navigator.userAgent)){window.location='tiktok://user?unique_id=duo.enpassant'; setTimeout(()=>window.location='https://www.tiktok.com/@duo.enpassant?_t=ZN-90eH7B8lIOM&_r=1',300); return false;}"></a>
+
+    <!-- YouTube -->
+    <a class="hotlink hl-yt"
+       href="https://www.youtube.com/@DuoEnPassant"
+       title="YouTube"
+       onclick="if(/(iPhone|Android)/i.test(navigator.userAgent)){window.location='youtube://www.youtube.com/@DuoEnPassant'; setTimeout(()=>window.location='https://www.youtube.com/@DuoEnPassant',300); return false;}"></a>
+  </div>
 </section>
+
 
     </div>
   </main>
