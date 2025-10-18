@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Duo EnPassant</title>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="Favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Cinzel font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #d4af37;
+      --text: #f8f8f8;
+      --bg: #000;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: var(--bg);
+      background-image: url('Intro.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      cursor: pointer;
+      transition: opacity 1s ease;
+    }
+
+    .title {
+      font-family: 'Cinzel', serif;
+      font-size: 3.2rem;
+      letter-spacing: 2px;
+      color: var(--text);
+      text-shadow: 0 0 12px rgba(212,175,55,0.4);
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 2.5s ease forwards;
+      text-align: center;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .title:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+
+    .enter {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      color: var(--text);
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 2.5s;
+      margin-top: 1rem;
+      text-shadow: 0 0 10px rgba(212,175,55,0.3);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+
+  <!-- Automaatne edasi liikumine (soovi korral) -->
+  <!-- <meta http-equiv="refresh" content="5; url=site.html"> -->
+</head>
+
+<body onclick="window.location.href='site.html'">
+  <div style="text-align:center;">
+    <div class="title">Duo EnPassant</div>
+    <div class="enter">Enter →</div>
+  </div>
+</body>
+</html>
