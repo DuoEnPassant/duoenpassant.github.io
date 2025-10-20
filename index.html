@@ -21,7 +21,7 @@
       height: 100vh;
       background-color: var(--bg);
       background-image: url('Intro.png');
-      background-size: contain;
+      background-size: contain; /* või 'cover' kui tahad täisekraanipilti */
       background-position: center;
       background-repeat: no-repeat;
       display: flex;
@@ -29,6 +29,7 @@
       align-items: center;
       flex-direction: column;
       transition: opacity 1s ease;
+      cursor: pointer;
     }
 
     h1 {
@@ -42,22 +43,23 @@
     }
 
     button {
-      position: absolute;
-      bottom: 40px;
-      background: none;
-      border: 2px solid var(--gold);
+      margin-top: 2rem;
+      background: transparent;
+      border: none;
       color: var(--text);
       font-family: 'Cinzel', serif;
-      font-size: 1.2rem;
-      padding: 8px 18px;
+      font-size: 1.4rem;
+      letter-spacing: 2px;
       cursor: pointer;
-      transition: all 0.3s ease;
-      background-color: rgba(0, 0, 0, 0.5);
+      transition: all 0.4s ease;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
     }
 
     button:hover {
-      background-color: var(--gold);
-      color: var(--text);
+      color: var(--gold);
+      transform: scale(1.05);
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
     }
 
     @keyframes fadeIn {
@@ -85,7 +87,10 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+      // Automaatne üleminek 4 sek pärast
       setTimeout(fadeToSite, 4000);
+
+      // Võimalus vajutada nuppu kohe
       document.getElementById('enter-btn').addEventListener('click', fadeToSite);
     });
   </script>
