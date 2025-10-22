@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery — Duo EnPassant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000;
+      --text: #fff;
+      --gold: #d4af37;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Cormorant Garamond', serif;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+    }
+
+    a.back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    a.back-link:hover {
+      text-decoration: underline;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Gallery</h1>
+
+  <div class="gallery">
+    <img src="gallery1.jpg" alt="Duo EnPassant photo 1">
+    <img src="gallery2.jpg" alt="Duo EnPassant photo 2">
+    <img src="gallery3.jpg" alt="Duo EnPassant photo 3">
+    <img src="gallery4.jpg" alt="Duo EnPassant photo 4">
+    <img src="gallery5.jpg" alt="Duo EnPassant photo 5">
+    <img src="gallery6.jpg" alt="Duo EnPassant photo 6">
+  </div>
+
+  <a href="site.html" class="back-link">← Back to Home</a>
+</body>
+</html>
