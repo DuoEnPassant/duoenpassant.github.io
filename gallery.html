@@ -18,14 +18,56 @@
       background-color: var(--bg);
       color: var(--text);
       font-family: 'Cormorant Garamond', serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    header {
+      position: relative;
       text-align: center;
-      padding: 2rem;
+      padding: 1rem 0 0.5rem;
+    }
+
+    .back-link {
+      position: absolute;
+      top: 1rem;
+      left: 1.5rem;
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .back-link:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .lang-switch {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+
+    .lang-switch a {
+      color: var(--gold);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .lang-switch a:hover {
+      text-decoration: underline;
     }
 
     h1 {
       font-family: 'Cinzel', serif;
       color: var(--gold);
+      margin-top: 2rem;
       margin-bottom: 2rem;
+      letter-spacing: 2px;
     }
 
     .gallery {
@@ -34,6 +76,7 @@
       gap: 1.5rem;
       max-width: 1200px;
       margin: 0 auto;
+      padding: 0 1rem 2rem;
     }
 
     .gallery img {
@@ -48,33 +91,78 @@
       box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
     }
 
-    a.back-link {
-      display: inline-block;
-      margin-top: 2rem;
-      font-family: 'Cinzel', serif;
-      color: var(--gold);
-      text-decoration: none;
+    footer {
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+      border-top: 1px solid #222;
+      padding: 1rem 0;
     }
 
-    a.back-link:hover {
-      text-decoration: underline;
-      color: #fff;
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 
 <body>
-  <h1>Gallery</h1>
+  <header>
+    <a href="site.html" class="back-link">← Home</a>
 
-  <div class="gallery">
-    <img src="gallery1.jpg" alt="Duo EnPassant photo 1">
-    <img src="gallery2.jpg" alt="Duo EnPassant photo 2">
-    <img src="gallery3.jpg" alt="Duo EnPassant photo 3">
-    <img src="gallery4.jpg" alt="Duo EnPassant photo 4">
-    <img src="gallery5.jpg" alt="Duo EnPassant photo 5">
-    <img src="gallery6.jpg" alt="Duo EnPassant photo 6">
-  </div>
+    <div class="lang-switch">
+      🇬🇧 <a id="en-btn">EN</a> | 🇪🇪 <a id="et-btn">EST</a>
+    </div>
+  </header>
 
-  <a href="site.html" class="back-link">← Back to Home</a>
+  <!-- English gallery -->
+  <main id="content-en">
+    <h1>Gallery</h1>
+    <div class="gallery">
+      <img src="gallery1.jpg" alt="Duo EnPassant photo 1">
+      <img src="gallery2.jpg" alt="Duo EnPassant photo 2">
+      <img src="gallery3.jpg" alt="Duo EnPassant photo 3">
+      <img src="gallery4.jpg" alt="Duo EnPassant photo 4">
+      <img src="gallery5.jpg" alt="Duo EnPassant photo 5">
+      <img src="gallery6.jpg" alt="Duo EnPassant photo 6">
+    </div>
+  </main>
+
+  <!-- Estonian gallery -->
+  <main id="content-et" class="hidden">
+    <h1>Galerii</h1>
+    <div class="gallery">
+      <img src="gallery1.jpg" alt="Duo EnPassant foto 1">
+      <img src="gallery2.jpg" alt="Duo EnPassant foto 2">
+      <img src="gallery3.jpg" alt="Duo EnPassant foto 3">
+      <img src="gallery4.jpg" alt="Duo EnPassant foto 4">
+      <img src="gallery5.jpg" alt="Duo EnPassant foto 5">
+      <img src="gallery6.jpg" alt="Duo EnPassant foto 6">
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Duo EnPassant — All rights reserved.
+  </footer>
+
+  <script>
+    const enBtn = document.getElementById('en-btn');
+    const etBtn = document.getElementById('et-btn');
+    const enContent = document.getElementById('content-en');
+    const etContent = document.getElementById('content-et');
+
+    enBtn.addEventListener('click', () => {
+      enContent.classList.remove('hidden');
+      etContent.classList.add('hidden');
+      enBtn.style.textDecoration = 'underline';
+      etBtn.style.textDecoration = 'none';
+    });
+
+    etBtn.addEventListener('click', () => {
+      etContent.classList.remove('hidden');
+      enContent.classList.add('hidden');
+      etBtn.style.textDecoration = 'underline';
+      enBtn.style.textDecoration = 'none';
+    });
+  </script>
 </body>
 </html>
