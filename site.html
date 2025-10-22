@@ -110,11 +110,35 @@
     .hl-fb { top: 85%; left: 49%; }
     .hl-tt { top: 85%; left: 53%; }
     .hl-yt { top: 85%; left: 60%; width: 10%; height: 10%; }
+
+  .gallery-link {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+}
+
+.gallery-link a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.gallery-link a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
   </style>
 </head>
 
 <body>
   <header class="hero-header">
+   <div class="gallery-link">
+  <a href="gallery.html">📸 Gallery</a>
+</div>
+
     <div class="lang-switch">
       🇬🇧 <a id="en-btn">EN</a> | 🇪🇪 <a id="et-btn">EST</a>
     </div>
