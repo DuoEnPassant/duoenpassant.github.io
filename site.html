@@ -1,14 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-
-  <!-- Favicons (minimal + Safari-safe) -->
-<link rel="icon" type="image/png" href="Favicon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<meta name="theme-color" content="#000000">
-
-
-
+  <link rel="icon" type="image/png" href="Favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#000000">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Duo EnPassant</title>
@@ -20,7 +15,6 @@
       --text: #fff;
       --gold: #d4af37;
     }
-
     body {
       margin: 0;
       background-color: var(--bg);
@@ -29,14 +23,12 @@
       line-height: 1.6;
       font-size: 1.1rem;
     }
-
     header.hero-header {
       text-align: center;
       background-color: var(--bg);
       padding: 0;
       position: relative;
     }
-
     .logo-header {
       width: 100%;
       max-width: 1800px;
@@ -44,7 +36,6 @@
       display: block;
       margin: 0 auto;
     }
-
     .lang-switch {
       position: absolute;
       top: 1rem;
@@ -53,24 +44,20 @@
       color: var(--gold);
       font-family: 'Cinzel', serif;
     }
-
     .lang-switch a {
       color: var(--gold);
       text-decoration: none;
       cursor: pointer;
     }
-
     .lang-switch a:hover {
       text-decoration: underline;
     }
-
     main {
       max-width: 1200px;
       margin: 2rem auto;
       padding: 0 1rem;
       transition: opacity 0.3s ease;
     }
-
     footer {
       text-align: center;
       font-size: 0.9rem;
@@ -78,12 +65,9 @@
       padding: 2rem 1rem;
       border-top: 1px solid #222;
     }
-
     .hidden {
       display: none;
     }
-
-    /* Canva contact overlays */
     .contact-wrap {
       position: relative;
       max-width: 1200px;
@@ -103,41 +87,40 @@
       width: 8%;
       height: 10%;
     }
-
-    /* Link hit zones (1366×768 base, works responsively) */
     .hl-email { top: 55%; left: 50%; width: 25%; height: 5%; }
     .hl-ig { top: 85%; left: 38%; }
     .hl-fb { top: 85%; left: 49%; }
     .hl-tt { top: 85%; left: 53%; }
     .hl-yt { top: 85%; left: 60%; width: 10%; height: 10%; }
 
-  .gallery-link {
-  position: absolute;
-  top: 1rem;
-  left: 1.5rem;
-  font-family: 'Cinzel', serif;
-  font-size: 0.9rem;
-}
-
-.gallery-link a {
-  color: var(--gold);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.gallery-link a:hover {
-  text-decoration: underline;
-  color: #fff;
-}
-
+    .nav-links {
+      position: absolute;
+      top: 1rem;
+      left: 1.5rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+    }
+    .nav-links a {
+      color: var(--gold);
+      text-decoration: none;
+      margin-right: 1rem;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+      text-decoration: underline;
+      color: #fff;
+    }
   </style>
 </head>
 
 <body>
   <header class="hero-header">
-   <div class="gallery-link">
-  <a href="gallery.html">📸 Gallery</a>
-</div>
+    <div class="nav-links">
+      <a href="gallery.html">Gallery</a>
+      <a href="videos.html">Videos</a>
+      <a href="concerts.html">Concerts</a>
+      <a href="merch.html">Merch</a>
+    </div>
 
     <div class="lang-switch">
       🇬🇧 <a id="en-btn">EN</a> | 🇪🇪 <a id="et-btn">EST</a>
@@ -146,52 +129,36 @@
   </header>
 
   <main>
-    <!-- English -->
     <div id="content-en">
       <section id="about" style="text-align:center; margin: 2rem 0;">
         <img src="About.png" alt="About Duo EnPassant" style="width:100%; height:auto; max-width:1200px;">
       </section>
 
-     <section id="concerts" style="text-align:center; margin: 2rem 0;">
-  <img src="Concerts.png" alt="Upcoming Concerts — Duo EnPassant"
-       style="width:100%; height:auto; max-width:1200px;">
-</section>
-
-
       <section id="contact">
         <div class="contact-wrap">
           <img src="Contact.png" alt="Contact — Duo EnPassant">
-
           <a class="hotlink hl-email" href="mailto:info@duoenpassant.com?subject=Booking%20Enquiry&body=Hello%20Duo%20EnPassant,%0A"></a>
-          <a class="hotlink hl-ig" href="https://www.instagram.com/duo_enpassant/" onclick="if(/(iPhone|Android)/i.test(navigator.userAgent)){window.location='instagram://user?username=duo_enpassant'; setTimeout(()=>window.location='https://www.instagram.com/duo_enpassant/',300); return false;}"></a>
-          <a class="hotlink hl-fb" href="https://www.facebook.com/people/Duo-EnPassant/61576658983538/" onclick="if(/(iPhone|Android)/i.test(navigator.userAgent)){window.location='fb://page/61576658983538'; setTimeout(()=>window.location='https://www.facebook.com/people/Duo-EnPassant/61576658983538/',300); return false;}"></a>
-          <a class="hotlink hl-tt" href="https://www.tiktok.com/@duo.enpassant?_t=ZN-90eH7B8lIOM&_r=1" onclick="if(/(iPhone|Android)/i.test(navigator.userAgent)){window.location='tiktok://user?unique_id=duo.enpassant'; setTimeout(()=>window.location='https://www.tiktok.com/@duo.enpassant?_t=ZN-90eH7B8lIOM&_r=1',300); return false;}"></a>
-          <a class="hotlink hl-yt" href="https://www.youtube.com/@DuoEnPassant" onclick="if(/(iPhone|Android)/i.test(navigator.userAgent)){window.location='vnd.youtube://www.youtube.com/@DuoEnPassant'; setTimeout(()=>window.location='https://www.youtube.com/@DuoEnPassant',300); return false;}"></a>
+          <a class="hotlink hl-ig" href="https://www.instagram.com/duo_enpassant/"></a>
+          <a class="hotlink hl-fb" href="https://www.facebook.com/people/Duo-EnPassant/61576658983538/"></a>
+          <a class="hotlink hl-tt" href="https://www.tiktok.com/@duo.enpassant"></a>
+          <a class="hotlink hl-yt" href="https://www.youtube.com/@DuoEnPassant"></a>
         </div>
       </section>
     </div>
 
-    <!-- Estonian -->
     <div id="content-et" class="hidden">
       <section id="about" style="text-align:center; margin: 2rem 0;">
         <img src="Meist.png" alt="Meist — Duo EnPassant" style="width:100%; height:auto; max-width:1200px;">
       </section>
 
-    <section id="concerts" style="text-align:center; margin: 2rem 0;">
-  <img src="Kontserdid.png" alt="Tulevased kontserdid — Duo EnPassant"
-       style="width:100%; height:auto; max-width:1200px;">
-</section>
-
-
       <section id="contact">
         <div class="contact-wrap">
           <img src="Kontakt.png" alt="Kontakt — Duo EnPassant">
-
           <a class="hotlink hl-email" href="mailto:info@duoenpassant.com?subject=Broneeringu%20päring&body=Tere%20Duo%20EnPassant,%0A"></a>
-          <a class="hotlink hl-ig" href="https://www.instagram.com/duo_enpassant/" onclick="if(/(iPhone|Android)/i.test(navigator.userAgent)){window.location='instagram://user?username=duo_enpassant'; setTimeout(()=>window.location='https://www.instagram.com/duo_enpassant/',300); return false;}"></a>
-          <a class="hotlink hl-fb" href="https://www.facebook.com/people/Duo-EnPassant/61576658983538/" onclick="if(/(iPhone|Android)/i.test(navigator.userAgent)){window.location='fb://page/61576658983538'; setTimeout(()=>window.location='https://www.facebook.com/people/Duo-EnPassant/61576658983538/',300); return false;}"></a>
-          <a class="hotlink hl-tt" href="https://www.tiktok.com/@duo.enpassant?_t=ZN-90eH7B8lIOM&_r=1" onclick="if(/(iPhone|Android)/i.test(navigator.userAgent)){window.location='tiktok://user?unique_id=duo.enpassant'; setTimeout(()=>window.location='https://www.tiktok.com/@duo.enpassant?_t=ZN-90eH7B8lIOM&_r=1',300); return false;}"></a>
-          <a class="hotlink hl-yt" href="https://www.youtube.com/@DuoEnPassant" onclick="if(/(iPhone|Android)/i.test(navigator.userAgent)){window.location='vnd.youtube://www.youtube.com/@DuoEnPassant'; setTimeout(()=>window.location='https://www.youtube.com/@DuoEnPassant',300); return false;}"></a>
+          <a class="hotlink hl-ig" href="https://www.instagram.com/duo_enpassant/"></a>
+          <a class="hotlink hl-fb" href="https://www.facebook.com/people/Duo-EnPassant/61576658983538/"></a>
+          <a class="hotlink hl-tt" href="https://www.tiktok.com/@duo.enpassant"></a>
+          <a class="hotlink hl-yt" href="https://www.youtube.com/@DuoEnPassant"></a>
         </div>
       </section>
     </div>
@@ -223,3 +190,4 @@
   </script>
 </body>
 </html>
+
