@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Merch — Duo EnPassant</title>
+  <link rel="icon" type="image/png" href="Favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#000000">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body { margin:0; background:#000; color:#fff; font-family:'Cormorant Garamond',serif; text-align:center; }
+    a { color:#d4af37; text-decoration:none; }
+    a:hover { text-decoration:underline; color:#fff; }
+    header { padding:1rem; font-family:'Cinzel',serif; }
+    footer { color:#aaa; font-size:0.9rem; padding:2rem 0; border-top:1px solid #222; margin-top:3rem; }
+    .product { margin:2rem auto; max-width:300px; }
+    img { width:100%; border:1px solid #222; border-radius:8px; }
+    button { background:#d4af37; color:#000; border:none; padding:0.5rem 1rem; margin-top:0.5rem; cursor:pointer; font-family:'Cinzel',serif; }
+    button:hover { background:#fff; color:#000; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">← Home</a>
+    <h1 style="color:#d4af37;">Merch</h1>
+  </header>
+
+  <main>
+    <div class="product">
+      <img src="shirt.png" alt="Duo EnPassant T-Shirt">
+      <p>Duo EnPassant T-Shirt</p>
+      <a href="https://yourprintfulstore.com/tshirt"><button>Buy</button></a>
+    </div>
+
+    <div class="product">
+      <img src="tote.png" alt="Duo EnPassant Tote Bag">
+      <p>Tote Bag</p>
+      <a href="https://yourprintfulstore.com/totebag"><button>Buy</button></a>
+    </div>
+  </main>
+
+  <footer>© 2025 Duo EnPassant — All rights reserved.</footer>
+</body>
+</html>
