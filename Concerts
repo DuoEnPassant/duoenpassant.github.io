@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Concerts — Duo EnPassant</title>
+  <link rel="icon" type="image/png" href="Favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#000000">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body { margin:0; background:#000; color:#fff; font-family:'Cormorant Garamond',serif; text-align:center; }
+    a { color:#d4af37; text-decoration:none; }
+    a:hover { text-decoration:underline; color:#fff; }
+    header { padding:1rem; font-family:'Cinzel',serif; }
+    footer { color:#aaa; font-size:0.9rem; padding:2rem 0; border-top:1px solid #222; margin-top:3rem; }
+    .concert { margin:2rem 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">← Home</a>
+    <h1 style="color:#d4af37;">Upcoming Concerts</h1>
+  </header>
+
+  <main>
+    <div class="concert">
+      <h2>London — Estonian House</h2>
+      <p>15 November 2025</p>
+      <p>Brahms, Lemba, Bridge</p>
+    </div>
+
+    <div class="concert">
+      <h2>Kadriorg Palace, Tallinn</h2>
+      <p>5 December 2025</p>
+      <p>Beethoven, Kaumann</p>
+    </div>
+  </main>
+
+  <footer>© 2025 Duo EnPassant — All rights reserved.</footer>
+</body>
+</html>
