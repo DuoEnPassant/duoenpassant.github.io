@@ -1,250 +1,604 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="Favicon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <meta name="theme-color" content="#000000">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Duo EnPassant</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+
+  <title>Duo EnPassant | Violin & Cello Duo</title>
+  <meta name="description" content="Duo EnPassant — violin and cello duo performing classical chamber music. Concerts, recordings, collaborations." />
+  <link rel="canonical" href="https://www.duoenpassant.com/" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="Duo EnPassant | Violin & Cello Duo" />
+  <meta property="og:description" content="Classical chamber music for violin and cello. Concerts, recordings, collaborations." />
+  <meta property="og:url" content="https://www.duoenpassant.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://www.duoenpassant.com/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"MusicGroup",
+    "name":"Duo EnPassant",
+    "url":"https://www.duoenpassant.com/",
+    "member":[
+      {"@type":"Person","name":"Merily Leotoots"},
+      {"@type":"Person","name":"Anna Ryland-Jones"}
+    ],
+    "sameAs":[
+      "https://www.instagram.com/duoenpassant",
+      "https://www.youtube.com/@duoenpassant"
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="Favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <style>
     :root {
-      --bg: #000;
-      --text: #fff;
+      --bg: #000000;
+      --text: #f5f5f5;
+      --muted: #d0d0d0;
       --gold: #d4af37;
+      --gold-soft: rgba(212, 175, 55, 0.4);
+      --accent: #ffffff;
+      --max-width: 1100px;
+      --section-padding: 5rem;
     }
-    body {
+
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    html, body {
       background-color: var(--bg);
       color: var(--text);
-      font-family: 'Cormorant Garamond', serif;
-      line-height: 1.6;
-      font-size: 1.1rem;
+      font-family: 'Lora', serif;
+      scroll-behavior: smooth;
     }
-    header.hero-header {
-      text-align: center;
-      background-color: var(--bg);
-      padding: 0;
-      position: relative;
-    }
-    .logo-header {
-      width: 100%;
-      max-width: 1800px;
-      height: auto;
-      display: block;
-      margin: 3rem auto 0 auto;
-    }
-    .lang-switch {
-      position: absolute;
-      top: 1rem;
-      right: 1.5rem;
-      font-size: 0.9rem;
-      color: var(--gold);
-      font-family: 'Cinzel', serif;
-    }
-    .lang-switch a {
-      color: var(--gold);
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .lang-switch a:hover {
-      text-decoration: underline;
-    }
-    main {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      transition: opacity 0.3s ease;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #aaa;
-      padding: 2rem 1rem;
-      border-top: 1px solid #222;
-    }
-    .hidden {
-      display: none;
-    }
-    .contact-wrap {
-      position: relative;
-      max-width: 1200px;
-      margin: 2rem auto;
-    }
-   .contact-wrap img {
-  width: 75%;
-  max-width: 800px;
-  display: block;
-  margin: 0 auto;
-}
 
-    .hotlink {
-      position: absolute;
-      transform: translate(-50%, -50%);
-      display: block;
-      z-index: 5;
-      background: transparent;
-      width: 8%;
-      height: 10%;
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-    .hl-email { top: 55%; left: 50%; width: 25%; height: 5%; }
-    .hl-ig { top: 85%; left: 38%; }
-    .hl-fb { top: 85%; left: 49%; }
-    .hl-tt { top: 85%; left: 53%; }
-    .hl-yt { top: 85%; left: 60%; width: 10%; height: 10%; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--gold);
+    }
+
+    /* Layout wrappers */
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Top navigation */
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0.8), transparent);
+      backdrop-filter: blur(6px);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem 0.5rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
 
     .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-link {
+      position: relative;
+      cursor: pointer;
+      color: var(--muted);
+      transition: color 0.25s ease;
+    }
+
+    .nav-link::after {
+      content: "";
       position: absolute;
-      top: 1rem;
-      left: 1.5rem;
+      left: 0;
+      bottom: -0.3rem;
+      width: 0;
+      height: 1px;
+      background-color: var(--gold);
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--accent);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+    }
+
+    .lang-btn {
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--muted);
+      padding: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      transition: color 0.2s ease;
+    }
+
+    .lang-btn.active {
+      color: var(--gold);
+    }
+
+    .lang-separator {
+      color: var(--muted);
+    }
+
+    /* Hero / logo section */
+
+    .hero {
+      position: relative;
+      padding-top: 4rem;
+      padding-bottom: 3rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      /* abstraktne “gold dust” vöönd */
+      content: "";
+      position: absolute;
+      left: -10%;
+      right: -10%;
+      top: 55%;
+      height: 140px;
+      background: radial-gradient(circle at 50% 50%, var(--gold-soft) 0, transparent 60%);
+      opacity: 0.6;
+      pointer-events: none;
+      filter: blur(2px);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-mark {
       font-family: 'Cinzel', serif;
       font-size: 0.9rem;
-    }
-    .nav-links a {
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
       color: var(--gold);
-      text-decoration: none;
-      margin-right: 1rem;
-      transition: color 0.3s ease;
+      margin-bottom: 1rem;
     }
-    .nav-links a:hover {
-      text-decoration: underline;
-      color: #fff;
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.4rem, 4vw, 3rem);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
     }
-    .top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 2rem;
-  flex-wrap: wrap;
-  background-color: #000;
-}
 
-.nav-links a {
-  color: var(--gold);
-  text-decoration: none;
-  margin-right: 1rem;
-  font-family: 'Cinzel', serif;
-  font-size: 0.9rem;
-}
+    .hero-subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
 
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
+    .hero-line {
+      width: 220px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 0 auto 2.5rem;
+    }
 
-.lang-switch {
-  font-family: 'Cinzel', serif;
-  font-size: 0.9rem;
-  color: var(--gold);
-  margin-top: 0.5rem;
-}
+    /* ABOUT / MEIST sections */
 
-.lang-switch a {
-  color: var(--gold);
-  text-decoration: none;
-}
+    section {
+      padding: var(--section-padding) 0;
+    }
 
-.lang-switch a:hover,
-.nav-links a:hover {
-  text-decoration: underline;
-  color: #fff;
-}
+    .section-header {
+      font-family: 'Cinzel', serif;
+      font-size: 1.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2.5rem;
+      text-align: left;
+    }
 
-@media (max-width: 600px) {
-  .top-bar {
-    flex-direction: column;
-    align-items: center;
-  }
-  .lang-switch {
-    margin-top: 0.3rem;
-  }
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      align-items: center;
+      gap: 3.5rem;
+    }
 
+    .about-text {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .about-text p + p {
+      margin-top: 1.1rem;
+    }
+
+    .portraits {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .portrait {
+      max-width: 180px;
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .portrait-caption {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-family: 'Cinzel', serif;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      text-align: center;
+    }
+
+    /* CONTACT / KONTAKT */
+
+    .contact-wrapper {
+      text-align: center;
+    }
+
+    .contact-intro {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-subline {
+      width: 260px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 0.8rem auto 1.8rem;
+    }
+
+    .contact-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+    }
+
+    .contact-email {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--accent);
+      margin-bottom: 2.4rem;
+    }
+
+    .follow-text {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+      color: var(--muted);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .social-links a {
+      padding-bottom: 0.1rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .social-links a:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* Language visibility */
+
+    [data-lang-block] {
+      display: none;
+    }
+
+    body.lang-en [data-lang-block="en"] {
+      display: block;
+    }
+
+    body.lang-est [data-lang-block="est"] {
+      display: block;
+    }
+
+    /* Footer */
+
+    .footer {
+      margin-top: auto;
+      padding: 2rem 1.5rem 2.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 800px) {
+      .topbar-inner {
+        padding-inline: 1rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.7rem;
+      }
+
+      .two-column {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2.5rem;
+      }
+
+      .section-header {
+        text-align: center;
+      }
+
+      .about-text {
+        text-align: left;
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-title {
+        letter-spacing: 0.12em;
+      }
+
+      .hero-subtitle {
+        letter-spacing: 0.14em;
+      }
+
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+    }
   </style>
 </head>
 
-<body>
- <header class="hero-header">
-  <div class="top-bar">
-    <nav class="nav-links">
-      <a href="gallery.html">Gallery</a>
-      <a href="videos.html">Videos</a>
-      <a href="concerts.html">Concerts</a>
-      <a href="merch.html">Merch</a>
-    </nav>
+<body class="lang-en">
+  <div class="page">
 
-    <div class="lang-switch">
-      <a id="en-btn">EN</a> | <a id="et-btn">EST</a>
-    </div>
+    <!-- Top navigation -->
+    <header class="topbar">
+      <div class="topbar-inner">
+        <nav class="nav-links">
+          <a href="#gallery" class="nav-link">Gallery</a>
+          <a href="#videos" class="nav-link">Videos</a>
+          <a href="#concerts" class="nav-link">Concerts</a>
+          <a href="#merch" class="nav-link">Merch</a>
+        </nav>
+
+        <div class="lang-toggle" aria-label="Language selector">
+          <button class="lang-btn active" data-lang-switch="en" type="button">EN</button>
+          <span class="lang-separator">|</span>
+          <button class="lang-btn" data-lang-switch="est" type="button">EST</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero / Logo -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-mark">Violin &amp; Cello</div>
+        <h1 class="hero-title">Duo EnPassant</h1>
+        <div class="hero-subtitle">International String Duo</div>
+        <div class="hero-line"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT (EN) -->
+    <section id="about-en" data-lang-block="en">
+      <div class="container">
+        <h2 class="section-header">About</h2>
+        <div class="two-column">
+          <div class="about-text">
+            <!-- asenda oma täpse tekstiga; see on lihtsalt näidis -->
+            <p>
+              Duo EnPassant is a new violin and cello duo featuring Merily Leotoots and Anna Ryland-Jones.
+              Although the ensemble was founded only recently, the two musicians have been performing together
+              for nearly a year in various chamber groups and festivals across Estonia, Finland and the United Kingdom.
+            </p>
+            <p>
+              Both Merily and Anna studied at London’s renowned Guildhall School of Music &amp; Drama.
+              Interestingly, their first meeting did not take place in the UK but in Estonia, where a natural
+              musical connection quickly developed. Their collaboration soon evolved into the idea of forming a
+              dedicated duo – a space to grow together artistically and to craft a shared sound world.
+            </p>
+            <p>
+              The name EnPassant comes from the chess term meaning “in passing”, symbolising fleeting moments
+              and unexpected opportunities – themes that resonate deeply with the duo’s musical philosophy and expressive approach.
+            </p>
+          </div>
+
+          <div class="portraits">
+            <!-- pane siia tegelikud PNG-d / JPG-d läbipaistva või musta taustaga -->
+            <div>
+              <img src="anna.png" alt="Cellist Anna Ryland-Jones" class="portrait">
+              <div class="portrait-caption">Anna Ryland-Jones · Cello</div>
+            </div>
+            <div>
+              <img src="merily.png" alt="Violinist Merily Leotoots" class="portrait">
+              <div class="portrait-caption">Merily Leotoots · Violin</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEIST (EST) -->
+    <section id="meist" data-lang-block="est">
+      <div class="container">
+        <h2 class="section-header">Meist</h2>
+        <div class="two-column">
+          <div class="about-text">
+            <!-- KIRJUTA SIIA EESTIKEELNE “MEIST” TEKST, MIS PRAEGU PILDIS ON -->
+            <p>
+              Duo EnPassant on uus viiul- ja tšelloduo, kuhu kuuluvad Merily Leotoots ja Anna Ryland-Jones.
+              <!-- jätka oma täpse tekstiga -->
+            </p>
+          </div>
+
+          <div class="portraits">
+            <div>
+              <img src="anna.png" alt="Tšellist Anna Ryland-Jones" class="portrait">
+              <div class="portrait-caption">Anna Ryland-Jones · Tšello</div>
+            </div>
+            <div>
+              <img src="merily.png" alt="Viiuldaja Merily Leotoots" class="portrait">
+              <div class="portrait-caption">Merily Leotoots · Viiul</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT (EN) -->
+    <section id="contact-en" data-lang-block="en">
+      <div class="container contact-wrapper">
+        <h2 class="section-header" style="text-align:center;">Contact &amp; Social Media</h2>
+
+        <div class="contact-intro">For bookings and inquiries:</div>
+        <div class="contact-subline"></div>
+        <div class="contact-label">Email us</div>
+        <div class="contact-email">
+          <a href="mailto:info@duoenpassant.com">info@duoenpassant.com</a>
+        </div>
+
+        <div class="follow-text">Follow Duo EnPassant</div>
+        <div class="social-links">
+          <a href="https://www.instagram.com/duoenpassant" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.tiktok.com" target="_blank" rel="noopener">TikTok</a>
+          <a href="https://www.youtube.com/@duoenpassant" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT (EST) -->
+    <section id="kontakt" data-lang-block="est">
+      <div class="container contact-wrapper">
+        <h2 class="section-header" style="text-align:center;">Kontakt ja sotsiaalmeedia</h2>
+
+        <div class="contact-intro">Broneeringud ja päringud:</div>
+        <div class="contact-subline"></div>
+        <div class="contact-label">Kirjuta meile</div>
+        <div class="contact-email">
+          <a href="mailto:info@duoenpassant.com">info@duoenpassant.com</a>
+        </div>
+
+        <div class="follow-text">Jälgi meid Duo EnPassant</div>
+        <div class="social-links">
+          <a href="https://www.instagram.com/duoenpassant" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.tiktok.com" target="_blank" rel="noopener">TikTok</a>
+          <a href="https://www.youtube.com/@duoenpassant" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Placeholder anchors for nav (võid hiljem päris lehtedega asendada) -->
+    <div id="gallery"></div>
+    <div id="videos"></div>
+    <div id="concerts"></div>
+    <div id="merch"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      © 2025 Duo EnPassant — All rights reserved.
+    </footer>
   </div>
 
-  <img src="Logo.png" alt="Duo EnPassant logo" class="logo-header" />
-</header>
-
-
-  <main>
-    <div id="content-en">
-      <section id="about" style="text-align:center; margin: 2rem 0;">
-        <img src="About.png" alt="About Duo EnPassant" style="width:100%; height:auto; max-width:1200px;">
-      </section>
-
-      <section id="contact">
-        <div class="contact-wrap">
-          <img src="Contact.png" alt="Contact — Duo EnPassant">
-          <a class="hotlink hl-email" href="mailto:info@duoenpassant.com?subject=Booking%20Enquiry&body=Hello%20Duo%20EnPassant,%0A" target="_blank" rel="noopener noreferrer"></a>
-<a class="hotlink hl-ig" href="https://www.instagram.com/duo_enpassant/" target="_blank" rel="noopener noreferrer"></a>
-<a class="hotlink hl-fb" href="https://www.facebook.com/people/Duo-EnPassant/61576658983538/" target="_blank" rel="noopener noreferrer"></a>
-<a class="hotlink hl-tt" href="https://www.tiktok.com/@duo.enpassant" target="_blank" rel="noopener noreferrer"></a>
-<a class="hotlink hl-yt" href="https://www.youtube.com/@DuoEnPassant" target="_blank" rel="noopener noreferrer"></a>
-
-        </div>
-      </section>
-    </div>
-
-    <div id="content-et" class="hidden">
-      <section id="about" style="text-align:center; margin: 2rem 0;">
-        <img src="Meist.png" alt="Meist — Duo EnPassant" style="width:100%; height:auto; max-width:1200px;">
-      </section>
-
-      <section id="contact">
-        <div class="contact-wrap">
-          <img src="Kontakt.png" alt="Kontakt — Duo EnPassant">
-          <a class="hotlink hl-email" href="mailto:info@duoenpassant.com?subject=Broneeringu%20päring&body=Tere%20Duo%20EnPassant,%0A"></a>
-          <a class="hotlink hl-ig" href="https://www.instagram.com/duo_enpassant/"></a>
-          <a class="hotlink hl-fb" href="https://www.facebook.com/people/Duo-EnPassant/61576658983538/"></a>
-          <a class="hotlink hl-tt" href="https://www.tiktok.com/@duo.enpassant"></a>
-          <a class="hotlink hl-yt" href="https://www.youtube.com/@DuoEnPassant"></a>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <footer>
-    © 2025 Duo EnPassant — All rights reserved.
-  </footer>
-
   <script>
-    const enBtn = document.getElementById("en-btn");
-    const etBtn = document.getElementById("et-btn");
-    const enContent = document.getElementById("content-en");
-    const etContent = document.getElementById("content-et");
+    // keele vahetamine
+    const body = document.body;
+    const langButtons = document.querySelectorAll('[data-lang-switch]');
 
-    enBtn.addEventListener("click", () => {
-      enContent.classList.remove("hidden");
-      etContent.classList.add("hidden");
-      enBtn.style.textDecoration = "underline";
-      etBtn.style.textDecoration = "none";
-    });
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.langSwitch;
+        body.classList.toggle('lang-en', lang === 'en');
+        body.classList.toggle('lang-est', lang === 'est');
 
-    etBtn.addEventListener("click", () => {
-      etContent.classList.remove("hidden");
-      enContent.classList.add("hidden");
-      etBtn.style.textDecoration = "underline";
-      enBtn.style.textDecoration = "none";
+        langButtons.forEach(b => b.classList.toggle('active', b === btn));
+      });
     });
   </script>
 </body>
 </html>
-
