@@ -77,8 +77,6 @@
       color: var(--gold);
     }
 
-    /* Layout wrappers */
-
     .page {
       display: flex;
       flex-direction: column;
@@ -173,7 +171,7 @@
       color: var(--muted);
     }
 
-    /* Hero / logo section */
+    /* Hero */
 
     .hero {
       position: relative;
@@ -184,7 +182,6 @@
     }
 
     .hero::before {
-      /* abstraktne “gold dust” vöönd */
       content: "";
       position: absolute;
       left: -10%;
@@ -236,7 +233,7 @@
       margin: 0 auto 2.5rem;
     }
 
-    /* ABOUT / MEIST sections */
+    /* Sections */
 
     section {
       padding: var(--section-padding) 0;
@@ -254,7 +251,7 @@
 
     .two-column {
       display: grid;
-      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
       align-items: center;
       gap: 3.5rem;
     }
@@ -269,32 +266,22 @@
       margin-top: 1.1rem;
     }
 
-    .portraits {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      align-items: center;
+    .about-image-wrapper {
+      position: relative;
+      max-width: 460px;
+      width: 100%;
+      margin: 0 auto;
     }
 
-    .portrait {
-      max-width: 180px;
+    .about-image {
       width: 100%;
       height: auto;
       display: block;
-      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.7);
     }
 
-    .portrait-caption {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-family: 'Cinzel', serif;
-      color: var(--muted);
-      margin-top: 0.4rem;
-      text-align: center;
-    }
-
-    /* CONTACT / KONTAKT */
+    /* Contact */
 
     .contact-wrapper {
       text-align: center;
@@ -337,26 +324,31 @@
       color: var(--muted);
     }
 
-    .social-links {
+    .social-icons {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 1.5rem;
-      font-family: 'Cinzel', serif;
-      font-size: 0.85rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+      gap: 1.3rem;
     }
 
-    .social-links a {
-      padding-bottom: 0.1rem;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s ease, color 0.2s ease;
+    .social-icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .social-links a:hover {
-      border-color: var(--gold);
-      color: var(--gold);
+    .social-icon {
+      width: 32px;
+      height: 32px;
+      display: block;
+      filter: invert(1);
+      opacity: 0.85;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .social-icon-link:hover .social-icon {
+      opacity: 1;
+      transform: scale(1.05);
     }
 
     /* Language visibility */
@@ -412,6 +404,10 @@
       .hero {
         padding-top: 3rem;
       }
+
+      .about-image-wrapper {
+        max-width: 100%;
+      }
     }
 
     @media (max-width: 520px) {
@@ -438,167 +434,6 @@
     <!-- Top navigation -->
     <header class="topbar">
       <div class="topbar-inner">
-        <nav class="nav-links">
-          <a href="#gallery" class="nav-link">Gallery</a>
-          <a href="#videos" class="nav-link">Videos</a>
-          <a href="#concerts" class="nav-link">Concerts</a>
-          <a href="#merch" class="nav-link">Merch</a>
-        </nav>
+        <nav class="nav-links
 
-        <div class="lang-toggle" aria-label="Language selector">
-          <button class="lang-btn active" data-lang-switch="en" type="button">EN</button>
-          <span class="lang-separator">|</span>
-          <button class="lang-btn" data-lang-switch="est" type="button">EST</button>
-        </div>
-      </div>
-    </header>
-
-    <!-- Hero / Logo -->
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-mark">Violin &amp; Cello</div>
-        <h1 class="hero-title">Duo EnPassant</h1>
-        <div class="hero-subtitle">International String Duo</div>
-        <div class="hero-line"></div>
-      </div>
-    </section>
-
-    <!-- ABOUT (EN) -->
-    <section id="about-en" data-lang-block="en">
-      <div class="container">
-        <h2 class="section-header">About</h2>
-        <div class="two-column">
-          <div class="about-text">
-            <!-- asenda oma täpse tekstiga; see on lihtsalt näidis -->
-            <p>
-              Duo EnPassant is a new violin and cello duo featuring Merily Leotoots and Anna Ryland-Jones.
-              Although the ensemble was founded only recently, the two musicians have been performing together
-              for nearly a year in various chamber groups and festivals across Estonia, Finland and the United Kingdom.
-            </p>
-            <p>
-              Both Merily and Anna studied at London’s renowned Guildhall School of Music &amp; Drama.
-              Interestingly, their first meeting did not take place in the UK but in Estonia, where a natural
-              musical connection quickly developed. Their collaboration soon evolved into the idea of forming a
-              dedicated duo – a space to grow together artistically and to craft a shared sound world.
-            </p>
-            <p>
-              The name EnPassant comes from the chess term meaning “in passing”, symbolising fleeting moments
-              and unexpected opportunities – themes that resonate deeply with the duo’s musical philosophy and expressive approach.
-            </p>
-          </div>
-
-          <div class="portraits">
-            <!-- pane siia tegelikud PNG-d / JPG-d läbipaistva või musta taustaga -->
-            <div>
-              <img src="anna.png" alt="Cellist Anna Ryland-Jones" class="portrait">
-              <div class="portrait-caption">Anna Ryland-Jones · Cello</div>
-            </div>
-            <div>
-              <img src="merily.png" alt="Violinist Merily Leotoots" class="portrait">
-              <div class="portrait-caption">Merily Leotoots · Violin</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MEIST (EST) -->
-    <section id="meist" data-lang-block="est">
-      <div class="container">
-        <h2 class="section-header">Meist</h2>
-        <div class="two-column">
-          <div class="about-text">
-            <!-- KIRJUTA SIIA EESTIKEELNE “MEIST” TEKST, MIS PRAEGU PILDIS ON -->
-            <p>
-              Duo EnPassant on uus viiul- ja tšelloduo, kuhu kuuluvad Merily Leotoots ja Anna Ryland-Jones.
-              <!-- jätka oma täpse tekstiga -->
-            </p>
-          </div>
-
-          <div class="portraits">
-            <div>
-              <img src="anna.png" alt="Tšellist Anna Ryland-Jones" class="portrait">
-              <div class="portrait-caption">Anna Ryland-Jones · Tšello</div>
-            </div>
-            <div>
-              <img src="merily.png" alt="Viiuldaja Merily Leotoots" class="portrait">
-              <div class="portrait-caption">Merily Leotoots · Viiul</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT (EN) -->
-    <section id="contact-en" data-lang-block="en">
-      <div class="container contact-wrapper">
-        <h2 class="section-header" style="text-align:center;">Contact &amp; Social Media</h2>
-
-        <div class="contact-intro">For bookings and inquiries:</div>
-        <div class="contact-subline"></div>
-        <div class="contact-label">Email us</div>
-        <div class="contact-email">
-          <a href="mailto:info@duoenpassant.com">info@duoenpassant.com</a>
-        </div>
-
-        <div class="follow-text">Follow Duo EnPassant</div>
-        <div class="social-links">
-          <a href="https://www.instagram.com/duoenpassant" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a>
-          <a href="https://www.tiktok.com" target="_blank" rel="noopener">TikTok</a>
-          <a href="https://www.youtube.com/@duoenpassant" target="_blank" rel="noopener">YouTube</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- KONTAKT (EST) -->
-    <section id="kontakt" data-lang-block="est">
-      <div class="container contact-wrapper">
-        <h2 class="section-header" style="text-align:center;">Kontakt ja sotsiaalmeedia</h2>
-
-        <div class="contact-intro">Broneeringud ja päringud:</div>
-        <div class="contact-subline"></div>
-        <div class="contact-label">Kirjuta meile</div>
-        <div class="contact-email">
-          <a href="mailto:info@duoenpassant.com">info@duoenpassant.com</a>
-        </div>
-
-        <div class="follow-text">Jälgi meid Duo EnPassant</div>
-        <div class="social-links">
-          <a href="https://www.instagram.com/duoenpassant" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a>
-          <a href="https://www.tiktok.com" target="_blank" rel="noopener">TikTok</a>
-          <a href="https://www.youtube.com/@duoenpassant" target="_blank" rel="noopener">YouTube</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Placeholder anchors for nav (võid hiljem päris lehtedega asendada) -->
-    <div id="gallery"></div>
-    <div id="videos"></div>
-    <div id="concerts"></div>
-    <div id="merch"></div>
-
-    <!-- Footer -->
-    <footer class="footer">
-      © 2025 Duo EnPassant — All rights reserved.
-    </footer>
-  </div>
-
-  <script>
-    // keele vahetamine
-    const body = document.body;
-    const langButtons = document.querySelectorAll('[data-lang-switch]');
-
-    langButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const lang = btn.dataset.langSwitch;
-        body.classList.toggle('lang-en', lang === 'en');
-        body.classList.toggle('lang-est', lang === 'est');
-
-        langButtons.forEach(b => b.classList.toggle('active', b === btn));
-      });
-    });
-  </script>
-</body>
-</html>
+          
