@@ -95,7 +95,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0.8), transparent);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.98), rgba(0,0,0,0.8), transparent);
       backdrop-filter: blur(6px);
     }
 
@@ -103,13 +103,25 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 1.5rem 0.5rem;
+      padding: 0.3rem 1.2rem 0.3rem;
       max-width: var(--max-width);
       margin: 0 auto;
       font-family: 'Cinzel', serif;
       letter-spacing: 0.12em;
       font-size: 0.8rem;
       text-transform: uppercase;
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .site-logo {
+      height: 64px;
+      width: auto;
+      display: block;
     }
 
     .nav-links {
@@ -222,16 +234,6 @@
       margin: 0 auto 0;
     }
 
-    /* HERO LOGO */
-
-    .hero-logo {
-      position: absolute;
-      left: 1.5rem;
-      top: 1.2rem;
-      width: 260px;
-      height: auto;
-    }
-
     /* Sections */
 
     section {
@@ -339,14 +341,14 @@
     .social-icon {
       width: 30px;
       height: 30px;
-      fill: #ffffff;
+      color: #ffffff;
       opacity: 0.85;
-      transition: opacity 0.2s ease, transform 0.2s ease, fill 0.2s ease;
+      transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
     }
 
     .social-icon-link:hover .social-icon {
       opacity: 1;
-      fill: var(--gold);
+      color: var(--gold);
       transform: scale(1.05);
     }
 
@@ -379,12 +381,20 @@
 
     @media (max-width: 800px) {
       .topbar-inner {
-        padding-inline: 1rem;
+        padding-inline: 0.8rem;
+      }
+
+      .topbar-left {
+        gap: 1.2rem;
       }
 
       .nav-links {
         gap: 1rem;
         font-size: 0.7rem;
+      }
+
+      .site-logo {
+        height: 50px;
       }
 
       .two-column {
@@ -410,24 +420,18 @@
     }
 
     @media (max-width: 520px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+
       .hero-title {
         letter-spacing: 0.12em;
       }
 
       .hero-subtitle {
         letter-spacing: 0.14em;
-      }
-
-      .topbar-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-      }
-
-      .hero-logo {
-        left: 1rem;
-        top: 1rem;
-        width: 200px;
       }
     }
   </style>
@@ -439,11 +443,17 @@
     <!-- Top navigation -->
     <header class="topbar">
       <div class="topbar-inner">
-        <nav class="nav-links">
-          <a href="media.html" class="nav-link">Media</a>
-          <a href="concerts.html" class="nav-link">Concerts</a>
-          <a href="#contact" class="nav-link">Contact</a>
-        </nav>
+        <div class="topbar-left">
+          <a href="site.html">
+            <img src="EPlogo.png" alt="Duo EnPassant logo" class="site-logo">
+          </a>
+
+          <nav class="nav-links">
+            <a href="media.html" class="nav-link">Media</a>
+            <a href="concerts.html" class="nav-link">Concerts</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </nav>
+        </div>
 
         <div class="lang-toggle" aria-label="Language selector">
           <button class="lang-btn active" data-lang-switch="en" type="button">EN</button>
@@ -453,10 +463,8 @@
       </div>
     </header>
 
-    <!-- Hero / Logo -->
+    <!-- Hero -->
     <section class="hero">
-      <img src="EPlogo.png" alt="Duo EnPassant logo" class="hero-logo">
-
       <div class="container hero-inner">
         <div class="hero-mark">Violin &amp; Cello</div>
         <h1 class="hero-title">Duo EnPassant</h1>
@@ -544,30 +552,36 @@
             <a href="https://www.instagram.com/duoenpassant" target="_blank" rel="noopener"
                class="social-icon-link" aria-label="Instagram">
               <svg class="social-icon" viewBox="0 0 24 24">
-                <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
-                <circle cx="12" cy="12" r="5"></circle>
-                <circle cx="17" cy="7" r="1.2"></circle>
+                <rect x="3" y="3" width="18" height="18" rx="5" ry="5"
+                      fill="none" stroke="currentColor" stroke-width="1.8"></rect>
+                <circle cx="12" cy="12" r="5.2"
+                        fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+                <circle cx="17" cy="7" r="1.2"
+                        fill="currentColor"></circle>
               </svg>
             </a>
 
-            <a href="#" target="_blank" rel="noopener"
+            <a href="https://www.facebook.com/duoenpassant" target="_blank" rel="noopener"
                class="social-icon-link" aria-label="Facebook">
               <svg class="social-icon" viewBox="0 0 24 24">
-                <path d="M13.5 21v-7h2.3l.4-3h-2.7V8.3c0-.9.3-1.5 1.6-1.5h1.2V4.1C15.9 4 15 4 14 4c-2.4 0-3.9 1.4-3.9 4v3H8v3h2.1v7h3.4z"/>
+                <path fill="currentColor"
+                      d="M13.5 21v-7h2.3l.4-3h-2.7V8.3c0-.9.3-1.5 1.6-1.5h1.2V4.1C15.9 4 15 4 14 4c-2.4 0-3.9 1.4-3.9 4v3H8v3h2.1v7h3.4z"/>
               </svg>
             </a>
 
-            <a href="#" target="_blank" rel="noopener"
+            <a href="https://www.tiktok.com/@duoenpassant" target="_blank" rel="noopener"
                class="social-icon-link" aria-label="TikTok">
               <svg class="social-icon" viewBox="0 0 24 24">
-                <path d="M17.5 7.6c-1-.4-1.8-1.1-2.3-2.1-.2-.4-.4-.9-.5-1.4H12v9a2 2 0 0 1-2 2 2 2 0 0 1 0-4c.3 0 .6 0 .9.2V9.1A4.4 4.4 0 0 0 10 9a4.9 4.9 0 1 0 4.9 4.9v-4a4.9 4.9 0 0 0 2.6.8V7.6z"/>
+                <path fill="currentColor"
+                      d="M17.5 7.6c-1-.4-1.8-1.1-2.3-2.1-.2-.4-.4-.9-.5-1.4H12v9a2 2 0 0 1-2 2 2 2 0 0 1 0-4c.3 0 .6 0 .9.2V9.1A4.4 4.4 0 0 0 10 9a4.9 4.9 0 1 0 4.9 4.9v-4a4.9 4.9 0 0 0 2.6.8V7.6z"/>
               </svg>
             </a>
 
             <a href="https://www.youtube.com/@duoenpassant" target="_blank" rel="noopener"
                class="social-icon-link" aria-label="YouTube">
               <svg class="social-icon" viewBox="0 0 24 24">
-                <path d="M21 8.1s-.2-1.4-.8-2c-.7-.8-1.6-.8-2-0.8C15.6 5 12 5 12 5h0s-3.6 0-6.2.3c-.4 0-1.3 0-2 .8-.6.6-.8 2-.8 2S2.5 9.8 2.5 11.6v1.7C2.5 15 3 16 3 16s.2 1.4.8 2c.7.8 1.7.7 2.1.8 1.5.1 6.1.3 6.1.3s3.6 0 6.2-.3c.4 0 1.3 0 2-0.8.6-.6.8-2 .8-2s.5-1.9.5-3.7v-1.7c0-1.8-.5-3.5-.5-3.5zM10 14.3V8.9l4.4 2.7L10 14.3z"/>
+                <path fill="currentColor"
+                      d="M21 8.1s-.2-1.4-.8-2c-.7-.8-1.6-.8-2-0.8C15.6 5 12 5 12 5s-3.6 0-6.2.3c-.4 0-1.3 0-2 .8-.6.6-.8 2-.8 2S2.5 9.8 2.5 11.6v1.7C2.5 15 3 16 3 16s.2 1.4.8 2c.7.8 1.7.7 2.1.8 1.5.1 6.1.3 6.1.3s3.6 0 6.2-.3c.4 0 1.3 0 2-0.8.6-.6.8-2 .8-2s.5-1.9.5-3.7v-1.7c0-1.8-.5-3.5-.5-3.5zM10 14.3V8.9l4.4 2.7L10 14.3z"/>
               </svg>
             </a>
           </div>
@@ -591,42 +605,42 @@
             <a href="https://www.instagram.com/duoenpassant" target="_blank" rel="noopener"
                class="social-icon-link" aria-label="Instagram">
               <svg class="social-icon" viewBox="0 0 24 24">
-                <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
-                <circle cx="12" cy="12" r="5"></circle>
-                <circle cx="17" cy="7" r="1.2"></circle>
+                <rect x="3" y="3" width="18" height="18" rx="5" ry="5"
+                      fill="none" stroke="currentColor" stroke-width="1.8"></rect>
+                <circle cx="12" cy="12" r="5.2"
+                        fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+                <circle cx="17" cy="7" r="1.2"
+                        fill="currentColor"></circle>
               </svg>
             </a>
 
-            <a href="#" target="_blank" rel="noopener"
+            <a href="https://www.facebook.com/duoenpassant" target="_blank" rel="noopener"
                class="social-icon-link" aria-label="Facebook">
               <svg class="social-icon" viewBox="0 0 24 24">
-                <path d="M13.5 21v-7h2.3l.4-3h-2.7V8.3c0-.9.3-1.5 1.6-1.5h1.2V4.1C15.9 4 15 4 14 4c-2.4 0-3.9 1.4-3.9 4v3H8v3h2.1v7h3.4z"/>
+                <path fill="currentColor"
+                      d="M13.5 21v-7h2.3l.4-3h-2.7V8.3c0-.9.3-1.5 1.6-1.5h1.2V4.1C15.9 4 15 4 14 4c-2.4 0-3.9 1.4-3.9 4v3H8v3h2.1v7h3.4z"/>
               </svg>
             </a>
 
-            <a href="#" target="_blank" rel="noopener"
+            <a href="https://www.tiktok.com/@duoenpassant" target="_blank" rel="noopener"
                class="social-icon-link" aria-label="TikTok">
               <svg class="social-icon" viewBox="0 0 24 24">
-                <path d="M17.5 7.6c-1-.4-1.8-1.1-2.3-2.1-.2-.4-.4-.9-.5-1.4H12v9a2 2 0 0 1-2 2 2 2 0 0 1 0-4c.3 0 .6 0 .9.2V9.1A4.4 4.4 0 0 0 10 9a4.9 4.9 0 1 0 4.9 4.9v-4a4.9 4.9 0 0 0 2.6.8V7.6z"/>
+                <path fill="currentColor"
+                      d="M17.5 7.6c-1-.4-1.8-1.1-2.3-2.1-.2-.4-.4-.9-.5-1.4H12v9a2 2 0 0 1-2 2 2 2 0 0 1 0-4c.3 0 .6 0 .9.2V9.1A4.4 4.4 0 0 0 10 9a4.9 4.9 0 1 0 4.9 4.9v-4a4.9 4.9 0 0 0 2.6.8V7.6z"/>
               </svg>
             </a>
 
             <a href="https://www.youtube.com/@duoenpassant" target="_blank" rel="noopener"
                class="social-icon-link" aria-label="YouTube">
               <svg class="social-icon" viewBox="0 0 24 24">
-                <path d="M21 8.1s-.2-1.4-.8-2c-.7-.8-1.6-.8-2-0.8C15.6 5 12 5 12 5h0s-3.6 0-6.2.3c-.4 0-1.3 0-2 .8-.6.6-.8 2-.8 2S2.5 9.8 2.5 11.6v1.7C2.5 15 3 16 3 16s.2 1.4.8 2c.7.8 1.7.7 2.1.8 1.5.1 6.1.3 6.1.3s3.6 0 6.2-.3c.4 0 1.3 0 2-0.8.6-.6.8-2 .8-2s.5-1.9.5-3.7v-1.7c0-1.8-.5-3.5-.5-3.5zM10 14.3V8.9l4.4 2.7L10 14.3z"/>
+                <path fill="currentColor"
+                      d="M21 8.1s-.2-1.4-.8-2c-.7-.8-1.6-.8-2-0.8C15.6 5 12 5 12 5s-3.6 0-6.2.3c-.4 0-1.3 0-2 .8-.6.6-.8 2-.8 2S2.5 9.8 2.5 11.6v1.7C2.5 15 3 16 3 16s.2 1.4.8 2c.7.8 1.7.7 2.1.8 1.5.1 6.1.3 6.1.3s3.6 0 6.2-.3c.4 0 1.3 0 2-0.8.6-.6.8-2 .8-2s.5-1.9.5-3.7v-1.7c0-1.8-.5-3.5-.5-3.5zM10 14.3V8.9l4.4 2.7L10 14.3z"/>
               </svg>
             </a>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Placeholder anchors for future pages -->
-    <div id="gallery"></div>
-    <div id="videos"></div>
-    <div id="concerts"></div>
-    <div id="merch"></div>
 
     <!-- Footer -->
     <footer class="footer">
