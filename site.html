@@ -233,6 +233,16 @@
       margin: 0 auto 2.5rem;
     }
 
+    /* HERO LOGO */
+
+    .hero-logo {
+      position: absolute;
+      left: 1.5rem;
+      top: 1.4rem;
+      width: 140px;
+      height: auto;
+    }
+
     /* Sections */
 
     section {
@@ -331,23 +341,26 @@
       gap: 1.3rem;
     }
 
-    .social-icon-link {
-      display: inline-flex;
+    .social-icon-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--muted);
+      display: flex;
       align-items: center;
       justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease, transform 0.2s ease;
     }
 
-    .social-icon {
-      width: 32px;
-      height: 32px;
-      display: block;
-      filter: invert(1);
-      opacity: 0.85;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    .social-icon-link:hover .social-icon {
-      opacity: 1;
+    .social-icon-circle:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(212, 175, 55, 0.12);
       transform: scale(1.05);
     }
 
@@ -424,6 +437,12 @@
         align-items: flex-start;
         gap: 0.5rem;
       }
+
+      .hero-logo {
+        left: 1rem;
+        top: 1rem;
+        width: 120px;
+      }
     }
   </style>
 </head>
@@ -451,6 +470,8 @@
 
     <!-- Hero / Logo -->
     <section class="hero">
+      <img src="EPlogo.png" alt="Duo EnPassant logo" class="hero-logo">
+
       <div class="container hero-inner">
         <div class="hero-mark">Violin &amp; Cello</div>
         <h1 class="hero-title">Duo EnPassant</h1>
@@ -533,18 +554,17 @@
 
         <div class="follow-text">Follow Duo EnPassant</div>
         <div class="social-icons">
-          <a href="https://www.instagram.com/duoenpassant" target="_blank" rel="noopener" class="social-icon-link" aria-label="Instagram">
-            <img src="instagram.svg" alt="Instagram" class="social-icon">
-          </a>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener" class="social-icon-link" aria-label="Facebook">
-            <img src="facebook.svg" alt="Facebook" class="social-icon">
-          </a>
-          <a href="https://www.tiktok.com" target="_blank" rel="noopener" class="social-icon-link" aria-label="TikTok">
-            <img src="tiktok.svg" alt="TikTok" class="social-icon">
-          </a>
-          <a href="https://www.youtube.com/@duoenpassant" target="_blank" rel="noopener" class="social-icon-link" aria-label="YouTube">
-            <img src="youtube.svg" alt="YouTube" class="social-icon">
-          </a>
+          <a href="https://www.instagram.com/duoenpassant" target="_blank" rel="noopener"
+             class="social-icon-circle" aria-label="Instagram">IG</a>
+
+          <a href="https://www.facebook.com" target="_blank" rel="noopener"
+             class="social-icon-circle" aria-label="Facebook">FB</a>
+
+          <a href="https://www.tiktok.com" target="_blank" rel="noopener"
+             class="social-icon-circle" aria-label="TikTok">TT</a>
+
+          <a href="https://www.youtube.com/@duoenpassant" target="_blank" rel="noopener"
+             class="social-icon-circle" aria-label="YouTube">YT</a>
         </div>
       </div>
     </section>
@@ -563,18 +583,17 @@
 
         <div class="follow-text">Jälgi Duo EnPassant</div>
         <div class="social-icons">
-          <a href="https://www.instagram.com/duoenpassant" target="_blank" rel="noopener" class="social-icon-link" aria-label="Instagram">
-            <img src="instagram.svg" alt="Instagram" class="social-icon">
-          </a>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener" class="social-icon-link" aria-label="Facebook">
-            <img src="facebook.svg" alt="Facebook" class="social-icon">
-          </a>
-          <a href="https://www.tiktok.com" target="_blank" rel="noopener" class="social-icon-link" aria-label="TikTok">
-            <img src="tiktok.svg" alt="TikTok" class="social-icon">
-          </a>
-          <a href="https://www.youtube.com/@duoenpassant" target="_blank" rel="noopener" class="social-icon-link" aria-label="YouTube">
-            <img src="youtube.svg" alt="YouTube" class="social-icon">
-          </a>
+          <a href="https://www.instagram.com/duoenpassant" target="_blank" rel="noopener"
+             class="social-icon-circle" aria-label="Instagram">IG</a>
+
+          <a href="https://www.facebook.com" target="_blank" rel="noopener"
+             class="social-icon-circle" aria-label="Facebook">FB</a>
+
+          <a href="https://www.tiktok.com" target="_blank" rel="noopener"
+             class="social-icon-circle" aria-label="TikTok">TT</a>
+
+          <a href="https://www.youtube.com/@duoenpassant" target="_blank" rel="noopener"
+             class="social-icon-circle" aria-label="YouTube">YT</a>
         </div>
       </div>
     </section>
@@ -608,3 +627,4 @@
   </script>
 </body>
 </html>
+
