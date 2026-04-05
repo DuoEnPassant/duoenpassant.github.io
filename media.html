@@ -82,11 +82,11 @@
       transform: scale(1.02);
     }
 
-    .video-grid video {
+    .video-grid iframe {
       width: 100%;
-      height: auto;
-      display: block;
+      aspect-ratio: 16 / 9;
       border-radius: 6px;
+      border: none;
     }
 
     .lightbox {
@@ -154,7 +154,21 @@
     </section>
 
     <section class="video-grid" style="margin-top:40px;">
-      <!-- Videod hiljem siia -->
+
+      <iframe 
+        src="https://www.youtube.com/embed/KshG1i6PzKw" 
+        title="YouTube video 1"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+
+      <iframe 
+        src="https://www.youtube.com/embed/Q8cl2DfWa3c" 
+        title="YouTube video 2"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+
     </section>
 
   </div>
