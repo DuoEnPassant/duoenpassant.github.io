@@ -55,6 +55,16 @@
       padding: 10px 20px 40px 20px;
     }
 
+    .section-title {
+      color: #d4af37;
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 30px 0 20px 0;
+      opacity: 0.85;
+    }
+
     .media-grid,
     .video-grid {
       display: grid;
@@ -137,8 +147,25 @@
 
   <div class="page-container">
 
-    <section class="media-grid">
+    <h2 class="section-title">Videos</h2>
 
+    <section class="video-grid">
+      <iframe 
+        src="https://www.youtube.com/embed/KshG1i6PzKw"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+
+      <iframe 
+        src="https://www.youtube.com/embed/Q8cl2DfWa3c"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </section>
+
+    <h2 class="section-title" style="margin-top:60px;">Photos</h2>
+
+    <section class="media-grid">
       <div class="media-item">
         <img src="EP.jpg" alt="EP">
       </div>
@@ -150,25 +177,6 @@
       <div class="media-item">
         <img src="img.jpg" alt="Promo">
       </div>
-
-    </section>
-
-    <section class="video-grid" style="margin-top:40px;">
-
-      <iframe 
-        src="https://www.youtube.com/embed/KshG1i6PzKw" 
-        title="YouTube video 1"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-
-      <iframe 
-        src="https://www.youtube.com/embed/Q8cl2DfWa3c" 
-        title="YouTube video 2"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-
     </section>
 
   </div>
@@ -209,6 +217,3 @@
 
 </body>
 </html>
-
-
-
