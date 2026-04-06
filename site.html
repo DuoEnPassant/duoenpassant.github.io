@@ -4,12 +4,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>Duo EnPassant | Violin & Cello Duo</title>
   <meta name="description" content="Duo EnPassant — violin and cello duo performing classical chamber music. Concerts, recordings, collaborations." />
   <link rel="canonical" href="https://www.duoenpassant.com/" />
   <meta name="robots" content="index, follow" />
-
   <meta property="og:title" content="Duo EnPassant | Violin & Cello Duo" />
   <meta property="og:description" content="Classical chamber music for violin and cello. Concerts, recordings, collaborations." />
   <meta property="og:url" content="https://www.duoenpassant.com/" />
@@ -18,20 +16,7 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"MusicGroup",
-    "name":"Duo EnPassant",
-    "url":"https://www.duoenpassant.com/",
-    "member":[
-      {"@type":"Person","name":"Merily Leotoots"},
-      {"@type":"Person","name":"Anna Ryland-Jones"}
-    ],
-    "sameAs":[
-      "https://www.instagram.com/duoenpassant",
-      "https://www.youtube.com/@duoenpassant"
-    ]
-  }
+  {"@context":"https://schema.org","@type":"MusicGroup","name":"Duo EnPassant","url":"https://www.duoenpassant.com/","member":[{"@type":"Person","name":"Merily Leotoots"},{"@type":"Person","name":"Anna Ryland-Jones"}],"sameAs":["https://www.instagram.com/duoenpassant","https://www.youtube.com/@duoenpassant"]}
   </script>
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
@@ -46,7 +31,7 @@
       --parchment: #f5f0e8;
       --warm: #c8a96e;
       --muted: #7a6f65;
-      --line: rgba(200, 169, 110, 0.3);
+      --line: rgba(200,169,110,0.3);
       --max-width: 1100px;
     }
 
@@ -62,39 +47,30 @@
       flex-direction: column;
     }
 
-    body::before {
-      content: none;
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 200;
-      opacity: 0.6;
-    }
-
     a { color: inherit; text-decoration: none; }
     a:hover { color: var(--warm); }
 
-    /* ── TOPBAR ── */
+    /* ══════════════════════════════════════
+       TOPBAR
+    ══════════════════════════════════════ */
     .topbar {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(245, 240, 232, 0.92);
+      background: rgba(245,240,232,0.95);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--line);
     }
 
-    /* Full-width inner — no max-width cap so items truly span edge-to-edge */
     .topbar-inner {
       display: flex;
       align-items: center;
       width: 100%;
       padding: 0.5rem 1.5rem;
-      gap: 0;
+      position: relative;
     }
 
-    /* HOME BUTTON — flush left */
+    /* Home button — far left */
     .home-btn {
       display: flex;
       align-items: center;
@@ -103,15 +79,10 @@
       color: var(--ink);
       transition: opacity 0.2s;
       flex-shrink: 0;
-      margin-right: auto; /* pushes everything else right */
     }
     .home-btn:hover { opacity: 0.72; color: var(--ink); }
 
-    .clef-logo {
-      width: 48px;
-      height: 48px;
-      flex-shrink: 0;
-    }
+    .clef-logo { width: 48px; height: 48px; flex-shrink: 0; }
 
     .home-wordmark {
       font-family: 'Cinzel', serif;
@@ -128,13 +99,12 @@
       color: var(--muted);
     }
 
-    /* NAV — perfectly centred in the remaining space */
+    /* Desktop nav — absolutely centred */
     .topbar-center {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
     }
-
     .nav-links {
       display: flex;
       gap: 1.8rem;
@@ -143,26 +113,23 @@
       letter-spacing: 0.3em;
       text-transform: uppercase;
     }
-
     .nav-link {
       position: relative;
       color: var(--muted);
-      transition: color 0.25s ease;
+      transition: color 0.25s;
     }
     .nav-link::after {
       content: "";
       position: absolute;
-      left: 0;
-      bottom: -0.3rem;
-      width: 0;
-      height: 1px;
-      background-color: var(--warm);
-      transition: width 0.25s ease;
+      left: 0; bottom: -0.3rem;
+      width: 0; height: 1px;
+      background: var(--warm);
+      transition: width 0.25s;
     }
     .nav-link:hover { color: var(--ink); }
     .nav-link:hover::after { width: 100%; }
 
-    /* LANG TOGGLE — flush right */
+    /* Desktop lang toggle — far right */
     .lang-toggle {
       display: flex;
       align-items: center;
@@ -171,7 +138,7 @@
       font-size: 0.72rem;
       letter-spacing: 0.25em;
       flex-shrink: 0;
-      margin-left: auto; /* pushes to right */
+      margin-left: auto;
     }
     .lang-btn {
       cursor: pointer;
@@ -183,14 +150,105 @@
       letter-spacing: 0.25em;
       font-family: 'Cinzel', serif;
       font-size: 0.72rem;
-      transition: color 0.2s ease, border-color 0.2s;
+      transition: color 0.2s, border-color 0.2s;
       border-radius: 2px;
     }
     .lang-btn.active { color: var(--warm); border-color: var(--line); }
     .lang-btn:hover { color: var(--ink); }
     .lang-separator { color: var(--line); font-size: 0.72rem; }
 
-    /* ── HERO ── */
+    /* ── HAMBURGER (mobile only) ── */
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: auto;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    .hamburger-btn span {
+      display: block;
+      height: 1.5px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger-btn.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger-btn.open span:nth-child(2) { opacity: 0; }
+    .hamburger-btn.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Mobile drawer */
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      top: 0;
+      background: rgba(245,240,232,0.98);
+      backdrop-filter: blur(10px);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-drawer.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .mobile-drawer a, .mobile-drawer button {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.2s;
+      padding: 0.3rem 0;
+    }
+    .mobile-drawer a:hover,
+    .mobile-drawer button:hover { color: var(--warm); }
+
+    .mobile-drawer-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .mobile-lang-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .mobile-lang-btn {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .mobile-lang-btn.active { color: var(--warm); border-color: var(--line); }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
     .hero {
       min-height: calc(100vh - 72px);
       display: grid;
@@ -198,30 +256,23 @@
       position: relative;
     }
 
-    /* LEFT — dark panel with title */
     .hero-left {
       background-color: var(--ink);
       display: flex;
-      align-items: center;          /* vertically centre title */
-      justify-content: flex-end;    /* title right-aligned toward centre seam */
+      align-items: center;
+      justify-content: flex-end;
       padding: 3rem;
       position: relative;
       overflow: hidden;
     }
-    .hero-left::before {
-      content: none;
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 30% 60%, rgba(200,169,110,0.12) 0%, transparent 70%);
-    }
 
+    /* Staff lines behind title */
     .staff-lines {
       position: absolute;
       top: 50%;
-      left: 0;
-      right: 0;
+      left: 0; right: 0;
       transform: translateY(-50%);
-      opacity: 0.06;
+      opacity: 0.08;
       pointer-events: none;
     }
     .staff-lines span {
@@ -249,7 +300,6 @@
       margin-bottom: 1.5rem;
       display: block;
     }
-
     .hero-duo {
       font-family: 'Cinzel', serif;
       font-size: clamp(2.8rem, 6vw, 5.5rem);
@@ -267,37 +317,105 @@
       letter-spacing: 0.02em;
     }
 
-    /* RIGHT — photo filling the right panel */
+    /* Right panel — ensemble members on desktop */
     .hero-right {
+      background-color: var(--parchment);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 3.5rem 4rem 4rem;
       position: relative;
-      overflow: hidden;
-      background-color: var(--ink); /* fallback if image missing */
+    }
+    .hero-right::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 15%; bottom: 15%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--warm), transparent);
     }
 
-    /* The photo */
-    .hero-photo {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
+    .members-block {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.7s forwards;
+    }
+
+    .members-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      color: var(--warm);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .member-link {
       display: block;
-      /* subtle dark vignette on sides so it blends */
-      filter: brightness(0.88) contrast(1.05);
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.2s;
+    }
+    .member-link:hover .member-name { color: var(--warm); }
+    .member-link:hover .cv-hint { opacity: 1; }
+
+    .member-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 0.2rem;
+      transition: color 0.2s;
+    }
+    .member-instrument {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+    .cv-hint {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--warm);
+      letter-spacing: 0.05em;
+      opacity: 0;
+      transition: opacity 0.2s;
+      margin-bottom: 1.5rem;
     }
 
-    /* Light gradient overlay at left edge to blend with dark panel */
-    .hero-right::before {
-      content: none;
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, rgba(26,22,20,0.45) 0%, transparent 35%);
-      z-index: 1;
-      pointer-events: none;
+    .divider-ornament {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.2rem 0;
+    }
+    .divider-ornament::before,
+    .divider-ornament::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+    .divider-ornament span { color: var(--warm); font-size: 1rem; }
+
+    .hero-subtitle-text {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-top: 0.5rem;
     }
 
-    /* ── ABOUT ── */
+    /* ══════════════════════════════════════
+       ABOUT
+    ══════════════════════════════════════ */
     .about-section { padding: 6rem 0; }
 
     .container {
@@ -322,17 +440,8 @@
       gap: 5rem;
       align-items: start;
     }
-
-    .about-image-wrapper {
-      position: sticky;
-      top: 6rem;
-    }
-    .about-image {
-      width: 100%;
-      height: auto;
-      display: block;
-      box-shadow: 8px 8px 0 var(--line);
-    }
+    .about-image-wrapper { position: sticky; top: 6rem; }
+    .about-image { width: 100%; height: auto; display: block; box-shadow: 8px 8px 0 var(--line); }
 
     .about-text p {
       font-size: clamp(1.1rem, 1.6vw, 1.28rem);
@@ -357,13 +466,12 @@
       margin: 2.5rem 0;
     }
     .highlight-quote p {
-      font-size: clamp(1.2rem, 1.8vw, 1.5rem) !important;
+      font-size: clamp(1.2rem,1.8vw,1.5rem) !important;
       font-style: italic;
       margin: 0 !important;
       line-height: 1.6 !important;
     }
 
-    /* ── CHESS CALLOUT ── */
     .chess-callout {
       background: var(--ink);
       color: var(--parchment);
@@ -375,8 +483,7 @@
     .chess-callout::before {
       content: 'en passant';
       position: absolute;
-      bottom: -1.5rem;
-      right: 2rem;
+      bottom: -1.5rem; right: 2rem;
       font-family: 'Cormorant Garamond', serif;
       font-size: 7rem;
       font-style: italic;
@@ -388,7 +495,7 @@
     .chess-callout .section-header { color: var(--warm); margin-bottom: 1rem; }
     .chess-term {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-size: clamp(2rem,4vw,3.5rem);
       font-style: italic;
       font-weight: 300;
       color: var(--warm);
@@ -405,7 +512,7 @@
     }
     .chess-callout p {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1rem, 1.5vw, 1.18rem);
+      font-size: clamp(1rem,1.5vw,1.18rem);
       line-height: 1.85;
       color: rgba(245,240,232,0.72);
       font-weight: 300;
@@ -414,82 +521,39 @@
       z-index: 1;
     }
 
-    /* ── CONTACT ── */
+    /* ══════════════════════════════════════
+       CONTACT
+    ══════════════════════════════════════ */
     .contact-section { padding: 6rem 0; }
     .contact-wrapper { text-align: center; }
-
-    .contact-intro {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-style: italic;
-      margin-bottom: 0.5rem;
-      color: var(--ink);
-    }
-    .contact-subline {
-      width: 260px;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--warm), transparent);
-      margin: 1rem auto 1.8rem;
-    }
-    .contact-label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.62rem;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
-    }
-    .contact-email {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-style: italic;
-      color: var(--ink);
-      margin-bottom: 3rem;
-    }
+    .contact-intro { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; margin-bottom: 0.5rem; color: var(--ink); }
+    .contact-subline { width: 260px; height: 1px; background: linear-gradient(to right, transparent, var(--warm), transparent); margin: 1rem auto 1.8rem; }
+    .contact-label { font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }
+    .contact-email { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--ink); margin-bottom: 3rem; }
     .contact-email a:hover { color: var(--warm); }
+    .follow-text { font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.4rem; }
 
-    .follow-text {
-      font-family: 'Cinzel', serif;
-      font-size: 0.62rem;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1.4rem;
-    }
-
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
+    .social-icons { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; }
     .social-icon-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 42px; height: 42px;
       border: 1px solid var(--line);
-      transition: border-color 0.2s ease, background 0.2s ease;
+      transition: border-color 0.2s, background 0.2s;
     }
-    .social-icon-link:hover {
-      border-color: var(--warm);
-      background: rgba(200,169,110,0.08);
-    }
-    .social-icon {
-      width: 18px;
-      height: 18px;
-      color: var(--muted);
-      transition: color 0.2s ease;
-    }
+    .social-icon-link:hover { border-color: var(--warm); background: rgba(200,169,110,0.08); }
+    .social-icon { width: 18px; height: 18px; color: var(--muted); transition: color 0.2s; }
     .social-icon-link:hover .social-icon { color: var(--warm); }
 
-    /* ── LANGUAGE ── */
+    /* ══════════════════════════════════════
+       LANGUAGE BLOCKS
+    ══════════════════════════════════════ */
     [data-lang-block] { display: none; }
     body.lang-en  [data-lang-block="en"]  { display: block; }
     body.lang-est [data-lang-block="est"] { display: block; }
 
-    /* ── FOOTER ── */
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
     footer {
       margin-top: auto;
       background: var(--ink);
@@ -498,69 +562,67 @@
       justify-content: space-between;
       align-items: center;
     }
-    footer .logo {
-      font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.3em;
-      color: rgba(245,240,232,0.3);
-      text-transform: uppercase;
-    }
-    footer .tagline {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 0.95rem;
-      color: var(--warm);
-      opacity: 0.65;
-    }
+    footer .logo { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: rgba(245,240,232,0.3); text-transform: uppercase; }
+    footer .tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.95rem; color: var(--warm); opacity: 0.65; }
 
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
-    }
+    /* ══════════════════════════════════════
+       ANIMATIONS
+    ══════════════════════════════════════ */
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.25s; }
 
-    /* ── RESPONSIVE ── */
+    /* ══════════════════════════════════════
+       RESPONSIVE — MOBILE (≤800px)
+    ══════════════════════════════════════ */
     @media (max-width: 800px) {
-      /* Stack hero vertically on mobile */
+
+      /* Show hamburger, hide desktop nav + lang toggle */
+      .hamburger-btn { display: flex; }
+      .topbar-center { display: none; }
+      .lang-toggle   { display: none; }
+      .home-wordmark { display: none; }
+      .topbar-inner  { padding: 0.4rem 1rem; }
+
+      /* Show drawer when JS adds .open */
+      .mobile-drawer { display: flex; }
+
+      /* Hero: stack, compact height */
       .hero {
         grid-template-columns: 1fr;
         min-height: auto;
       }
 
-      /* Left (title) panel */
       .hero-left {
-        padding: 4rem 2rem 3rem;
+        /* Tight padding so height is driven by content + staff lines */
+        padding: 2.5rem 1.8rem;
         justify-content: flex-start;
-        align-items: flex-start;
-        min-height: 60vh;
+        align-items: center;       /* vertically centre within auto height */
+        min-height: 0;             /* no artificial 60vh */
       }
-      .hero-title-block { text-align: left; }
 
-      /* Hide photo on mobile — as requested */
+      /* Staff lines visible and centred behind the title */
+      .staff-lines {
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0.1;
+      }
+
+      .hero-title-block {
+        text-align: left;
+        width: 100%;
+      }
+
+      /* Hide the right panel (CV section) on mobile */
       .hero-right { display: none; }
 
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .about-image-wrapper { position: static; }
       .container { padding: 0 1.5rem; }
 
-      footer {
-        flex-direction: column;
-        gap: 0.75rem;
-        text-align: center;
-        padding: 1.5rem;
-      }
-
-      /* Topbar on mobile: hide centre nav, compress */
-      .topbar-center { display: none; }
-      .home-wordmark { display: none; }
-      .topbar-inner { padding: 0.5rem 1rem; }
+      footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 1.5rem; }
     }
 
     @media (max-width: 520px) {
@@ -572,13 +634,27 @@
 
 <body id="top" class="lang-en">
 
+  <!-- MOBILE DRAWER (hidden until hamburger pressed) -->
+
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-label="Navigation menu">
+    <a href="media.html"    class="drawer-close-on-click">Media</a>
+    <a href="concerts.html" class="drawer-close-on-click">Concerts</a>
+    <a href="#contact"      class="drawer-close-on-click">Contact</a>
+    <div class="mobile-drawer-rule"></div>
+    <div class="mobile-lang-row">
+      <button class="mobile-lang-btn active" data-lang-switch="en"  type="button">EN</button>
+      <span style="color:var(--line)">|</span>
+      <button class="mobile-lang-btn"        data-lang-switch="est" type="button">EST</button>
+    </div>
+  </div>
+
   <!-- TOPBAR -->
 
   <header class="topbar">
     <div class="topbar-inner">
 
-
-  <!-- Home button — far left, links to site.html (this page) -->
+```
+  <!-- Home button — far left -->
   <a href="site.html" class="home-btn" aria-label="Duo EnPassant — Home">
     <svg class="clef-logo" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
       <line x1="4" y1="20" x2="48" y2="20" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
@@ -595,22 +671,27 @@
     </div>
   </a>
 
-  <!-- Nav — absolutely centred -->
+  <!-- Desktop nav — centred -->
   <nav class="topbar-center nav-links" aria-label="Main navigation">
-    <a href="media.html"   class="nav-link">Media</a>
+    <a href="media.html"    class="nav-link">Media</a>
     <a href="concerts.html" class="nav-link">Concerts</a>
-    <a href="#contact"     class="nav-link">Contact</a>
+    <a href="#contact"      class="nav-link">Contact</a>
   </nav>
 
-  <!-- Language toggle — far right -->
+  <!-- Desktop lang toggle — far right -->
   <div class="lang-toggle" aria-label="Language selector">
     <button class="lang-btn active" data-lang-switch="en"  type="button">EN</button>
     <span class="lang-separator">|</span>
     <button class="lang-btn"        data-lang-switch="est" type="button">EST</button>
   </div>
 
-</div>
+  <!-- Hamburger (mobile only) -->
+  <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 
+</div>
+```
 
   </header>
 
@@ -618,8 +699,8 @@
 
   <section class="hero">
 
-
-<!-- LEFT: dark title block -->
+```
+<!-- LEFT: dark title block with staff lines -->
 <div class="hero-left">
   <div class="staff-lines" aria-hidden="true">
     <span></span><span></span><span></span><span></span><span></span>
@@ -634,14 +715,33 @@
       <h1 class="hero-duo">Duo <span class="hero-en">En<br>Passant</span></h1>
     </div>
   </div>
-  <!-- SCROLL hint removed as requested -->
 </div>
 
-<!-- RIGHT: photo panel (desktop only) -->
-<div class="hero-right" aria-hidden="true">
-  <img src="pilt.JPEG" alt="Merily Leotoots and Anna Ryland-Jones" class="hero-photo">
-</div>
+<!-- RIGHT: ensemble members (desktop only) -->
+<div class="hero-right">
+  <div class="members-block">
+    <p class="members-label">The Ensemble</p>
 
+    <a href="merily.pdf" target="_blank" rel="noopener" class="member-link" aria-label="Merily Leotoots — open CV">
+      <p class="member-name">Merily Leotoots</p>
+      <p class="member-instrument">Violin</p>
+      <p class="cv-hint">View CV →</p>
+    </a>
+
+    <div class="divider-ornament"><span>✦</span></div>
+
+    <a href="anna.pdf" target="_blank" rel="noopener" class="member-link" aria-label="Anna Ryland-Jones — open CV">
+      <p class="member-name">Anna Ryland-Jones</p>
+      <p class="member-instrument">Violoncello</p>
+      <p class="cv-hint">View CV →</p>
+    </a>
+
+    <div class="divider-ornament" style="margin-top:2rem;"><span></span></div>
+    <p class="hero-subtitle-text" data-lang-block="en">International String Duo</p>
+    <p class="hero-subtitle-text" data-lang-block="est">Rahvusvaheline keelpilliduo</p>
+  </div>
+</div>
+```
 
   </section>
 
@@ -710,7 +810,7 @@
         <div class="follow-text">Follow Duo EnPassant</div>
         <div class="social-icons">
           <a href="https://www.instagram.com/duo_enpassant/" target="_blank" rel="noopener" class="social-icon-link" aria-label="Instagram">
-            <svg class="social-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.8"></rect><circle cx="12" cy="12" r="5.2" fill="none" stroke="currentColor" stroke-width="1.8"></circle><circle cx="17" cy="7" r="1.2" fill="currentColor"></circle></svg>
+            <svg class="social-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="5.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="7" r="1.2" fill="currentColor"/></svg>
           </a>
           <a href="https://www.facebook.com/profile.php?id=61576658983538" target="_blank" rel="noopener" class="social-icon-link" aria-label="Facebook">
             <svg class="social-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7h2.3l.4-3h-2.7V8.3c0-.9.3-1.5 1.6-1.5h1.2V4.1C15.9 4 15 4 14 4c-2.4 0-3.9 1.4-3.9 4v3H8v3h2.1v7h3.4z"/></svg>
@@ -734,7 +834,7 @@
         <div class="follow-text">Jälgi Duo EnPassant</div>
         <div class="social-icons">
           <a href="https://www.instagram.com/duo_enpassant/" target="_blank" rel="noopener" class="social-icon-link" aria-label="Instagram">
-            <svg class="social-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.8"></rect><circle cx="12" cy="12" r="5.2" fill="none" stroke="currentColor" stroke-width="1.8"></circle><circle cx="17" cy="7" r="1.2" fill="currentColor"></circle></svg>
+            <svg class="social-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="5.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="7" r="1.2" fill="currentColor"/></svg>
           </a>
           <a href="https://www.facebook.com/profile.php?id=61576658983538" target="_blank" rel="noopener" class="social-icon-link" aria-label="Facebook">
             <svg class="social-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7h2.3l.4-3h-2.7V8.3c0-.9.3-1.5 1.6-1.5h1.2V4.1C15.9 4 15 4 14 4c-2.4 0-3.9 1.4-3.9 4v3H8v3h2.1v7h3.4z"/></svg>
@@ -756,17 +856,47 @@
   </footer>
 
   <script>
+    // ── Language switching (all buttons: desktop + mobile drawer) ──
     const body = document.body;
-    const langButtons = document.querySelectorAll('[data-lang-switch]');
-    langButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const lang = btn.dataset.langSwitch;
-        body.classList.toggle('lang-en',  lang === 'en');
-        body.classList.toggle('lang-est', lang === 'est');
-        langButtons.forEach(b => b.classList.toggle('active', b === btn));
+    function setLang(lang) {
+      body.classList.toggle('lang-en',  lang === 'en');
+      body.classList.toggle('lang-est', lang === 'est');
+      localStorage.setItem('dep-lang', lang);
+      document.querySelectorAll('[data-lang-switch]').forEach(b => {
+        b.classList.toggle('active', b.dataset.langSwitch === lang);
       });
+    }
+    document.querySelectorAll('[data-lang-switch]').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.langSwitch));
+    });
+    // Restore saved language preference
+    const saved = localStorage.getItem('dep-lang');
+    if (saved) setLang(saved);
+
+    // ── Hamburger menu ──
+    const hamburger = document.getElementById('hamburgerBtn');
+    const drawer    = document.getElementById('mobileDrawer');
+
+    function toggleDrawer(open) {
+      hamburger.classList.toggle('open', open);
+      drawer.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', () => toggleDrawer(!drawer.classList.contains('open')));
+
+    // Close drawer when a link inside it is clicked
+    drawer.querySelectorAll('.drawer-close-on-click').forEach(link => {
+      link.addEventListener('click', () => toggleDrawer(false));
     });
 
+    // Close on Escape
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') toggleDrawer(false);
+    });
+
+    // ── Scroll reveal ──
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
