@@ -47,32 +47,31 @@
       position: relative;
     }
 
+    /* ── LEFT PANEL ── */
     .landing-left {
       background-color: var(--ink);
       position: relative;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 3rem;
     }
 
     .landing-left::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 40% 50%, rgba(200,169,110,0.1) 0%, transparent 65%);
+      background: radial-gradient(ellipse at 40% 50%, rgba(200,169,110,0.12) 0%, transparent 65%);
       z-index: 1;
     }
 
+    /* Photo fills the entire left panel, faces visible from top */
     .landing-photo {
       position: absolute;
       inset: 0;
-      object-fit: cover;
       width: 100%;
       height: 100%;
-      opacity: 0.35;
-      filter: grayscale(30%);
+      object-fit: cover;
+      object-position: center top;   /* ← keeps faces in frame */
+      opacity: 0.45;
+      filter: grayscale(25%);
     }
 
     .staff-lines {
@@ -92,11 +91,17 @@
       margin: 18px 0;
     }
 
+    /* Name block sits at the bottom of the left panel */
     .left-content {
-      position: relative;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2.5rem 3rem;
       z-index: 2;
+      background: linear-gradient(to top, rgba(26,22,20,0.85) 0%, transparent 100%);
       opacity: 0;
-      transform: translateY(24px);
+      transform: translateY(16px);
       animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.4s forwards;
     }
 
@@ -106,25 +111,26 @@
       letter-spacing: 0.4em;
       color: var(--warm);
       text-transform: uppercase;
-      margin-bottom: 1.2rem;
+      margin-bottom: 0.8rem;
       display: block;
     }
 
     .left-names {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1rem, 1.8vw, 1.3rem);
+      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
       font-weight: 300;
-      color: rgba(245,240,232,0.6);
+      color: rgba(245,240,232,0.75);
       font-style: italic;
-      line-height: 1.9;
+      line-height: 2;
     }
 
+    /* ── RIGHT PANEL ── */
     .landing-right {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 4rem 3rem;
+      padding: 4rem 3rem 3rem;
       position: relative;
     }
 
@@ -138,6 +144,41 @@
       background: linear-gradient(to bottom, transparent, var(--warm), transparent);
     }
 
+    /* Language switcher — bigger and more visible */
+    .lang-row {
+      position: absolute;
+      top: 1.8rem;
+      right: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 5;
+    }
+    .lang-btn {
+      cursor: pointer;
+      background: none;
+      border: 1px solid transparent;
+      color: var(--muted);
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;           /* ← bigger */
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: color 0.2s, border-color 0.2s;
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+    }
+    .lang-btn:hover { color: var(--ink); }
+    .lang-btn.active {
+      color: var(--warm);
+      border-color: var(--line);
+    }
+    .lang-separator {
+      color: var(--line);
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+    }
+
+    /* Main content block */
     .landing-content {
       text-align: center;
       opacity: 0;
@@ -224,43 +265,32 @@
     .enter-btn:hover::before { transform: translateX(0); }
     .enter-btn span { position: relative; z-index: 1; }
 
-    .lang-row {
-      position: absolute;
-      top: 1.5rem;
-      right: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      z-index: 5;
-    }
-    .lang-btn {
-      cursor: pointer;
-      background: none;
-      border: none;
-      color: var(--muted);
-      font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-      padding: 0;
-    }
-    .lang-btn.active { color: var(--warm); }
-    .lang-separator { color: var(--line); font-family: 'Cinzel', serif; font-size: 0.65rem; }
-
+    /* ── LANGUAGE VISIBILITY ── */
     [data-lang] { display: none; }
-    body.lang-en [data-lang="en"] { display: block; }
-    body.lang-est [data-lang="est"] { display: block; }
+    body.lang-en  [data-lang="en"]  { display: inline; }
+    body.lang-est [data-lang="est"] { display: inline; }
+
+    /* block-level elements that need display:block */
+    p[data-lang], span[data-lang] { display: none; }
+    body.lang-en  p[data-lang="en"],
+    body.lang-en  span[data-lang="en"]  { display: block; }
+    body.lang-est p[data-lang="est"],
+    body.lang-est span[data-lang="est"] { display: block; }
 
     @keyframes fadeUp {
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* ── MOBILE ── */
     @media (max-width: 700px) {
       html, body { overflow: auto; }
-      .landing { grid-template-columns: 1fr; height: auto; min-height: 100vh; }
-      .landing-left { min-height: 45vh; padding: 2.5rem 2rem; }
-      .landing-right { padding: 3rem 2rem; }
+      .landing {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: 100vh;
+      }
+      .landing-left { min-height: 50vh; }
+      .landing-right { padding: 3rem 2rem 4rem; }
       .landing-right::before { display: none; }
       .lang-row { top: 1rem; right: 1rem; }
     }
@@ -290,6 +320,8 @@
 </div>
 
 <div class="landing-right">
+
+  <!-- Language switcher -->
   <div class="lang-row" aria-label="Language selector">
     <button class="lang-btn active" data-lang-switch="en" type="button">EN</button>
     <span class="lang-separator">|</span>
@@ -297,6 +329,8 @@
   </div>
 
   <div class="landing-content">
+
+    <!-- Clef icon -->
     <svg class="clef-hero" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <line x1="8" y1="36" x2="82" y2="36" stroke="#c8a96e" stroke-width="0.8" opacity="0.4"/>
       <line x1="8" y1="43" x2="82" y2="43" stroke="#c8a96e" stroke-width="0.8" opacity="0.4"/>
@@ -327,6 +361,7 @@
       <span data-lang="en">Enter</span>
       <span data-lang="est">Sisene</span>
     </a>
+
   </div>
 </div>
 ```
@@ -338,7 +373,7 @@
     document.querySelectorAll('[data-lang-switch]').forEach(btn => {
       btn.addEventListener('click', () => {
         const lang = btn.dataset.langSwitch;
-        body.classList.toggle('lang-en', lang === 'en');
+        body.classList.toggle('lang-en',  lang === 'en');
         body.classList.toggle('lang-est', lang === 'est');
         document.querySelectorAll('[data-lang-switch]').forEach(b => {
           b.classList.toggle('active', b === btn);
