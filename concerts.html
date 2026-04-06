@@ -3,57 +3,238 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Concerts — Duo EnPassant</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="Favicon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <meta name="theme-color" content="#000000">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <style>
-    body {
+    :root {
+      --bg: #000000;
+      --text: #f5f5f5;
+      --muted: #d0d0d0;
+      --gold: #d4af37;
+      --accent: #ffffff;
+      --max-width: 1100px;
+      --section-padding: 5rem;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      background: #000;
-      color: #fff;
-      font-family: 'Cormorant Garamond', serif;
+      padding: 0;
+    }
+
+    html, body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Lora', serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--gold);
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* TOPBAR */
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.98), rgba(0,0,0,0.8), transparent);
+      backdrop-filter: blur(6px);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.3rem 1.2rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .site-logo {
+      height: 80px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-link {
+      position: relative;
+      color: var(--muted);
+      transition: color 0.25s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.3rem;
+      width: 0;
+      height: 1px;
+      background-color: var(--gold);
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--accent);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* PAGE HEADER */
+
+    .page-header {
+      padding: 5rem 0 3rem;
       text-align: center;
     }
-    a {
-      color: #d4af37;
-      text-decoration: none;
+
+    .page-title {
       font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
     }
-    a:hover {
-      text-decoration: underline;
-      color: #fff;
+
+    .page-line {
+      width: 200px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 1.2rem auto 0;
     }
-    header {
-      padding: 1rem;
-      text-align: left;
-    }
-    footer {
-      color: #aaa;
-      font-size: 0.9rem;
-      padding: 2rem 0;
-      border-top: 1px solid #222;
-      margin-top: 3rem;
-    }
-    img {
-      width: 100%;
-      height: auto;
-      display: block;
+
+    /* CONCERT LIST */
+
+    .concert-list {
+      max-width: 700px;
       margin: 0 auto;
+      text-align: left;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .concert-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .concert-date {
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    /* FOOTER */
+
+    .footer {
+      margin-top: 4rem;
+      padding: 2rem 1.5rem 2.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    @media (max-width: 800px) {
+      .site-logo {
+        height: 60px;
+      }
+
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.7rem;
+      }
+
+      .concert-list {
+        text-align: left;
+      }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <a href="site.html">← Home</a>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <a href="site.html">
+          <img src="EPlogo.png" alt="Duo EnPassant logo" class="site-logo">
+        </a>
+
+        <nav class="nav-links">
+          <a href="media.html" class="nav-link">Media</a>
+          <a href="concerts.html" class="nav-link">Concerts</a>
+          <a href="site.html#contact" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </div>
   </header>
 
-  <main style="margin-top:0;">
-    <img src="Concerts1.png" alt="Concerts — Duo EnPassant">
-  </main>
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">Concerts</h1>
+      <div class="page-line"></div>
+    </div>
+  </section>
 
-  <footer>© 2025 Duo EnPassant — All rights reserved.</footer>
+  <!-- CONCERTS -->
+  <section>
+    <div class="container">
+      <div class="concert-list">
+
+        <div class="concert-item">
+          <span class="concert-date">24.03.2026</span> — Elbe Reiter Memorial Concert, EMTA Chamber Hall, programme: Schulhoff
+        </div>
+
+        <div class="concert-item">
+          <span class="concert-date">26.02.2026</span> — Concert, Cruise Terminal, programme: Handel, Haydn, Glière
+        </div>
+
+        <div class="concert-item">
+          <span class="concert-date">16.04.2026</span> — Children's Concert, Tallinn International Kindergarten, programme: Glière
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    © 2026 Duo EnPassant — All rights reserved.
+  </footer>
+
 </body>
 </html>
