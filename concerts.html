@@ -33,6 +33,12 @@
       font-family: 'Lora', serif;
     }
 
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
     a {
       color: inherit;
       text-decoration: none;
@@ -40,6 +46,12 @@
 
     a:hover {
       color: var(--gold);
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     .container {
@@ -136,29 +148,48 @@
       margin: 1.2rem auto 0;
     }
 
-    /* CONCERT LIST */
+    /* CONCERTS */
+
+    .concerts-section {
+      flex: 1;
+    }
 
     .concert-list {
-      max-width: 700px;
+      max-width: 720px;
       margin: 0 auto;
-      text-align: left;
-      font-size: 1rem;
-      line-height: 1.8;
     }
 
     .concert-item {
-      margin-bottom: 1.2rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .concert-date {
-      font-weight: 500;
+    .concert-title {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.08em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
       color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .concert-venue {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .concert-programme {
+      font-size: 0.9rem;
+      color: var(--text);
+      font-style: italic;
     }
 
     /* FOOTER */
 
     .footer {
-      margin-top: 4rem;
+      margin-top: auto;
       padding: 2rem 1.5rem 2.5rem;
       font-size: 0.8rem;
       color: var(--muted);
@@ -175,66 +206,72 @@
         gap: 1rem;
         font-size: 0.7rem;
       }
-
-      .concert-list {
-        text-align: left;
-      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- TOPBAR -->
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="topbar-left">
-        <a href="site.html">
-          <img src="EPlogo.png" alt="Duo EnPassant logo" class="site-logo">
-        </a>
+  <div class="page">
 
-        <nav class="nav-links">
-          <a href="media.html" class="nav-link">Media</a>
-          <a href="concerts.html" class="nav-link">Concerts</a>
-          <a href="site.html#contact" class="nav-link">Contact</a>
-        </nav>
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="topbar-left">
+          <a href="site.html">
+            <img src="EPlogo.png" alt="Duo EnPassant logo" class="site-logo">
+          </a>
+
+          <nav class="nav-links">
+            <a href="media.html" class="nav-link">Media</a>
+            <a href="concerts.html" class="nav-link">Concerts</a>
+            <a href="site.html#contact" class="nav-link">Contact</a>
+          </nav>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- PAGE HEADER -->
-  <section class="page-header">
-    <div class="container">
-      <h1 class="page-title">Concerts</h1>
-      <div class="page-line"></div>
-    </div>
-  </section>
-
-  <!-- CONCERTS -->
-  <section>
-    <div class="container">
-      <div class="concert-list">
-
-        <div class="concert-item">
-          <span class="concert-date">24.03.2026</span> — Elbe Reiter Memorial Concert, EMTA Chamber Hall, programme: Schulhoff
-        </div>
-
-        <div class="concert-item">
-          <span class="concert-date">26.02.2026</span> — Concert, Cruise Terminal, programme: Handel, Haydn, Glière
-        </div>
-
-        <div class="concert-item">
-          <span class="concert-date">16.04.2026</span> — Children's Concert, Tallinn International Kindergarten, programme: Glière
-        </div>
-
+    <!-- HEADER -->
+    <section class="page-header">
+      <div class="container">
+        <h1 class="page-title">Concerts</h1>
+        <div class="page-line"></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    © 2026 Duo EnPassant — All rights reserved.
-  </footer>
+    <!-- CONCERTS -->
+    <section class="concerts-section">
+      <div class="container">
+        <div class="concert-list">
+
+          <div class="concert-item">
+            <div class="concert-title">26 February 2026 — Concert</div>
+            <div class="concert-venue">Cruise Terminal</div>
+            <div class="concert-programme">Programme: Handel, Haydn, Glière</div>
+          </div>
+
+          <div class="concert-item">
+            <div class="concert-title">24 March 2026 — Elbe Reiter Memorial Concert</div>
+            <div class="concert-venue">EMTA Chamber Hall</div>
+            <div class="concert-programme">Programme: Schulhoff</div>
+          </div>
+
+          <div class="concert-item">
+            <div class="concert-title">16 April 2026 — Children's Concert</div>
+            <div class="concert-venue">Tallinn International Kindergarten</div>
+            <div class="concert-programme">Programme: Glière</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      © 2026 Duo EnPassant — All rights reserved.
+    </footer>
+
+  </div>
 
 </body>
 </html>
