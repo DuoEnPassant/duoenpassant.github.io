@@ -1,79 +1,130 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Media</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Media | Duo EnPassant</title>
+  <meta name="description" content="Media — Duo EnPassant violin and cello duo. Videos and photos." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="Favicon.png">
 
   <style>
-    body {
+    :root {
+      --bg: #000000;
+      --text: #f5f5f5;
+      --muted: #d0d0d0;
+      --gold: #d4af37;
+      --accent: #ffffff;
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      background-color: #050505;
-      color: #f5e3b5;
-      font-family: "Cinzel", serif;
-      font-weight: 200;
     }
 
-    .top-bar {
-      max-width: 1200px;
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Lora', serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAV */
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(6px);
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 1.2rem;
+      max-width: var(--max-width);
       margin: 0 auto;
-      padding: 20px 20px 0 20px;
+      font-family: 'Cinzel', serif;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+    }
+
+    .topbar-left {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 2rem;
     }
 
-    .back-button {
-      color: #d4af37;
-      text-decoration: none;
-      font-size: 1.6rem;
-      line-height: 1;
-      padding: 4px 10px;
-      border: none;
-      opacity: 0.7;
-      transition: 0.2s ease;
+    .site-logo {
+      height: 70px;
     }
 
-    .back-button:hover {
-      opacity: 1;
-      transform: translateX(-3px);
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
     }
 
-    h1 {
-      color: #d4af37;
-      font-size: 2.2rem;
-      margin: 0;
-      font-weight: 400;
-      letter-spacing: 0.03em;
+    .nav-link {
+      color: var(--muted);
     }
 
-    .page-container {
-      max-width: 1200px;
+    .nav-link:hover {
+      color: var(--gold);
+    }
+
+    /* PAGE */
+
+    .container {
+      max-width: var(--max-width);
       margin: 0 auto;
-      padding: 10px 20px 40px 20px;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .page-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2.5rem;
     }
 
     .section-title {
-      color: #d4af37;
-      font-size: 1.2rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin: 30px 0 20px 0;
-      opacity: 0.85;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
     }
 
-    .media-grid,
-    .video-grid {
+    .video-grid,
+    .media-grid {
       display: grid;
       gap: 24px;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
 
+    .video-grid iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 6px;
+      border: none;
+    }
+
     .media-item {
-      aspect-ratio: 3 / 4;
+      aspect-ratio: 3/4;
       overflow: hidden;
       border-radius: 6px;
       cursor: pointer;
@@ -83,30 +134,23 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-      transition: 0.2s ease;
+      transition: 0.25s;
     }
 
     .media-item:hover img {
-      opacity: 0.85;
       transform: scale(1.02);
+      opacity: 0.85;
     }
 
-    .video-grid iframe {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border-radius: 6px;
-      border: none;
-    }
+    /* LIGHTBOX */
 
     .lightbox {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.92);
+      background: rgba(0,0,0,0.92);
       display: none;
       align-items: center;
       justify-content: center;
-      z-index: 1000;
     }
 
     .lightbox.visible {
@@ -116,126 +160,105 @@
     .lightbox img {
       max-width: 90vw;
       max-height: 90vh;
-      border-radius: 8px;
     }
 
     .lightbox-close {
       position: absolute;
       top: 20px;
       right: 30px;
-      color: #d4af37;
-      font-size: 2.4rem;
+      font-size: 2rem;
+      color: var(--gold);
       cursor: pointer;
-      user-select: none;
-      opacity: 0.8;
-      transition: 0.2s ease;
     }
 
-    .lightbox-close:hover {
-      opacity: 1;
+    /* SPACING */
+
+    .section {
+      margin-bottom: 3.5rem;
     }
+
   </style>
-
 </head>
 
 <body>
 
-   <header class="topbar">
-      <div class="topbar-inner">
-        <div class="topbar-left">
-          <a href="#top">
-            <img src="EPlogo.png" alt="Duo EnPassant logo" class="site-logo">
-          </a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <a href="site.html">
+        <img src="EPlogo.png" class="site-logo">
+      </a>
 
-          <nav class="nav-links">
-            <a href="media.html">Media</a>
-            <a href="concerts.html" class="nav-link">Concerts</a>
-            <a href="#contact" class="nav-link">Contact</a>
-          </nav>
-        </div>
+      <nav class="nav-links">
+        <a href="media.html" class="nav-link">Media</a>
+        <a href="concerts.html" class="nav-link">Concerts</a>
+        <a href="site.html#contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>
 
-        <div class="lang-toggle" aria-label="Language selector">
-          <button class="lang-btn active" data-lang-switch="en" type="button">EN</button>
-          <span class="lang-separator">|</span>
-          <button class="lang-btn" data-lang-switch="est" type="button">EST</button>
-        </div>
-      </div>
-    </header>
+<div class="container">
 
-  <div class="top-bar">
-    <a href="site.html" class="back-button">&#8592;</a>
-    <h1>Media</h1>
+  <div class="page-title">Media</div>
+
+  <!-- VIDEOS -->
+  <div class="section">
+    <div class="section-title">Videos</div>
+
+    <div class="video-grid">
+      <iframe src="https://www.youtube.com/embed/KshG1i6PzKw" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/Q8cl2DfWa3c" allowfullscreen></iframe>
+    </div>
   </div>
 
-  <div class="page-container">
+  <!-- PHOTOS -->
+  <div class="section">
+    <div class="section-title">Photos</div>
 
-    <h2 class="section-title">Videos</h2>
-
-    <section class="video-grid">
-      <iframe 
-        src="https://www.youtube.com/embed/KshG1i6PzKw"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-
-      <iframe 
-        src="https://www.youtube.com/embed/Q8cl2DfWa3c"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </section>
-
-    <h2 class="section-title" style="margin-top:60px;">Photos</h2>
-
-    <section class="media-grid">
+    <div class="media-grid">
       <div class="media-item">
-        <img src="EP.jpg" alt="EP">
+        <img src="EP.jpg">
       </div>
 
       <div class="media-item">
-        <img src="Intro.png" alt="Intro">
+        <img src="Intro.png">
       </div>
 
       <div class="media-item">
-        <img src="img.jpg" alt="Promo">
+        <img src="img.jpg">
       </div>
-    </section>
-
+    </div>
   </div>
 
-  <div class="lightbox" id="lightbox">
-    <span class="lightbox-close" id="lightboxClose">&times;</span>
-    <img id="lightboxImage" src="" alt="">
-  </div>
+</div>
 
-  <script>
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
-    const lightboxClose = document.getElementById('lightboxClose');
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="close">&times;</span>
+  <img id="lightbox-img">
+</div>
 
-    document.querySelectorAll('.media-item img').forEach(img => {
-      img.addEventListener('click', () => {
-        lightboxImage.src = img.src;
-        lightbox.classList.add('visible');
-      });
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+
+  document.querySelectorAll('.media-item img').forEach(el => {
+    el.addEventListener('click', () => {
+      img.src = el.src;
+      lightbox.classList.add('visible');
     });
+  });
 
-    lightboxClose.addEventListener('click', () => {
+  document.getElementById('close').onclick = () => {
+    lightbox.classList.remove('visible');
+  };
+
+  lightbox.onclick = (e) => {
+    if (e.target === lightbox) {
       lightbox.classList.remove('visible');
-    });
-
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) {
-        lightbox.classList.remove('visible');
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        lightbox.classList.remove('visible');
-      }
-    });
-  </script>
+    }
+  };
+</script>
 
 </body>
 </html>
