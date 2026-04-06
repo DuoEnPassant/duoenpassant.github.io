@@ -62,7 +62,6 @@
       flex-direction: column;
     }
 
-    /* Grain overlay */
     body::before {
       content: '';
       position: fixed;
@@ -90,7 +89,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.4rem 1.5rem;
+      padding: 0.5rem 1.5rem;
       max-width: var(--max-width);
       margin: 0 auto;
     }
@@ -101,10 +100,46 @@
       gap: 2.5rem;
     }
 
-    .site-logo {
-      height: 72px;
-      width: auto;
+    /* ── HOME BUTTON (clef logo) ── */
+    .home-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+      color: var(--ink);
+      transition: opacity 0.2s;
+    }
+    .home-btn:hover { opacity: 0.75; color: var(--ink); }
+
+    .clef-logo {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    /* Staff lines behind clefs */
+    .clef-logo .staff {
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .home-wordmark {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    .home-wordmark span {
       display: block;
+      font-size: 0.55rem;
+      letter-spacing: 0.35em;
+      color: var(--muted);
     }
 
     .nav-links {
@@ -121,7 +156,6 @@
       color: var(--muted);
       transition: color 0.25s ease;
     }
-
     .nav-link::after {
       content: "";
       position: absolute;
@@ -132,7 +166,6 @@
       background-color: var(--warm);
       transition: width 0.25s ease;
     }
-
     .nav-link:hover { color: var(--ink); }
     .nav-link:hover::after { width: 100%; }
 
@@ -144,7 +177,6 @@
       font-size: 0.68rem;
       letter-spacing: 0.25em;
     }
-
     .lang-btn {
       cursor: pointer;
       border: none;
@@ -157,13 +189,12 @@
       font-size: 0.68rem;
       transition: color 0.2s ease;
     }
-
     .lang-btn.active { color: var(--warm); }
     .lang-separator { color: var(--line); }
 
     /* ── HERO ── */
     .hero {
-      min-height: calc(100vh - 80px);
+      min-height: calc(100vh - 72px);
       display: grid;
       grid-template-columns: 1fr 1fr;
       position: relative;
@@ -178,7 +209,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .hero-left::before {
       content: '';
       position: absolute;
@@ -229,7 +259,6 @@
       line-height: 1.05;
       letter-spacing: 0.05em;
     }
-
     .hero-en {
       color: var(--warm);
       font-style: italic;
@@ -237,12 +266,6 @@
       font-size: clamp(3.5rem, 7vw, 6.5rem);
       font-weight: 300;
       letter-spacing: 0.02em;
-    }
-
-    .hero-passant {
-      display: block;
-      color: var(--parchment);
-      font-size: clamp(2.8rem, 5.5vw, 5rem);
     }
 
     .hero-right {
@@ -253,7 +276,6 @@
       padding: 4rem 3.5rem 4rem 4rem;
       position: relative;
     }
-
     .hero-right::after {
       content: '';
       position: absolute;
@@ -279,13 +301,24 @@
       margin-bottom: 2rem;
     }
 
+    /* Clickable member names */
+    .member-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.2s;
+    }
+    .member-link:hover .member-name { color: var(--warm); }
+    .member-link:hover .cv-hint { opacity: 1; }
+
     .member-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.6rem, 2.5vw, 2.2rem);
       font-weight: 300;
       color: var(--ink);
       line-height: 1.2;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
+      transition: color 0.2s;
     }
 
     .member-instrument {
@@ -295,14 +328,25 @@
       letter-spacing: 0.25em;
       color: var(--muted);
       text-transform: uppercase;
-      margin-bottom: 2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .cv-hint {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--warm);
+      letter-spacing: 0.05em;
+      opacity: 0;
+      transition: opacity 0.2s;
+      margin-bottom: 1.5rem;
     }
 
     .divider-ornament {
       display: flex;
       align-items: center;
       gap: 1rem;
-      margin: 2rem 0;
+      margin: 1.2rem 0;
     }
     .divider-ornament::before,
     .divider-ornament::after {
@@ -320,7 +364,7 @@
       letter-spacing: 0.25em;
       color: var(--muted);
       text-transform: uppercase;
-      font-style: normal;
+      margin-top: 0.5rem;
     }
 
     .scroll-hint {
@@ -350,9 +394,7 @@
     }
 
     /* ── ABOUT ── */
-    .about-section {
-      padding: 6rem 0;
-    }
+    .about-section { padding: 6rem 0; }
 
     .container {
       width: 100%;
@@ -381,7 +423,6 @@
       position: sticky;
       top: 6rem;
     }
-
     .about-image {
       width: 100%;
       height: auto;
@@ -396,7 +437,6 @@
       font-weight: 300;
       margin-bottom: 1.8rem;
     }
-
     .about-text p:first-of-type::first-letter {
       font-size: 4.5rem;
       float: left;
@@ -472,7 +512,6 @@
 
     /* ── CONTACT ── */
     .contact-section { padding: 6rem 0; }
-
     .contact-wrapper { text-align: center; }
 
     .contact-intro {
@@ -482,14 +521,12 @@
       margin-bottom: 0.5rem;
       color: var(--ink);
     }
-
     .contact-subline {
       width: 260px;
       height: 1px;
       background: linear-gradient(to right, transparent, var(--warm), transparent);
       margin: 1rem auto 1.8rem;
     }
-
     .contact-label {
       font-family: 'Cinzel', serif;
       font-size: 0.62rem;
@@ -498,14 +535,12 @@
       color: var(--muted);
       margin-bottom: 0.6rem;
     }
-
     .contact-email {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.3rem;
       font-style: italic;
       color: var(--ink);
       margin-bottom: 3rem;
-      transition: color 0.2s;
     }
     .contact-email a:hover { color: var(--warm); }
 
@@ -524,7 +559,6 @@
       flex-wrap: wrap;
       gap: 1.5rem;
     }
-
     .social-icon-link {
       display: inline-flex;
       align-items: center;
@@ -538,7 +572,6 @@
       border-color: var(--warm);
       background: rgba(200,169,110,0.08);
     }
-
     .social-icon {
       width: 18px;
       height: 18px;
@@ -547,7 +580,7 @@
     }
     .social-icon-link:hover .social-icon { color: var(--warm); }
 
-    /* ── LANGUAGE VISIBILITY ── */
+    /* ── LANGUAGE ── */
     [data-lang-block] { display: none; }
     body.lang-en [data-lang-block="en"] { display: block; }
     body.lang-est [data-lang-block="est"] { display: block; }
@@ -584,7 +617,6 @@
       0%, 100% { opacity: 0.4; }
       50% { opacity: 1; }
     }
-
     .reveal {
       opacity: 0;
       transform: translateY(24px);
@@ -607,10 +639,9 @@
       .scroll-hint { display: none; }
       footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 1.5rem; }
       .topbar-left { gap: 1.2rem; }
-      .site-logo { height: 56px; }
       .nav-links { gap: 1rem; font-size: 0.62rem; }
+      .home-wordmark { display: none; }
     }
-
     @media (max-width: 520px) {
       .topbar-inner { flex-wrap: wrap; gap: 0.4rem; }
     }
@@ -625,21 +656,43 @@
   <header class="topbar">
     <div class="topbar-inner">
       <div class="topbar-left">
-        <a href="#top">
-          <img src="EPlogo.png" alt="Duo EnPassant logo" class="site-logo">
-        </a>
-        <nav class="nav-links">
-          <a href="media.html" class="nav-link">Media</a>
-          <a href="concerts.html" class="nav-link">Concerts</a>
-          <a href="#contact" class="nav-link">Contact</a>
-        </nav>
+
+```
+    <!-- HOME BUTTON: Clef logo -->
+    <a href="index.html" class="home-btn" aria-label="Duo EnPassant — Home">
+      <svg class="clef-logo" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Staff lines -->
+        <line x1="4" y1="20" x2="48" y2="20" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+        <line x1="4" y1="24" x2="48" y2="24" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+        <line x1="4" y1="28" x2="48" y2="28" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+        <line x1="4" y1="32" x2="48" y2="32" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+        <line x1="4" y1="36" x2="48" y2="36" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+        <!-- Treble clef (left side) -->
+        <text x="5" y="40" font-family="serif" font-size="34" fill="#1a1614" opacity="0.9">𝄞</text>
+        <!-- Bass clef (right side) -->
+        <text x="27" y="34" font-family="serif" font-size="22" fill="#c8a96e" opacity="0.9">𝄢</text>
+      </svg>
+      <div class="home-wordmark">
+        Duo EnPassant
+        <span>Violin &amp; Cello</span>
       </div>
-      <div class="lang-toggle" aria-label="Language selector">
-        <button class="lang-btn active" data-lang-switch="en" type="button">EN</button>
-        <span class="lang-separator">|</span>
-        <button class="lang-btn" data-lang-switch="est" type="button">EST</button>
-      </div>
-    </div>
+    </a>
+
+    <nav class="nav-links">
+      <a href="media.html" class="nav-link">Media</a>
+      <a href="concerts.html" class="nav-link">Concerts</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+  </div>
+
+  <div class="lang-toggle" aria-label="Language selector">
+    <button class="lang-btn active" data-lang-switch="en" type="button">EN</button>
+    <span class="lang-separator">|</span>
+    <button class="lang-btn" data-lang-switch="est" type="button">EST</button>
+  </div>
+</div>
+```
+
   </header>
 
   <!-- HERO -->
@@ -650,21 +703,13 @@
         <span></span><span></span><span></span><span></span><span></span>
       </div>
       <div class="hero-title-block">
-        <!-- EN -->
         <div data-lang-block="en">
           <span class="hero-mark">Violin &amp; Cello</span>
-          <h1 class="hero-duo">
-            Duo
-            <span class="hero-en">En<br>Passant</span>
-          </h1>
+          <h1 class="hero-duo">Duo <span class="hero-en">En<br>Passant</span></h1>
         </div>
-        <!-- EST -->
         <div data-lang-block="est">
           <span class="hero-mark">Viiul &amp; Tšello</span>
-          <h1 class="hero-duo">
-            Duo
-            <span class="hero-en">En<br>Passant</span>
-          </h1>
+          <h1 class="hero-duo">Duo <span class="hero-en">En<br>Passant</span></h1>
         </div>
       </div>
       <div class="scroll-hint" aria-hidden="true">
@@ -677,15 +722,25 @@
 <div class="hero-right">
   <div class="members-block">
     <p class="members-label">The Ensemble</p>
-    <p class="member-name">Merily Leotoots</p>
-    <p class="member-instrument">Violin</p>
+
+    <!-- Merily — clickable CV link -->
+    <a href="merily.pdf" target="_blank" rel="noopener" class="member-link" aria-label="Merily Leotoots — open CV">
+      <p class="member-name">Merily Leotoots</p>
+      <p class="member-instrument">Violin</p>
+      <p class="cv-hint">View CV →</p>
+    </a>
+
     <div class="divider-ornament"><span>✦</span></div>
-    <p class="member-name">Anna Ryland-Jones</p>
-    <p class="member-instrument">Violoncello</p>
-    <div class="divider-ornament" style="margin-top:2.5rem;"><span></span></div>
-    <!-- EN subtitle -->
+
+    <!-- Anna — clickable CV link -->
+    <a href="anna.pdf" target="_blank" rel="noopener" class="member-link" aria-label="Anna Ryland-Jones — open CV">
+      <p class="member-name">Anna Ryland-Jones</p>
+      <p class="member-instrument">Violoncello</p>
+      <p class="cv-hint">View CV →</p>
+    </a>
+
+    <div class="divider-ornament" style="margin-top:2rem;"><span></span></div>
     <p class="hero-subtitle-text" data-lang-block="en">International String Duo</p>
-    <!-- EST subtitle -->
     <p class="hero-subtitle-text" data-lang-block="est">Rahvusvaheline keelpilliduo</p>
   </div>
 </div>
@@ -703,27 +758,16 @@
           <img src="EP.jpg" alt="Duo EnPassant" class="about-image">
         </div>
         <div class="about-text reveal reveal-delay-2">
-          <p>
-            Duo EnPassant is a new violin and cello duo featuring Merily Leotoots and Anna Ryland-Jones.
-            Although the ensemble was founded only recently, the two musicians have been performing together
-            for nearly a year in various chamber groups and festivals across Estonia, Finland and the United Kingdom.
-          </p>
+          <p>Duo EnPassant is a new violin and cello duo featuring Merily Leotoots and Anna Ryland-Jones. Although the ensemble was founded only recently, the two musicians have been performing together for nearly a year in various chamber groups and festivals across Estonia, Finland and the United Kingdom.</p>
           <div class="highlight-quote">
             <p>Their first meeting did not take place in the UK — but in Estonia, where a natural musical connection quickly developed.</p>
           </div>
-          <p>
-            Both Merily and Anna studied at London's renowned Guildhall School of Music &amp; Drama.
-            Their collaboration soon evolved into the idea of forming a dedicated duo — a space to grow
-            together artistically and to craft a shared sound world.
-          </p>
+          <p>Both Merily and Anna studied at London's renowned Guildhall School of Music &amp; Drama. Their collaboration soon evolved into the idea of forming a dedicated duo — a space to grow together artistically and to craft a shared sound world.</p>
           <div class="chess-callout">
             <span class="section-header">The Name</span>
             <p class="chess-term">En Passant</p>
             <p class="chess-definition">French · "In passing" · Chess term</p>
-            <p>
-              The name EnPassant comes from the chess term meaning "in passing", symbolising fleeting moments
-              and unexpected opportunities — themes that resonate deeply with the duo's musical philosophy and expressive approach.
-            </p>
+            <p>The name EnPassant comes from the chess term meaning "in passing", symbolising fleeting moments and unexpected opportunities — themes that resonate deeply with the duo's musical philosophy and expressive approach.</p>
           </div>
         </div>
       </div>
@@ -740,26 +784,16 @@
           <img src="EP.jpg" alt="Duo EnPassant" class="about-image">
         </div>
         <div class="about-text reveal reveal-delay-2">
-          <p>
-            Duo EnPassant on uus viiuli- ja tšelloduo, kuhu kuuluvad Merily Leotoots ja Anna Ryland-Jones.
-            Kuigi ansambel on loodud hiljuti, on nad koos musitseerinud juba pea aasta erinevates
-            kammerkoosseisudes ning esinenud festivalidel Eestis, Soomes ja Suurbritannias.
-          </p>
+          <p>Duo EnPassant on uus viiuli- ja tšelloduo, kuhu kuuluvad Merily Leotoots ja Anna Ryland-Jones. Kuigi ansambel on loodud hiljuti, on nad koos musitseerinud juba pea aasta erinevates kammerkoosseisudes ning esinenud festivalidel Eestis, Soomes ja Suurbritannias.</p>
           <div class="highlight-quote">
             <p>Huvitaval kombel ei kohtunud nad esimest korda mitte Ühendkuningriigis, vaid Eestis, kus tekkis kiiresti loomulik muusikaline klapp.</p>
           </div>
-          <p>
-            Mõlemad muusikud on õppinud Londoni mainekas Guildhall School of Music &amp; Drama's.
-            Sellest kujunes peagi soov luua püsiv duo — ruum, kus koos kasvada ja kujundada ühist kõlamaailma.
-          </p>
+          <p>Mõlemad muusikud on õppinud Londoni mainekas Guildhall School of Music &amp; Drama's. Sellest kujunes peagi soov luua püsiv duo — ruum, kus koos kasvada ja kujundada ühist kõlamaailma.</p>
           <div class="chess-callout">
             <span class="section-header">Nimi</span>
             <p class="chess-term">En Passant</p>
-            <p class="chess-definition">Prantsuse keeles · „möödaminnes" </p>
-            <p>
-              Nimi EnPassant pärineb maleterminist, mis tähendab möödaminnes — kujund,
-              mis sümboliseerib hetkelisust ja ootamatuid võimalusi ning peegeldab duo muusikalist mõtteviisi ja väljenduslaadi.
-            </p>
+            <p class="chess-definition">Prantsuse k · „möödaminnes" · maletõmme</p>
+            <p>Nimi EnPassant pärineb maleterminist, mis tähendab möödaminnes löömist — kujund, mis sümboliseerib hetkelisust ja ootamatuid võimalusi ning peegeldab duo muusikalist mõtteviisi ja väljenduslaadi.</p>
           </div>
         </div>
       </div>
@@ -769,88 +803,55 @@
   <!-- CONTACT -->
 
   <section id="contact" class="contact-section">
-
-```
-<!-- EN -->
-<div data-lang-block="en">
-  <div class="container contact-wrapper">
-    <p class="section-header" style="text-align:center;">Contact &amp; Social Media</p>
-    <div class="contact-intro">For bookings and inquiries:</div>
-    <div class="contact-subline"></div>
-    <div class="contact-label">Email us</div>
-    <div class="contact-email">
-      <a href="mailto:info@duoenpassant.com">info@duoenpassant.com</a>
+    <div data-lang-block="en">
+      <div class="container contact-wrapper">
+        <p class="section-header" style="text-align:center;">Contact &amp; Social Media</p>
+        <div class="contact-intro">For bookings and inquiries:</div>
+        <div class="contact-subline"></div>
+        <div class="contact-label">Email us</div>
+        <div class="contact-email"><a href="mailto:info@duoenpassant.com">info@duoenpassant.com</a></div>
+        <div class="follow-text">Follow Duo EnPassant</div>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/duo_enpassant/" target="_blank" rel="noopener" class="social-icon-link" aria-label="Instagram">
+            <svg class="social-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.8"></rect><circle cx="12" cy="12" r="5.2" fill="none" stroke="currentColor" stroke-width="1.8"></circle><circle cx="17" cy="7" r="1.2" fill="currentColor"></circle></svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61576658983538" target="_blank" rel="noopener" class="social-icon-link" aria-label="Facebook">
+            <svg class="social-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7h2.3l.4-3h-2.7V8.3c0-.9.3-1.5 1.6-1.5h1.2V4.1C15.9 4 15 4 14 4c-2.4 0-3.9 1.4-3.9 4v3H8v3h2.1v7h3.4z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@duo.enpassant" target="_blank" rel="noopener" class="social-icon-link" aria-label="TikTok">
+            <svg class="social-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M17.5 7.6c-1-.4-1.8-1.1-2.3-2.1-.2-.4-.4-.9-.5-1.4H12v9a2 2 0 0 1-2 2 2 2 0 0 1 0-4c.3 0 .6 0 .9.2V9.1A4.4 4.4 0 0 0 10 9a4.9 4.9 0 1 0 4.9 4.9v-4a4.9 4.9 0 0 0 2.6.8V7.6z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@DuoEnPassant" target="_blank" rel="noopener" class="social-icon-link" aria-label="YouTube">
+            <svg class="social-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M21 8.1s-.2-1.4-.8-2c-.7-.8-1.6-.8-2-0.8C15.6 5 12 5 12 5s-3.6 0-6.2.3c-.4 0-1.3 0-2 .8-.6.6-.8 2-.8 2S2.5 9.8 2.5 11.6v1.7C2.5 15 3 16 3 16s.2 1.4.8 2c.7.8 1.7.7 2.1.8 1.5.1 6.1.3 6.1.3s3.6 0 6.2-.3c.4 0 1.3 0 2-0.8.6-.6.8-2 .8-2s.5-1.9.5-3.7v-1.7c0-1.8-.5-3.5-.5-3.5zM10 14.3V8.9l4.4 2.7L10 14.3z"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="follow-text">Follow Duo EnPassant</div>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/duo_enpassant/" target="_blank" rel="noopener" class="social-icon-link" aria-label="Instagram">
-        <svg class="social-icon" viewBox="0 0 24 24">
-          <rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.8"></rect>
-          <circle cx="12" cy="12" r="5.2" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
-          <circle cx="17" cy="7" r="1.2" fill="currentColor"></circle>
-        </svg>
-      </a>
-      <a href="https://www.facebook.com/profile.php?id=61576658983538" target="_blank" rel="noopener" class="social-icon-link" aria-label="Facebook">
-        <svg class="social-icon" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M13.5 21v-7h2.3l.4-3h-2.7V8.3c0-.9.3-1.5 1.6-1.5h1.2V4.1C15.9 4 15 4 14 4c-2.4 0-3.9 1.4-3.9 4v3H8v3h2.1v7h3.4z"/>
-        </svg>
-      </a>
-      <a href="https://www.tiktok.com/@duo.enpassant" target="_blank" rel="noopener" class="social-icon-link" aria-label="TikTok">
-        <svg class="social-icon" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M17.5 7.6c-1-.4-1.8-1.1-2.3-2.1-.2-.4-.4-.9-.5-1.4H12v9a2 2 0 0 1-2 2 2 2 0 0 1 0-4c.3 0 .6 0 .9.2V9.1A4.4 4.4 0 0 0 10 9a4.9 4.9 0 1 0 4.9 4.9v-4a4.9 4.9 0 0 0 2.6.8V7.6z"/>
-        </svg>
-      </a>
-      <a href="https://www.youtube.com/@DuoEnPassant" target="_blank" rel="noopener" class="social-icon-link" aria-label="YouTube">
-        <svg class="social-icon" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M21 8.1s-.2-1.4-.8-2c-.7-.8-1.6-.8-2-0.8C15.6 5 12 5 12 5s-3.6 0-6.2.3c-.4 0-1.3 0-2 .8-.6.6-.8 2-.8 2S2.5 9.8 2.5 11.6v1.7C2.5 15 3 16 3 16s.2 1.4.8 2c.7.8 1.7.7 2.1.8 1.5.1 6.1.3 6.1.3s3.6 0 6.2-.3c.4 0 1.3 0 2-0.8.6-.6.8-2 .8-2s.5-1.9.5-3.7v-1.7c0-1.8-.5-3.5-.5-3.5zM10 14.3V8.9l4.4 2.7L10 14.3z"/>
-        </svg>
-      </a>
+    <div data-lang-block="est">
+      <div class="container contact-wrapper">
+        <p class="section-header" style="text-align:center;">Kontakt ja sotsiaalmeedia</p>
+        <div class="contact-intro">Broneeringud ja päringud:</div>
+        <div class="contact-subline"></div>
+        <div class="contact-label">Kirjuta meile</div>
+        <div class="contact-email"><a href="mailto:info@duoenpassant.com">info@duoenpassant.com</a></div>
+        <div class="follow-text">Jälgi Duo EnPassant</div>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/duo_enpassant/" target="_blank" rel="noopener" class="social-icon-link" aria-label="Instagram">
+            <svg class="social-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.8"></rect><circle cx="12" cy="12" r="5.2" fill="none" stroke="currentColor" stroke-width="1.8"></circle><circle cx="17" cy="7" r="1.2" fill="currentColor"></circle></svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61576658983538" target="_blank" rel="noopener" class="social-icon-link" aria-label="Facebook">
+            <svg class="social-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7h2.3l.4-3h-2.7V8.3c0-.9.3-1.5 1.6-1.5h1.2V4.1C15.9 4 15 4 14 4c-2.4 0-3.9 1.4-3.9 4v3H8v3h2.1v7h3.4z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@duo.enpassant" target="_blank" rel="noopener" class="social-icon-link" aria-label="TikTok">
+            <svg class="social-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M17.5 7.6c-1-.4-1.8-1.1-2.3-2.1-.2-.4-.4-.9-.5-1.4H12v9a2 2 0 0 1-2 2 2 2 0 0 1 0-4c.3 0 .6 0 .9.2V9.1A4.4 4.4 0 0 0 10 9a4.9 4.9 0 1 0 4.9 4.9v-4a4.9 4.9 0 0 0 2.6.8V7.6z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@DuoEnPassant" target="_blank" rel="noopener" class="social-icon-link" aria-label="YouTube">
+            <svg class="social-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M21 8.1s-.2-1.4-.8-2c-.7-.8-1.6-.8-2-0.8C15.6 5 12 5 12 5s-3.6 0-6.2.3c-.4 0-1.3 0-2 .8-.6.6-.8 2-.8 2S2.5 9.8 2.5 11.6v1.7C2.5 15 3 16 3 16s.2 1.4.8 2c.7.8 1.7.7 2.1.8 1.5.1 6.1.3 6.1.3s3.6 0 6.2-.3c.4 0 1.3 0 2-0.8.6-.6.8-2 .8-2s.5-1.9.5-3.7v-1.7c0-1.8-.5-3.5-.5-3.5zM10 14.3V8.9l4.4 2.7L10 14.3z"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-<!-- EST -->
-<div data-lang-block="est">
-  <div class="container contact-wrapper">
-    <p class="section-header" style="text-align:center;">Kontakt ja sotsiaalmeedia</p>
-    <div class="contact-intro">Broneeringud ja päringud:</div>
-    <div class="contact-subline"></div>
-    <div class="contact-label">Kirjuta meile</div>
-    <div class="contact-email">
-      <a href="mailto:info@duoenpassant.com">info@duoenpassant.com</a>
-    </div>
-    <div class="follow-text">Jälgi Duo EnPassant</div>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/duo_enpassant/" target="_blank" rel="noopener" class="social-icon-link" aria-label="Instagram">
-        <svg class="social-icon" viewBox="0 0 24 24">
-          <rect x="3" y="3" width="18" height="18" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.8"></rect>
-          <circle cx="12" cy="12" r="5.2" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
-          <circle cx="17" cy="7" r="1.2" fill="currentColor"></circle>
-        </svg>
-      </a>
-      <a href="https://www.facebook.com/profile.php?id=61576658983538" target="_blank" rel="noopener" class="social-icon-link" aria-label="Facebook">
-        <svg class="social-icon" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M13.5 21v-7h2.3l.4-3h-2.7V8.3c0-.9.3-1.5 1.6-1.5h1.2V4.1C15.9 4 15 4 14 4c-2.4 0-3.9 1.4-3.9 4v3H8v3h2.1v7h3.4z"/>
-        </svg>
-      </a>
-      <a href="https://www.tiktok.com/@duo.enpassant" target="_blank" rel="noopener" class="social-icon-link" aria-label="TikTok">
-        <svg class="social-icon" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M17.5 7.6c-1-.4-1.8-1.1-2.3-2.1-.2-.4-.4-.9-.5-1.4H12v9a2 2 0 0 1-2 2 2 2 0 0 1 0-4c.3 0 .6 0 .9.2V9.1A4.4 4.4 0 0 0 10 9a4.9 4.9 0 1 0 4.9 4.9v-4a4.9 4.9 0 0 0 2.6.8V7.6z"/>
-        </svg>
-      </a>
-      <a href="https://www.youtube.com/@DuoEnPassant" target="_blank" rel="noopener" class="social-icon-link" aria-label="YouTube">
-        <svg class="social-icon" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M21 8.1s-.2-1.4-.8-2c-.7-.8-1.6-.8-2-0.8C15.6 5 12 5 12 5s-3.6 0-6.2.3c-.4 0-1.3 0-2 .8-.6.6-.8 2-.8 2S2.5 9.8 2.5 11.6v1.7C2.5 15 3 16 3 16s.2 1.4.8 2c.7.8 1.7.7 2.1.8 1.5.1 6.1.3 6.1.3s3.6 0 6.2-.3c.4 0 1.3 0 2-0.8.6-.6.8-2 .8-2s.5-1.9.5-3.7v-1.7c0-1.8-.5-3.5-.5-3.5zM10 14.3V8.9l4.4 2.7L10 14.3z"/>
-        </svg>
-      </a>
-    </div>
-  </div>
-</div>
-```
-
   </section>
-
-  <!-- FOOTER -->
 
   <footer>
     <span class="logo">Duo EnPassant</span>
@@ -858,7 +859,6 @@
   </footer>
 
   <script>
-    // Language switching
     const body = document.body;
     const langButtons = document.querySelectorAll('[data-lang-switch]');
     langButtons.forEach(btn => {
@@ -870,13 +870,9 @@
       });
     });
 
-    // Scroll-reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
       });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
