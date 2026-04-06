@@ -85,46 +85,32 @@
       border-bottom: 1px solid var(--line);
     }
 
+    /* Full-width inner — no max-width cap so items truly span edge-to-edge */
     .topbar-inner {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      width: 100%;
       padding: 0.5rem 1.5rem;
-      max-width: var(--max-width);
-      margin: 0 auto;
+      gap: 0;
     }
 
-    .topbar-left {
-      display: flex;
-      align-items: center;
-      gap: 2.5rem;
-    }
-
-    /* ── HOME BUTTON (clef logo) ── */
+    /* HOME BUTTON — flush left */
     .home-btn {
       display: flex;
       align-items: center;
-      gap: 0.7rem;
+      gap: 0.6rem;
       text-decoration: none;
       color: var(--ink);
       transition: opacity 0.2s;
+      flex-shrink: 0;
+      margin-right: auto; /* pushes everything else right */
     }
-    .home-btn:hover { opacity: 0.75; color: var(--ink); }
+    .home-btn:hover { opacity: 0.72; color: var(--ink); }
 
     .clef-logo {
-      width: 52px;
-      height: 52px;
+      width: 48px;
+      height: 48px;
       flex-shrink: 0;
-      position: relative;
-    }
-
-    /* Staff lines behind clefs */
-    .clef-logo .staff {
-      position: absolute;
-      left: 4px;
-      right: 4px;
-      top: 50%;
-      transform: translateY(-50%);
     }
 
     .home-wordmark {
@@ -140,6 +126,13 @@
       font-size: 0.55rem;
       letter-spacing: 0.35em;
       color: var(--muted);
+    }
+
+    /* NAV — perfectly centred in the remaining space */
+    .topbar-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .nav-links {
@@ -169,28 +162,33 @@
     .nav-link:hover { color: var(--ink); }
     .nav-link:hover::after { width: 100%; }
 
+    /* LANG TOGGLE — flush right */
     .lang-toggle {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
       font-family: 'Cinzel', serif;
-      font-size: 0.68rem;
+      font-size: 0.72rem;
       letter-spacing: 0.25em;
+      flex-shrink: 0;
+      margin-left: auto; /* pushes to right */
     }
     .lang-btn {
       cursor: pointer;
-      border: none;
+      border: 1px solid transparent;
       background: none;
       color: var(--muted);
-      padding: 0;
+      padding: 0.25rem 0.6rem;
       text-transform: uppercase;
       letter-spacing: 0.25em;
       font-family: 'Cinzel', serif;
-      font-size: 0.68rem;
-      transition: color 0.2s ease;
+      font-size: 0.72rem;
+      transition: color 0.2s ease, border-color 0.2s;
+      border-radius: 2px;
     }
-    .lang-btn.active { color: var(--warm); }
-    .lang-separator { color: var(--line); }
+    .lang-btn.active { color: var(--warm); border-color: var(--line); }
+    .lang-btn:hover { color: var(--ink); }
+    .lang-separator { color: var(--line); font-size: 0.72rem; }
 
     /* ── HERO ── */
     .hero {
@@ -200,11 +198,12 @@
       position: relative;
     }
 
+    /* LEFT — dark panel with title */
     .hero-left {
       background-color: var(--ink);
       display: flex;
-      align-items: flex-end;
-      justify-content: flex-end;
+      align-items: center;          /* vertically centre title */
+      justify-content: flex-end;    /* title right-aligned toward centre seam */
       padding: 3rem;
       position: relative;
       overflow: hidden;
@@ -268,129 +267,34 @@
       letter-spacing: 0.02em;
     }
 
+    /* RIGHT — photo filling the right panel */
     .hero-right {
-      background-color: var(--parchment);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem 3.5rem 4rem 4rem;
       position: relative;
+      overflow: hidden;
+      background-color: var(--ink); /* fallback if image missing */
     }
-    .hero-right::after {
-      content: '';
+
+    /* The photo */
+    .hero-photo {
       position: absolute;
-      left: 0;
-      top: 15%;
-      bottom: 15%;
-      width: 1px;
-      background: linear-gradient(to bottom, transparent, var(--warm), transparent);
-    }
-
-    .members-block {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.7s forwards;
-    }
-
-    .members-label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.6rem;
-      letter-spacing: 0.4em;
-      color: var(--warm);
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-    }
-
-    /* Clickable member names */
-    .member-link {
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
       display: block;
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.2s;
-    }
-    .member-link:hover .member-name { color: var(--warm); }
-    .member-link:hover .cv-hint { opacity: 1; }
-
-    .member-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-      font-weight: 300;
-      color: var(--ink);
-      line-height: 1.2;
-      margin-bottom: 0.2rem;
-      transition: color 0.2s;
+      /* subtle dark vignette on sides so it blends */
+      filter: brightness(0.88) contrast(1.05);
     }
 
-    .member-instrument {
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 300;
-      letter-spacing: 0.25em;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
-
-    .cv-hint {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.82rem;
-      font-style: italic;
-      color: var(--warm);
-      letter-spacing: 0.05em;
-      opacity: 0;
-      transition: opacity 0.2s;
-      margin-bottom: 1.5rem;
-    }
-
-    .divider-ornament {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin: 1.2rem 0;
-    }
-    .divider-ornament::before,
-    .divider-ornament::after {
+    /* Light gradient overlay at left edge to blend with dark panel */
+    .hero-right::before {
       content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--line);
-    }
-    .divider-ornament span { color: var(--warm); font-size: 1rem; }
-
-    .hero-subtitle-text {
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 300;
-      letter-spacing: 0.25em;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-top: 0.5rem;
-    }
-
-    .scroll-hint {
       position: absolute;
-      bottom: 2.5rem;
-      left: 25%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      opacity: 0;
-      animation: fadeUp 1s ease 1.8s forwards;
-    }
-    .scroll-hint span {
-      font-family: 'Cinzel', serif;
-      font-size: 0.55rem;
-      letter-spacing: 0.4em;
-      color: rgba(245,240,232,0.35);
-      text-transform: uppercase;
-    }
-    .scroll-line {
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(to bottom, rgba(200,169,110,0.6), transparent);
-      animation: scrollPulse 2s ease-in-out 2s infinite;
+      inset: 0;
+      background: linear-gradient(to right, rgba(26,22,20,0.45) 0%, transparent 35%);
+      z-index: 1;
+      pointer-events: none;
     }
 
     /* ── ABOUT ── */
@@ -582,7 +486,7 @@
 
     /* ── LANGUAGE ── */
     [data-lang-block] { display: none; }
-    body.lang-en [data-lang-block="en"] { display: block; }
+    body.lang-en  [data-lang-block="en"]  { display: block; }
     body.lang-est [data-lang-block="est"] { display: block; }
 
     /* ── FOOTER ── */
@@ -613,10 +517,6 @@
     @keyframes fadeUp {
       to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 1; }
-    }
     .reveal {
       opacity: 0;
       transform: translateY(24px);
@@ -628,22 +528,43 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 800px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left { padding: 4rem 2rem 3rem; justify-content: flex-start; align-items: flex-start; min-height: 55vh; }
+      /* Stack hero vertically on mobile */
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      /* Left (title) panel */
+      .hero-left {
+        padding: 4rem 2rem 3rem;
+        justify-content: flex-start;
+        align-items: flex-start;
+        min-height: 60vh;
+      }
       .hero-title-block { text-align: left; }
-      .hero-right { padding: 3rem 2rem; }
-      .hero-right::after { display: none; }
+
+      /* Hide photo on mobile — as requested */
+      .hero-right { display: none; }
+
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .about-image-wrapper { position: static; }
       .container { padding: 0 1.5rem; }
-      .scroll-hint { display: none; }
-      footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 1.5rem; }
-      .topbar-left { gap: 1.2rem; }
-      .nav-links { gap: 1rem; font-size: 0.62rem; }
+
+      footer {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+        padding: 1.5rem;
+      }
+
+      /* Topbar on mobile: hide centre nav, compress */
+      .topbar-center { display: none; }
       .home-wordmark { display: none; }
+      .topbar-inner { padding: 0.5rem 1rem; }
     }
+
     @media (max-width: 520px) {
-      .topbar-inner { flex-wrap: wrap; gap: 0.4rem; }
+      .lang-btn { font-size: 0.68rem; padding: 0.2rem 0.5rem; }
     }
   </style>
 
@@ -655,41 +576,39 @@
 
   <header class="topbar">
     <div class="topbar-inner">
-      <div class="topbar-left">
 
 ```
-    <!-- HOME BUTTON: Clef logo -->
-    <a href="index.html" class="home-btn" aria-label="Duo EnPassant — Home">
-      <svg class="clef-logo" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Staff lines -->
-        <line x1="4" y1="20" x2="48" y2="20" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
-        <line x1="4" y1="24" x2="48" y2="24" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
-        <line x1="4" y1="28" x2="48" y2="28" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
-        <line x1="4" y1="32" x2="48" y2="32" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
-        <line x1="4" y1="36" x2="48" y2="36" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
-        <!-- Treble clef (left side) -->
-        <text x="5" y="40" font-family="serif" font-size="34" fill="#1a1614" opacity="0.9">𝄞</text>
-        <!-- Bass clef (right side) -->
-        <text x="27" y="34" font-family="serif" font-size="22" fill="#c8a96e" opacity="0.9">𝄢</text>
-      </svg>
-      <div class="home-wordmark">
-        Duo EnPassant
-        <span>Violin &amp; Cello</span>
-      </div>
-    </a>
+  <!-- Home button — far left, links to site.html (this page) -->
+  <a href="site.html" class="home-btn" aria-label="Duo EnPassant — Home">
+    <svg class="clef-logo" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="4" y1="20" x2="48" y2="20" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+      <line x1="4" y1="24" x2="48" y2="24" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+      <line x1="4" y1="28" x2="48" y2="28" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+      <line x1="4" y1="32" x2="48" y2="32" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+      <line x1="4" y1="36" x2="48" y2="36" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+      <text x="5"  y="40" font-family="serif" font-size="34" fill="#1a1614" opacity="0.9">𝄞</text>
+      <text x="27" y="34" font-family="serif" font-size="22" fill="#c8a96e" opacity="0.9">𝄢</text>
+    </svg>
+    <div class="home-wordmark">
+      Duo EnPassant
+      <span>Violin &amp; Cello</span>
+    </div>
+  </a>
 
-    <nav class="nav-links">
-      <a href="media.html" class="nav-link">Media</a>
-      <a href="concerts.html" class="nav-link">Concerts</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </nav>
-  </div>
+  <!-- Nav — absolutely centred -->
+  <nav class="topbar-center nav-links" aria-label="Main navigation">
+    <a href="media.html"   class="nav-link">Media</a>
+    <a href="concerts.html" class="nav-link">Concerts</a>
+    <a href="#contact"     class="nav-link">Contact</a>
+  </nav>
 
+  <!-- Language toggle — far right -->
   <div class="lang-toggle" aria-label="Language selector">
-    <button class="lang-btn active" data-lang-switch="en" type="button">EN</button>
+    <button class="lang-btn active" data-lang-switch="en"  type="button">EN</button>
     <span class="lang-separator">|</span>
-    <button class="lang-btn" data-lang-switch="est" type="button">EST</button>
+    <button class="lang-btn"        data-lang-switch="est" type="button">EST</button>
   </div>
+
 </div>
 ```
 
@@ -698,51 +617,29 @@
   <!-- HERO -->
 
   <section class="hero">
-    <div class="hero-left">
-      <div class="staff-lines" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span>
-      </div>
-      <div class="hero-title-block">
-        <div data-lang-block="en">
-          <span class="hero-mark">Violin &amp; Cello</span>
-          <h1 class="hero-duo">Duo <span class="hero-en">En<br>Passant</span></h1>
-        </div>
-        <div data-lang-block="est">
-          <span class="hero-mark">Viiul &amp; Tšello</span>
-          <h1 class="hero-duo">Duo <span class="hero-en">En<br>Passant</span></h1>
-        </div>
-      </div>
-      <div class="scroll-hint" aria-hidden="true">
-        <span>Scroll</span>
-        <div class="scroll-line"></div>
-      </div>
-    </div>
 
 ```
-<div class="hero-right">
-  <div class="members-block">
-    <p class="members-label">The Ensemble</p>
-
-    <!-- Merily — clickable CV link -->
-    <a href="merily.pdf" target="_blank" rel="noopener" class="member-link" aria-label="Merily Leotoots — open CV">
-      <p class="member-name">Merily Leotoots</p>
-      <p class="member-instrument">Violin</p>
-      <p class="cv-hint">View CV →</p>
-    </a>
-
-    <div class="divider-ornament"><span>✦</span></div>
-
-    <!-- Anna — clickable CV link -->
-    <a href="anna.pdf" target="_blank" rel="noopener" class="member-link" aria-label="Anna Ryland-Jones — open CV">
-      <p class="member-name">Anna Ryland-Jones</p>
-      <p class="member-instrument">Violoncello</p>
-      <p class="cv-hint">View CV →</p>
-    </a>
-
-    <div class="divider-ornament" style="margin-top:2rem;"><span></span></div>
-    <p class="hero-subtitle-text" data-lang-block="en">International String Duo</p>
-    <p class="hero-subtitle-text" data-lang-block="est">Rahvusvaheline keelpilliduo</p>
+<!-- LEFT: dark title block -->
+<div class="hero-left">
+  <div class="staff-lines" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
   </div>
+  <div class="hero-title-block">
+    <div data-lang-block="en">
+      <span class="hero-mark">Violin &amp; Cello</span>
+      <h1 class="hero-duo">Duo <span class="hero-en">En<br>Passant</span></h1>
+    </div>
+    <div data-lang-block="est">
+      <span class="hero-mark">Viiul &amp; Tšello</span>
+      <h1 class="hero-duo">Duo <span class="hero-en">En<br>Passant</span></h1>
+    </div>
+  </div>
+  <!-- SCROLL hint removed as requested -->
+</div>
+
+<!-- RIGHT: photo panel (desktop only) -->
+<div class="hero-right" aria-hidden="true">
+  <img src="pilt.JPEG" alt="Merily Leotoots and Anna Ryland-Jones" class="hero-photo">
 </div>
 ```
 
@@ -864,7 +761,7 @@
     langButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         const lang = btn.dataset.langSwitch;
-        body.classList.toggle('lang-en', lang === 'en');
+        body.classList.toggle('lang-en',  lang === 'en');
         body.classList.toggle('lang-est', lang === 'est');
         langButtons.forEach(b => b.classList.toggle('active', b === btn));
       });
