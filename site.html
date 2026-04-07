@@ -4,10 +4,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Duo EnPassant | Violin & Cello Duo</title>
   <meta name="description" content="Duo EnPassant — violin and cello duo performing classical chamber music. Concerts, recordings, collaborations." />
   <link rel="canonical" href="https://www.duoenpassant.com/" />
   <meta name="robots" content="index, follow" />
+
   <meta property="og:title" content="Duo EnPassant | Violin & Cello Duo" />
   <meta property="og:description" content="Classical chamber music for violin and cello. Concerts, recordings, collaborations." />
   <meta property="og:url" content="https://www.duoenpassant.com/" />
@@ -54,194 +56,99 @@
        TOPBAR
     ══════════════════════════════════════ */
     .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       background: rgba(245,240,232,0.95);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--line);
     }
-
     .topbar-inner {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      padding: 0.5rem 1.5rem;
+      display: flex; align-items: center;
+      width: 100%; padding: 0.5rem 1.5rem;
       position: relative;
     }
-
-    /* Home button — far left */
     .home-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      text-decoration: none;
-      color: var(--ink);
-      transition: opacity 0.2s;
-      flex-shrink: 0;
+      display: flex; align-items: center; gap: 0.6rem;
+      text-decoration: none; color: var(--ink);
+      transition: opacity 0.2s; flex-shrink: 0;
     }
     .home-btn:hover { opacity: 0.72; color: var(--ink); }
-
     .clef-logo { width: 48px; height: 48px; flex-shrink: 0; }
-
     .home-wordmark {
-      font-family: 'Cinzel', serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--ink);
-      line-height: 1.5;
+      font-family: 'Cinzel', serif; font-size: 0.68rem;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--ink); line-height: 1.5;
     }
-    .home-wordmark span {
-      display: block;
-      font-size: 0.55rem;
-      letter-spacing: 0.35em;
-      color: var(--muted);
-    }
+    .home-wordmark span { display: block; font-size: 0.55rem; letter-spacing: 0.35em; color: var(--muted); }
 
-    /* Desktop nav — absolutely centred */
-    .topbar-center {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-    }
+    .topbar-center { position: absolute; left: 50%; transform: translateX(-50%); }
     .nav-links {
-      display: flex;
-      gap: 1.8rem;
-      font-family: 'Cinzel', serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
+      display: flex; gap: 1.8rem;
+      font-family: 'Cinzel', serif; font-size: 0.68rem;
+      letter-spacing: 0.3em; text-transform: uppercase;
     }
-    .nav-link {
-      position: relative;
-      color: var(--muted);
-      transition: color 0.25s;
-    }
+    .nav-link { position: relative; color: var(--muted); transition: color 0.25s; }
     .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 0; bottom: -0.3rem;
-      width: 0; height: 1px;
-      background: var(--warm);
-      transition: width 0.25s;
+      content: ""; position: absolute; left: 0; bottom: -0.3rem;
+      width: 0; height: 1px; background: var(--warm); transition: width 0.25s;
     }
     .nav-link:hover { color: var(--ink); }
     .nav-link:hover::after { width: 100%; }
 
-    /* Desktop lang toggle — far right */
     .lang-toggle {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.25em;
-      flex-shrink: 0;
-      margin-left: auto;
+      display: flex; align-items: center; gap: 0.5rem;
+      font-family: 'Cinzel', serif; font-size: 0.72rem;
+      letter-spacing: 0.25em; flex-shrink: 0; margin-left: auto;
     }
     .lang-btn {
-      cursor: pointer;
-      border: 1px solid transparent;
-      background: none;
-      color: var(--muted);
-      padding: 0.25rem 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
-      transition: color 0.2s, border-color 0.2s;
-      border-radius: 2px;
+      cursor: pointer; border: 1px solid transparent; background: none;
+      color: var(--muted); padding: 0.25rem 0.6rem;
+      text-transform: uppercase; letter-spacing: 0.25em;
+      font-family: 'Cinzel', serif; font-size: 0.72rem;
+      transition: color 0.2s, border-color 0.2s; border-radius: 2px;
     }
     .lang-btn.active { color: var(--warm); border-color: var(--line); }
     .lang-btn:hover { color: var(--ink); }
     .lang-separator { color: var(--line); font-size: 0.72rem; }
 
-    /* ── HAMBURGER (mobile only) ── */
+    /* Hamburger */
     .hamburger-btn {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      width: 36px;
-      height: 36px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      margin-left: auto;
-      padding: 4px;
-      flex-shrink: 0;
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; width: 36px; height: 36px;
+      background: none; border: none; cursor: pointer;
+      margin-left: auto; padding: 4px; flex-shrink: 0;
     }
     .hamburger-btn span {
-      display: block;
-      height: 1.5px;
-      background: var(--ink);
-      border-radius: 2px;
-      transition: transform 0.3s, opacity 0.3s;
+      display: block; height: 1.5px; background: var(--ink);
+      border-radius: 2px; transition: transform 0.3s, opacity 0.3s;
     }
     .hamburger-btn.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     .hamburger-btn.open span:nth-child(2) { opacity: 0; }
     .hamburger-btn.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-    /* Mobile drawer */
     .mobile-drawer {
-      display: none;
-      position: fixed;
-      inset: 0;
-      top: 0;
-      background: rgba(245,240,232,0.98);
-      backdrop-filter: blur(10px);
-      z-index: 99;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2.5rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
+      display: none; position: fixed; inset: 0;
+      background: rgba(245,240,232,0.98); backdrop-filter: blur(10px);
+      z-index: 99; flex-direction: column; align-items: center;
+      justify-content: center; gap: 2.5rem;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
     }
-    .mobile-drawer.open {
-      opacity: 1;
-      pointer-events: all;
-    }
+    .mobile-drawer.open { opacity: 1; pointer-events: all; }
     .mobile-drawer a, .mobile-drawer button {
-      font-family: 'Cinzel', serif;
-      font-size: 1.1rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--ink);
-      text-decoration: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      transition: color 0.2s;
-      padding: 0.3rem 0;
+      font-family: 'Cinzel', serif; font-size: 1.1rem;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--ink); text-decoration: none;
+      background: none; border: none; cursor: pointer;
+      transition: color 0.2s; padding: 0.3rem 0;
     }
-    .mobile-drawer a:hover,
-    .mobile-drawer button:hover { color: var(--warm); }
-
-    .mobile-drawer-rule {
-      width: 40px;
-      height: 1px;
-      background: var(--line);
-    }
-
-    .mobile-lang-row {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
+    .mobile-drawer a:hover, .mobile-drawer button:hover { color: var(--warm); }
+    .mobile-drawer-rule { width: 40px; height: 1px; background: var(--line); }
+    .mobile-lang-row { display: flex; align-items: center; gap: 0.6rem; }
     .mobile-lang-btn {
-      font-family: 'Cinzel', serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--muted);
-      background: none;
-      border: 1px solid transparent;
-      cursor: pointer;
-      padding: 0.3rem 0.7rem;
-      border-radius: 2px;
+      font-family: 'Cinzel', serif; font-size: 0.9rem;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--muted); background: none;
+      border: 1px solid transparent; cursor: pointer;
+      padding: 0.3rem 0.7rem; border-radius: 2px;
       transition: color 0.2s, border-color 0.2s;
     }
     .mobile-lang-btn.active { color: var(--warm); border-color: var(--line); }
@@ -256,161 +163,92 @@
       position: relative;
     }
 
+    /* LEFT — dark title panel */
     .hero-left {
       background-color: var(--ink);
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 3rem;
-      position: relative;
-      overflow: hidden;
+      display: flex; align-items: center; justify-content: flex-end;
+      padding: 3rem; position: relative; overflow: hidden;
     }
-
-    /* Staff lines behind title */
     .staff-lines {
-      position: absolute;
-      top: 50%;
-      left: 0; right: 0;
-      transform: translateY(-50%);
-      opacity: 0.08;
-      pointer-events: none;
+      position: absolute; top: 50%; left: 0; right: 0;
+      transform: translateY(-50%); opacity: 0.08; pointer-events: none;
     }
-    .staff-lines span {
-      display: block;
-      height: 1px;
-      background: var(--parchment);
-      margin: 18px 0;
-    }
+    .staff-lines span { display: block; height: 1px; background: var(--parchment); margin: 18px 0; }
 
     .hero-title-block {
-      position: relative;
-      z-index: 2;
-      text-align: right;
-      opacity: 0;
-      transform: translateY(30px);
+      position: relative; z-index: 2; text-align: right;
+      opacity: 0; transform: translateY(30px);
       animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
     }
-
     .hero-mark {
-      font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.35em;
-      color: var(--warm);
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      display: block;
+      font-family: 'Cinzel', serif; font-size: 0.65rem;
+      letter-spacing: 0.35em; color: var(--warm);
+      text-transform: uppercase; margin-bottom: 1.5rem; display: block;
     }
     .hero-duo {
       font-family: 'Cinzel', serif;
       font-size: clamp(2.8rem, 6vw, 5.5rem);
-      font-weight: 400;
-      color: var(--parchment);
-      line-height: 1.05;
-      letter-spacing: 0.05em;
+      font-weight: 400; color: var(--parchment);
+      line-height: 1.05; letter-spacing: 0.05em;
     }
     .hero-en {
-      color: var(--warm);
-      font-style: italic;
+      color: var(--warm); font-style: italic;
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(3.5rem, 7vw, 6.5rem);
-      font-weight: 300;
-      letter-spacing: 0.02em;
+      font-weight: 300; letter-spacing: 0.02em;
     }
 
-    /* Right panel — ensemble members on desktop */
+    /* RIGHT — ensemble info (no CV links here anymore) */
     .hero-right {
       background-color: var(--parchment);
-      display: flex;
-      flex-direction: column;
+      display: flex; flex-direction: column;
       justify-content: center;
       padding: 4rem 3.5rem 4rem 4rem;
       position: relative;
     }
     .hero-right::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 15%; bottom: 15%;
+      content: ''; position: absolute; left: 0; top: 15%; bottom: 15%;
       width: 1px;
       background: linear-gradient(to bottom, transparent, var(--warm), transparent);
     }
 
     .members-block {
-      opacity: 0;
-      transform: translateY(20px);
+      opacity: 0; transform: translateY(20px);
       animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.7s forwards;
     }
-
     .members-label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.6rem;
-      letter-spacing: 0.4em;
-      color: var(--warm);
-      text-transform: uppercase;
-      margin-bottom: 2rem;
+      font-family: 'Cinzel', serif; font-size: 0.6rem;
+      letter-spacing: 0.4em; color: var(--warm);
+      text-transform: uppercase; margin-bottom: 2rem;
     }
 
-    .member-link {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-      transition: color 0.2s;
-    }
-    .member-link:hover .member-name { color: var(--warm); }
-    .member-link:hover .cv-hint { opacity: 1; }
-
+    /* Plain (non-clickable) member display */
+    .member-entry { margin-bottom: 0.3rem; }
     .member-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-      font-weight: 300;
-      color: var(--ink);
-      line-height: 1.2;
-      margin-bottom: 0.2rem;
-      transition: color 0.2s;
+      font-weight: 300; color: var(--ink);
+      line-height: 1.2; margin-bottom: 0.2rem;
     }
     .member-instrument {
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 300;
-      letter-spacing: 0.25em;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
-    .cv-hint {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.82rem;
-      font-style: italic;
-      color: var(--warm);
-      letter-spacing: 0.05em;
-      opacity: 0;
-      transition: opacity 0.2s;
+      font-family: 'Raleway', sans-serif; font-size: 0.68rem;
+      font-weight: 300; letter-spacing: 0.25em;
+      color: var(--muted); text-transform: uppercase;
       margin-bottom: 1.5rem;
     }
 
     .divider-ornament {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin: 1.2rem 0;
+      display: flex; align-items: center; gap: 1rem; margin: 0.8rem 0 1.2rem;
     }
-    .divider-ornament::before,
-    .divider-ornament::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--line);
+    .divider-ornament::before, .divider-ornament::after {
+      content: ''; flex: 1; height: 1px; background: var(--line);
     }
     .divider-ornament span { color: var(--warm); font-size: 1rem; }
 
     .hero-subtitle-text {
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 300;
-      letter-spacing: 0.25em;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-top: 0.5rem;
+      font-family: 'Raleway', sans-serif; font-size: 0.68rem;
+      font-weight: 300; letter-spacing: 0.25em;
+      color: var(--muted); text-transform: uppercase; margin-top: 0.5rem;
     }
 
     /* ══════════════════════════════════════
@@ -419,107 +257,141 @@
     .about-section { padding: 6rem 0; }
 
     .container {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 3rem;
+      width: 100%; max-width: var(--max-width);
+      margin: 0 auto; padding: 0 3rem;
     }
 
     .section-header {
-      font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.45em;
-      text-transform: uppercase;
-      color: var(--warm);
-      margin-bottom: 3rem;
+      font-family: 'Cinzel', serif; font-size: 0.65rem;
+      letter-spacing: 0.45em; text-transform: uppercase;
+      color: var(--warm); margin-bottom: 3rem;
     }
 
     .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 5rem;
-      align-items: start;
+      display: grid; grid-template-columns: 1fr 1.6fr;
+      gap: 5rem; align-items: start;
     }
     .about-image-wrapper { position: sticky; top: 6rem; }
     .about-image { width: 100%; height: auto; display: block; box-shadow: 8px 8px 0 var(--line); }
 
     .about-text p {
       font-size: clamp(1.1rem, 1.6vw, 1.28rem);
-      line-height: 1.9;
-      color: var(--ink);
-      font-weight: 300;
-      margin-bottom: 1.8rem;
+      line-height: 1.9; color: var(--ink);
+      font-weight: 300; margin-bottom: 1.8rem;
     }
     .about-text p:first-of-type::first-letter {
-      font-size: 4.5rem;
-      float: left;
-      line-height: 0.75;
-      margin-right: 0.12em;
-      color: var(--warm);
-      font-family: 'Cinzel', serif;
-      font-weight: 400;
+      font-size: 4.5rem; float: left; line-height: 0.75;
+      margin-right: 0.12em; color: var(--warm);
+      font-family: 'Cinzel', serif; font-weight: 400;
     }
 
     .highlight-quote {
       border-left: 2px solid var(--warm);
-      padding: 1.2rem 0 1.2rem 2rem;
-      margin: 2.5rem 0;
+      padding: 1.2rem 0 1.2rem 2rem; margin: 2.5rem 0;
     }
     .highlight-quote p {
       font-size: clamp(1.2rem,1.8vw,1.5rem) !important;
-      font-style: italic;
-      margin: 0 !important;
-      line-height: 1.6 !important;
+      font-style: italic; margin: 0 !important; line-height: 1.6 !important;
     }
 
+    /* Chess callout */
     .chess-callout {
-      background: var(--ink);
-      color: var(--parchment);
-      padding: 3.5rem;
-      margin-top: 4rem;
-      position: relative;
-      overflow: hidden;
+      background: var(--ink); color: var(--parchment);
+      padding: 3.5rem; margin-top: 4rem;
+      position: relative; overflow: hidden;
     }
     .chess-callout::before {
-      content: 'en passant';
-      position: absolute;
+      content: 'en passant'; position: absolute;
       bottom: -1.5rem; right: 2rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 7rem;
-      font-style: italic;
-      font-weight: 300;
-      color: rgba(200,169,110,0.07);
-      white-space: nowrap;
-      pointer-events: none;
+      font-family: 'Cormorant Garamond', serif; font-size: 7rem;
+      font-style: italic; font-weight: 300;
+      color: rgba(200,169,110,0.07); white-space: nowrap; pointer-events: none;
     }
     .chess-callout .section-header { color: var(--warm); margin-bottom: 1rem; }
     .chess-term {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem,4vw,3.5rem);
-      font-style: italic;
-      font-weight: 300;
-      color: var(--warm);
-      margin-bottom: 0.4rem;
+      font-size: clamp(2rem,4vw,3.5rem); font-style: italic;
+      font-weight: 300; color: var(--warm); margin-bottom: 0.4rem;
     }
     .chess-definition {
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.65rem;
-      font-weight: 300;
-      letter-spacing: 0.25em;
-      color: rgba(245,240,232,0.45);
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
+      font-family: 'Raleway', sans-serif; font-size: 0.65rem;
+      font-weight: 300; letter-spacing: 0.25em;
+      color: rgba(245,240,232,0.45); text-transform: uppercase; margin-bottom: 1.5rem;
     }
     .chess-callout p {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1rem,1.5vw,1.18rem);
-      line-height: 1.85;
-      color: rgba(245,240,232,0.72);
-      font-weight: 300;
-      max-width: 38rem;
-      position: relative;
-      z-index: 1;
+      font-size: clamp(1rem,1.5vw,1.18rem); line-height: 1.85;
+      color: rgba(245,240,232,0.72); font-weight: 300;
+      max-width: 38rem; position: relative; z-index: 1;
     }
+
+    /* ══════════════════════════════════════
+       MUSICIANS / CV SECTION
+    ══════════════════════════════════════ */
+    .musicians-section {
+      padding: 0 0 6rem;   /* sits directly below about, no extra top padding */
+    }
+
+    .musicians-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;             /* thin gold seam between cards */
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-top: 5rem;
+    }
+
+    .musician-card {
+      background: var(--parchment);
+      padding: 3rem 3rem 2.8rem;
+      display: flex; flex-direction: column;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+    .musician-card:nth-child(2) { transition-delay: 0.15s; }
+    .musician-card.visible { opacity: 1; transform: translateY(0); }
+
+    .musician-card-label {
+      font-family: 'Raleway', sans-serif; font-size: 0.6rem;
+      font-weight: 300; letter-spacing: 0.35em;
+      text-transform: uppercase; color: var(--warm);
+      margin-bottom: 1.2rem;
+    }
+    .musician-card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2rem);
+      font-weight: 300; color: var(--ink); line-height: 1.15;
+      margin-bottom: 0.3rem;
+    }
+    .musician-card-instrument {
+      font-family: 'Raleway', sans-serif; font-size: 0.62rem;
+      font-weight: 300; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    /* Thin rule before the CV link */
+    .musician-card-rule {
+      width: 40px; height: 1px;
+      background: linear-gradient(to right, var(--warm), transparent);
+      margin-bottom: 1.5rem;
+      margin-top: auto;     /* pushes rule + link to bottom of card */
+    }
+
+    .cv-link {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: 'Cinzel', serif; font-size: 0.6rem;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .cv-link:hover { color: var(--warm); }
+    .cv-link::after {
+      content: '→'; font-family: serif; font-size: 0.9rem;
+      transition: transform 0.2s;
+    }
+    .cv-link:hover::after { transform: translateX(4px); }
 
     /* ══════════════════════════════════════
        CONTACT
@@ -532,12 +404,10 @@
     .contact-email { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--ink); margin-bottom: 3rem; }
     .contact-email a:hover { color: var(--warm); }
     .follow-text { font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.4rem; }
-
     .social-icons { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem; }
     .social-icon-link {
       display: inline-flex; align-items: center; justify-content: center;
-      width: 42px; height: 42px;
-      border: 1px solid var(--line);
+      width: 42px; height: 42px; border: 1px solid var(--line);
       transition: border-color 0.2s, background 0.2s;
     }
     .social-icon-link:hover { border-color: var(--warm); background: rgba(200,169,110,0.08); }
@@ -545,7 +415,7 @@
     .social-icon-link:hover .social-icon { color: var(--warm); }
 
     /* ══════════════════════════════════════
-       LANGUAGE BLOCKS
+       LANGUAGE
     ══════════════════════════════════════ */
     [data-lang-block] { display: none; }
     body.lang-en  [data-lang-block="en"]  { display: block; }
@@ -555,12 +425,9 @@
        FOOTER
     ══════════════════════════════════════ */
     footer {
-      margin-top: auto;
-      background: var(--ink);
+      margin-top: auto; background: var(--ink);
       padding: 2rem 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: flex; justify-content: space-between; align-items: center;
     }
     footer .logo { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: rgba(245,240,232,0.3); text-transform: uppercase; }
     footer .tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.95rem; color: var(--warm); opacity: 0.65; }
@@ -575,58 +442,31 @@
     .reveal-delay-2 { transition-delay: 0.25s; }
 
     /* ══════════════════════════════════════
-       RESPONSIVE — MOBILE (≤800px)
+       RESPONSIVE
     ══════════════════════════════════════ */
     @media (max-width: 800px) {
-
-      /* Show hamburger, hide desktop nav + lang toggle */
       .hamburger-btn { display: flex; }
       .topbar-center { display: none; }
       .lang-toggle   { display: none; }
       .home-wordmark { display: none; }
       .topbar-inner  { padding: 0.4rem 1rem; }
-
-      /* Show drawer when JS adds .open */
       .mobile-drawer { display: flex; }
 
-      /* Hero: stack, compact height */
-      .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-
-      .hero-left {
-        /* Tight padding so height is driven by content + staff lines */
-        padding: 2.5rem 1.8rem;
-        justify-content: flex-start;
-        align-items: center;       /* vertically centre within auto height */
-        min-height: 0;             /* no artificial 60vh */
-      }
-
-      /* Staff lines visible and centred behind the title */
-      .staff-lines {
-        top: 50%;
-        transform: translateY(-50%);
-        opacity: 0.1;
-      }
-
-      .hero-title-block {
-        text-align: left;
-        width: 100%;
-      }
-
-      /* Hide the right panel (CV section) on mobile */
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 2.5rem 1.8rem; justify-content: flex-start; align-items: center; min-height: 0; }
+      .staff-lines { top: 50%; transform: translateY(-50%); opacity: 0.1; }
+      .hero-title-block { text-align: left; width: 100%; }
       .hero-right { display: none; }
 
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .about-image-wrapper { position: static; }
       .container { padding: 0 1.5rem; }
 
-      footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 1.5rem; }
-    }
+      /* Musicians grid: stack on mobile */
+      .musicians-grid { grid-template-columns: 1fr; }
+      .musician-card { padding: 2rem 1.5rem; }
 
-    @media (max-width: 520px) {
-      .lang-btn { font-size: 0.68rem; padding: 0.2rem 0.5rem; }
+      footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 1.5rem; }
     }
   </style>
 
@@ -634,7 +474,7 @@
 
 <body id="top" class="lang-en">
 
-  <!-- MOBILE DRAWER (hidden until hamburger pressed) -->
+  <!-- MOBILE DRAWER -->
 
   <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-label="Navigation menu">
     <a href="media.html"    class="drawer-close-on-click">Media</a>
@@ -652,100 +492,92 @@
 
   <header class="topbar">
     <div class="topbar-inner">
+      <a href="site.html" class="home-btn" aria-label="Duo EnPassant — Home">
+        <svg class="clef-logo" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="4" y1="20" x2="48" y2="20" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+          <line x1="4" y1="24" x2="48" y2="24" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+          <line x1="4" y1="28" x2="48" y2="28" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+          <line x1="4" y1="32" x2="48" y2="32" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+          <line x1="4" y1="36" x2="48" y2="36" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+          <text x="5"  y="40" font-family="serif" font-size="34" fill="#1a1614" opacity="0.9">𝄞</text>
+          <text x="27" y="34" font-family="serif" font-size="22" fill="#c8a96e" opacity="0.9">𝄢</text>
+        </svg>
+        <div class="home-wordmark">
+          Duo EnPassant
+          <span>Violin &amp; Cello</span>
+        </div>
+      </a>
 
-
-  <!-- Home button — far left -->
-  <a href="site.html" class="home-btn" aria-label="Duo EnPassant — Home">
-    <svg class="clef-logo" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="4" y1="20" x2="48" y2="20" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
-      <line x1="4" y1="24" x2="48" y2="24" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
-      <line x1="4" y1="28" x2="48" y2="28" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
-      <line x1="4" y1="32" x2="48" y2="32" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
-      <line x1="4" y1="36" x2="48" y2="36" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
-      <text x="5"  y="40" font-family="serif" font-size="34" fill="#1a1614" opacity="0.9">𝄞</text>
-      <text x="27" y="34" font-family="serif" font-size="22" fill="#c8a96e" opacity="0.9">𝄢</text>
-    </svg>
-    <div class="home-wordmark">
-      Duo EnPassant
-      <span>Violin &amp; Cello</span>
-    </div>
-  </a>
-
-  <!-- Desktop nav — centred -->
+```
   <nav class="topbar-center nav-links" aria-label="Main navigation">
     <a href="media.html"    class="nav-link">Media</a>
     <a href="concerts.html" class="nav-link">Concerts</a>
     <a href="#contact"      class="nav-link">Contact</a>
   </nav>
 
-  <!-- Desktop lang toggle — far right -->
   <div class="lang-toggle" aria-label="Language selector">
     <button class="lang-btn active" data-lang-switch="en"  type="button">EN</button>
     <span class="lang-separator">|</span>
     <button class="lang-btn"        data-lang-switch="est" type="button">EST</button>
   </div>
 
-  <!-- Hamburger (mobile only) -->
   <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
-
 </div>
-
+```
 
   </header>
 
   <!-- HERO -->
 
   <section class="hero">
-
-
-<!-- LEFT: dark title block with staff lines -->
-<div class="hero-left">
-  <div class="staff-lines" aria-hidden="true">
-    <span></span><span></span><span></span><span></span><span></span>
-  </div>
-  <div class="hero-title-block">
-    <div data-lang-block="en">
-      <span class="hero-mark">Violin &amp; Cello</span>
-      <h1 class="hero-duo">Duo <span class="hero-en">En<br>Passant</span></h1>
+    <div class="hero-left">
+      <div class="staff-lines" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="hero-title-block">
+        <div data-lang-block="en">
+          <span class="hero-mark">Violin &amp; Cello</span>
+          <h1 class="hero-duo">Duo <span class="hero-en">En<br>Passant</span></h1>
+        </div>
+        <div data-lang-block="est">
+          <span class="hero-mark">Viiul &amp; Tšello</span>
+          <h1 class="hero-duo">Duo <span class="hero-en">En<br>Passant</span></h1>
+        </div>
+      </div>
     </div>
-    <div data-lang-block="est">
-      <span class="hero-mark">Viiul &amp; Tšello</span>
-      <h1 class="hero-duo">Duo <span class="hero-en">En<br>Passant</span></h1>
-    </div>
-  </div>
-</div>
 
-<!-- RIGHT: ensemble members (desktop only) -->
+```
+<!-- RIGHT: plain ensemble listing, no CV links -->
 <div class="hero-right">
   <div class="members-block">
     <p class="members-label">The Ensemble</p>
 
-    <a href="merily.pdf" target="_blank" rel="noopener" class="member-link" aria-label="Merily Leotoots — open CV">
+    <div class="member-entry">
       <p class="member-name">Merily Leotoots</p>
       <p class="member-instrument">Violin</p>
-      <p class="cv-hint">View CV →</p>
-    </a>
+    </div>
 
     <div class="divider-ornament"><span>✦</span></div>
 
-    <a href="anna.pdf" target="_blank" rel="noopener" class="member-link" aria-label="Anna Ryland-Jones — open CV">
+    <div class="member-entry">
       <p class="member-name">Anna Ryland-Jones</p>
       <p class="member-instrument">Violoncello</p>
-      <p class="cv-hint">View CV →</p>
-    </a>
+    </div>
 
     <div class="divider-ornament" style="margin-top:2rem;"><span></span></div>
     <p class="hero-subtitle-text" data-lang-block="en">International String Duo</p>
     <p class="hero-subtitle-text" data-lang-block="est">Rahvusvaheline keelpilliduo</p>
   </div>
 </div>
-
+```
 
   </section>
 
-  <!-- ABOUT (EN) -->
+  <!-- ═══════════════════════════════════
+       ABOUT (EN)
+  ═══════════════════════════════════ -->
 
   <section class="about-section" id="about-en" data-lang-block="en">
     <div class="container">
@@ -755,7 +587,7 @@
           <img src="EP.jpg" alt="Duo EnPassant" class="about-image">
         </div>
         <div class="about-text reveal reveal-delay-2">
-          <p>Duo EnPassant is a new violin and cello duo featuring Merily Leotoots and Anna Ryland-Jones. Although the ensemble was founded only recently, the two musicians have been performing together for two years in various chamber groups and festivals across Estonia, Finland and the United Kingdom.</p>
+          <p>Duo EnPassant is a new violin and cello duo featuring Merily Leotoots and Anna Ryland-Jones. Although the ensemble was founded only recently, the two musicians have been performing together for nearly a year in various chamber groups and festivals across Estonia, Finland and the United Kingdom.</p>
           <div class="highlight-quote">
             <p>Their first meeting did not take place in the UK — but in Estonia, where a natural musical connection quickly developed.</p>
           </div>
@@ -771,7 +603,9 @@
     </div>
   </section>
 
-  <!-- MEIST (EST) -->
+  <!-- ═══════════════════════════════════
+       MEIST (EST)
+  ═══════════════════════════════════ -->
 
   <section class="about-section" id="meist" data-lang-block="est">
     <div class="container">
@@ -781,7 +615,7 @@
           <img src="EP.jpg" alt="Duo EnPassant" class="about-image">
         </div>
         <div class="about-text reveal reveal-delay-2">
-          <p>Duo EnPassant on uus viiuli- ja tšelloduo, kuhu kuuluvad Merily Leotoots ja Anna Ryland-Jones. Kuigi ansambel on loodud hiljuti, on nad koos musitseerinud juba kaks aastat erinevates kammerkoosseisudes ning esinenud festivalidel Eestis, Soomes ja Suurbritannias.</p>
+          <p>Duo EnPassant on uus viiuli- ja tšelloduo, kuhu kuuluvad Merily Leotoots ja Anna Ryland-Jones. Kuigi ansambel on loodud hiljuti, on nad koos musitseerinud juba pea aasta erinevates kammerkoosseisudes ning esinenud festivalidel Eestis, Soomes ja Suurbritannias.</p>
           <div class="highlight-quote">
             <p>Huvitaval kombel ei kohtunud nad esimest korda mitte Ühendkuningriigis, vaid Eestis, kus tekkis kiiresti loomulik muusikaline klapp.</p>
           </div>
@@ -789,12 +623,75 @@
           <div class="chess-callout">
             <span class="section-header">Nimi</span>
             <p class="chess-term">En Passant</p>
-            <p class="chess-definition">Prantsuse keeles · „möödaminnes" </p>
-            <p>Nimi EnPassant pärineb maleterminist, mis tähendab möödaminnes — kujund, mis sümboliseerib hetkelisust ja ootamatuid võimalusi ning peegeldab duo muusikalist mõtteviisi ja väljenduslaadi.</p>
+            <p class="chess-definition">Prantsuse k · „möödaminnes" · maletõmme</p>
+            <p>Nimi EnPassant pärineb maleterminist, mis tähendab möödaminnes löömist — kujund, mis sümboliseerib hetkelisust ja ootamatuid võimalusi ning peegeldab duo muusikalist mõtteviisi ja väljenduslaadi.</p>
           </div>
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       MUSICIANS — CV links (after about)
+  ═══════════════════════════════════ -->
+
+  <section class="musicians-section">
+    <div class="container">
+
+```
+  <!-- EN -->
+  <div data-lang-block="en">
+    <p class="section-header reveal">Meet the Musicians</p>
+    <div class="musicians-grid">
+      <div class="musician-card reveal">
+        <div class="musician-card-label">Violin</div>
+        <div class="musician-card-name">Merily Leotoots</div>
+        <div class="musician-card-instrument">Violin</div>
+        <div class="musician-card-rule"></div>
+        <a href="merily.pdf" target="_blank" rel="noopener" class="cv-link" aria-label="Merily Leotoots — View CV">
+          Curriculum Vitae
+        </a>
+      </div>
+      <div class="musician-card reveal">
+        <div class="musician-card-label">Violoncello</div>
+        <div class="musician-card-name">Anna Ryland-Jones</div>
+        <div class="musician-card-instrument">Violoncello</div>
+        <div class="musician-card-rule"></div>
+        <a href="anna.pdf" target="_blank" rel="noopener" class="cv-link" aria-label="Anna Ryland-Jones — View CV">
+          Curriculum Vitae
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- EST -->
+  <div data-lang-block="est">
+    <p class="section-header reveal">Muusikud</p>
+    <div class="musicians-grid">
+      <div class="musician-card reveal">
+        <div class="musician-card-label">Viiul</div>
+        <div class="musician-card-name">Merily Leotoots</div>
+        <div class="musician-card-instrument">Viiul</div>
+        <div class="musician-card-rule"></div>
+        <a href="merily-est.pdf" target="_blank" rel="noopener" class="cv-link" aria-label="Merily Leotoots — Vaata CV-d">
+          Curriculum Vitae
+        </a>
+      </div>
+      <div class="musician-card reveal">
+        <div class="musician-card-label">Tšello</div>
+        <div class="musician-card-name">Anna Ryland-Jones</div>
+        <div class="musician-card-instrument">Tšello</div>
+        <div class="musician-card-rule"></div>
+        <a href="anna-est.pdf" target="_blank" rel="noopener" class="cv-link" aria-label="Anna Ryland-Jones — Vaata CV-d">
+          Curriculum Vitae
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+```
+
   </section>
 
   <!-- CONTACT -->
@@ -856,7 +753,6 @@
   </footer>
 
   <script>
-    // ── Language switching (all buttons: desktop + mobile drawer) ──
     const body = document.body;
     function setLang(lang) {
       body.classList.toggle('lang-en',  lang === 'en');
@@ -869,40 +765,27 @@
     document.querySelectorAll('[data-lang-switch]').forEach(btn => {
       btn.addEventListener('click', () => setLang(btn.dataset.langSwitch));
     });
-    // Restore saved language preference
     const saved = localStorage.getItem('dep-lang');
     if (saved) setLang(saved);
 
-    // ── Hamburger menu ──
     const hamburger = document.getElementById('hamburgerBtn');
     const drawer    = document.getElementById('mobileDrawer');
-
     function toggleDrawer(open) {
       hamburger.classList.toggle('open', open);
       drawer.classList.toggle('open', open);
       hamburger.setAttribute('aria-expanded', open);
       document.body.style.overflow = open ? 'hidden' : '';
     }
-
     hamburger.addEventListener('click', () => toggleDrawer(!drawer.classList.contains('open')));
+    drawer.querySelectorAll('.drawer-close-on-click').forEach(l => l.addEventListener('click', () => toggleDrawer(false)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleDrawer(false); });
 
-    // Close drawer when a link inside it is clicked
-    drawer.querySelectorAll('.drawer-close-on-click').forEach(link => {
-      link.addEventListener('click', () => toggleDrawer(false));
-    });
-
-    // Close on Escape
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') toggleDrawer(false);
-    });
-
-    // ── Scroll reveal ──
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
       });
     }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal, .musician-card').forEach(el => observer.observe(el));
   </script>
 
 </body>
