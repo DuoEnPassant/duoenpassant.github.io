@@ -118,7 +118,7 @@
       margin-left: auto; padding: 4px; flex-shrink: 0;
     }
     .hamburger-btn span {
-      display: block; height: 2px; background: var(--warm);
+      display: block; height: 1.5px; background: var(--ink);
       border-radius: 2px; transition: transform 0.3s, opacity 0.3s;
     }
     .hamburger-btn.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
@@ -552,7 +552,7 @@
 <!-- RIGHT: plain ensemble listing, no CV links -->
 <div class="hero-right">
   <div class="members-block">
-    <p class="members-label">The Ensemble</p>
+  
 
     <div class="member-entry">
       <p class="member-name">Merily Leotoots</p>
@@ -703,7 +703,7 @@
         <div class="contact-intro">For bookings and inquiries:</div>
         <div class="contact-subline"></div>
         <div class="contact-label">Email us</div>
-        <div class="contact-email"><a href="/cdn-cgi/l/email-protection#5c35323a331c38293339322c3d2f2f3d3228723f3331"><span class="__cf_email__" data-cfemail="31585f575e7155445e545f41504242505f451f525e5c">[email&#160;protected]</span></a></div>
+        <div class="contact-email"><a href="mailto:info@duoenpassant.com">info@duoenpassant.com</a></div>
         <div class="follow-text">Follow Duo EnPassant</div>
         <div class="social-icons">
           <a href="https://www.instagram.com/duo_enpassant/" target="_blank" rel="noopener" class="social-icon-link" aria-label="Instagram">
@@ -727,7 +727,7 @@
         <div class="contact-intro">Broneeringud ja päringud:</div>
         <div class="contact-subline"></div>
         <div class="contact-label">Kirjuta meile</div>
-        <div class="contact-email"><a href="/cdn-cgi/l/email-protection#4c25222a230c28392329223c2d3f3f2d2238622f2321"><span class="__cf_email__" data-cfemail="6d04030b022d09180208031d0c1e1e0c0319430e0200">[email&#160;protected]</span></a></div>
+        <div class="contact-email"><a href="mailto:info@duoenpassant.com">info@duoenpassant.com</a></div>
         <div class="follow-text">Jälgi Duo EnPassant</div>
         <div class="social-icons">
           <a href="https://www.instagram.com/duo_enpassant/" target="_blank" rel="noopener" class="social-icon-link" aria-label="Instagram">
@@ -752,32 +752,41 @@
     <span class="tagline">© 2026 — All rights reserved</span>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
+    const body = document.body;
+    function setLang(lang) {
+      body.classList.toggle('lang-en',  lang === 'en');
+      body.classList.toggle('lang-est', lang === 'est');
+      localStorage.setItem('dep-lang', lang);
+      document.querySelectorAll('[data-lang-switch]').forEach(b => {
+        b.classList.toggle('active', b.dataset.langSwitch === lang);
+      });
+    }
+    document.querySelectorAll('[data-lang-switch]').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.langSwitch));
+    });
+    const saved = localStorage.getItem('dep-lang');
+    if (saved) setLang(saved);
 
+    const hamburger = document.getElementById('hamburgerBtn');
+    const drawer    = document.getElementById('mobileDrawer');
+    function toggleDrawer(open) {
+      hamburger.classList.toggle('open', open);
+      drawer.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+    hamburger.addEventListener('click', () => toggleDrawer(!drawer.classList.contains('open')));
+    drawer.querySelectorAll('.drawer-close-on-click').forEach(l => l.addEventListener('click', () => toggleDrawer(false)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleDrawer(false); });
 
-const body = document.body;
-function setLang(lang) {
-  body.classList.toggle('lang-en',  lang === 'en');
-  body.classList.toggle('lang-est', lang === 'est');
-  localStorage.setItem('dep-lang', lang);
-  document.querySelectorAll('[data-lang-switch]').forEach(b => {
-    b.classList.toggle('active', b.dataset.langSwitch === lang);
-  });
-}
-document.querySelectorAll('[data-lang-switch]').forEach(btn => {
-  btn.addEventListener('click', () => setLang(btn.dataset.langSwitch));
-});
-const saved = localStorage.getItem('dep-lang');
-if (saved) setLang(saved);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal, .musician-card').forEach(el => observer.observe(el));
+  </script>
 
-const hamburger = document.getElementById('hamburgerBtn');
-const drawer    = document.getElementById('mobileDrawer');
-function toggleDrawer(open) {
-  hamburger.classList.toggle('open', open);
-  drawer.classList.toggle('open', open);
-  hamburger.setAttribute('aria-expanded', open);
-  document.body.style.overflow = open ? 'hidden' : '';
-}
-hamburger.addEventListener('click', () => toggleDrawer(!drawer.classList.contains('open')));
-drawer.querySelectorAll('.drawer-close-on-click').forEach(l => l.addEventListener('click', () => toggleDrawer(false)));
-document.addEventListener('keydown', e => { if (e.key === '
+</body>
+</html>
