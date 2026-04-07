@@ -1,277 +1,634 @@
 <!doctype html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>Concerts — Duo EnPassant</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  <title>Concerts | Duo EnPassant</title>
+  <meta name="description" content="Upcoming and past concerts — Duo EnPassant violin and cello duo." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="Favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
     :root {
-      --bg: #000000;
-      --text: #f5f5f5;
-      --muted: #d0d0d0;
-      --gold: #d4af37;
-      --accent: #ffffff;
+      --ink: #1a1614;
+      --parchment: #f5f0e8;
+      --warm: #c8a96e;
+      --muted: #7a6f65;
+      --line: rgba(200,169,110,0.3);
       --max-width: 1100px;
-      --section-padding: 5rem;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Lora', serif;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
+      background-color: var(--parchment);
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      overflow-x: hidden;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--warm); }
 
-    a:hover {
-      color: var(--gold);
-    }
-
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* TOPBAR */
-
+    /* ══════════════════════════════════════
+       TOPBAR
+    ══════════════════════════════════════ */
     .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.98), rgba(0,0,0,0.8), transparent);
-      backdrop-filter: blur(6px);
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(245,240,232,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
     }
-
     .topbar-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.3rem 1.2rem;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      font-family: 'Cinzel', serif;
-      letter-spacing: 0.12em;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-    }
-
-    .topbar-left {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .site-logo {
-      height: 80px;
-      width: auto;
-      display: block;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .nav-link {
+      display: flex; align-items: center;
+      width: 100%; padding: 0.5rem 1.5rem;
       position: relative;
-      color: var(--muted);
-      transition: color 0.25s ease;
     }
+    .home-btn {
+      display: flex; align-items: center; gap: 0.6rem;
+      text-decoration: none; color: var(--ink);
+      transition: opacity 0.2s; flex-shrink: 0;
+    }
+    .home-btn:hover { opacity: 0.72; color: var(--ink); }
+    .clef-logo { width: 48px; height: 48px; flex-shrink: 0; }
+    .home-wordmark {
+      font-family: 'Cinzel', serif; font-size: 0.68rem;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--ink); line-height: 1.5;
+    }
+    .home-wordmark span { display: block; font-size: 0.55rem; letter-spacing: 0.35em; color: var(--muted); }
 
+    .topbar-center { position: absolute; left: 50%; transform: translateX(-50%); }
+    .nav-links {
+      display: flex; gap: 1.8rem;
+      font-family: 'Cinzel', serif; font-size: 0.68rem;
+      letter-spacing: 0.3em; text-transform: uppercase;
+    }
+    .nav-link { position: relative; color: var(--muted); transition: color 0.25s; }
+    .nav-link.active { color: var(--warm); }
     .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -0.3rem;
-      width: 0;
-      height: 1px;
-      background-color: var(--gold);
-      transition: width 0.25s ease;
+      content: ""; position: absolute; left: 0; bottom: -0.3rem;
+      width: 0; height: 1px; background: var(--warm); transition: width 0.25s;
     }
+    .nav-link:hover { color: var(--ink); }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 
-    .nav-link:hover {
-      color: var(--accent);
+    .lang-toggle {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-family: 'Cinzel', serif; font-size: 0.72rem;
+      letter-spacing: 0.25em; flex-shrink: 0; margin-left: auto;
     }
-
-    .nav-link:hover::after {
-      width: 100%;
+    .lang-btn {
+      cursor: pointer; border: 1px solid transparent; background: none;
+      color: var(--muted); padding: 0.25rem 0.6rem;
+      text-transform: uppercase; letter-spacing: 0.25em;
+      font-family: 'Cinzel', serif; font-size: 0.72rem;
+      transition: color 0.2s, border-color 0.2s; border-radius: 2px;
     }
+    .lang-btn.active { color: var(--warm); border-color: var(--line); }
+    .lang-btn:hover { color: var(--ink); }
+    .lang-separator { color: var(--line); font-size: 0.72rem; }
 
-    /* PAGE HEADER */
-
-    .page-header {
-      padding: 5rem 0 3rem;
-      text-align: center;
+    .hamburger-btn {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; width: 36px; height: 36px;
+      background: none; border: none; cursor: pointer;
+      margin-left: auto; padding: 4px; flex-shrink: 0;
     }
+    .hamburger-btn span {
+      display: block; height: 1.5px; background: var(--ink);
+      border-radius: 2px; transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger-btn.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger-btn.open span:nth-child(2) { opacity: 0; }
+    .hamburger-btn.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-    .page-title {
+    .mobile-drawer {
+      display: none; position: fixed; inset: 0;
+      background: rgba(245,240,232,0.98); backdrop-filter: blur(10px);
+      z-index: 99; flex-direction: column; align-items: center;
+      justify-content: center; gap: 2.5rem;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .mobile-drawer.open { opacity: 1; pointer-events: all; }
+    .mobile-drawer a, .mobile-drawer button {
+      font-family: 'Cinzel', serif; font-size: 1.1rem;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--ink); text-decoration: none;
+      background: none; border: none; cursor: pointer;
+      transition: color 0.2s; padding: 0.3rem 0;
+    }
+    .mobile-drawer a:hover, .mobile-drawer button:hover { color: var(--warm); }
+    .mobile-drawer-rule { width: 40px; height: 1px; background: var(--line); }
+    .mobile-lang-row { display: flex; align-items: center; gap: 0.6rem; }
+    .mobile-lang-btn {
+      font-family: 'Cinzel', serif; font-size: 0.9rem;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--muted); background: none;
+      border: 1px solid transparent; cursor: pointer;
+      padding: 0.3rem 0.7rem; border-radius: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .mobile-lang-btn.active { color: var(--warm); border-color: var(--line); }
+
+    /* ══════════════════════════════════════
+       PAGE HERO BAND  (same as media.html)
+    ══════════════════════════════════════ */
+    .page-hero {
+      background: var(--ink);
+      padding: 4rem 1.5rem 3.5rem;
+      position: relative; overflow: hidden;
+    }
+    .page-hero-staff {
+      position: absolute; left: 0; right: 0;
+      top: 50%; transform: translateY(-50%);
+      opacity: 0.06; pointer-events: none;
+    }
+    .page-hero-staff span { display: block; height: 1px; background: var(--parchment); margin: 16px 0; }
+    .page-hero-inner {
+      position: relative; z-index: 2;
+      max-width: var(--max-width); margin: 0 auto;
+      display: flex; align-items: flex-end;
+      justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+    }
+    .page-hero-eyebrow {
+      font-family: 'Cinzel', serif; font-size: 0.6rem;
+      letter-spacing: 0.5em; text-transform: uppercase;
+      color: var(--warm); margin-bottom: 1rem; display: block;
+    }
+    .page-hero-title {
       font-family: 'Cinzel', serif;
-      font-size: 2rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 400; color: var(--parchment);
+      letter-spacing: 0.08em; line-height: 1;
+    }
+    .page-hero-title em {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 300;
+      color: var(--warm); letter-spacing: 0.02em;
+    }
+    .page-hero-rule {
+      width: 1px; height: 60px; align-self: center;
+      background: linear-gradient(to bottom, transparent, var(--warm), transparent);
+      flex-shrink: 0;
+    }
+    .page-hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.1rem;
+      color: rgba(245,240,232,0.45); max-width: 20rem;
     }
 
-    .page-line {
-      width: 200px;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--gold), transparent);
-      margin: 1.2rem auto 0;
+    /* ══════════════════════════════════════
+       MAIN CONTENT
+    ══════════════════════════════════════ */
+    .container {
+      width: 100%; max-width: var(--max-width);
+      margin: 0 auto; padding: 0 1.5rem;
     }
 
-    /* CONCERTS */
+    .content-section { padding: 5rem 0; }
 
-    .concerts-section {
-      flex: 1;
+    .section-label {
+      font-family: 'Cinzel', serif; font-size: 0.6rem;
+      letter-spacing: 0.5em; text-transform: uppercase;
+      color: var(--warm); margin-bottom: 3rem;
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--line), transparent);
     }
 
-    .concert-list {
-      max-width: 720px;
-      margin: 0 auto;
-    }
+    /* ══════════════════════════════════════
+       CONCERT LIST
+    ══════════════════════════════════════ */
+    .concert-list { display: flex; flex-direction: column; gap: 0; }
 
     .concert-item {
-      margin-bottom: 2rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: grid;
+      grid-template-columns: 160px 1fr auto;
+      align-items: start;
+      gap: 0 2.5rem;
+      padding: 2.2rem 0;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.7s cubic-bezier(0.16,1,0.3,1);
+      cursor: default;
     }
+    .concert-item:first-child { border-top: 1px solid var(--line); }
+    .concert-item.visible { opacity: 1; transform: translateY(0); }
+
+    /* Subtle hover tint */
+    .concert-item::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(200,169,110,0.04);
+      opacity: 0; transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .concert-item:hover::before { opacity: 1; }
+
+    /* DATE column */
+    .concert-date-col {
+      padding-top: 0.15rem;
+    }
+    .concert-day {
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem; font-weight: 400;
+      color: var(--warm); line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .concert-month-year {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.6rem; font-weight: 300;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--muted); margin-top: 0.3rem;
+    }
+
+    /* DETAILS column */
+    .concert-details { min-width: 0; }
 
     .concert-title {
-      font-family: 'Cinzel', serif;
-      letter-spacing: 0.08em;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      font-weight: 400; color: var(--ink);
+      line-height: 1.3; margin-bottom: 0.4rem;
     }
-
     .concert-venue {
-      font-size: 0.95rem;
-      color: var(--muted);
-      margin-bottom: 0.3rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem; font-weight: 300;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 0.6rem;
     }
-
     .concert-programme {
-      font-size: 0.9rem;
-      color: var(--text);
-      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-style: italic;
+      color: var(--muted); line-height: 1.6;
+    }
+    .concert-programme-label {
+      font-style: normal;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.58rem; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--warm);
+      margin-right: 0.5rem;
     }
 
-    /* FOOTER */
+    /* STATUS badge */
+    .concert-status {
+      flex-shrink: 0;
+      align-self: start;
+      padding-top: 0.25rem;
+    }
+    .badge {
+      font-family: 'Cinzel', serif;
+      font-size: 0.52rem; letter-spacing: 0.3em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.7rem;
+      border: 1px solid;
+      white-space: nowrap;
+    }
+    .badge-upcoming { color: var(--warm); border-color: var(--line); }
+    .badge-past     { color: var(--muted); border-color: rgba(122,111,101,0.25); }
 
-    .footer {
-      margin-top: auto;
-      padding: 2rem 1.5rem 2.5rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    /* ── No concerts message ── */
+    .no-concerts {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.2rem;
+      color: var(--muted); padding: 3rem 0;
     }
 
+    /* ══════════════════════════════════════
+       LANGUAGE
+    ══════════════════════════════════════ */
+    [data-lang-block] { display: none; }
+    body.lang-en  [data-lang-block="en"]  { display: block; }
+    body.lang-est [data-lang-block="est"] { display: block; }
+
+    /* inline spans */
+    [data-lang] { display: none; }
+    body.lang-en  [data-lang="en"]  { display: inline; }
+    body.lang-est [data-lang="est"] { display: inline; }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    footer {
+      margin-top: auto; background: var(--ink);
+      padding: 2rem 3rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    footer .logo { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: rgba(245,240,232,0.3); text-transform: uppercase; }
+    footer .tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.95rem; color: var(--warm); opacity: 0.65; }
+
+    /* ══════════════════════════════════════
+       ANIMATIONS
+    ══════════════════════════════════════ */
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .fade-in { opacity: 0; transform: translateY(20px); animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.2s forwards; }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
     @media (max-width: 800px) {
-      .site-logo {
-        height: 60px;
-      }
+      .hamburger-btn { display: flex; }
+      .topbar-center { display: none; }
+      .lang-toggle   { display: none; }
+      .home-wordmark { display: none; }
+      .topbar-inner  { padding: 0.4rem 1rem; }
+      .mobile-drawer { display: flex; }
 
-      .nav-links {
-        gap: 1rem;
-        font-size: 0.7rem;
+      .page-hero { padding: 3rem 1.5rem 2.5rem; }
+      .page-hero-rule, .page-hero-sub { display: none; }
+
+      /* Stack concert items */
+      .concert-item {
+        grid-template-columns: 80px 1fr;
+        grid-template-rows: auto auto;
+        gap: 0 1.2rem;
       }
+      .concert-date-col { grid-row: 1; }
+      .concert-details  { grid-row: 1; }
+      .concert-status   { grid-column: 2; grid-row: 2; padding-top: 0.8rem; }
+      .concert-day      { font-size: 1.6rem; }
+
+      footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 1.5rem; }
+      .container { padding: 0 1.2rem; }
+      .content-section { padding: 3.5rem 0; }
+    }
+
+    @media (max-width: 480px) {
+      .concert-item { grid-template-columns: 1fr; }
+      .concert-date-col { display: flex; align-items: baseline; gap: 0.8rem; margin-bottom: 0.6rem; }
+      .concert-month-year { margin-top: 0; }
+      .concert-status { grid-column: 1; padding-top: 0.6rem; }
     }
   </style>
+
 </head>
 
-<body>
+<body class="lang-en">
 
-  <div class="page">
+  <!-- MOBILE DRAWER -->
 
-    <!-- TOPBAR -->
-    <header class="topbar">
-      <div class="topbar-inner">
-        <div class="topbar-left">
-          <a href="site.html">
-            <img src="EPlogo.png" alt="Duo EnPassant logo" class="site-logo">
-          </a>
-
-          <nav class="nav-links">
-            <a href="media.html" class="nav-link">Media</a>
-            <a href="concerts.html" class="nav-link">Concerts</a>
-            <a href="site.html#contact" class="nav-link">Contact</a>
-          </nav>
-        </div>
-      </div>
-    </header>
-
-    <!-- HEADER -->
-    <section class="page-header">
-      <div class="container">
-        <h1 class="page-title">Concerts</h1>
-        <div class="page-line"></div>
-      </div>
-    </section>
-
-    <!-- CONCERTS -->
-    <section class="concerts-section">
-      <div class="container">
-        <div class="concert-list">
-
-          <div class="concert-item">
-            <div class="concert-title">26 February 2026 — Concert</div>
-            <div class="concert-venue">Cruise Terminal</div>
-            <div class="concert-programme">Programme: Handel, Haydn, Glière</div>
-          </div>
-
-          <div class="concert-item">
-            <div class="concert-title">24 March 2026 — Elbe Reiter Memorial Concert</div>
-            <div class="concert-venue">EMTA Chamber Hall</div>
-            <div class="concert-programme">Programme: Schulhoff</div>
-          </div>
-
-          <div class="concert-item">
-            <div class="concert-title">16 April 2026 — Children's Concert</div>
-            <div class="concert-venue">Tallinn International Kindergarten</div>
-            <div class="concert-programme">Programme: Glière</div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      © 2026 Duo EnPassant — All rights reserved.
-    </footer>
-
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-label="Navigation menu">
+    <a href="media.html"        class="drawer-close-on-click">Media</a>
+    <a href="concerts.html"     class="drawer-close-on-click">Concerts</a>
+    <a href="site.html#contact" class="drawer-close-on-click">Contact</a>
+    <div class="mobile-drawer-rule"></div>
+    <div class="mobile-lang-row">
+      <button class="mobile-lang-btn active" data-lang-switch="en"  type="button">EN</button>
+      <span style="color:var(--line)">|</span>
+      <button class="mobile-lang-btn"        data-lang-switch="est" type="button">EST</button>
+    </div>
   </div>
+
+  <!-- TOPBAR -->
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="site.html" class="home-btn" aria-label="Duo EnPassant — Home">
+        <svg class="clef-logo" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="4" y1="20" x2="48" y2="20" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+          <line x1="4" y1="24" x2="48" y2="24" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+          <line x1="4" y1="28" x2="48" y2="28" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+          <line x1="4" y1="32" x2="48" y2="32" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+          <line x1="4" y1="36" x2="48" y2="36" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+          <text x="5"  y="40" font-family="serif" font-size="34" fill="#1a1614" opacity="0.9">𝄞</text>
+          <text x="27" y="34" font-family="serif" font-size="22" fill="#c8a96e" opacity="0.9">𝄢</text>
+        </svg>
+        <div class="home-wordmark">
+          Duo EnPassant
+          <span>Violin &amp; Cello</span>
+        </div>
+      </a>
+
+```
+  <nav class="topbar-center nav-links" aria-label="Main navigation">
+    <a href="media.html"        class="nav-link">Media</a>
+    <a href="concerts.html"     class="nav-link active">Concerts</a>
+    <a href="site.html#contact" class="nav-link">Contact</a>
+  </nav>
+
+  <div class="lang-toggle" aria-label="Language selector">
+    <button class="lang-btn active" data-lang-switch="en"  type="button">EN</button>
+    <span class="lang-separator">|</span>
+    <button class="lang-btn"        data-lang-switch="est" type="button">EST</button>
+  </div>
+
+  <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+```
+
+  </header>
+
+  <!-- PAGE HERO -->
+
+  <div class="page-hero">
+    <div class="page-hero-staff" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="page-hero-inner fade-in">
+      <div>
+        <span class="page-hero-eyebrow">Duo EnPassant</span>
+        <h1 class="page-hero-title">
+          <span data-lang="en">Concerts</span>
+          <span data-lang="est"><em>Kontserdid</em></span>
+        </h1>
+      </div>
+      <div class="page-hero-rule" aria-hidden="true"></div>
+      <p class="page-hero-sub">
+        <span data-lang="en">Upcoming &amp; recent performances</span>
+        <span data-lang="est">Tulevased ja hiljutised esinemised</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- CONCERTS -->
+
+  <section class="content-section">
+    <div class="container">
+
+```
+  <!-- Upcoming (EN) -->
+  <div data-lang-block="en">
+    <p class="section-label">Upcoming</p>
+  </div>
+  <div data-lang-block="est">
+    <p class="section-label">Tulevased</p>
+  </div>
+
+  <div class="concert-list" id="upcomingList">
+
+    <div class="concert-item">
+      <div class="concert-date-col">
+        <div class="concert-day">16</div>
+        <div class="concert-month-year">
+          <span data-lang="en">Apr 2026</span>
+          <span data-lang="est">Apr 2026</span>
+        </div>
+      </div>
+      <div class="concert-details">
+        <div class="concert-title">
+          <span data-lang="en">Children's Concert</span>
+          <span data-lang="est">Lastekontert</span>
+        </div>
+        <div class="concert-venue">Tallinn International Kindergarten</div>
+        <div class="concert-programme">
+          <span class="concert-programme-label">
+            <span data-lang="en">Programme</span>
+            <span data-lang="est">Kava</span>
+          </span>
+          Glière
+        </div>
+      </div>
+      <div class="concert-status">
+        <span class="badge badge-upcoming">
+          <span data-lang="en">Upcoming</span>
+          <span data-lang="est">Tulemas</span>
+        </span>
+      </div>
+    </div>
+
+  </div><!-- /upcomingList -->
+
+  <!-- Past (EN) -->
+  <div style="margin-top: 4rem;">
+    <div data-lang-block="en">
+      <p class="section-label">Past Performances</p>
+    </div>
+    <div data-lang-block="est">
+      <p class="section-label">Varasemad esinemised</p>
+    </div>
+
+    <div class="concert-list">
+
+      <div class="concert-item">
+        <div class="concert-date-col">
+          <div class="concert-day">24</div>
+          <div class="concert-month-year">
+            <span data-lang="en">Mar 2026</span>
+            <span data-lang="est">Mar 2026</span>
+          </div>
+        </div>
+        <div class="concert-details">
+          <div class="concert-title">
+            <span data-lang="en">Elbe Reiter Memorial Concert</span>
+            <span data-lang="est">Elbe Reiteri mälestuskontert</span>
+          </div>
+          <div class="concert-venue">EMTA Chamber Hall</div>
+          <div class="concert-programme">
+            <span class="concert-programme-label">
+              <span data-lang="en">Programme</span>
+              <span data-lang="est">Kava</span>
+            </span>
+            Schulhoff
+          </div>
+        </div>
+        <div class="concert-status">
+          <span class="badge badge-past">
+            <span data-lang="en">Past</span>
+            <span data-lang="est">Toimunud</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="concert-item">
+        <div class="concert-date-col">
+          <div class="concert-day">26</div>
+          <div class="concert-month-year">
+            <span data-lang="en">Feb 2026</span>
+            <span data-lang="est">Feb 2026</span>
+          </div>
+        </div>
+        <div class="concert-details">
+          <div class="concert-title">
+            <span data-lang="en">Concert</span>
+            <span data-lang="est">Kontsert</span>
+          </div>
+          <div class="concert-venue">Cruise Terminal</div>
+          <div class="concert-programme">
+            <span class="concert-programme-label">
+              <span data-lang="en">Programme</span>
+              <span data-lang="est">Kava</span>
+            </span>
+            Handel, Haydn, Glière
+          </div>
+        </div>
+        <div class="concert-status">
+          <span class="badge badge-past">
+            <span data-lang="en">Past</span>
+            <span data-lang="est">Toimunud</span>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <span class="logo">Duo EnPassant</span>
+    <span class="tagline">© 2026 — All rights reserved</span>
+  </footer>
+
+  <script>
+    // ── Language ──
+    const body = document.body;
+    function setLang(lang) {
+      body.classList.toggle('lang-en',  lang === 'en');
+      body.classList.toggle('lang-est', lang === 'est');
+      localStorage.setItem('dep-lang', lang);
+      document.querySelectorAll('[data-lang-switch]').forEach(b => {
+        b.classList.toggle('active', b.dataset.langSwitch === lang);
+      });
+    }
+    document.querySelectorAll('[data-lang-switch]').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.langSwitch));
+    });
+    const saved = localStorage.getItem('dep-lang');
+    if (saved) setLang(saved);
+
+    // ── Hamburger ──
+    const hamburger = document.getElementById('hamburgerBtn');
+    const drawer    = document.getElementById('mobileDrawer');
+    function toggleDrawer(open) {
+      hamburger.classList.toggle('open', open);
+      drawer.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+    hamburger.addEventListener('click', () => toggleDrawer(!drawer.classList.contains('open')));
+    drawer.querySelectorAll('.drawer-close-on-click').forEach(l => l.addEventListener('click', () => toggleDrawer(false)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleDrawer(false); });
+
+    // ── Scroll reveal ──
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.concert-item').forEach(el => obs.observe(el));
+  </script>
 
 </body>
 </html>
