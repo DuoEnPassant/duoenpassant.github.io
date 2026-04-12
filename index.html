@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -7,6 +6,7 @@
   <title>Duo EnPassant | Violin & Cello Duo</title>
   <meta name="description" content="Duo EnPassant — violin and cello duo performing classical chamber music." />
   <link rel="canonical" href="https://www.duoenpassant.com/" />
+  <link rel="preload" as="image" href="1.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;500&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="Favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -63,7 +63,9 @@
     .landing-content {
       text-align: center;
       opacity: 0; transform: translateY(28px);
-      animation: fadeUp 1.3s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
+    }
+    .landing-content.ready {
+      animation: fadeUp 1.3s cubic-bezier(0.16,1,0.3,1) forwards;
     }
     .clef-hero { width: 80px; height: 80px; margin: 0 auto 2rem; display: block; }
     .landing-eyebrow {
@@ -143,50 +145,47 @@
 
   <div class="landing">
 
+    <div class="lang-row" aria-label="Language selector">
+      <button class="lang-btn active" data-lang-switch="en"  type="button">EN</button>
+      <span class="lang-separator">|</span>
+      <button class="lang-btn"        data-lang-switch="est" type="button">EST</button>
+    </div>
 
-<div class="lang-row" aria-label="Language selector">
-  <button class="lang-btn active" data-lang-switch="en"  type="button">EN</button>
-  <span class="lang-separator">|</span>
-  <button class="lang-btn"        data-lang-switch="est" type="button">EST</button>
-</div>
+    <div class="landing-content">
+      <svg class="clef-hero" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="8" y1="36" x2="82" y2="36" stroke="#c8a96e" stroke-width="0.8" opacity="0.5"/>
+        <line x1="8" y1="43" x2="82" y2="43" stroke="#c8a96e" stroke-width="0.8" opacity="0.5"/>
+        <line x1="8" y1="50" x2="82" y2="50" stroke="#c8a96e" stroke-width="0.8" opacity="0.5"/>
+        <line x1="8" y1="57" x2="82" y2="57" stroke="#c8a96e" stroke-width="0.8" opacity="0.5"/>
+        <line x1="8" y1="64" x2="82" y2="64" stroke="#c8a96e" stroke-width="0.8" opacity="0.5"/>
+        <text x="8"  y="72" font-family="serif" font-size="62" fill="#f5f0e8">𝄞</text>
+        <text x="50" y="60" font-family="serif" font-size="40" fill="#c8a96e">𝄢</text>
+      </svg>
 
-<div class="landing-content">
-  <svg class="clef-hero" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <line x1="8" y1="36" x2="82" y2="36" stroke="#c8a96e" stroke-width="0.8" opacity="0.5"/>
-    <line x1="8" y1="43" x2="82" y2="43" stroke="#c8a96e" stroke-width="0.8" opacity="0.5"/>
-    <line x1="8" y1="50" x2="82" y2="50" stroke="#c8a96e" stroke-width="0.8" opacity="0.5"/>
-    <line x1="8" y1="57" x2="82" y2="57" stroke="#c8a96e" stroke-width="0.8" opacity="0.5"/>
-    <line x1="8" y1="64" x2="82" y2="64" stroke="#c8a96e" stroke-width="0.8" opacity="0.5"/>
-    <text x="8"  y="72" font-family="serif" font-size="62" fill="#f5f0e8">𝄞</text>
-    <text x="50" y="60" font-family="serif" font-size="40" fill="#c8a96e">𝄢</text>
-  </svg>
+      <p class="landing-eyebrow">
+        <span data-lang="en">Violin &amp; Cello</span>
+        <span data-lang="est">Viiul &amp; Tšello</span>
+      </p>
 
-  <p class="landing-eyebrow">
-    <span data-lang="en">Violin &amp; Cello</span>
-    <span data-lang="est">Viiul &amp; Tšello</span>
-  </p>
+      <h1 class="landing-title">Duo <em>En<br>Passant</em></h1>
 
-  <h1 class="landing-title">Duo <em>En<br>Passant</em></h1>
+      <div class="landing-rule"></div>
 
-  <div class="landing-rule"></div>
+      <p class="landing-sub">
+        <span data-lang="en">International String Duo</span>
+        <span data-lang="est">Rahvusvaheline keelpilliduo</span>
+      </p>
 
-  <p class="landing-sub">
-    <span data-lang="en">International String Duo</span>
-    <span data-lang="est">Rahvusvaheline keelpilliduo</span>
-  </p>
+      <p class="landing-names">
+        Merily Leotoots<br>
+        Anna Ryland-Jones
+      </p>
 
-  <p class="landing-names">
-    Merily Leotoots<br>
-    Anna Ryland-Jones
-  </p>
-
-  <!-- Enter button passes chosen language to site.html via URL hash -->
-  <a href="site.html" class="enter-btn" id="enterBtn">
-    <span data-lang="en">Enter</span>
-    <span data-lang="est">Sisene</span>
-  </a>
-</div>
-
+      <a href="site.html" class="enter-btn" id="enterBtn">
+        <span data-lang="en">Enter</span>
+        <span data-lang="est">Sisene</span>
+      </a>
+    </div>
 
   </div>
 
@@ -202,13 +201,27 @@
       });
     }
 
-    // Restore saved preference on load
     const saved = localStorage.getItem('dep-lang');
     if (saved) setLang(saved);
 
     document.querySelectorAll('[data-lang-switch]').forEach(btn => {
       btn.addEventListener('click', () => setLang(btn.dataset.langSwitch));
     });
+
+    // Näita sisu alles siis, kui taustapilt on laaditud
+    const img = document.querySelector('.bg-photo');
+    const content = document.querySelector('.landing-content');
+
+    function revealContent() {
+      content.classList.add('ready');
+    }
+
+    if (img.complete) {
+      revealContent();
+    } else {
+      img.addEventListener('load', revealContent);
+      setTimeout(revealContent, 3000); // Näita ikkagi 3 sek pärast
+    }
   </script>
 
 </body>
