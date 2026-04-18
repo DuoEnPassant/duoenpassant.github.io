@@ -37,9 +37,7 @@
     a { color: inherit; text-decoration: none; }
     a:hover { color: var(--warm); }
 
-    /* ══════════════════════════════════════
-       TOPBAR
-    ══════════════════════════════════════ */
+    /* TOPBAR */
     .topbar {
       position: sticky; top: 0; z-index: 100;
       background: rgba(245,240,232,0.95);
@@ -138,9 +136,7 @@
     }
     .mobile-lang-btn.active { color: var(--warm); border-color: var(--line); }
 
-    /* ══════════════════════════════════════
-       PAGE HERO BAND  (same as media.html)
-    ══════════════════════════════════════ */
+    /* PAGE HERO */
     .page-hero {
       background: var(--ink);
       padding: 4rem 1.5rem 3.5rem;
@@ -185,14 +181,8 @@
       color: rgba(245,240,232,0.45); max-width: 20rem;
     }
 
-    /* ══════════════════════════════════════
-       MAIN CONTENT
-    ══════════════════════════════════════ */
-    .container {
-      width: 100%; max-width: var(--max-width);
-      margin: 0 auto; padding: 0 1.5rem;
-    }
-
+    /* MAIN */
+    .container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
     .content-section { padding: 5rem 0; }
 
     .section-label {
@@ -206,9 +196,7 @@
       background: linear-gradient(to right, var(--line), transparent);
     }
 
-    /* ══════════════════════════════════════
-       CONCERT LIST
-    ══════════════════════════════════════ */
+    /* CONCERT LIST */
     .concert-list { display: flex; flex-direction: column; gap: 0; }
 
     .concert-item {
@@ -222,30 +210,36 @@
       opacity: 0; transform: translateY(20px);
       transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
                   transform 0.7s cubic-bezier(0.16,1,0.3,1);
-      cursor: default;
     }
     .concert-item:first-child { border-top: 1px solid var(--line); }
     .concert-item.visible { opacity: 1; transform: translateY(0); }
 
-    /* Subtle hover tint */
     .concert-item::before {
-      content: '';
-      position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: rgba(200,169,110,0.04);
-      opacity: 0; transition: opacity 0.3s;
-      pointer-events: none;
+      opacity: 0; transition: opacity 0.3s; pointer-events: none;
     }
     .concert-item:hover::before { opacity: 1; }
 
-    /* DATE column */
-    .concert-date-col {
-      padding-top: 0.15rem;
+    /* Past items: slightly faded */
+    .concert-item.is-past {
+      opacity: 0; /* starts hidden for reveal animation */
     }
+    .concert-item.is-past.visible {
+      opacity: 0.6;
+    }
+    .concert-item.is-past.visible:hover {
+      opacity: 1;
+    }
+    .concert-item.is-past .concert-day { color: var(--muted); }
+
+    .concert-date-col { padding-top: 0.15rem; }
     .concert-day {
       font-family: 'Cinzel', serif;
       font-size: 2.2rem; font-weight: 400;
       color: var(--warm); line-height: 1;
       letter-spacing: -0.02em;
+      transition: color 0.3s;
     }
     .concert-month-year {
       font-family: 'Raleway', sans-serif;
@@ -254,9 +248,7 @@
       color: var(--muted); margin-top: 0.3rem;
     }
 
-    /* DETAILS column */
     .concert-details { min-width: 0; }
-
     .concert-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.2rem, 2vw, 1.5rem);
@@ -282,12 +274,7 @@
       margin-right: 0.5rem;
     }
 
-    /* STATUS badge */
-    .concert-status {
-      flex-shrink: 0;
-      align-self: start;
-      padding-top: 0.25rem;
-    }
+    .concert-status { flex-shrink: 0; align-self: start; padding-top: 0.25rem; }
     .badge {
       font-family: 'Cinzel', serif;
       font-size: 0.52rem; letter-spacing: 0.3em;
@@ -299,28 +286,21 @@
     .badge-upcoming { color: var(--warm); border-color: var(--line); }
     .badge-past     { color: var(--muted); border-color: rgba(122,111,101,0.25); }
 
-    /* ── No concerts message ── */
     .no-concerts {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic; font-size: 1.2rem;
       color: var(--muted); padding: 3rem 0;
     }
 
-    /* ══════════════════════════════════════
-       LANGUAGE
-    ══════════════════════════════════════ */
+    /* LANGUAGE */
     [data-lang-block] { display: none; }
     body.lang-en  [data-lang-block="en"]  { display: block; }
     body.lang-est [data-lang-block="est"] { display: block; }
-
-    /* inline spans */
     [data-lang] { display: none; }
     body.lang-en  [data-lang="en"]  { display: inline; }
     body.lang-est [data-lang="est"] { display: inline; }
 
-    /* ══════════════════════════════════════
-       FOOTER
-    ══════════════════════════════════════ */
+    /* FOOTER */
     footer {
       margin-top: auto; background: var(--ink);
       padding: 2rem 3rem;
@@ -329,27 +309,17 @@
     footer .logo { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: rgba(245,240,232,0.3); text-transform: uppercase; }
     footer .tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.95rem; color: var(--warm); opacity: 0.65; }
 
-    /* ══════════════════════════════════════
-       ANIMATIONS
-    ══════════════════════════════════════ */
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
     .fade-in { opacity: 0; transform: translateY(20px); animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.2s forwards; }
 
-    /* ══════════════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════════════ */
+    /* RESPONSIVE */
     @media (max-width: 800px) {
       .hamburger-btn { display: flex; }
-      .topbar-center { display: none; }
-      .lang-toggle   { display: none; }
-      .home-wordmark { display: none; }
-      .topbar-inner  { padding: 0.4rem 1rem; }
+      .topbar-center, .lang-toggle, .home-wordmark { display: none; }
+      .topbar-inner { padding: 0.4rem 1rem; }
       .mobile-drawer { display: flex; }
-
       .page-hero { padding: 3rem 1.5rem 2.5rem; }
       .page-hero-rule, .page-hero-sub { display: none; }
-
-      /* Stack concert items */
       .concert-item {
         grid-template-columns: 80px 1fr;
         grid-template-rows: auto auto;
@@ -359,7 +329,6 @@
       .concert-details  { grid-row: 1; }
       .concert-status   { grid-column: 2; grid-row: 2; padding-top: 0.8rem; }
       .concert-day      { font-size: 1.6rem; }
-
       footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 1.5rem; }
       .container { padding: 0 1.2rem; }
       .content-section { padding: 3.5rem 0; }
@@ -411,7 +380,7 @@
         </div>
       </a>
 
-
+```
   <nav class="topbar-center nav-links" aria-label="Main navigation">
     <a href="media.html"        class="nav-link">Media</a>
     <a href="concerts.html"     class="nav-link active">Concerts</a>
@@ -428,7 +397,7 @@
     <span></span><span></span><span></span>
   </button>
 </div>
-
+```
 
   </header>
 
@@ -456,254 +425,229 @@
 
   <!-- CONCERTS -->
 
- <section class="content-section">
-  <div class="container">
+  <!--
+    ╔══════════════════════════════════════════════════════════╗
+    ║  HOW TO ADD A CONCERT:                                   ║
+    ║  1. Copy a .concert-item block below                     ║
+    ║  2. Set data-date="YYYY-MM-DD" to the concert date       ║
+    ║  3. Fill in title, venue, programme                      ║
+    ║  4. That's it — past/upcoming is automatic!              ║
+    ╚══════════════════════════════════════════════════════════╝
+  -->
 
-    <!-- Upcoming -->
-    <div data-lang-block="en">
-      <p class="section-label">Upcoming</p>
-    </div>
-    <div data-lang-block="est">
-      <p class="section-label">Tulevased</p>
-    </div>
+  <section class="content-section">
+    <div class="container">
 
-    <div class="concert-list" id="upcomingList">
+```
+  <!-- UPCOMING (auto-populated by JS) -->
+  <div id="upcomingSection">
+    <div data-lang-block="en"><p class="section-label">Upcoming</p></div>
+    <div data-lang-block="est"><p class="section-label">Tulevased</p></div>
+    <div class="concert-list" id="upcomingList"></div>
+  </div>
 
-      <div class="concert-item">
-        <div class="concert-date-col">
-          <div class="concert-day">16</div>
-          <div class="concert-month-year">
-            <span data-lang="en">Apr 2026</span>
-            <span data-lang="est">Apr 2026</span>
-          </div>
-        </div>
-        <div class="concert-details">
-          <div class="concert-title">
-            <span data-lang="en">Children's Concert</span>
-            <span data-lang="est">Lastekontsert</span>
-          </div>
-          <div class="concert-venue">
-            <span data-lang="en">Tallinn International Kindergarten</span>
-            <span data-lang="est">Tallinna Rahvusvaheline Lasteaed</span>
-          </div>
-          <div class="concert-programme">
-            <span class="concert-programme-label">
-              <span data-lang="en">Programme</span>
-              <span data-lang="est">Kava</span>
-            </span>
-            Glière
-          </div>
-        </div>
-        <div class="concert-status">
-          <span class="badge badge-upcoming">
-            <span data-lang="en">Upcoming</span>
-            <span data-lang="est">Tulemas</span>
-          </span>
-        </div>
-      </div>
-
-      <div class="concert-item">
-        <div class="concert-date-col">
-          <div class="concert-day">10</div>
-          <div class="concert-month-year">
-            <span data-lang="en">Jun 2026</span>
-            <span data-lang="est">Juuni 2026</span>
-          </div>
-        </div>
-        <div class="concert-details">
-          <div class="concert-title">
-            <span data-lang="en">Summer Concert</span>
-            <span data-lang="est">Suvekontsert</span>
-          </div>
-          <div class="concert-venue">
-            <span data-lang="en">Lasnamäe Community Garden</span>
-            <span data-lang="est">Lasnamäe kogukonnaaed</span>
-          </div>
-          <div class="concert-programme">
-            <span class="concert-programme-label">
-              <span data-lang="en">Programme</span>
-              <span data-lang="est">Kava</span>
-            </span>
-            Bach, Saint-Saëns, Glière
-          </div>
-        </div>
-        <div class="concert-status">
-          <span class="badge badge-upcoming">
-            <span data-lang="en">Upcoming</span>
-            <span data-lang="est">Tulemas</span>
-          </span>
-        </div>
-      </div>
-
-    </div><!-- /upcomingList -->
-
-    <!-- Past -->
-    <div style="margin-top: 4rem;">
-      <div data-lang-block="en">
-        <p class="section-label">Past Performances</p>
-      </div>
-      <div data-lang-block="est">
-        <p class="section-label">Varasemad esinemised</p>
-      </div>
-
-      <div class="concert-list">
-
-        <div class="concert-item">
-          <div class="concert-date-col">
-            <div class="concert-day">24</div>
-            <div class="concert-month-year">Mar 2026</div>
-          </div>
-          <div class="concert-details">
-            <div class="concert-title">
-              <span data-lang="en">Elbe Reiter Memorial Concert</span>
-              <span data-lang="est">Elbe Reiteri mälestuskontsert</span>
-            </div>
-            <div class="concert-venue">
-              <span data-lang="en">EMTA Chamber Hall</span>
-              <span data-lang="est">EMTA kammersaal</span>
-            </div>
-            <div class="concert-programme">
-              <span class="concert-programme-label">
-                <span data-lang="en">Programme</span>
-                <span data-lang="est">Kava</span>
-              </span>
-              Schulhoff
-            </div>
-          </div>
-          <div class="concert-status">
-            <span class="badge badge-past">
-              <span data-lang="en">Past</span>
-              <span data-lang="est">Toimunud</span>
-            </span>
-          </div>
-        </div>
-
-        <div class="concert-item">
-          <div class="concert-date-col">
-            <div class="concert-day">26</div>
-            <div class="concert-month-year">Feb 2026</div>
-          </div>
-          <div class="concert-details">
-            <div class="concert-title">
-              <span data-lang="en">Concert</span>
-              <span data-lang="est">Kontsert</span>
-            </div>
-            <div class="concert-venue">
-              <span data-lang="en">Tallinn Cruise Terminal</span>
-              <span data-lang="est">Tallinna kruiisiterminal</span>
-            </div>
-            <div class="concert-programme">
-              <span class="concert-programme-label">
-                <span data-lang="en">Programme</span>
-                <span data-lang="est">Kava</span>
-              </span>
-              Handel, Haydn, Glière
-            </div>
-          </div>
-          <div class="concert-status">
-            <span class="badge badge-past">
-              <span data-lang="en">Past</span>
-              <span data-lang="est">Toimunud</span>
-            </span>
-          </div>
-        </div>
-
-        <div class="concert-item">
-          <div class="concert-date-col">
-            <div class="concert-day">13</div>
-            <div class="concert-month-year">Sep 2025</div>
-          </div>
-          <div class="concert-details">
-            <div class="concert-title">
-              <span data-lang="en">Concert</span>
-              <span data-lang="est">Kontsert</span>
-            </div>
-            <div class="concert-venue">
-              <span data-lang="en">Padise Monastery</span>
-              <span data-lang="est">Padise klooster</span>
-            </div>
-            <div class="concert-programme">
-              <span class="concert-programme-label">
-                <span data-lang="en">Programme</span>
-                <span data-lang="est">Kava</span>
-              </span>
-              Handel, Haydn, Glière, Schulhoff, Halvorsen
-            </div>
-          </div>
-          <div class="concert-status">
-            <span class="badge badge-past">
-              <span data-lang="en">Past</span>
-              <span data-lang="est">Toimunud</span>
-            </span>
-          </div>
-        </div>
-
-        <div class="concert-item">
-          <div class="concert-date-col">
-            <div class="concert-day">9</div>
-            <div class="concert-month-year">Jul 2025</div>
-          </div>
-          <div class="concert-details">
-            <div class="concert-title">
-              <span data-lang="en">Midweek Recital</span>
-              <span data-lang="est">Kesknädala helirännak</span>
-            </div>
-            <div class="concert-venue">
-              <span data-lang="en">Risti Church</span>
-              <span data-lang="est">Risti kirik</span>
-            </div>
-            <div class="concert-programme">
-              <span class="concert-programme-label">
-                <span data-lang="en">Programme</span>
-                <span data-lang="est">Kava</span>
-              </span>
-              Handel, Bach, Ysaÿe, Schulhoff
-            </div>
-          </div>
-          <div class="concert-status">
-            <span class="badge badge-past">
-              <span data-lang="en">Past</span>
-              <span data-lang="est">Toimunud</span>
-            </span>
-          </div>
-        </div>
-
-        <div class="concert-item">
-          <div class="concert-date-col">
-            <div class="concert-day">2</div>
-            <div class="concert-month-year">Jul 2025</div>
-          </div>
-          <div class="concert-details">
-            <div class="concert-title">
-              <span data-lang="en">Reflections Across Time</span>
-              <span data-lang="est">Peegeldused ajas</span>
-            </div>
-            <div class="concert-venue">
-              <span data-lang="en">Keila St. Michael's Church</span>
-              <span data-lang="est">Keila Miikaeli kirik</span>
-            </div>
-            <div class="concert-programme">
-              <span class="concert-programme-label">
-                <span data-lang="en">Programme</span>
-                <span data-lang="est">Kava</span>
-              </span>
-              Handel, Bach, Ysaÿe, Schulhoff
-            </div>
-          </div>
-          <div class="concert-status">
-            <span class="badge badge-past">
-              <span data-lang="en">Past</span>
-              <span data-lang="est">Toimunud</span>
-            </span>
-          </div>
-        </div>
-    </div>
+  <!-- PAST (auto-populated by JS) -->
+  <div id="pastSection" style="margin-top: 4rem;">
+    <div data-lang-block="en"><p class="section-label">Past Performances</p></div>
+    <div data-lang-block="est"><p class="section-label">Varasemad esinemised</p></div>
+    <div class="concert-list" id="pastList"></div>
   </div>
 
 </div>
-
+```
 
   </section>
+
+  <!-- CONCERT DATA — edit only this section to add/remove concerts -->
+
+  <!-- Each item needs data-date="YYYY-MM-DD". JS handles the rest. -->
+
+  <template id="concertData">
+
+```
+<div class="concert-item" data-date="2026-06-10">
+  <div class="concert-date-col">
+    <div class="concert-day">10</div>
+    <div class="concert-month-year">
+      <span data-lang="en">Jun 2026</span>
+      <span data-lang="est">Juuni 2026</span>
+    </div>
+  </div>
+  <div class="concert-details">
+    <div class="concert-title">
+      <span data-lang="en">Summer Concert</span>
+      <span data-lang="est">Suvekontsert</span>
+    </div>
+    <div class="concert-venue">
+      <span data-lang="en">Lasnamäe Community Garden</span>
+      <span data-lang="est">Lasnamäe kogukonnaaed</span>
+    </div>
+    <div class="concert-programme">
+      <span class="concert-programme-label">
+        <span data-lang="en">Programme</span>
+        <span data-lang="est">Kava</span>
+      </span>
+      Bach, Saint-Saëns, Glière
+    </div>
+  </div>
+  <div class="concert-status"></div>
+</div>
+
+<div class="concert-item" data-date="2026-04-16">
+  <div class="concert-date-col">
+    <div class="concert-day">16</div>
+    <div class="concert-month-year">
+      <span data-lang="en">Apr 2026</span>
+      <span data-lang="est">Apr 2026</span>
+    </div>
+  </div>
+  <div class="concert-details">
+    <div class="concert-title">
+      <span data-lang="en">Children's Concert</span>
+      <span data-lang="est">Lastekontsert</span>
+    </div>
+    <div class="concert-venue">
+      <span data-lang="en">Tallinn International Kindergarten</span>
+      <span data-lang="est">Tallinna Rahvusvaheline Lasteaed</span>
+    </div>
+    <div class="concert-programme">
+      <span class="concert-programme-label">
+        <span data-lang="en">Programme</span>
+        <span data-lang="est">Kava</span>
+      </span>
+      Glière
+    </div>
+  </div>
+  <div class="concert-status"></div>
+</div>
+
+<div class="concert-item" data-date="2026-03-24">
+  <div class="concert-date-col">
+    <div class="concert-day">24</div>
+    <div class="concert-month-year">Mar 2026</div>
+  </div>
+  <div class="concert-details">
+    <div class="concert-title">
+      <span data-lang="en">Elbe Reiter Memorial Concert</span>
+      <span data-lang="est">Elbe Reiteri mälestuskontsert</span>
+    </div>
+    <div class="concert-venue">
+      <span data-lang="en">EMTA Chamber Hall</span>
+      <span data-lang="est">EMTA kammersaal</span>
+    </div>
+    <div class="concert-programme">
+      <span class="concert-programme-label">
+        <span data-lang="en">Programme</span>
+        <span data-lang="est">Kava</span>
+      </span>
+      Schulhoff
+    </div>
+  </div>
+  <div class="concert-status"></div>
+</div>
+
+<div class="concert-item" data-date="2026-02-26">
+  <div class="concert-date-col">
+    <div class="concert-day">26</div>
+    <div class="concert-month-year">Feb 2026</div>
+  </div>
+  <div class="concert-details">
+    <div class="concert-title">
+      <span data-lang="en">Concert</span>
+      <span data-lang="est">Kontsert</span>
+    </div>
+    <div class="concert-venue">
+      <span data-lang="en">Tallinn Cruise Terminal</span>
+      <span data-lang="est">Tallinna kruiisiterminal</span>
+    </div>
+    <div class="concert-programme">
+      <span class="concert-programme-label">
+        <span data-lang="en">Programme</span>
+        <span data-lang="est">Kava</span>
+      </span>
+      Handel, Haydn, Glière
+    </div>
+  </div>
+  <div class="concert-status"></div>
+</div>
+
+<div class="concert-item" data-date="2025-09-13">
+  <div class="concert-date-col">
+    <div class="concert-day">13</div>
+    <div class="concert-month-year">Sep 2025</div>
+  </div>
+  <div class="concert-details">
+    <div class="concert-title">
+      <span data-lang="en">Concert</span>
+      <span data-lang="est">Kontsert</span>
+    </div>
+    <div class="concert-venue">
+      <span data-lang="en">Padise Monastery</span>
+      <span data-lang="est">Padise klooster</span>
+    </div>
+    <div class="concert-programme">
+      <span class="concert-programme-label">
+        <span data-lang="en">Programme</span>
+        <span data-lang="est">Kava</span>
+      </span>
+      Handel, Haydn, Glière, Schulhoff, Halvorsen
+    </div>
+  </div>
+  <div class="concert-status"></div>
+</div>
+
+<div class="concert-item" data-date="2025-07-09">
+  <div class="concert-date-col">
+    <div class="concert-day">9</div>
+    <div class="concert-month-year">Jul 2025</div>
+  </div>
+  <div class="concert-details">
+    <div class="concert-title">
+      <span data-lang="en">Midweek Recital</span>
+      <span data-lang="est">Kesknädala helirännak</span>
+    </div>
+    <div class="concert-venue">
+      <span data-lang="en">Risti Church</span>
+      <span data-lang="est">Risti kirik</span>
+    </div>
+    <div class="concert-programme">
+      <span class="concert-programme-label">
+        <span data-lang="en">Programme</span>
+        <span data-lang="est">Kava</span>
+      </span>
+      Handel, Bach, Ysaÿe, Schulhoff
+    </div>
+  </div>
+  <div class="concert-status"></div>
+</div>
+
+<div class="concert-item" data-date="2025-07-02">
+  <div class="concert-date-col">
+    <div class="concert-day">2</div>
+    <div class="concert-month-year">Jul 2025</div>
+  </div>
+  <div class="concert-details">
+    <div class="concert-title">
+      <span data-lang="en">Reflections Across Time</span>
+      <span data-lang="est">Peegeldused ajas</span>
+    </div>
+    <div class="concert-venue">
+      <span data-lang="en">Keila St. Michael's Church</span>
+      <span data-lang="est">Keila Miikaeli kirik</span>
+    </div>
+    <div class="concert-programme">
+      <span class="concert-programme-label">
+        <span data-lang="en">Programme</span>
+        <span data-lang="est">Kava</span>
+      </span>
+      Handel, Bach, Ysaÿe, Schulhoff
+    </div>
+  </div>
+  <div class="concert-status"></div>
+</div>
+```
+
+  </template>
 
   <!-- FOOTER -->
 
@@ -741,6 +685,65 @@
     hamburger.addEventListener('click', () => toggleDrawer(!drawer.classList.contains('open')));
     drawer.querySelectorAll('.drawer-close-on-click').forEach(l => l.addEventListener('click', () => toggleDrawer(false)));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleDrawer(false); });
+
+    // ── Auto past/upcoming logic ──
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const upcomingList = document.getElementById('upcomingList');
+    const pastList     = document.getElementById('pastList');
+    const upcomingSection = document.getElementById('upcomingSection');
+    const pastSection     = document.getElementById('pastSection');
+
+    // Get all concert items from the template
+    const template = document.getElementById('concertData');
+    const items    = Array.from(template.content.querySelectorAll('.concert-item'));
+
+    // Sort: upcoming → soonest first; past → most recent first
+    const upcoming = items.filter(el => new Date(el.dataset.date) >= today)
+                          .sort((a, b) => new Date(a.dataset.date) - new Date(b.dataset.date));
+    const past     = items.filter(el => new Date(el.dataset.date) <  today)
+                          .sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date));
+
+    // Inject badge and class, then append
+    function injectBadge(el, isPast) {
+      const statusDiv = el.querySelector('.concert-status');
+      if (isPast) {
+        el.classList.add('is-past');
+        statusDiv.innerHTML = `
+          <span class="badge badge-past">
+            <span data-lang="en">Past</span>
+            <span data-lang="est">Toimunud</span>
+          </span>`;
+      } else {
+        statusDiv.innerHTML = `
+          <span class="badge badge-upcoming">
+            <span data-lang="en">Upcoming</span>
+            <span data-lang="est">Tulemas</span>
+          </span>`;
+      }
+      return el;
+    }
+
+    if (upcoming.length === 0) {
+      upcomingList.innerHTML = `
+        <p class="no-concerts">
+          <span data-lang="en">No upcoming concerts at the moment. Check back soon.</span>
+          <span data-lang="est">Hetkel tulevasi kontserte pole. Tule varsti tagasi.</span>
+        </p>`;
+    } else {
+      upcoming.forEach(el => upcomingList.appendChild(injectBadge(el, false)));
+    }
+
+    if (past.length === 0) {
+      pastSection.style.display = 'none';
+    } else {
+      past.forEach(el => pastList.appendChild(injectBadge(el, true)));
+    }
+
+    // Re-apply language to injected badges
+    const currentLang = localStorage.getItem('dep-lang') || 'en';
+    setLang(currentLang);
 
     // ── Scroll reveal ──
     const obs = new IntersectionObserver((entries) => {
