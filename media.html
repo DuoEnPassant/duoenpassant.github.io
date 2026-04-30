@@ -221,17 +221,14 @@
     /* ── PHOTOS ── */
 
     /*
-      Desktop: 3 veergu
-      - Veerg 1 (EP.jpg):    aspect-ratio 3/4 portrait, spans 2 rida
-      - Veerg 2 (Intro.png): aspect-ratio 4/3 landscape
-      - Veerg 3 (img.jpg):   aspect-ratio 4/3 landscape
-      aspect-ratio kontrollib kõrgust, grid-auto-rows pole vaja.
+      Desktop: esimene pilt 2 veergu lai, teine ja kolmas 1 veerg —
+      kõik samas reas, võrdne kõrgus aspect-ratio kaudu.
+      Grid: [2fr] [1fr] [1fr]
     */
     .photo-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 2fr 1fr 1fr;
       gap: 1rem;
-      align-items: start;
     }
 
     .photo-item {
@@ -240,17 +237,16 @@
       position: relative;
       background: var(--ink);
       box-shadow: 0 0 0 1px var(--line);
-      aspect-ratio: 4/3;
+      aspect-ratio: 1/1;
       opacity: 0; transform: translateY(20px);
       transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
                   transform 0.8s cubic-bezier(0.16,1,0.3,1),
                   box-shadow 0.3s;
     }
 
-    /* First photo: tall portrait */
+    /* First photo: wider column so it stays portrait-ish */
     .photo-item:nth-child(1) {
-      aspect-ratio: 3/4;
-      grid-row: span 2;
+      aspect-ratio: 4/3;
     }
 
     .photo-item.visible { opacity: 1; transform: translateY(0); }
