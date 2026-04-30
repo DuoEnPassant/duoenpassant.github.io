@@ -354,7 +354,9 @@
       .photo-item, .photo-item:nth-child(1) { grid-row: span 1; aspect-ratio: 3/4; }
 
       .lightbox-img { max-width: 95vw; }
-      .lightbox-arrow { display: none; }
+      .lightbox-arrow { width: 36px; height: 36px; font-size: 1.4rem; }
+      .lightbox-prev { left: 0.5rem; }
+      .lightbox-next { right: 0.5rem; }
       footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 1.5rem; }
       .container { padding: 0 1.2rem; }
       .content-section { padding: 3.5rem 0; }
@@ -572,6 +574,14 @@
     document.getElementById('lightboxPrev').addEventListener('click', prevPhoto);
     document.getElementById('lightboxNext').addEventListener('click', nextPhoto);
     lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    // Swipe support for mobile
+    let touchStartX = 0;
+    lightbox.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    lightbox.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) { dx < 0 ? nextPhoto() : prevPhoto(); }
+    }, { passive: true });
+
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') { closeLightbox(); toggleDrawer(false); }
       if (!lightbox.classList.contains('open')) return;
