@@ -221,15 +221,16 @@
     /* ── PHOTOS ── */
 
     /*
-      3-column grid.
-      Col 1 (EP.jpg):    portrait, spans 2 rows — dominant anchor image
-      Col 2 (Intro.png): landscape 4/3 — suits the church/interior scene
-      Col 3 (img.jpg):   landscape 4/3 — suits the outdoor/sky scene
-      All images: object-position center center so nothing is clipped awkwardly.
+      3-column grid with fixed row height.
+      Col 1 (EP.jpg):    spans 2 rows → tall portrait anchor
+      Col 2 (Intro.png): row 1 — landscape crop
+      Col 3 (img.jpg):   row 1 — landscape crop
+      Row height is fixed so span-2 fills correctly.
     */
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 220px;   /* each row is 220px; col 1 = 220+gap+220 = ~451px */
       gap: 1rem;
     }
 
@@ -245,16 +246,9 @@
                   box-shadow 0.3s;
     }
 
-    /* First photo: portrait, spans 2 rows */
+    /* First photo: spans 2 rows → tall portrait */
     .photo-item:nth-child(1) {
       grid-row: span 2;
-      aspect-ratio: 3 / 4;
-    }
-
-    /* Second and third photos: landscape — fits wide/scene photos well */
-    .photo-item:nth-child(2),
-    .photo-item:nth-child(3) {
-      aspect-ratio: 4 / 3;
     }
 
     .photo-item.visible { opacity: 1; transform: translateY(0); }
@@ -264,7 +258,7 @@
     .photo-item img {
       width: 100%; height: 100%;
       object-fit: cover;
-      object-position: center center; /* ← show the middle of every photo */
+      object-position: center center;
       transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), filter 0.3s;
       display: block;
     }
@@ -355,11 +349,9 @@
       .page-hero-rule, .page-hero-sub { display: none; }
       .video-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 
-      /* Mobile: 2-column grid, all portrait */
-      .photo-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-      .photo-item:nth-child(1) { grid-row: span 1; aspect-ratio: 3 / 4; }
-      .photo-item:nth-child(2),
-      .photo-item:nth-child(3) { aspect-ratio: 3 / 4; }
+      /* Mobile: 2-column grid, fixed rows */
+      .photo-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; gap: 0.75rem; }
+      .photo-item:nth-child(1) { grid-row: span 2; }
 
       .lightbox-img { max-width: 95vw; }
       .lightbox-arrow { display: none; }
@@ -369,11 +361,8 @@
     }
 
     @media (max-width: 480px) {
-      .photo-grid { grid-template-columns: 1fr; }
-      .photo-item,
-      .photo-item:nth-child(1),
-      .photo-item:nth-child(2),
-      .photo-item:nth-child(3) { aspect-ratio: 3 / 4; grid-row: span 1; }
+      .photo-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+      .photo-item:nth-child(1) { grid-row: span 1; }
     }
   </style>
 
