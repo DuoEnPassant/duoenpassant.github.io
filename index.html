@@ -218,12 +218,14 @@
       position: absolute; inset: 0; width: 100%; height: 100%; border: none;
     }
 
-    /* ── PHOTOS — portrait-optimised layout ── */
+    /* ── PHOTOS ── */
 
     /*
-      3-column grid where every cell is a fixed portrait ratio (3/4).
-      All photos crop to fill their cell consistently.
-      First photo spans 2 rows to create visual hierarchy.
+      3-column grid.
+      Col 1 (EP.jpg):    portrait, spans 2 rows — dominant anchor image
+      Col 2 (Intro.png): landscape 4/3 — suits the church/interior scene
+      Col 3 (img.jpg):   landscape 4/3 — suits the outdoor/sky scene
+      All images: object-position center center so nothing is clipped awkwardly.
     */
     .photo-grid {
       display: grid;
@@ -234,20 +236,25 @@
     .photo-item {
       cursor: pointer;
       overflow: hidden;
-      position: center;
+      position: relative;
       background: var(--ink);
       box-shadow: 0 0 0 1px var(--line);
-      aspect-ratio: 3 / 4;          /* portrait ratio for all cells */
       opacity: 0; transform: translateY(20px);
       transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
                   transform 0.8s cubic-bezier(0.16,1,0.3,1),
                   box-shadow 0.3s;
     }
 
-    /* First photo: taller — spans 2 rows in height equivalent */
+    /* First photo: portrait, spans 2 rows */
     .photo-item:nth-child(1) {
       grid-row: span 2;
-      aspect-ratio: unset;          /* let grid row span control height */
+      aspect-ratio: 3 / 4;
+    }
+
+    /* Second and third photos: landscape — fits wide/scene photos well */
+    .photo-item:nth-child(2),
+    .photo-item:nth-child(3) {
+      aspect-ratio: 4 / 3;
     }
 
     .photo-item.visible { opacity: 1; transform: translateY(0); }
@@ -256,7 +263,8 @@
 
     .photo-item img {
       width: 100%; height: 100%;
-      object-fit: cover; object-position: center top;
+      object-fit: cover;
+      object-position: center center; /* ← show the middle of every photo */
       transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), filter 0.3s;
       display: block;
     }
@@ -347,10 +355,11 @@
       .page-hero-rule, .page-hero-sub { display: none; }
       .video-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 
-      /* On mobile: 2-column portrait grid, all equal */
+      /* Mobile: 2-column grid, all portrait */
       .photo-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-      .photo-item { aspect-ratio: 3 / 4; }
       .photo-item:nth-child(1) { grid-row: span 1; aspect-ratio: 3 / 4; }
+      .photo-item:nth-child(2),
+      .photo-item:nth-child(3) { aspect-ratio: 3 / 4; }
 
       .lightbox-img { max-width: 95vw; }
       .lightbox-arrow { display: none; }
@@ -361,7 +370,10 @@
 
     @media (max-width: 480px) {
       .photo-grid { grid-template-columns: 1fr; }
-      .photo-item, .photo-item:nth-child(1) { aspect-ratio: 3 / 4; grid-row: span 1; }
+      .photo-item,
+      .photo-item:nth-child(1),
+      .photo-item:nth-child(2),
+      .photo-item:nth-child(3) { aspect-ratio: 3 / 4; grid-row: span 1; }
     }
   </style>
 
@@ -403,7 +415,6 @@
         </div>
       </a>
 
-
   <nav class="topbar-center nav-links" aria-label="Main navigation">
     <a href="media.html"        class="nav-link active">Media</a>
     <a href="concerts.html"     class="nav-link">Concerts</a>
@@ -420,7 +431,6 @@
     <span></span><span></span><span></span>
   </button>
 </div>
-
 
   </header>
 
@@ -453,7 +463,6 @@
       <div data-lang-block="en"><p class="section-label">Videos</p></div>
       <div data-lang-block="est"><p class="section-label">Videod</p></div>
 
-
   <div class="video-grid">
     <div class="video-card reveal">
       <div class="video-frame-wrapper">
@@ -472,7 +481,6 @@
   </div>
 </div>
 
-
   </section>
 
   <!-- PHOTOS -->
@@ -482,14 +490,6 @@
       <div data-lang-block="en"><p class="section-label">Photos</p></div>
       <div data-lang-block="est"><p class="section-label">Fotod</p></div>
 
-
-  <!--
-    Layout: 3 columns
-    Col 1: EP.jpg   — spans 2 rows (taller, dominant)
-    Col 2: Intro.png — row 1
-    Col 3: img.jpg   — row 1
-    Add more photos simply by adding more .photo-item divs.
-  -->
   <div class="photo-grid">
     <div class="photo-item reveal" data-index="0">
       <img src="EP.jpg"    alt="Duo EnPassant" loading="lazy">
@@ -502,7 +502,6 @@
     </div>
   </div>
 </div>
-
 
   </section>
 
