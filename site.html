@@ -259,70 +259,43 @@
     /* ══════════════════════════════════════
        HERO
     ══════════════════════════════════════ */
-    .hero {
+      .hero {
       min-height: calc(100vh - 72px);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      position: relative;
     }
 
-    /* LEFT — dark title panel */
     .hero-left {
       background-color: var(--ink);
       display: flex; align-items: center; justify-content: flex-end;
       padding: 3rem; position: relative; overflow: hidden;
     }
+
+    .hero-right {
+      padding: 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    .hero-right:hover img {
+      transform: scale(1.05);
+    }
+
     .staff-lines {
       position: absolute; top: 50%; left: 0; right: 0;
-      transform: translateY(-50%); opacity: 0.08; pointer-events: none;
+      transform: translateY(-50%); opacity: 0.08;
     }
     .staff-lines span { display: block; height: 1px; background: var(--parchment); margin: 18px 0; }
 
-    .hero-title-block {
-      position: relative; z-index: 2; text-align: right;
-      opacity: 0; transform: translateY(30px);
-      animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
-    }
-    .hero-mark {
-      font-family: 'Cinzel', serif; font-size: 0.65rem;
-      letter-spacing: 0.35em; color: var(--warm);
-      text-transform: uppercase; margin-bottom: 1.5rem; display: block;
-    }
-    .hero-duo {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(2.8rem, 6vw, 5.5rem);
-      font-weight: 400; color: var(--parchment);
-      line-height: 1.05; letter-spacing: 0.05em;
-    }
-    .hero-en {
-      color: var(--warm); font-style: italic;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.5rem, 7vw, 6.5rem);
-      font-weight: 300; letter-spacing: 0.02em;
-    }
-
-  <!-- RIGHT: instruments photo instead of names -->
-<div class="hero-right">
-  <div class="members-block" style="padding: 0; height: 100%; display: flex; align-items: center; justify-content: center;">
-    <img 
-      src="instruments.jpg" 
-      alt="Duo EnPassant — Violin and Cello" 
-      style="width: 100%; height: 100%; object-fit: cover; display: block;">
-  </div>
-</div>
-    .hero-right {
-  padding: 0 !important;
-  background: var(--parchment);
-  overflow: hidden;
-}
-
-.hero-right img {
-  transition: transform 0.6s ease;
-}
-
-.hero-right:hover img {
-  transform: scale(1.03);
-}
+    .hero-title-block { text-align: right; }
+    .hero-mark { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.35em; color: var(--warm); text-transform: uppercase; }
+    .hero-duo { font-family: 'Cinzel', serif; font-size: clamp(3rem, 6vw, 5.5rem); color: var(--parchment); }
+    .hero-en { color: var(--warm); font-style: italic; font-size: clamp(3.5rem, 7vw, 6.5rem); }
 
     /* ══════════════════════════════════════
        ABOUT
