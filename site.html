@@ -301,58 +301,28 @@
       font-weight: 300; letter-spacing: 0.02em;
     }
 
-    /* RIGHT — ensemble info (no CV links here anymore) */
+  <!-- RIGHT: instruments photo instead of names -->
+<div class="hero-right">
+  <div class="members-block" style="padding: 0; height: 100%; display: flex; align-items: center; justify-content: center;">
+    <img 
+      src="instruments.jpg" 
+      alt="Duo EnPassant — Violin and Cello" 
+      style="width: 100%; height: 100%; object-fit: cover; display: block;">
+  </div>
+</div>
     .hero-right {
-      background-color: var(--parchment);
-      display: flex; flex-direction: column;
-      justify-content: center;
-      padding: 4rem 3.5rem 4rem 4rem;
-      position: relative;
-    }
-    .hero-right::after {
-      content: ''; position: absolute; left: 0; top: 15%; bottom: 15%;
-      width: 1px;
-      background: linear-gradient(to bottom, transparent, var(--warm), transparent);
-    }
+  padding: 0 !important;
+  background: var(--parchment);
+  overflow: hidden;
+}
 
-    .members-block {
-      opacity: 0; transform: translateY(20px);
-      animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.7s forwards;
-    }
-    .members-label {
-      font-family: 'Cinzel', serif; font-size: 0.6rem;
-      letter-spacing: 0.4em; color: var(--warm);
-      text-transform: uppercase; margin-bottom: 2rem;
-    }
+.hero-right img {
+  transition: transform 0.6s ease;
+}
 
-    /* Plain (non-clickable) member display */
-    .member-entry { margin-bottom: 0.3rem; }
-    .member-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-      font-weight: 300; color: var(--ink);
-      line-height: 1.2; margin-bottom: 0.2rem;
-    }
-    .member-instrument {
-      font-family: 'Raleway', sans-serif; font-size: 0.68rem;
-      font-weight: 300; letter-spacing: 0.25em;
-      color: var(--muted); text-transform: uppercase;
-      margin-bottom: 1.5rem;
-    }
-
-    .divider-ornament {
-      display: flex; align-items: center; gap: 1rem; margin: 0.8rem 0 1.2rem;
-    }
-    .divider-ornament::before, .divider-ornament::after {
-      content: ''; flex: 1; height: 1px; background: var(--line);
-    }
-    .divider-ornament span { color: var(--warm); font-size: 1rem; }
-
-    .hero-subtitle-text {
-      font-family: 'Raleway', sans-serif; font-size: 0.68rem;
-      font-weight: 300; letter-spacing: 0.25em;
-      color: var(--muted); text-transform: uppercase; margin-top: 0.5rem;
-    }
+.hero-right:hover img {
+  transform: scale(1.03);
+}
 
     /* ══════════════════════════════════════
        ABOUT
