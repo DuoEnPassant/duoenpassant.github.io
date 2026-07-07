@@ -259,7 +259,8 @@
     /* ══════════════════════════════════════
        HERO
     ══════════════════════════════════════ */
-      .hero {
+      /* Hero */
+    .hero {
       min-height: calc(100vh - 72px);
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -283,19 +284,19 @@
       transition: transform 0.8s ease;
     }
     .hero-right:hover img {
-      transform: scale(1.05);
+      transform: scale(1.04);
     }
 
     .staff-lines {
       position: absolute; top: 50%; left: 0; right: 0;
-      transform: translateY(-50%); opacity: 0.08;
+      transform: translateY(-50%); opacity: 0.08; pointer-events: none;
     }
     .staff-lines span { display: block; height: 1px; background: var(--parchment); margin: 18px 0; }
 
-    .hero-title-block { text-align: right; }
-    .hero-mark { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.35em; color: var(--warm); text-transform: uppercase; }
-    .hero-duo { font-family: 'Cinzel', serif; font-size: clamp(3rem, 6vw, 5.5rem); color: var(--parchment); }
-    .hero-en { color: var(--warm); font-style: italic; font-size: clamp(3.5rem, 7vw, 6.5rem); }
+    .hero-title-block { position: relative; z-index: 2; text-align: right; }
+    .hero-mark { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.35em; color: var(--warm); text-transform: uppercase; margin-bottom: 1.5rem; }
+    .hero-duo { font-family: 'Cinzel', serif; font-size: clamp(2.8rem, 6vw, 5.5rem); color: var(--parchment); line-height: 1.05; }
+    .hero-en { color: var(--warm); font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 7vw, 6.5rem); }
 
     /* ══════════════════════════════════════
        ABOUT
