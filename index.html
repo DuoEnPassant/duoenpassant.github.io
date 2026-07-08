@@ -125,8 +125,8 @@
     @media (min-width: 769px) {
       .landing-content {
         text-align: left;
-        margin-left: 13vw;
-        max-width: 480px;
+        margin-left: 7vw;
+        max-width: 540px;
       }
     }
 
@@ -281,7 +281,7 @@
       btn.addEventListener('click', () => setLang(btn.dataset.langSwitch));
     });
 
-    // === UUS: Vali õige taustapilt (desktop vs telefon) ===
+    // === Vali õige taustapilt (desktop vs telefon) ===
     const bgImg = document.querySelector('.bg-photo');
 
     function chooseBackgroundImage() {
@@ -289,10 +289,10 @@
       
       if (isMobile) {
         bgImg.src = '002.jpg';
-        bgImg.style.objectPosition = 'center 38%'; // vajadusel kohanda (nt 35% või 42%)
+        bgImg.style.objectPosition = '35% 38%'; // nihutatud vasakule, oli 'center 38%'
       } else {
         bgImg.src = '001.jpg';
-        bgImg.style.objectPosition = 'center';
+        bgImg.style.objectPosition = '40% center'; // nihutatud vasakule, oli 'center'
       }
     }
 
