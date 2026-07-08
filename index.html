@@ -134,16 +134,28 @@
       }
     }
 
+    @media (max-width: 768px) {
+      .landing-content-wrap {
+        left: 0; right: 0;
+        justify-content: center;
+        top: 24vh;
+        padding: 0 1.5rem;
+      }
+      .landing-content { text-align: center; }
+      .landing-rule { margin: 1.4rem auto; background: linear-gradient(to right, transparent, var(--warm), transparent); }
+    }
+
     .landing-title {
       font-family: 'Cinzel', serif;
-      font-size: clamp(2.3rem, 5.4vw, 3.6rem);
+      font-size: clamp(2.3rem, 5.6vw, 4.4rem);
       font-weight: 400; color: var(--parchment);
       letter-spacing: 0.06em; line-height: 1.05; margin-bottom: 0.3rem;
     }
     .landing-title em {
       font-family: 'Cormorant Garamond', serif; font-style: italic;
-      font-size: clamp(2.6rem, 6.3vw, 4.2rem); font-weight: 300;
+      font-size: clamp(2.6rem, 6.6vw, 5.2rem); font-weight: 300;
       color: var(--warm); letter-spacing: 0.02em;
+      text-shadow: 0 0 1px rgba(26,22,20,0.6), 0 1px 3px rgba(26,22,20,0.35);
     }
     .landing-rule {
       width: 120px; height: 1px;
@@ -155,8 +167,8 @@
     .pedestal-name {
       position: absolute;
       text-align: center;
-      width: 26vw;
-      max-width: 160px;
+      width: 34vw;
+      max-width: 152px;
       opacity: 0; transform: translate(-50%, calc(-50% + 14px));
       z-index: 3;
     }
@@ -166,16 +178,17 @@
     @keyframes fadeUpName { to { opacity: 1; transform: translate(-50%, -50%); } }
 
     .landing-names {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(0.72rem, 2.8vw, 0.92rem); font-weight: 500;
-      color: var(--ink); font-style: italic;
-      line-height: 1.35;
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.8rem, 3.2vw, 1.05rem); font-weight: 500;
+      color: var(--ink); font-style: normal;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      line-height: 1.55;
     }
 
-    /* Enter button: exact left/top set via JS to land in the clear floor area */
+    /* Enter button: exact left/top set via JS to land in a clear area */
     .bottom-enter {
       position: absolute;
-      transform: translateY(-50%);
+      transform: translate(-50%, -50%);
       opacity: 0;
       z-index: 3;
     }
@@ -183,10 +196,11 @@
       animation: fadeUpEnter 1.3s cubic-bezier(0.16,1,0.3,1) forwards;
       animation-delay: 0.2s;
     }
-    @keyframes fadeUpEnter { to { opacity: 1; transform: translateY(-50%); } }
+    @keyframes fadeUpEnter { to { opacity: 1; transform: translate(-50%, -50%); } }
 
     @media (min-width: 769px) {
-      .pedestal-name { width: 12vw; max-width: 180px; }
+      .pedestal-name { width: 13vw; max-width: 195px; }
+      .landing-names { font-size: clamp(0.95rem, 1.7vw, 1.35rem); }
     }
     .enter-btn {
       display: inline-block;
@@ -292,13 +306,13 @@
         src: '001.jpg', w: 2048, h: 1365, fit: 'cover',
         nameLeft:  { x: 32.25, y: 77.5 },
         nameRight: { x: 80.25, y: 83.25 },
-        enter:     { x: 14,    y: 90 }
+        enter:     { x: 18,    y: 90 }
       },
       mobile: {
         src: '002.jpg', w: 1365, h: 2048, fit: 'contain-bottom',
         nameLeft:  { x: 19.0, y: 85 },
-        nameRight: { x: 86.5, y: 86 },
-        enter:     { x: 6,    y: 92 }
+        nameRight: { x: 78.5, y: 86 },
+        enter:     { x: 55,   y: 58 }
       }
     };
 
