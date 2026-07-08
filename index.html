@@ -79,10 +79,10 @@
     }
     html, body { height: 100%; overflow: hidden; font-family: 'Cormorant Garamond', Georgia, serif; }
 
-    .bg-photo {
+        .bg-photo {
       position: fixed; inset: 0;
       width: 100%; height: 100%;
-      object-fit: cover; object-position: center top;
+      object-fit: cover;
       z-index: 0;
     }
     .bg-overlay {
@@ -120,6 +120,22 @@
     .landing-content {
       text-align: center;
       opacity: 0; transform: translateY(28px);
+    }
+        /* Desktopil nihutame teksti vasakule, et see ei kattuks muusikutega */
+    @media (min-width: 769px) {
+      .landing-content {
+        text-align: left;
+        margin-left: 7vw;
+        max-width: 540px;
+      }
+    }
+
+    /* Overlay veidi kergem, et pildi valgusefektid jääksid näha */
+    .bg-overlay {
+      background: linear-gradient(to bottom, 
+        rgba(26,22,20,0.38) 0%, 
+        rgba(26,22,20,0.52) 55%, 
+        rgba(26,22,20,0.68) 100%);
     }
     .landing-content.ready {
       animation: fadeUp 1.3s cubic-bezier(0.16,1,0.3,1) forwards;
@@ -197,7 +213,7 @@
 
 <body class="lang-en">
 
-  <img src="1.png" alt="" class="bg-photo" aria-hidden="true">
+<img class="bg-photo" alt="" aria-hidden="true">
   <div class="bg-overlay" aria-hidden="true"></div>
 
   <div class="landing">
