@@ -118,8 +118,6 @@
 
     .landing-content {
       text-align: center;
-      max-width: 380px;
-      width: 100%;
       opacity: 0; transform: translateY(28px);
     }
     .landing-content.ready {
@@ -134,61 +132,88 @@
         padding-left: 0;
         top: 6vh;
       }
-      .landing-content {
-        width: min(28vw, 330px);
-        min-width: 260px;
-        max-width: 330px;
-      }
     }
 
-    .landing-eyebrow {
-      font-family: 'Cinzel', serif; font-size: 0.6rem;
-      letter-spacing: 0.5em; text-transform: uppercase;
-      color: var(--warm); margin-bottom: 1.3rem;
-    }
     .landing-title {
       font-family: 'Cinzel', serif;
-      font-size: clamp(2rem, 4.6vw, 2.9rem);
+      font-size: clamp(2.3rem, 5.4vw, 3.6rem);
       font-weight: 400; color: var(--parchment);
       letter-spacing: 0.06em; line-height: 1.05; margin-bottom: 0.3rem;
     }
     .landing-title em {
       font-family: 'Cormorant Garamond', serif; font-style: italic;
-      font-size: clamp(2.3rem, 5.4vw, 3.4rem); font-weight: 300;
+      font-size: clamp(2.6rem, 6.3vw, 4.2rem); font-weight: 300;
       color: var(--warm); letter-spacing: 0.02em;
     }
     .landing-rule {
       width: 120px; height: 1px;
       background: linear-gradient(to right, transparent, var(--warm), transparent);
-      margin: 1.5rem auto;
+      margin: 1.6rem auto;
     }
-    .landing-sub {
-      font-family: 'Raleway', sans-serif; font-size: 0.6rem;
-      font-weight: 300; letter-spacing: 0.28em; text-transform: uppercase;
-      color: rgba(245,240,232,0.6); margin-bottom: 1.8rem;
+    /* Names positioned on the left pedestal cube (under the violin) */
+    .pedestal-names {
+      position: absolute;
+      left: 2%;
+      top: 76%;
+      width: 21%;
+      text-align: center;
+      opacity: 0; transform: translateY(14px);
+      z-index: 3;
+    }
+    .pedestal-names.ready {
+      animation: fadeUp 1.3s cubic-bezier(0.16,1,0.3,1) forwards;
+      animation-delay: 0.15s;
     }
     .landing-names {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(0.9rem, 1.4vw, 1rem); font-weight: 300;
-      color: rgba(245,240,232,0.55); font-style: italic;
-      line-height: 1.9; margin-bottom: 1.8rem;
+      font-size: clamp(0.5rem, 2vw, 0.68rem); font-weight: 400;
+      color: var(--ink); font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* Enter button positioned on the right pedestal cube (under the cellist) */
+    .pedestal-enter {
+      position: absolute;
+      left: 86%;
+      top: 82%;
+      transform: translate(-50%, -50%);
+      opacity: 0; transform-origin: center;
+      z-index: 3;
+    }
+    .pedestal-enter.ready {
+      animation: fadeUpEnter 1.3s cubic-bezier(0.16,1,0.3,1) forwards;
+      animation-delay: 0.3s;
+    }
+    @keyframes fadeUpEnter { to { opacity: 1; transform: translate(-50%, -50%); } }
+
+    @media (min-width: 769px) {
+      .pedestal-names {
+        left: 27.5%;
+        top: 66%;
+        width: 10%;
+      }
+      .pedestal-enter {
+        left: 81%;
+        top: 78%;
+      }
     }
     .enter-btn {
       display: inline-block;
-      font-family: 'Cinzel', serif; font-size: 0.62rem;
-      letter-spacing: 0.38em; text-transform: uppercase;
-      color: var(--parchment);
-      border: 1px solid rgba(200,169,110,0.5);
-      padding: 0.8rem 2.2rem; text-decoration: none;
+      font-family: 'Cinzel', serif; font-size: clamp(0.42rem, 1.4vw, 0.58rem);
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--ink);
+      border: 1px solid rgba(26,22,20,0.4);
+      padding: 0.55rem 1rem; text-decoration: none;
       position: relative; overflow: hidden;
       transition: color 0.3s, border-color 0.3s;
+      white-space: nowrap;
     }
     .enter-btn::before {
       content: ''; position: absolute; inset: 0;
-      background: var(--warm); transform: translateX(-101%);
+      background: var(--ink); transform: translateX(-101%);
       transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); z-index: 0;
     }
-    .enter-btn:hover { color: var(--ink); border-color: var(--warm); }
+    .enter-btn:hover { color: var(--parchment); border-color: var(--ink); }
     .enter-btn:hover::before { transform: translateX(0); }
     .enter-btn span { position: relative; z-index: 1; }
 
@@ -225,31 +250,22 @@
 
     <div class="landing-content-wrap">
       <div class="landing-content">
-        <p class="landing-eyebrow">
-          <span data-lang="en">Violin &amp; Cello</span>
-          <span data-lang="est">Viiul &amp; Tšello</span>
-        </p>
-
         <h1 class="landing-title">Duo <em>En<br>Passant</em></h1>
-
         <div class="landing-rule"></div>
-
-        <p class="landing-sub">
-          <span data-lang="en">International String Duo</span>
-          <span data-lang="est">Rahvusvaheline keelpilliduo</span>
-        </p>
-
-        <p class="landing-names">
-          Merily Leotoots<br>
-          Anna Ryland-Jones
-        </p>
-
-        <a href="site.html" class="enter-btn" id="enterBtn">
-          <span data-lang="en">Enter</span>
-          <span data-lang="est">Sisene</span>
-        </a>
       </div>
     </div>
+
+    <div class="pedestal-names">
+      <p class="landing-names">
+        Merily Leotoots<br>
+        Anna Ryland-Jones
+      </p>
+    </div>
+
+    <a href="site.html" class="pedestal-enter enter-btn" id="enterBtn">
+      <span data-lang="en">Enter</span>
+      <span data-lang="est">Sisene</span>
+    </a>
 
   </div>
 
@@ -288,10 +304,10 @@
     });
 
     // Näita sisu alles siis, kui taustapilt on laaditud
-    const content = document.querySelector('.landing-content');
+    const revealTargets = document.querySelectorAll('.landing-content, .pedestal-names, .pedestal-enter');
 
     function revealContent() {
-      content.classList.add('ready');
+      revealTargets.forEach(el => el.classList.add('ready'));
     }
 
     if (bgImg.complete && bgImg.src) {
@@ -304,4 +320,5 @@
 
 </body>
 </html>
+
 
