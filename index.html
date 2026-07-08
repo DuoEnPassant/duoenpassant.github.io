@@ -69,6 +69,11 @@
       object-fit: cover;
       object-position: center;
       z-index: 0;
+      background-color: #b2a08f;
+    }
+    .bg-photo.mobile-contain {
+      object-fit: contain;
+      object-position: center bottom;
     }
     .bg-overlay {
       position: fixed; inset: 0;
@@ -104,20 +109,18 @@
     .lang-btn.active { color: var(--warm); border-color: var(--line); }
     .lang-separator { color: rgba(200,169,110,0.35); font-size: 0.82rem; font-family: 'Cinzel', serif; }
 
-    /* Positioning wrapper: placed in the empty background area of the photo.
-       Mobile: huge empty band above the musicians' heads (top ~37% of photo).
-       Desktop: empty gap between the two musicians (~35%-62% of photo width). */
+    /* Title positioned top-left, in the empty background area above/left of the musicians */
     .landing-content-wrap {
       position: absolute;
-      top: 7vh;
-      left: 0; right: 0;
+      top: 5vh;
+      left: 0;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       padding: 0 1.5rem;
     }
 
     .landing-content {
-      text-align: center;
+      text-align: left;
       opacity: 0; transform: translateY(28px);
     }
     .landing-content.ready {
@@ -126,11 +129,8 @@
 
     @media (min-width: 769px) {
       .landing-content-wrap {
-        justify-content: center;
-        left: 58.5%;
-        transform: translateX(-50%);
-        padding-left: 0;
-        top: 6vh;
+        padding-left: 4vw;
+        top: 5vh;
       }
     }
 
@@ -147,63 +147,54 @@
     }
     .landing-rule {
       width: 120px; height: 1px;
-      background: linear-gradient(to right, transparent, var(--warm), transparent);
-      margin: 1.6rem auto;
+      background: linear-gradient(to right, var(--warm), transparent);
+      margin: 1.6rem 0;
     }
-    /* Names positioned on the left pedestal cube (under the violin) */
-    .pedestal-names {
+
+    /* Names: one per pedestal cube. Exact left/top set via JS to match photo proportions precisely. */
+    .pedestal-name {
       position: absolute;
-      left: 2%;
-      top: 76%;
-      width: 21%;
       text-align: center;
-      opacity: 0; transform: translateY(14px);
+      width: 26vw;
+      max-width: 160px;
+      opacity: 0; transform: translate(-50%, calc(-50% + 14px));
       z-index: 3;
     }
-    .pedestal-names.ready {
-      animation: fadeUp 1.3s cubic-bezier(0.16,1,0.3,1) forwards;
-      animation-delay: 0.15s;
+    .pedestal-name.ready {
+      animation: fadeUpName 1.3s cubic-bezier(0.16,1,0.3,1) forwards;
     }
+    @keyframes fadeUpName { to { opacity: 1; transform: translate(-50%, -50%); } }
+
     .landing-names {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(0.5rem, 2vw, 0.68rem); font-weight: 400;
+      font-size: clamp(0.72rem, 2.8vw, 0.92rem); font-weight: 500;
       color: var(--ink); font-style: italic;
-      line-height: 1.5;
+      line-height: 1.35;
     }
 
-    /* Enter button positioned on the right pedestal cube (under the cellist) */
-    .pedestal-enter {
+    /* Enter button: exact left/top set via JS to land in the clear floor area */
+    .bottom-enter {
       position: absolute;
-      left: 86%;
-      top: 82%;
-      transform: translate(-50%, -50%);
-      opacity: 0; transform-origin: center;
+      transform: translateY(-50%);
+      opacity: 0;
       z-index: 3;
     }
-    .pedestal-enter.ready {
+    .bottom-enter.ready {
       animation: fadeUpEnter 1.3s cubic-bezier(0.16,1,0.3,1) forwards;
-      animation-delay: 0.3s;
+      animation-delay: 0.2s;
     }
-    @keyframes fadeUpEnter { to { opacity: 1; transform: translate(-50%, -50%); } }
+    @keyframes fadeUpEnter { to { opacity: 1; transform: translateY(-50%); } }
 
     @media (min-width: 769px) {
-      .pedestal-names {
-        left: 27.5%;
-        top: 66%;
-        width: 10%;
-      }
-      .pedestal-enter {
-        left: 81%;
-        top: 78%;
-      }
+      .pedestal-name { width: 12vw; max-width: 180px; }
     }
     .enter-btn {
       display: inline-block;
-      font-family: 'Cinzel', serif; font-size: clamp(0.42rem, 1.4vw, 0.58rem);
-      letter-spacing: 0.3em; text-transform: uppercase;
+      font-family: 'Cinzel', serif; font-size: clamp(0.6rem, 1.6vw, 0.75rem);
+      letter-spacing: 0.32em; text-transform: uppercase;
       color: var(--ink);
-      border: 1px solid rgba(26,22,20,0.4);
-      padding: 0.55rem 1rem; text-decoration: none;
+      border: 1px solid rgba(26,22,20,0.45);
+      padding: 0.7rem 1.6rem; text-decoration: none;
       position: relative; overflow: hidden;
       transition: color 0.3s, border-color 0.3s;
       white-space: nowrap;
@@ -216,6 +207,7 @@
     .enter-btn:hover { color: var(--parchment); border-color: var(--ink); }
     .enter-btn:hover::before { transform: translateX(0); }
     .enter-btn span { position: relative; z-index: 1; }
+    .bottom-enter { position: absolute; }
 
     /* Language show/hide */
     [data-lang] { display: none; }
@@ -226,10 +218,8 @@
 
     @media (max-width: 600px) {
       .lang-row { top: 1.2rem; right: 1.4rem; }
-      .landing-content-wrap { top: 5.5vh; }
-      .landing-rule { margin: 1.3rem auto; }
-      .landing-names { margin-bottom: 1.5rem; }
-      .landing-sub { margin-bottom: 1.5rem; }
+      .landing-content-wrap { top: 4.5vh; }
+      .landing-rule { margin: 1.3rem 0; }
     }
   </style>
 
@@ -255,14 +245,15 @@
       </div>
     </div>
 
-    <div class="pedestal-names">
-      <p class="landing-names">
-        Merily Leotoots<br>
-        Anna Ryland-Jones
-      </p>
+    <div class="pedestal-name pedestal-name--left">
+      <p class="landing-names">Merily<br>Leotoots</p>
     </div>
 
-    <a href="site.html" class="pedestal-enter enter-btn" id="enterBtn">
+    <div class="pedestal-name pedestal-name--right">
+      <p class="landing-names">Anna<br>Ryland-Jones</p>
+    </div>
+
+    <a href="site.html" class="bottom-enter enter-btn" id="enterBtn">
       <span data-lang="en">Enter</span>
       <span data-lang="est">Sisene</span>
     </a>
@@ -288,23 +279,77 @@
       btn.addEventListener('click', () => setLang(btn.dataset.langSwitch));
     });
 
-    // === Vali õige taustapilt (desktop vs telefon) ===
+    // === Taustapildi valik ja täpne teksti paigutus foto proportsioonide järgi ===
     const bgImg = document.querySelector('.bg-photo');
+    const nameLeftEl  = document.querySelector('.pedestal-name--left');
+    const nameRightEl = document.querySelector('.pedestal-name--right');
+    const enterEl     = document.querySelector('.bottom-enter');
 
-    function chooseBackgroundImage() {
+    // Punktid on määratud originaalfoto protsentides (x/y = % pildi laiusest/kõrgusest),
+    // mõõdetud otse fotodelt (violin/cello pjedestaalide asukohad).
+    const ANCHORS = {
+      desktop: {
+        src: '001.jpg', w: 2048, h: 1365, fit: 'cover',
+        nameLeft:  { x: 32.25, y: 77.5 },
+        nameRight: { x: 80.25, y: 83.25 },
+        enter:     { x: 14,    y: 90 }
+      },
+      mobile: {
+        src: '002.jpg', w: 1365, h: 2048, fit: 'contain-bottom',
+        nameLeft:  { x: 19.0, y: 85 },
+        nameRight: { x: 86.5, y: 86 },
+        enter:     { x: 6,    y: 92 }
+      }
+    };
+
+    function getMode() {
       const isMobile = window.matchMedia('(orientation: portrait)').matches || window.innerWidth < 768;
-      bgImg.src = isMobile ? '002.jpg' : '001.jpg';
+      return isMobile ? 'mobile' : 'desktop';
     }
 
-    chooseBackgroundImage();
+    function computeLayout(a) {
+      const vw = window.innerWidth, vh = window.innerHeight;
+      let scale, offX, offY;
+      if (a.fit === 'contain-bottom') {
+        scale = Math.min(vw / a.w, vh / a.h);
+        offX = (vw - a.w * scale) / 2;
+        offY = vh - a.h * scale;
+      } else {
+        scale = Math.max(vw / a.w, vh / a.h);
+        offX = (vw - a.w * scale) / 2;
+        offY = (vh - a.h * scale) / 2;
+      }
+      const toPx = (pt) => ({ x: offX + (pt.x / 100) * a.w * scale, y: offY + (pt.y / 100) * a.h * scale });
+      return { nameLeft: toPx(a.nameLeft), nameRight: toPx(a.nameRight), enter: toPx(a.enter) };
+    }
 
-    // Kui keegi pöörab telefoni, uuendame pilti
-    window.addEventListener('orientationchange', () => {
-      setTimeout(chooseBackgroundImage, 150);
-    });
+    let currentMode = null;
+
+    function applyLayout() {
+      const mode = getMode();
+      const a = ANCHORS[mode];
+
+      bgImg.classList.toggle('mobile-contain', mode === 'mobile');
+      if (currentMode !== mode) {
+        bgImg.src = a.src;
+        currentMode = mode;
+      }
+
+      const layout = computeLayout(a);
+      nameLeftEl.style.left = layout.nameLeft.x + 'px';
+      nameLeftEl.style.top = layout.nameLeft.y + 'px';
+      nameRightEl.style.left = layout.nameRight.x + 'px';
+      nameRightEl.style.top = layout.nameRight.y + 'px';
+      enterEl.style.left = layout.enter.x + 'px';
+      enterEl.style.top = layout.enter.y + 'px';
+    }
+
+    applyLayout();
+    window.addEventListener('resize', applyLayout);
+    window.addEventListener('orientationchange', () => setTimeout(applyLayout, 150));
 
     // Näita sisu alles siis, kui taustapilt on laaditud
-    const revealTargets = document.querySelectorAll('.landing-content, .pedestal-names, .pedestal-enter');
+    const revealTargets = document.querySelectorAll('.landing-content, .pedestal-name, .bottom-enter');
 
     function revealContent() {
       revealTargets.forEach(el => el.classList.add('ready'));
@@ -320,5 +365,3 @@
 
 </body>
 </html>
-
-
