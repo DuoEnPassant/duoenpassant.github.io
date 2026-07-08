@@ -265,19 +265,40 @@
       btn.addEventListener('click', () => setLang(btn.dataset.langSwitch));
     });
 
+    // === UUS: Vali õige taustapilt (desktop vs telefon) ===
+    const bgImg = document.querySelector('.bg-photo');
+
+    function chooseBackgroundImage() {
+      const isMobile = window.matchMedia('(orientation: portrait)').matches || window.innerWidth < 768;
+      
+      if (isMobile) {
+        bgImg.src = '002.jpg';
+        bgImg.style.objectPosition = 'center 38%'; // vajadusel kohanda (nt 35% või 42%)
+      } else {
+        bgImg.src = '001.jpg';
+        bgImg.style.objectPosition = 'center';
+      }
+    }
+
+    chooseBackgroundImage();
+
+    // Kui keegi pöörab telefoni, uuendame pilti
+    window.addEventListener('orientationchange', () => {
+      setTimeout(chooseBackgroundImage, 150);
+    });
+
     // Näita sisu alles siis, kui taustapilt on laaditud
-    const img = document.querySelector('.bg-photo');
     const content = document.querySelector('.landing-content');
 
     function revealContent() {
       content.classList.add('ready');
     }
 
-    if (img.complete) {
+    if (bgImg.complete && bgImg.src) {
       revealContent();
     } else {
-      img.addEventListener('load', revealContent);
-      setTimeout(revealContent, 3000); // Näita ikkagi 3 sek pärast
+      bgImg.addEventListener('load', revealContent);
+      setTimeout(revealContent, 3500);
     }
   </script>
 
