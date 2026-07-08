@@ -1,18 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<link rel="canonical" href="https://www.duoenpassant.com/" />
+  <link rel="canonical" href="https://www.duoenpassant.com/" />
 
   <title>Duo EnPassant | Viiul & Tšello |</title>
   <meta name="description" content="Duo EnPassant — viiul ja tšello duo. Elav muusika pulmadeks, matusteks, vastuvõttudeks ja firmapidudeks Tallinnas ja üle Eesti. Broneeri: info@duoenpassant.com" />
   <meta name="keywords" content="pulmamuusika Tallinn, muusikud pulma Eesti, keelpilliduo pulmad, matusemuusika Tallinn, matuse muusikud, viiul tšello üritus, kammermuusika üritus Tallinn, Duo EnPassant" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Duo EnPassant" />
-  <link rel="canonical" href="https://www.duoenpassant.com/" />
 
   <meta property="og:title" content="Duo EnPassant | Pulma- ja Matusemuusika — Tallinn" />
   <meta property="og:description" content="Professionaalne viiul ja tšello duo pulmadeks, matusteks ja üritusteks. Tallinn ja üle Eesti." />
@@ -49,22 +47,8 @@
   }
   </script>
 
+  <link rel="preload" as="image" href="001.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="Favicon.png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-</head>
-  <meta name="description" content="Duo EnPassant – viiul ja tšello duo pulmadeks, üritusteks ja kontsertideks.">
-<meta property="og:title" content="Duo EnPassant | Viiul & Tšello">
-<meta property="og:image" content="https://www.duoenpassant.com/1.png">
-<meta property="og:url" content="https://www.duoenpassant.com/">
-
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Duo EnPassant | Violin & Cello Duo</title>
-  <meta name="description" content="Duo EnPassant — violin and cello duo performing classical chamber music." />
-  <link rel="canonical" href="https://www.duoenpassant.com/" />
-  <link rel="preload" as="image" href="1.png">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;500&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="Favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -79,34 +63,38 @@
     }
     html, body { height: 100%; overflow: hidden; font-family: 'Cormorant Garamond', Georgia, serif; }
 
-        .bg-photo {
+    .bg-photo {
       position: fixed; inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
+      object-position: center;
       z-index: 0;
     }
     .bg-overlay {
       position: fixed; inset: 0;
-      background: linear-gradient(to bottom, rgba(20,16,14,0.55) 0%, rgba(20,16,14,0.65) 60%, rgba(20,16,14,0.80) 100%);
+      background: linear-gradient(to bottom,
+        rgba(26,22,20,0.30) 0%,
+        rgba(26,22,20,0.20) 30%,
+        rgba(26,22,20,0.38) 70%,
+        rgba(26,22,20,0.55) 100%);
       z-index: 1;
     }
+
     .landing {
       position: relative; z-index: 3;
       height: 100vh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      padding: 2rem;
     }
 
     /* Language switcher */
     .lang-row {
       position: absolute; top: 1.8rem; right: 2.2rem;
       display: flex; align-items: center; gap: 0.5rem;
+      z-index: 4;
     }
     .lang-btn {
       cursor: pointer; background: none;
       border: 1px solid transparent;
-      color: rgba(245,240,232,0.5);
+      color: rgba(245,240,232,0.6);
       font-family: 'Cinzel', serif; font-size: 0.82rem; letter-spacing: 0.22em;
       text-transform: uppercase;
       transition: color 0.2s, border-color 0.2s;
@@ -116,70 +104,82 @@
     .lang-btn.active { color: var(--warm); border-color: var(--line); }
     .lang-separator { color: rgba(200,169,110,0.35); font-size: 0.82rem; font-family: 'Cinzel', serif; }
 
-    /* Content */
-    .landing-content {
-      text-align: center;
-      opacity: 0; transform: translateY(28px);
-    }
-        /* Desktopil nihutame teksti vasakule, et see ei kattuks muusikutega */
-    @media (min-width: 769px) {
-      .landing-content {
-        text-align: left;
-        margin-left: 7vw;
-        max-width: 540px;
-      }
+    /* Positioning wrapper: placed in the empty background area of the photo.
+       Mobile: huge empty band above the musicians' heads (top ~37% of photo).
+       Desktop: empty gap between the two musicians (~35%-62% of photo width). */
+    .landing-content-wrap {
+      position: absolute;
+      top: 7vh;
+      left: 0; right: 0;
+      display: flex;
+      justify-content: center;
+      padding: 0 1.5rem;
     }
 
-    /* Overlay veidi kergem, et pildi valgusefektid jääksid näha */
-    .bg-overlay {
-      background: linear-gradient(to bottom, 
-        rgba(26,22,20,0.38) 0%, 
-        rgba(26,22,20,0.52) 55%, 
-        rgba(26,22,20,0.68) 100%);
+    .landing-content {
+      text-align: center;
+      max-width: 380px;
+      width: 100%;
+      opacity: 0; transform: translateY(28px);
     }
     .landing-content.ready {
       animation: fadeUp 1.3s cubic-bezier(0.16,1,0.3,1) forwards;
     }
-    .clef-hero { width: 80px; height: 80px; margin: 0 auto 2rem; display: block; }
+
+    @media (min-width: 769px) {
+      .landing-content-wrap {
+        justify-content: center;
+        left: 58.5%;
+        transform: translateX(-50%);
+        padding-left: 0;
+        top: 6vh;
+      }
+      .landing-content {
+        width: min(28vw, 330px);
+        min-width: 260px;
+        max-width: 330px;
+      }
+    }
+
     .landing-eyebrow {
       font-family: 'Cinzel', serif; font-size: 0.6rem;
-      letter-spacing: 0.55em; text-transform: uppercase;
-      color: var(--warm); margin-bottom: 1.6rem;
+      letter-spacing: 0.5em; text-transform: uppercase;
+      color: var(--warm); margin-bottom: 1.3rem;
     }
     .landing-title {
       font-family: 'Cinzel', serif;
-      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-size: clamp(2rem, 4.6vw, 2.9rem);
       font-weight: 400; color: var(--parchment);
-      letter-spacing: 0.08em; line-height: 1.05; margin-bottom: 0.3rem;
+      letter-spacing: 0.06em; line-height: 1.05; margin-bottom: 0.3rem;
     }
     .landing-title em {
       font-family: 'Cormorant Garamond', serif; font-style: italic;
-      font-size: clamp(2.8rem, 7vw, 4.8rem); font-weight: 300;
+      font-size: clamp(2.3rem, 5.4vw, 3.4rem); font-weight: 300;
       color: var(--warm); letter-spacing: 0.02em;
     }
     .landing-rule {
-      width: 160px; height: 1px;
+      width: 120px; height: 1px;
       background: linear-gradient(to right, transparent, var(--warm), transparent);
-      margin: 2rem auto;
+      margin: 1.5rem auto;
     }
     .landing-sub {
-      font-family: 'Raleway', sans-serif; font-size: 0.65rem;
-      font-weight: 300; letter-spacing: 0.32em; text-transform: uppercase;
-      color: rgba(245,240,232,0.55); margin-bottom: 2.8rem;
+      font-family: 'Raleway', sans-serif; font-size: 0.6rem;
+      font-weight: 300; letter-spacing: 0.28em; text-transform: uppercase;
+      color: rgba(245,240,232,0.6); margin-bottom: 1.8rem;
     }
     .landing-names {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(0.95rem, 1.6vw, 1.15rem); font-weight: 300;
-      color: rgba(245,240,232,0.5); font-style: italic;
-      line-height: 2; margin-bottom: 2.8rem;
+      font-size: clamp(0.9rem, 1.4vw, 1rem); font-weight: 300;
+      color: rgba(245,240,232,0.55); font-style: italic;
+      line-height: 1.9; margin-bottom: 1.8rem;
     }
     .enter-btn {
       display: inline-block;
-      font-family: 'Cinzel', serif; font-size: 0.65rem;
-      letter-spacing: 0.4em; text-transform: uppercase;
+      font-family: 'Cinzel', serif; font-size: 0.62rem;
+      letter-spacing: 0.38em; text-transform: uppercase;
       color: var(--parchment);
       border: 1px solid rgba(200,169,110,0.5);
-      padding: 0.9rem 2.6rem; text-decoration: none;
+      padding: 0.8rem 2.2rem; text-decoration: none;
       position: relative; overflow: hidden;
       transition: color 0.3s, border-color 0.3s;
     }
@@ -200,12 +200,11 @@
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
     @media (max-width: 600px) {
-      .landing { padding: 1.5rem; }
       .lang-row { top: 1.2rem; right: 1.4rem; }
-      .clef-hero { width: 64px; height: 64px; margin-bottom: 1.6rem; }
-      .landing-rule { margin: 1.6rem auto; }
-      .landing-names { margin-bottom: 2rem; }
-      .landing-sub { margin-bottom: 2rem; }
+      .landing-content-wrap { top: 5.5vh; }
+      .landing-rule { margin: 1.3rem auto; }
+      .landing-names { margin-bottom: 1.5rem; }
+      .landing-sub { margin-bottom: 1.5rem; }
     }
   </style>
 
@@ -224,40 +223,32 @@
       <button class="lang-btn"        data-lang-switch="est" type="button">EST</button>
     </div>
 
-    <div class="landing-content">
-      <svg class="clef-hero" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <line x1="8" y1="36" x2="82" y2="36" stroke="#c8a96e" stroke-width="0.8" opacity="0.5"/>
-        <line x1="8" y1="43" x2="82" y2="43" stroke="#c8a96e" stroke-width="0.8" opacity="0.5"/>
-        <line x1="8" y1="50" x2="82" y2="50" stroke="#c8a96e" stroke-width="0.8" opacity="0.5"/>
-        <line x1="8" y1="57" x2="82" y2="57" stroke="#c8a96e" stroke-width="0.8" opacity="0.5"/>
-        <line x1="8" y1="64" x2="82" y2="64" stroke="#c8a96e" stroke-width="0.8" opacity="0.5"/>
-        <text x="8"  y="72" font-family="serif" font-size="62" fill="#f5f0e8">𝄞</text>
-        <text x="50" y="60" font-family="serif" font-size="40" fill="#c8a96e">𝄢</text>
-      </svg>
+    <div class="landing-content-wrap">
+      <div class="landing-content">
+        <p class="landing-eyebrow">
+          <span data-lang="en">Violin &amp; Cello</span>
+          <span data-lang="est">Viiul &amp; Tšello</span>
+        </p>
 
-      <p class="landing-eyebrow">
-        <span data-lang="en">Violin &amp; Cello</span>
-        <span data-lang="est">Viiul &amp; Tšello</span>
-      </p>
+        <h1 class="landing-title">Duo <em>En<br>Passant</em></h1>
 
-      <h1 class="landing-title">Duo <em>En<br>Passant</em></h1>
+        <div class="landing-rule"></div>
 
-      <div class="landing-rule"></div>
+        <p class="landing-sub">
+          <span data-lang="en">International String Duo</span>
+          <span data-lang="est">Rahvusvaheline keelpilliduo</span>
+        </p>
 
-      <p class="landing-sub">
-        <span data-lang="en">International String Duo</span>
-        <span data-lang="est">Rahvusvaheline keelpilliduo</span>
-      </p>
+        <p class="landing-names">
+          Merily Leotoots<br>
+          Anna Ryland-Jones
+        </p>
 
-      <p class="landing-names">
-        Merily Leotoots<br>
-        Anna Ryland-Jones
-      </p>
-
-      <a href="site.html" class="enter-btn" id="enterBtn">
-        <span data-lang="en">Enter</span>
-        <span data-lang="est">Sisene</span>
-      </a>
+        <a href="site.html" class="enter-btn" id="enterBtn">
+          <span data-lang="en">Enter</span>
+          <span data-lang="est">Sisene</span>
+        </a>
+      </div>
     </div>
 
   </div>
@@ -286,14 +277,7 @@
 
     function chooseBackgroundImage() {
       const isMobile = window.matchMedia('(orientation: portrait)').matches || window.innerWidth < 768;
-      
-      if (isMobile) {
-        bgImg.src = '002.jpg';
-        bgImg.style.objectPosition = '35% 38%'; // nihutatud vasakule, oli 'center 38%'
-      } else {
-        bgImg.src = '001.jpg';
-        bgImg.style.objectPosition = '40% center'; // nihutatud vasakule, oli 'center'
-      }
+      bgImg.src = isMobile ? '002.jpg' : '001.jpg';
     }
 
     chooseBackgroundImage();
@@ -320,3 +304,4 @@
 
 </body>
 </html>
+
