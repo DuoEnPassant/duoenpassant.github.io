@@ -163,30 +163,7 @@
       margin: 1.6rem 0;
     }
 
-    /* Names: one per pedestal cube. Exact left/top set via JS to match photo proportions precisely. */
-    .pedestal-name {
-      position: absolute;
-      text-align: center;
-      width: 34vw;
-      max-width: 152px;
-      opacity: 0; transform: translate(-50%, calc(-50% + 14px));
-      z-index: 3;
-    }
-    .pedestal-name.ready {
-      animation: fadeUpName 1.3s cubic-bezier(0.16,1,0.3,1) forwards;
-    }
-    @keyframes fadeUpName { to { opacity: 1; transform: translate(-50%, -50%); } }
-
-    .landing-names {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(0.8rem, 3.2vw, 1.05rem); font-weight: 500;
-      color: rgba(250,246,240,0.92); font-style: normal;
-      letter-spacing: 0.07em; text-transform: uppercase;
-      line-height: 1.55;
-      text-shadow: 0 1px 4px rgba(26,22,20,0.35);
-    }
-
-    /* Enter button: exact left/top set via JS to land in a clear area */
+    /* Enter button: exact left/top set via JS, positioned relative to the title */
     .bottom-enter {
       position: absolute;
       transform: translate(-50%, -50%);
@@ -197,18 +174,14 @@
       animation: fadeUpEnter 1.3s cubic-bezier(0.16,1,0.3,1) forwards;
       animation-delay: 0.2s;
     }
-    @keyframes fadeUpEnter { to { opacity: 1; transform: translate(-50%, -50%); } }
+    @keyframes fadeUpEnter { to { opacity: 0.8; transform: translate(-50%, -50%); } }
 
-    @media (min-width: 769px) {
-      .pedestal-name { width: 13vw; max-width: 195px; }
-      .landing-names { font-size: clamp(0.95rem, 1.7vw, 1.35rem); }
-    }
     .enter-btn {
       display: inline-block;
       font-family: 'Cinzel', serif; font-size: clamp(0.6rem, 1.6vw, 0.75rem);
       letter-spacing: 0.32em; text-transform: uppercase;
-      color: var(--ink);
-      border: 1px solid rgba(26,22,20,0.45);
+      color: rgba(245,240,232,0.75);
+      border: 1px solid rgba(245,240,232,0.35);
       padding: 0.7rem 1.6rem; text-decoration: none;
       position: relative; overflow: hidden;
       transition: color 0.3s, border-color 0.3s;
@@ -216,24 +189,14 @@
     }
     .enter-btn::before {
       content: ''; position: absolute; inset: 0;
-      background: var(--ink); transform: translateX(-101%);
+      background: rgba(245,240,232,0.85); transform: translateX(-101%);
       transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); z-index: 0;
     }
-    .enter-btn:hover { color: var(--parchment); border-color: var(--ink); }
+    .enter-btn:hover { color: var(--ink); border-color: rgba(245,240,232,0.6); }
     .enter-btn:hover::before { transform: translateX(0); }
     .enter-btn span { position: relative; z-index: 1; }
     .bottom-enter { position: absolute; }
-
-    @media (max-width: 768px) {
-      .bottom-enter.enter-btn {
-        color: rgba(245,240,232,0.75);
-        border-color: rgba(245,240,232,0.35);
-      }
-      .bottom-enter.enter-btn::before { background: rgba(245,240,232,0.85); }
-      .bottom-enter.enter-btn:hover { color: var(--ink); }
-      .bottom-enter.ready { opacity: 0.8; }
-      @keyframes fadeUpEnter { to { opacity: 0.8; transform: translate(-50%, -50%); } }
-    }
+    .bottom-enter.ready { opacity: 0.8; }
 
     /* Language show/hide */
     [data-lang] { display: none; }
@@ -271,14 +234,6 @@
       </div>
     </div>
 
-    <div class="pedestal-name pedestal-name--left">
-      <p class="landing-names">Merily<br>Leotoots</p>
-    </div>
-
-    <div class="pedestal-name pedestal-name--right">
-      <p class="landing-names">Anna<br>Ryland-Jones</p>
-    </div>
-
     <a href="site.html" class="bottom-enter enter-btn" id="enterBtn">
       <span data-lang="en">Enter</span>
       <span data-lang="est">Sisene</span>
@@ -305,68 +260,28 @@
       btn.addEventListener('click', () => setLang(btn.dataset.langSwitch));
     });
 
-    // === Taustapildi valik ja täpne teksti paigutus foto proportsioonide järgi ===
-    const bgImg = document.querySelector('.bg-photo');
-    const nameLeftEl  = document.querySelector('.pedestal-name--left');
-    const nameRightEl = document.querySelector('.pedestal-name--right');
-    const enterEl     = document.querySelector('.bottom-enter');
-    const titleEl     = document.querySelector('.landing-content');
-
-    // Punktid on määratud originaalfoto protsentides (x/y = % pildi laiusest/kõrgusest),
-    // mõõdetud otse fotodelt (violin/cello pjedestaalide asukohad).
-    const ANCHORS = {
-      desktop: {
-        src: '001.jpg', w: 2048, h: 1365, fit: 'cover',
-        nameLeft:  { x: 32.25, y: 77.5 },
-        nameRight: { x: 80.25, y: 83.25 }
-      },
-      mobile: {
-        src: '002.jpg', w: 1365, h: 2048, fit: 'contain-bottom',
-        nameLeft:  { x: 19.0, y: 85 },
-        nameRight: { x: 78.5, y: 86 }
-      }
-    };
+    // === Taustapildi valik ja Enter nupu paigutus pealkirja järgi ===
+    const bgImg   = document.querySelector('.bg-photo');
+    const enterEl = document.querySelector('.bottom-enter');
+    const titleEl = document.querySelector('.landing-content');
 
     function getMode() {
       const isMobile = window.matchMedia('(orientation: portrait)').matches || window.innerWidth < 768;
       return isMobile ? 'mobile' : 'desktop';
     }
 
-    function computeLayout(a) {
-      const vw = window.innerWidth, vh = window.innerHeight;
-      let scale, offX, offY;
-      if (a.fit === 'contain-bottom') {
-        scale = Math.min(vw / a.w, vh / a.h);
-        offX = (vw - a.w * scale) / 2;
-        offY = vh - a.h * scale;
-      } else {
-        scale = Math.max(vw / a.w, vh / a.h);
-        offX = (vw - a.w * scale) / 2;
-        offY = (vh - a.h * scale) / 2;
-      }
-      const toPx = (pt) => ({ x: offX + (pt.x / 100) * a.w * scale, y: offY + (pt.y / 100) * a.h * scale });
-      return { nameLeft: toPx(a.nameLeft), nameRight: toPx(a.nameRight) };
-    }
-
     let currentMode = null;
 
     function applyLayout() {
       const mode = getMode();
-      const a = ANCHORS[mode];
 
       bgImg.classList.toggle('mobile-contain', mode === 'mobile');
       if (currentMode !== mode) {
-        bgImg.src = a.src;
+        bgImg.src = mode === 'mobile' ? '002.jpg' : '001.jpg';
         currentMode = mode;
       }
 
-      const layout = computeLayout(a);
-      nameLeftEl.style.left = layout.nameLeft.x + 'px';
-      nameLeftEl.style.top = layout.nameLeft.y + 'px';
-      nameRightEl.style.left = layout.nameRight.x + 'px';
-      nameRightEl.style.top = layout.nameRight.y + 'px';
-
-      // Enter nupp seotakse pealkirja asukohaga, mitte fotoga:
+      // Enter nupp seotakse pealkirja asukohaga:
       // Desktop: ekraani allservas, horisontaalselt pealkirja keskkoha kohal.
       // Mobiil: vahetult pealkirja all, samuti keskel.
       const titleBox = titleEl.getBoundingClientRect();
@@ -392,7 +307,7 @@
     setTimeout(applyLayout, 1200);
 
     // Näita sisu alles siis, kui taustapilt on laaditud
-    const revealTargets = document.querySelectorAll('.landing-content, .pedestal-name, .bottom-enter');
+    const revealTargets = document.querySelectorAll('.landing-content, .bottom-enter');
 
     function revealContent() {
       revealTargets.forEach(el => el.classList.add('ready'));
@@ -408,4 +323,5 @@
 
 </body>
 </html>
+
 
