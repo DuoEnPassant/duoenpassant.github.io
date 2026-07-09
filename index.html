@@ -180,9 +180,10 @@
     .landing-names {
       font-family: 'Cinzel', serif;
       font-size: clamp(0.8rem, 3.2vw, 1.05rem); font-weight: 500;
-      color: var(--ink); font-style: normal;
+      color: rgba(250,246,240,0.92); font-style: normal;
       letter-spacing: 0.07em; text-transform: uppercase;
       line-height: 1.55;
+      text-shadow: 0 1px 4px rgba(26,22,20,0.35);
     }
 
     /* Enter button: exact left/top set via JS to land in a clear area */
@@ -222,6 +223,17 @@
     .enter-btn:hover::before { transform: translateX(0); }
     .enter-btn span { position: relative; z-index: 1; }
     .bottom-enter { position: absolute; }
+
+    @media (max-width: 768px) {
+      .bottom-enter.enter-btn {
+        color: rgba(245,240,232,0.75);
+        border-color: rgba(245,240,232,0.35);
+      }
+      .bottom-enter.enter-btn::before { background: rgba(245,240,232,0.85); }
+      .bottom-enter.enter-btn:hover { color: var(--ink); }
+      .bottom-enter.ready { opacity: 0.8; }
+      @keyframes fadeUpEnter { to { opacity: 0.8; transform: translate(-50%, -50%); } }
+    }
 
     /* Language show/hide */
     [data-lang] { display: none; }
@@ -298,6 +310,7 @@
     const nameLeftEl  = document.querySelector('.pedestal-name--left');
     const nameRightEl = document.querySelector('.pedestal-name--right');
     const enterEl     = document.querySelector('.bottom-enter');
+    const titleEl     = document.querySelector('.landing-content');
 
     // Punktid on määratud originaalfoto protsentides (x/y = % pildi laiusest/kõrgusest),
     // mõõdetud otse fotodelt (violin/cello pjedestaalide asukohad).
@@ -305,14 +318,12 @@
       desktop: {
         src: '001.jpg', w: 2048, h: 1365, fit: 'cover',
         nameLeft:  { x: 32.25, y: 77.5 },
-        nameRight: { x: 80.25, y: 83.25 },
-        enter:     { x: 18,    y: 90 }
+        nameRight: { x: 80.25, y: 83.25 }
       },
       mobile: {
         src: '002.jpg', w: 1365, h: 2048, fit: 'contain-bottom',
         nameLeft:  { x: 19.0, y: 85 },
-        nameRight: { x: 78.5, y: 86 },
-        enter:     { x: 55,   y: 58 }
+        nameRight: { x: 78.5, y: 86 }
       }
     };
 
@@ -334,7 +345,7 @@
         offY = (vh - a.h * scale) / 2;
       }
       const toPx = (pt) => ({ x: offX + (pt.x / 100) * a.w * scale, y: offY + (pt.y / 100) * a.h * scale });
-      return { nameLeft: toPx(a.nameLeft), nameRight: toPx(a.nameRight), enter: toPx(a.enter) };
+      return { nameLeft: toPx(a.nameLeft), nameRight: toPx(a.nameRight) };
     }
 
     let currentMode = null;
@@ -354,13 +365,31 @@
       nameLeftEl.style.top = layout.nameLeft.y + 'px';
       nameRightEl.style.left = layout.nameRight.x + 'px';
       nameRightEl.style.top = layout.nameRight.y + 'px';
-      enterEl.style.left = layout.enter.x + 'px';
-      enterEl.style.top = layout.enter.y + 'px';
+
+      // Enter nupp seotakse pealkirja asukohaga, mitte fotoga:
+      // Desktop: ekraani allservas, horisontaalselt pealkirja keskkoha kohal.
+      // Mobiil: vahetult pealkirja all, samuti keskel.
+      const titleBox = titleEl.getBoundingClientRect();
+      const centerX = titleBox.left + titleBox.width / 2;
+      if (mode === 'desktop') {
+        enterEl.style.left = centerX + 'px';
+        enterEl.style.top = (window.innerHeight - 56) + 'px';
+      } else {
+        enterEl.style.left = centerX + 'px';
+        enterEl.style.top = (titleBox.bottom + 34) + 'px';
+      }
     }
 
     applyLayout();
     window.addEventListener('resize', applyLayout);
     window.addEventListener('orientationchange', () => setTimeout(applyLayout, 150));
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', applyLayout);
+    }
+    // Mobiili brauserite aadressiriba peidab/näitab end viivitusega, mis muudab akna kõrgust
+    // pärast esimest laadimist - arvutame paigutuse veel paar korda üle, et see kindlasti õigeks jääks.
+    setTimeout(applyLayout, 400);
+    setTimeout(applyLayout, 1200);
 
     // Näita sisu alles siis, kui taustapilt on laaditud
     const revealTargets = document.querySelectorAll('.landing-content, .pedestal-name, .bottom-enter');
@@ -379,3 +408,4 @@
 
 </body>
 </html>
+
