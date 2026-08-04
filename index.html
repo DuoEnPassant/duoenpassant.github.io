@@ -127,23 +127,25 @@
       animation: fadeUp 1.3s cubic-bezier(0.16,1,0.3,1) forwards;
     }
 
-    @media (min-width: 769px) {
-      .landing-content-wrap {
-        padding-left: 4vw;
-        top: 5vh;
-      }
-    }
+@media (min-width: 1025px) {
+  .landing-content-wrap {
+    padding-left: 4vw;
+    top: 5vh;
+  }
+}
 
-    @media (max-width: 768px) {
-      .landing-content-wrap {
-        left: 0; right: 0;
-        justify-content: center;
-        top: 24vh;
-        padding: 0 1.5rem;
-      }
-      .landing-content { text-align: center; }
-      .landing-rule { margin: 1.4rem auto; background: linear-gradient(to right, transparent, var(--warm), transparent); }
-    }
+
+@media (max-width: 1024px) {
+  .landing-content-wrap {
+    left: 0; right: 0;
+    justify-content: center;
+    top: 24vh;
+    padding: 0 1.5rem;
+  }
+  .landing-content { text-align: center; }
+  .landing-rule { margin: 1.4rem auto; background: linear-gradient(to right, transparent, var(--warm), transparent); }
+}
+
 
     .landing-title {
       font-family: 'Cinzel', serif;
