@@ -266,7 +266,8 @@
     const titleEl = document.querySelector('.landing-content');
 
     function getMode() {
-      const isMobile = window.matchMedia('(orientation: portrait)').matches || window.innerWidth < 768;
+     const isMobile = window.innerWidth < 1024;
+
       return isMobile ? 'mobile' : 'desktop';
     }
 
