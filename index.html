@@ -158,12 +158,11 @@
       font-size: clamp(2.6rem, 6.6vw, 5.2rem); font-weight: 300;
       color: var(--warm); letter-spacing: 0.02em;
       text-shadow: 0 0 1px rgba(26,22,20,0.6), 0 1px 3px rgba(26,22,20,0.35);
-    }
-    .landing-rule {
-      width: 120px; height: 1px;
-      background: linear-gradient(to right, var(--warm), transparent);
-      margin: 1.6rem 0;
-    }
+ 
+      .landing-rule {
+  display: none;
+}
+
 
     /* Enter button: exact left/top set via JS, positioned relative to the title */
     .bottom-enter {
@@ -209,7 +208,7 @@
 
     @media (max-width: 600px) {
       .lang-row { top: 1.2rem; right: 1.4rem; }
-      .landing-content-wrap { top: 4.5vh; }
+      .landing-content-wrap { top: 8vh; }
       .landing-rule { margin: 1.3rem 0; }
     }
   </style>
