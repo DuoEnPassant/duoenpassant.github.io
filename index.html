@@ -6,7 +6,7 @@
 
   <link rel="canonical" href="https://www.duoenpassant.com/" />
 
-  <title>Duo EnPassant | Viiul & Tšello |</title>
+  <title>Duo EnPassant | Viiul & Tšello</title>
   <meta name="description" content="Duo EnPassant — viiul ja tšello duo. Elav muusika pulmadeks, matusteks, vastuvõttudeks ja firmapidudeks Tallinnas ja üle Eesti. Broneeri: info@duoenpassant.com" />
   <meta name="keywords" content="pulmamuusika Tallinn, muusikud pulma Eesti, keelpilliduo pulmad, matusemuusika Tallinn, matuse muusikud, viiul tšello üritus, kammermuusika üritus Tallinn, Duo EnPassant" />
   <meta name="robots" content="index, follow" />
@@ -61,8 +61,13 @@
       --muted: #7a6f65;
       --line: rgba(200,169,110,0.4);
     }
-    html, body { height: 100%; overflow: hidden; font-family: 'Cormorant Garamond', Georgia, serif; }
 
+    html, body {
+      height: 100%; overflow: hidden;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    /* Background photo */
     .bg-photo {
       position: fixed; inset: 0;
       width: 100%; height: 100%;
@@ -75,19 +80,27 @@
       object-fit: contain;
       object-position: center bottom;
     }
+
+    /* Overlay */
     .bg-overlay {
       position: fixed; inset: 0;
       background: linear-gradient(to bottom,
         rgba(26,22,20,0.30) 0%,
-        rgba(26,22,20,0.20) 30%,
-        rgba(26,22,20,0.38) 70%,
+        rgba(26,22,20,0.15) 30%,
+        rgba(26,22,20,0.35) 70%,
         rgba(26,22,20,0.55) 100%);
       z-index: 1;
     }
 
+    /* Main container */
     .landing {
       position: relative; z-index: 3;
       height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 10vh;
     }
 
     /* Language switcher */
@@ -109,81 +122,44 @@
     .lang-btn.active { color: var(--warm); border-color: var(--line); }
     .lang-separator { color: rgba(200,169,110,0.35); font-size: 0.82rem; font-family: 'Cinzel', serif; }
 
-    /* Title positioned top-left, in the empty background area above/left of the musicians */
-    .landing-content-wrap {
-      position: absolute;
-      top: 5vh;
-      left: 0;
-      display: flex;
-      justify-content: flex-start;
-      padding: 0 1.5rem;
-    }
-
+    /* Title block — always centred */
     .landing-content {
-      text-align: left;
+      text-align: center;
       opacity: 0; transform: translateY(28px);
     }
     .landing-content.ready {
       animation: fadeUp 1.3s cubic-bezier(0.16,1,0.3,1) forwards;
     }
 
-@media (min-width: 1025px) {
-  .landing-content-wrap {
-    padding-left: 4vw;
-    top: 5vh;
-  }
-}
-
-
-@media (max-width: 1024px) {
-  .landing-content-wrap {
-    left: 0; right: 0;
-    justify-content: center;
-    top: 24vh;
-    padding: 0 1.5rem;
-  }
-  .landing-content { text-align: center; }
-  .landing-rule { margin: 1.4rem auto; background: linear-gradient(to right, transparent, var(--warm), transparent); }
-}
-
-
     .landing-title {
       font-family: 'Cinzel', serif;
-      font-size: clamp(2.3rem, 5.6vw, 4.4rem);
+      font-size: clamp(2.4rem, 6vw, 5rem);
       font-weight: 400; color: var(--parchment);
-      letter-spacing: 0.06em; line-height: 1.05; margin-bottom: 0.3rem;
+      letter-spacing: 0.06em; line-height: 1.05;
     }
     .landing-title em {
       font-family: 'Cormorant Garamond', serif; font-style: italic;
-      font-size: clamp(2.6rem, 6.6vw, 5.2rem); font-weight: 300;
+      font-size: clamp(2.7rem, 7vw, 5.8rem); font-weight: 300;
       color: var(--warm); letter-spacing: 0.02em;
       text-shadow: 0 0 1px rgba(26,22,20,0.6), 0 1px 3px rgba(26,22,20,0.35);
- 
-      .landing-rule {
-  display: none;
-}
-
-
-    /* Enter button: exact left/top set via JS, positioned relative to the title */
-    .bottom-enter {
-      position: absolute;
-      transform: translate(-50%, -50%);
-      opacity: 0;
-      z-index: 3;
     }
-    .bottom-enter.ready {
-      animation: fadeUpEnter 1.3s cubic-bezier(0.16,1,0.3,1) forwards;
-      animation-delay: 0.2s;
+
+    /* Enter button — always centred below title */
+    .enter-wrap {
+      margin-top: 2.4rem;
+      opacity: 0; transform: translateY(16px);
     }
-    @keyframes fadeUpEnter { to { opacity: 0.8; transform: translate(-50%, -50%); } }
+    .enter-wrap.ready {
+      animation: fadeUp 1.3s cubic-bezier(0.16,1,0.3,1) 0.25s forwards;
+    }
 
     .enter-btn {
       display: inline-block;
-      font-family: 'Cinzel', serif; font-size: clamp(0.6rem, 1.6vw, 0.75rem);
+      font-family: 'Cinzel', serif; font-size: 0.72rem;
       letter-spacing: 0.32em; text-transform: uppercase;
       color: rgba(245,240,232,0.75);
       border: 1px solid rgba(245,240,232,0.35);
-      padding: 0.7rem 1.6rem; text-decoration: none;
+      padding: 0.75rem 2rem; text-decoration: none;
       position: relative; overflow: hidden;
       transition: color 0.3s, border-color 0.3s;
       white-space: nowrap;
@@ -196,49 +172,70 @@
     .enter-btn:hover { color: var(--ink); border-color: rgba(245,240,232,0.6); }
     .enter-btn:hover::before { transform: translateX(0); }
     .enter-btn span { position: relative; z-index: 1; }
-    .bottom-enter { position: absolute; }
-    .bottom-enter.ready { opacity: 0.8; }
+
+    /* Desktop: title top-left, button bottom-centre */
+    @media (min-width: 1025px) {
+      .landing {
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-top: 6vh;
+        padding-left: 4vw;
+      }
+      .landing-content { text-align: left; }
+      .enter-wrap {
+        position: absolute;
+        bottom: 3.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 0;
+      }
+      .enter-wrap.ready {
+        animation: fadeUpDesktop 1.3s cubic-bezier(0.16,1,0.3,1) 0.25s forwards;
+      }
+    }
 
     /* Language show/hide */
     [data-lang] { display: none; }
     body.lang-en  [data-lang="en"]  { display: inline; }
     body.lang-est [data-lang="est"] { display: inline; }
 
-    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUpDesktop {
+      to { opacity: 0.85; transform: translateX(-50%) translateY(0); }
+    }
 
-    @media (max-width: 600px) {
-      .lang-row { top: 1.2rem; right: 1.4rem; }
-      .landing-content-wrap { top: 8vh; }
-      .landing-rule { margin: 1.3rem 0; }
+    /* Small phones */
+    @media (max-width: 390px) {
+      .landing { padding-top: 8vh; }
     }
   </style>
-
 </head>
 
 <body class="lang-en">
 
-<img class="bg-photo" alt="" aria-hidden="true">
+  <img class="bg-photo" alt="" aria-hidden="true">
   <div class="bg-overlay" aria-hidden="true"></div>
 
   <div class="landing">
 
     <div class="lang-row" aria-label="Language selector">
-      <button class="lang-btn active" data-lang-switch="en"  type="button">EN</button>
+      <button class="lang-btn active" data-lang-switch="en" type="button">EN</button>
       <span class="lang-separator">|</span>
-      <button class="lang-btn"        data-lang-switch="est" type="button">EST</button>
+      <button class="lang-btn" data-lang-switch="est" type="button">EST</button>
     </div>
 
-    <div class="landing-content-wrap">
-      <div class="landing-content">
-        <h1 class="landing-title">Duo <em>En<br>Passant</em></h1>
-        <div class="landing-rule"></div>
-      </div>
+    <div class="landing-content">
+      <h1 class="landing-title">Duo <em>En<br>Passant</em></h1>
     </div>
 
-    <a href="site.html" class="bottom-enter enter-btn" id="enterBtn">
-      <span data-lang="en">Enter</span>
-      <span data-lang="est">Sisene</span>
-    </a>
+    <div class="enter-wrap">
+      <a href="site.html" class="enter-btn">
+        <span data-lang="en">Enter</span>
+        <span data-lang="est">Sisene</span>
+      </a>
+    </div>
 
   </div>
 
@@ -253,77 +250,41 @@
         b.classList.toggle('active', b.dataset.langSwitch === lang);
       });
     }
-
     const saved = localStorage.getItem('dep-lang');
     if (saved) setLang(saved);
-
     document.querySelectorAll('[data-lang-switch]').forEach(btn => {
       btn.addEventListener('click', () => setLang(btn.dataset.langSwitch));
     });
 
-    // === Taustapildi valik ja Enter nupu paigutus pealkirja järgi ===
-    const bgImg   = document.querySelector('.bg-photo');
-    const enterEl = document.querySelector('.bottom-enter');
-    const titleEl = document.querySelector('.landing-content');
+    // Photo selection based on screen width
+    const bgImg = document.querySelector('.bg-photo');
 
-    function getMode() {
-     const isMobile = window.innerWidth < 1024;
-
-      return isMobile ? 'mobile' : 'desktop';
+    function applyPhoto() {
+      const isMobile = window.innerWidth < 1025;
+      bgImg.classList.toggle('mobile-contain', isMobile);
+      const src = isMobile ? '002.jpg' : '001.jpg';
+      if (bgImg.src !== src) bgImg.src = src;
     }
 
-    let currentMode = null;
+    applyPhoto();
+    window.addEventListener('resize', applyPhoto);
+    window.addEventListener('orientationchange', () => setTimeout(applyPhoto, 150));
 
-    function applyLayout() {
-      const mode = getMode();
-
-      bgImg.classList.toggle('mobile-contain', mode === 'mobile');
-      if (currentMode !== mode) {
-        bgImg.src = mode === 'mobile' ? '002.jpg' : '001.jpg';
-        currentMode = mode;
-      }
-
-      // Enter nupp seotakse pealkirja asukohaga:
-      // Desktop: ekraani allservas, horisontaalselt pealkirja keskkoha kohal.
-      // Mobiil: vahetult pealkirja all, samuti keskel.
-      const titleBox = titleEl.getBoundingClientRect();
-      const centerX = titleBox.left + titleBox.width / 2;
-      if (mode === 'desktop') {
-        enterEl.style.left = centerX + 'px';
-        enterEl.style.top = (window.innerHeight - 56) + 'px';
-      } else {
-        enterEl.style.left = centerX + 'px';
-        enterEl.style.top = (titleBox.bottom + 34) + 'px';
-      }
-    }
-
-    applyLayout();
-    window.addEventListener('resize', applyLayout);
-    window.addEventListener('orientationchange', () => setTimeout(applyLayout, 150));
-    if (window.visualViewport) {
-      window.visualViewport.addEventListener('resize', applyLayout);
-    }
-    // Mobiili brauserite aadressiriba peidab/näitab end viivitusega, mis muudab akna kõrgust
-    // pärast esimest laadimist - arvutame paigutuse veel paar korda üle, et see kindlasti õigeks jääks.
-    setTimeout(applyLayout, 400);
-    setTimeout(applyLayout, 1200);
-
-    // Näita sisu alles siis, kui taustapilt on laaditud
-    const revealTargets = document.querySelectorAll('.landing-content, .bottom-enter');
-
+    // Reveal content after image loads
+    const revealTargets = document.querySelectorAll('.landing-content, .enter-wrap');
     function revealContent() {
       revealTargets.forEach(el => el.classList.add('ready'));
     }
-
     if (bgImg.complete && bgImg.src) {
       revealContent();
     } else {
       bgImg.addEventListener('load', revealContent);
-      setTimeout(revealContent, 3500);
+      setTimeout(revealContent, 3000);
     }
   </script>
 
 </body>
 </html>
+
 
 
