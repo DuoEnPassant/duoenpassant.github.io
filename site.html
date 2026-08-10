@@ -259,40 +259,76 @@
     /* ══════════════════════════════════════
        HERO
     ══════════════════════════════════════ */
-    .hero {
-      min-height: calc(100vh - 72px);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      position: relative;
-    }
+   .hero {
+  min-height: calc(100vh - 72px);
+  position: relative;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.35),
+      rgba(0,0,0,0.35)
+    ),
+    url("pilt.JPG");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(0,0,0,0) 40%,
+      rgba(0,0,0,0.45) 100%
+    );
+
+  pointer-events: none;
+}
 
     /* LEFT — dark title panel */
-    .hero-left {
-      background-color: var(--ink);
-      display: flex; align-items: center; justify-content: flex-end;
-      padding: 3rem; position: relative; overflow: hidden;
+   .hero-left {
+  background: transparent;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
     }
-    .staff-lines {
-      position: absolute; top: 50%; left: 0; right: 0;
-      transform: translateY(-50%); opacity: 0.08; pointer-events: none;
-    }
+   .staff-lines {
+  display: none;
+}
     .staff-lines span { display: block; height: 1px; background: var(--parchment); margin: 18px 0; }
 
     .hero-title-block {
-      position: relative; z-index: 2; text-align: right;
-      opacity: 0; transform: translateY(30px);
-      animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
-    }
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
+}
     .hero-mark {
       font-family: 'Cinzel', serif; font-size: 0.65rem;
       letter-spacing: 0.35em; color: var(--warm);
       text-transform: uppercase; margin-bottom: 1.5rem; display: block;
     }
     .hero-duo {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(2.8rem, 6vw, 5.5rem);
-      font-weight: 400; color: var(--parchment);
-      line-height: 1.05; letter-spacing: 0.05em;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 400;
+  color: white;
+  line-height: 1.05;
+  letter-spacing: 0.05em;
+}
     }
     .hero-en {
       color: var(--warm); font-style: italic;
@@ -303,17 +339,8 @@
 
     /* RIGHT — ensemble info (no CV links here anymore) */
     .hero-right {
-      background-color: var(--parchment);
-      display: flex; flex-direction: column;
-      justify-content: center;
-      padding: 4rem 3.5rem 4rem 4rem;
-      position: relative;
-    }
-    .hero-right::after {
-      content: ''; position: absolute; left: 0; top: 15%; bottom: 15%;
-      width: 1px;
-      background: linear-gradient(to bottom, transparent, var(--warm), transparent);
-    }
+  display: none;
+}
 
     .members-block {
       opacity: 0; transform: translateY(20px);
@@ -652,16 +679,6 @@
     </div>
 
 
-<!-- RIGHT: plain ensemble listing, no CV links -->
-<div class="hero-right">
-  <div class="members-block">
-  
-
-<div class="member-entry">
-  <p class="member-name">Merily Leotoots</p>
-  <p class="member-instrument" data-lang-block="en">Violin</p>
-  <p class="member-instrument" data-lang-block="est">Viiul</p>
-</div>
 
 <div class="divider-ornament"><span>✦</span></div>
 
