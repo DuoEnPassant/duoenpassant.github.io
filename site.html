@@ -857,6 +857,90 @@
       .desktop-hero-extra { display: block; }
     }
 
+
+    /* ─────────────────────────────────────
+       Requested refinements
+    ───────────────────────────────────── */
+
+    /* 1) Remove only the musical staff lines */
+    .staff-lines,
+    .staff-lines span {
+      display: none !important;
+    }
+
+    /* 2) Keep EP.jpg / about image from following the scroll */
+    .about-image-wrapper {
+      position: static !important;
+      top: auto !important;
+    }
+
+    /* 3) Alternating musician cards:
+          one dark / one light, still matching the site palette */
+    .musicians-grid {
+      background: rgba(200,169,110,0.22);
+      border-color: rgba(200,169,110,0.34);
+    }
+
+    .musician-card {
+      border: none;
+    }
+
+    .musician-card:nth-child(odd) {
+      background: #2d2724;
+    }
+
+    .musician-card:nth-child(odd) .musician-card-label {
+      color: var(--warm);
+    }
+
+    .musician-card:nth-child(odd) .musician-card-name {
+      color: #f3ede4;
+    }
+
+    .musician-card:nth-child(odd) .musician-card-instrument {
+      color: rgba(243,237,228,0.62);
+    }
+
+    .musician-card:nth-child(odd) .musician-card-rule {
+      background: linear-gradient(to right, rgba(200,169,110,0.95), transparent);
+    }
+
+    .musician-card:nth-child(odd) .cv-link {
+      color: rgba(243,237,228,0.74);
+    }
+
+    .musician-card:nth-child(odd) .cv-link:hover {
+      color: #fff7ec;
+    }
+
+    .musician-card:nth-child(even) {
+      background: #f4efe7;
+    }
+
+    .musician-card:nth-child(even) .musician-card-label {
+      color: var(--warm);
+    }
+
+    .musician-card:nth-child(even) .musician-card-name {
+      color: #2a2320;
+    }
+
+    .musician-card:nth-child(even) .musician-card-instrument {
+      color: #8a7c70;
+    }
+
+    .musician-card:nth-child(even) .musician-card-rule {
+      background: linear-gradient(to right, rgba(200,169,110,0.9), transparent);
+    }
+
+    .musician-card:nth-child(even) .cv-link {
+      color: #7e7166;
+    }
+
+    .musician-card:nth-child(even) .cv-link:hover {
+      color: #2a2320;
+    }
+
   </style>
 
 </head>
