@@ -13,6 +13,35 @@
   <link rel="icon" type="image/png" href="Favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
+  /* Media headings — more breathing room */
+.media-simple-heading {
+  display: block !important;
+  margin-bottom: 5rem !important;
+}
+
+/* Give the whole sections more vertical breathing room */
+#videos {
+  padding-top: 5rem;
+  padding-bottom: 8rem;
+}
+
+#photos {
+  padding-top: 7rem;
+  padding-bottom: 8rem;
+}
+
+@media (max-width: 768px) {
+  .media-simple-heading {
+    margin-bottom: 3rem !important;
+  }
+
+  #videos,
+  #photos {
+    padding-top: 4.5rem;
+    padding-bottom: 5rem;
+  }
+}
+
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -1242,68 +1271,97 @@
 
   <!-- VIDEOS -->
 
-  <section class="content-section" id="videos">
-    <div class="container">
-      <div class="section-heading">
-        <div>
-          <div data-lang-block="en"><p class="section-label">Videos</p></div>
-          <div data-lang-block="est"><p class="section-label">Videod</p></div>
+<section class="content-section" id="videos">
+  <div class="container">
 
-  
-
-      <div class="video-grid">
-        <div class="video-card reveal">
-          <div class="video-frame-wrapper">
-            <iframe
-              src="https://www.youtube.com/embed/KshG1i6PzKw"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              loading="lazy"
-              title="Duo EnPassant — Video 1"></iframe>
-          </div>
+    <div class="section-heading media-simple-heading">
+      <div>
+        <div data-lang-block="en">
+          <p class="section-label">Videos</p>
         </div>
 
-        <div class="video-card reveal">
-          <div class="video-frame-wrapper">
-            <iframe
-              src="https://www.youtube.com/embed/Q8cl2DfWa3c"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              loading="lazy"
-              title="Duo EnPassant — Video 2"></iframe>
-          </div>
+        <div data-lang-block="est">
+          <p class="section-label">Videod</p>
         </div>
       </div>
     </div>
-  </section>
+
+    <div class="video-grid">
+
+      <div class="video-card reveal">
+        <div class="video-frame-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/KshG1i6PzKw"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+            title="Duo EnPassant — Video 1">
+          </iframe>
+        </div>
+      </div>
+
+      <div class="video-card reveal">
+        <div class="video-frame-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/Q8cl2DfWa3c"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+            title="Duo EnPassant — Video 2">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
   <!-- PHOTOS -->
 
-  <section class="content-section" id="photos">
-    <div class="container">
-      <div class="section-heading photos-heading">
-        <div>
-          <div data-lang-block="en"><p class="section-label">Gallery</p></div>
-          <div data-lang-block="est"><p class="section-label">Galerii</p></div>
-          
-      </div>
+ <section class="content-section" id="photos">
+  <div class="container">
 
-      <div class="photo-grid">
-        <div class="photo-item reveal" data-index="0">
-          <img src="img.jpg" alt="Duo EnPassant" loading="lazy" style="object-position:center center;">
+    <div class="section-heading media-simple-heading">
+      <div>
+        <div data-lang-block="en">
+          <p class="section-label">Gallery</p>
         </div>
 
-        <div class="photo-item reveal" data-index="1">
-          <img src="EP.jpg" alt="Duo EnPassant" loading="lazy" style="object-position:center top;">
-        </div>
-
-        <div class="photo-item reveal" data-index="2">
-          <img src="Intro.png" alt="Duo EnPassant" loading="lazy" style="object-position:center center;">
+        <div data-lang-block="est">
+          <p class="section-label">Galerii</p>
         </div>
       </div>
     </div>
-  </section>
 
+    <div class="photo-grid">
+
+      <div class="photo-item reveal" data-index="0">
+        <img
+          src="img.jpg"
+          alt="Duo EnPassant"
+          loading="lazy"
+          style="object-position:center center;">
+      </div>
+
+      <div class="photo-item reveal" data-index="1">
+        <img
+          src="EP.jpg"
+          alt="Duo EnPassant"
+          loading="lazy"
+          style="object-position:center top;">
+      </div>
+
+      <div class="photo-item reveal" data-index="2">
+        <img
+          src="Intro.png"
+          alt="Duo EnPassant"
+          loading="lazy"
+          style="object-position:center center;">
+      </div>
+
+    </div>
+  </div>
+</section>
   <!-- FOOTER -->
 
   <footer>
