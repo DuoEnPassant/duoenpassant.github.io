@@ -2253,6 +2253,143 @@
       }
     }
 
+
+    /* ═════════════════════════════════════════════════════════════
+       MOBILE HERO REFINEMENT
+       Keeps desktop and iPad unchanged.
+    ═════════════════════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+
+      /* Cleaner header over the hero */
+      .topbar {
+        border-bottom: none !important;
+        background:
+          linear-gradient(
+            to bottom,
+            rgba(39,33,30,0.36) 0%,
+            rgba(39,33,30,0.12) 72%,
+            rgba(39,33,30,0) 100%
+          ) !important;
+      }
+
+      /* On scroll, keep the existing light header behaviour */
+      .topbar.scrolled {
+        border-bottom: 1px solid rgba(184,147,93,0.18) !important;
+      }
+
+      /*
+        The landscape hero photo was being forced to "cover" a very tall
+        phone viewport, which zoomed the photo far too much.
+        On mobile we instead use a warm background and a controlled image size.
+      */
+      .hero {
+        height: clamp(690px, 84svh, 790px) !important;
+        min-height: 690px !important;
+        max-height: 790px !important;
+
+        background-color: #a79b91 !important;
+        background-image:
+          linear-gradient(
+            to bottom,
+            rgba(39,33,30,0.10) 0%,
+            rgba(39,33,30,0.00) 35%,
+            rgba(39,33,30,0.14) 100%
+          ),
+          url("pilt.JPG") !important;
+
+        background-size:
+          100% 100%,
+          178% auto !important;
+
+        background-position:
+          center,
+          52% 100% !important;
+
+        background-repeat: no-repeat !important;
+      }
+
+      .hero::before {
+        background:
+          radial-gradient(
+            ellipse at 50% 38%,
+            rgba(39,33,30,0) 48%,
+            rgba(39,33,30,0.18) 100%
+          ) !important;
+      }
+
+      /* Smaller, calmer title with proper breathing room */
+      .hero-title-block {
+        top: 118px !important;
+        width: calc(100% - 2.4rem) !important;
+      }
+
+      .hero-duo {
+        font-size: clamp(2.75rem, 11.6vw, 3.35rem) !important;
+        line-height: 0.92 !important;
+        letter-spacing: 0.045em !important;
+      }
+
+      /* Reliable centred ornament instead of the floating diamond */
+      .hero-divider {
+        display: grid !important;
+        grid-template-columns: 1fr auto 1fr !important;
+        align-items: center !important;
+        width: min(245px, 68vw) !important;
+        gap: 0.72rem !important;
+        margin: 1rem auto 0.75rem !important;
+      }
+
+      .hero-divider::before,
+      .hero-divider::after {
+        content: "" !important;
+        display: block !important;
+        width: 100% !important;
+        height: 1px !important;
+        background: rgba(184,147,93,0.78) !important;
+      }
+
+      .hero-divider-ornament {
+        display: block !important;
+        position: static !important;
+        margin: 0 !important;
+        color: var(--warm) !important;
+        font-size: 0.82rem !important;
+        line-height: 1 !important;
+      }
+
+      .hero-descriptor {
+        font-size: 0.54rem !important;
+        letter-spacing: 0.26em !important;
+      }
+
+      /* Story begins sooner after the hero, without a huge visual gap */
+      .story-section {
+        padding-top: 4.2rem !important;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero {
+        height: clamp(660px, 82svh, 740px) !important;
+        min-height: 660px !important;
+        max-height: 740px !important;
+        background-size:
+          100% 100%,
+          185% auto !important;
+        background-position:
+          center,
+          52% 100% !important;
+      }
+
+      .hero-title-block {
+        top: 112px !important;
+      }
+
+      .hero-duo {
+        font-size: clamp(2.55rem, 11.3vw, 3rem) !important;
+      }
+    }
+
   </style>
 
 </head>
