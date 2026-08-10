@@ -90,6 +90,16 @@
       }
     ]
   }
+
+    // Desktop header: transparent over hero, parchment after scrolling.
+    const topbar = document.querySelector('.topbar');
+    function updateDesktopHeader() {
+      if (!topbar) return;
+      topbar.classList.toggle('scrolled', window.scrollY > 60);
+    }
+    updateDesktopHeader();
+    window.addEventListener('scroll', updateDesktopHeader, { passive: true });
+
   </script>
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
@@ -159,14 +169,10 @@
        TOPBAR
     ══════════════════════════════════════ */
     .topbar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.30), rgba(0,0,0,0));
-      backdrop-filter: none;
-      border-bottom: 1px solid rgba(255,255,255,0.16);
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(245,240,232,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
     }
     .topbar-inner {
       display: flex; align-items: center;
@@ -193,12 +199,12 @@
       font-family: 'Cinzel', serif; font-size: 0.68rem;
       letter-spacing: 0.3em; text-transform: uppercase;
     }
-    .nav-link { position: relative; color: rgba(255,255,255,0.78); transition: color 0.25s; }
+    .nav-link { position: relative; color: var(--muted); transition: color 0.25s; }
     .nav-link::after {
       content: ""; position: absolute; left: 0; bottom: -0.3rem;
       width: 0; height: 1px; background: var(--warm); transition: width 0.25s;
     }
-    .nav-link:hover { color: #fff; }
+    .nav-link:hover { color: var(--ink); }
     .nav-link:hover::after { width: 100%; }
 
     .lang-toggle {
@@ -208,14 +214,14 @@
     }
     .lang-btn {
       cursor: pointer; border: 1px solid transparent; background: none;
-      color: rgba(255,255,255,0.75); padding: 0.25rem 0.6rem;
+      color: var(--muted); padding: 0.25rem 0.6rem;
       text-transform: uppercase; letter-spacing: 0.25em;
       font-family: 'Cinzel', serif; font-size: 0.72rem;
       transition: color 0.2s, border-color 0.2s; border-radius: 2px;
     }
-    .lang-btn.active { color: #fff; border-color: rgba(255,255,255,0.28); }
-    .lang-btn:hover { color: #fff; }
-    .lang-separator { color: rgba(255,255,255,0.28); font-size: 0.72rem; }
+    .lang-btn.active { color: var(--warm); border-color: var(--line); }
+    .lang-btn:hover { color: var(--ink); }
+    .lang-separator { color: var(--line); font-size: 0.72rem; }
 
     /* Hamburger */
     .hamburger-btn {
@@ -335,9 +341,9 @@
 }
     }
     .hero-en {
-      color: #fff; font-style: normal;
+      color: var(--warm); font-style: italic;
       font-family: 'Cormorant Garamond', serif;
-      font-size: inherit;
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
       font-weight: 300; letter-spacing: 0.02em;
     }
 
@@ -602,6 +608,255 @@
 
       footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 1.5rem; }
     }
+
+    /* ══════════════════════════════════════
+       DESKTOP HERO / HEADER REFINEMENT
+       Mobile (max-width: 800px) is intentionally left unchanged.
+    ══════════════════════════════════════ */
+    @media (min-width: 801px) {
+
+      /* Header sits on top of the hero and follows while scrolling */
+      .topbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: linear-gradient(
+          to bottom,
+          rgba(26, 22, 20, 0.42) 0%,
+          rgba(26, 22, 20, 0.16) 70%,
+          rgba(26, 22, 20, 0) 100%
+        );
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-bottom: 1px solid rgba(245, 240, 232, 0.14);
+        transition:
+          background 0.35s ease,
+          border-color 0.35s ease,
+          box-shadow 0.35s ease,
+          backdrop-filter 0.35s ease;
+      }
+
+      .topbar-inner {
+        min-height: 78px;
+        padding: 0.9rem 2.6rem;
+      }
+
+      /* Remove clefs only on desktop; mobile stays exactly as before */
+      .clef-logo {
+        display: none;
+      }
+
+      .home-btn {
+        gap: 0;
+        color: #f7f1e9;
+      }
+
+      .home-btn:hover {
+        color: #fff;
+        opacity: 0.84;
+      }
+
+      .home-wordmark {
+        color: #f7f1e9;
+        font-size: 0.72rem;
+        letter-spacing: 0.31em;
+        line-height: 1.55;
+        text-shadow: 0 1px 12px rgba(0,0,0,0.28);
+      }
+
+      .home-wordmark span {
+        color: rgba(247,241,233,0.72);
+        font-size: 0.56rem;
+      }
+
+      .nav-links {
+        gap: 2.35rem;
+        font-size: 0.72rem;
+      }
+
+      .nav-link {
+        color: rgba(247,241,233,0.82);
+        text-shadow: 0 1px 10px rgba(0,0,0,0.22);
+      }
+
+      .nav-link:hover {
+        color: #fff;
+      }
+
+      .lang-btn {
+        color: rgba(247,241,233,0.78);
+      }
+
+      .lang-btn.active {
+        color: #fff;
+        border-color: rgba(247,241,233,0.32);
+      }
+
+      .lang-btn:hover {
+        color: #fff;
+      }
+
+      .lang-separator {
+        color: rgba(247,241,233,0.28);
+      }
+
+      /* Once the user scrolls, the header becomes a light parchment bar */
+      .topbar.scrolled {
+        background: rgba(245,240,232,0.94);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        border-bottom-color: var(--line);
+        box-shadow: 0 8px 30px rgba(26,22,20,0.06);
+      }
+
+      .topbar.scrolled .home-btn,
+      .topbar.scrolled .home-wordmark {
+        color: var(--ink);
+        text-shadow: none;
+      }
+
+      .topbar.scrolled .home-wordmark span,
+      .topbar.scrolled .nav-link,
+      .topbar.scrolled .lang-btn {
+        color: var(--muted);
+        text-shadow: none;
+      }
+
+      .topbar.scrolled .nav-link:hover,
+      .topbar.scrolled .lang-btn:hover {
+        color: var(--ink);
+      }
+
+      .topbar.scrolled .lang-btn.active {
+        color: var(--warm);
+        border-color: var(--line);
+      }
+
+      .topbar.scrolled .lang-separator {
+        color: var(--line);
+      }
+
+      /* Full first screen: no parchment background visible on load */
+      .hero {
+        min-height: 100vh;
+        height: 100vh;
+        position: relative;
+        background:
+          linear-gradient(
+            rgba(26,22,20,0.12),
+            rgba(26,22,20,0.18)
+          ),
+          url("pilt.JPG");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        background:
+          radial-gradient(
+            ellipse at center,
+            rgba(26,22,20,0) 46%,
+            rgba(26,22,20,0.30) 100%
+          );
+      }
+
+      .hero-left {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        display: block;
+      }
+
+      /* Title stays centered, but sits clearly above the cello */
+      .hero-title-block {
+        position: absolute;
+        z-index: 2;
+        top: 18%;
+        left: 50%;
+        width: min(48vw, 760px);
+        text-align: center;
+        opacity: 0;
+        transform: translateX(-50%) translateY(18px);
+        animation: heroTitleDesktopIn 1.05s cubic-bezier(0.16,1,0.3,1) 0.18s forwards;
+        text-shadow: 0 2px 18px rgba(26,22,20,0.22);
+      }
+
+      .hero-duo {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: clamp(4rem, 5.35vw, 6rem);
+        font-weight: 300;
+        color: #f7f1e9;
+        line-height: 0.92;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .hero-en {
+        font-family: inherit;
+        font-size: inherit;
+        font-style: normal;
+        font-weight: inherit;
+        color: inherit;
+        letter-spacing: inherit;
+      }
+
+      .hero-divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.9rem;
+        width: min(430px, 72%);
+        margin: 1.45rem auto 1rem;
+        color: var(--warm);
+      }
+
+      .hero-divider::before,
+      .hero-divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: rgba(200,169,110,0.82);
+      }
+
+      .hero-divider-ornament {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 1rem;
+        line-height: 1;
+        color: var(--warm);
+      }
+
+      .hero-descriptor {
+        font-family: 'Cinzel', serif;
+        font-size: clamp(0.72rem, 1vw, 0.95rem);
+        font-weight: 400;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+        color: rgba(247,241,233,0.92);
+      }
+
+      @keyframes heroTitleDesktopIn {
+        from {
+          opacity: 0;
+          transform: translateX(-50%) translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(-50%) translateY(0);
+        }
+      }
+    }
+
+
+    .desktop-hero-extra { display: none; }
+    @media (min-width: 801px) {
+      .desktop-hero-extra { display: block; }
+    }
+
   </style>
 
 </head>
@@ -627,6 +882,15 @@
   <header class="topbar">
     <div class="topbar-inner">
       <a href="site.html" class="home-btn" aria-label="Duo EnPassant — Home">
+        <svg class="clef-logo" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="4" y1="20" x2="48" y2="20" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+          <line x1="4" y1="24" x2="48" y2="24" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+          <line x1="4" y1="28" x2="48" y2="28" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+          <line x1="4" y1="32" x2="48" y2="32" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+          <line x1="4" y1="36" x2="48" y2="36" stroke="#c8a96e" stroke-width="0.6" opacity="0.5"/>
+          <text x="5"  y="40" font-family="serif" font-size="34" fill="#1a1614" opacity="0.9">𝄞</text>
+          <text x="27" y="34" font-family="serif" font-size="22" fill="#c8a96e" opacity="0.9">𝄢</text>
+        </svg>
         <div class="home-wordmark">
           Duo EnPassant
           <span>Violin &amp; Cello</span>
@@ -664,9 +928,21 @@
       <div class="hero-title-block">
         <div data-lang-block="en">
           <h1 class="hero-duo">Duo <span class="hero-en">En<br>Passant</span></h1>
+          <div class="desktop-hero-extra">
+            <div class="hero-divider" aria-hidden="true">
+              <span class="hero-divider-ornament">◇</span>
+            </div>
+            <div class="hero-descriptor">Violin &amp; Cello</div>
+          </div>
         </div>
         <div data-lang-block="est">
           <h1 class="hero-duo">Duo <span class="hero-en">En<br>Passant</span></h1>
+          <div class="desktop-hero-extra">
+            <div class="hero-divider" aria-hidden="true">
+              <span class="hero-divider-ornament">◇</span>
+            </div>
+            <div class="hero-descriptor">Violin &amp; Cello</div>
+          </div>
         </div>
      
 
