@@ -1092,6 +1092,66 @@
       }
     }
 
+
+    /* MEDIA FINAL CORRECTIONS */
+    .page-hero-index {
+      display: none !important;
+    }
+
+    .photos-heading {
+      grid-template-columns: 1fr !important;
+      margin-bottom: 3.2rem !important;
+    }
+
+    .photo-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 1.2rem !important;
+      align-items: start !important;
+    }
+
+    .photo-item,
+    .photo-item:nth-child(1),
+    .photo-item:nth-child(2),
+    .photo-item:nth-child(3),
+    .photo-item.visible,
+    .photo-item.visible:nth-child(1),
+    .photo-item.visible:nth-child(2),
+    .photo-item.visible:nth-child(3) {
+      aspect-ratio: 4 / 5 !important;
+      transform: translateY(0) !important;
+    }
+
+    @media (min-width: 769px) and (max-width: 1100px) {
+      .photo-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 0.8rem !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .photos-heading {
+        margin-bottom: 2.4rem !important;
+      }
+
+      .photo-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+
+      .photo-item,
+      .photo-item:nth-child(1),
+      .photo-item:nth-child(2),
+      .photo-item:nth-child(3),
+      .photo-item.visible,
+      .photo-item.visible:nth-child(1),
+      .photo-item.visible:nth-child(2),
+      .photo-item.visible:nth-child(3) {
+        aspect-ratio: 4 / 5 !important;
+        transform: none !important;
+      }
+    }
+
   </style>
 
 </head>
@@ -1177,45 +1237,84 @@
           <span data-lang-block="est">Valik Duo EnPassanti esinemisi ja visuaalseid hetki.</span>
         </p>
       </div>
-
-      <div class="page-hero-index" aria-hidden="true">
-        <span>02</span>
-        <small>Archive</small>
-      </div>
     </div>
   </section>
-</div>
 
+  <!-- VIDEOS -->
+
+  <section class="content-section" id="videos">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <div data-lang-block="en"><p class="section-label">Performances</p></div>
+          <div data-lang-block="est"><p class="section-label">Esinemised</p></div>
+
+          <div data-lang-block="en"><h2 class="section-title">Selected videos</h2></div>
+          <div data-lang-block="est"><h2 class="section-title">Valitud videod</h2></div>
+        </div>
+
+        <p class="section-intro" data-lang-block="en">
+          A glimpse into the duo’s sound, repertoire and live presence.
+        </p>
+        <p class="section-intro" data-lang-block="est">
+          Pilk duo kõlamaailma, repertuaari ja lavalisse kohalolusse.
+        </p>
+      </div>
+
+      <div class="video-grid">
+        <div class="video-card reveal">
+          <div class="video-frame-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/KshG1i6PzKw"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+              title="Duo EnPassant — Video 1"></iframe>
+          </div>
+        </div>
+
+        <div class="video-card reveal">
+          <div class="video-frame-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/Q8cl2DfWa3c"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+              title="Duo EnPassant — Video 2"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- PHOTOS -->
 
   <section class="content-section" id="photos">
     <div class="container">
-      <div class="section-heading">
+      <div class="section-heading photos-heading">
         <div>
           <div data-lang-block="en"><p class="section-label">Gallery</p></div>
           <div data-lang-block="est"><p class="section-label">Galerii</p></div>
+
           <div data-lang-block="en"><h2 class="section-title">In photographs</h2></div>
           <div data-lang-block="est"><h2 class="section-title">Fotodel</h2></div>
         </div>
-        <p class="section-intro" data-lang-block="en">Portraits and moments from the duo’s artistic work.</p>
-        <p class="section-intro" data-lang-block="est">Portreed ja hetked duo loomingulisest tegevusest.</p>
       </div>
 
-  <div class="photo-grid">
-    <div class="photo-item reveal" data-index="0">
-      <img src="EP.jpg"    alt="Duo EnPassant" loading="lazy" style="object-position: center top;">
-    </div>
-    <div class="photo-item reveal" data-index="1">
-      <img src="Intro.png" alt="Duo EnPassant" loading="lazy" style="object-position: center center;">
-    </div>
-    <div class="photo-item reveal" data-index="2">
-      <img src="img.jpg"   alt="Duo EnPassant" loading="lazy" style="object-position: center bottom;">
-    </div>
-  </div>
-</div>
+      <div class="photo-grid">
+        <div class="photo-item reveal" data-index="0">
+          <img src="img.jpg" alt="Duo EnPassant" loading="lazy" style="object-position:center center;">
+        </div>
 
+        <div class="photo-item reveal" data-index="1">
+          <img src="EP.jpg" alt="Duo EnPassant" loading="lazy" style="object-position:center top;">
+        </div>
+
+        <div class="photo-item reveal" data-index="2">
+          <img src="Intro.png" alt="Duo EnPassant" loading="lazy" style="object-position:center center;">
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
