@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
   <link rel="canonical" href="https://www.duoenpassant.com/" />
 
@@ -48,168 +48,424 @@
   </script>
 
   <link rel="preload" as="image" href="001.jpg">
+  <link rel="preload" as="image" href="002.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="Favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
     :root {
-      --ink: #1a1614;
-      --parchment: #f5f0e8;
-      --warm: #c8a96e;
-      --muted: #7a6f65;
-      --line: rgba(200,169,110,0.4);
+      --ink: #27211e;
+      --parchment: #f2ece3;
+      --warm: #b8935d;
+      --muted: #7f746a;
+      --line: rgba(184,147,93,0.30);
+      --deep: #2b2522;
+      --cream: #f5efe6;
     }
 
-    html, body {
-      height: 100%; overflow: hidden;
+    html { height: 100%; background: var(--deep); }
+
+    body {
+      min-height: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--deep);
+      color: var(--cream);
       font-family: 'Cormorant Garamond', Georgia, serif;
     }
 
-    /* Background photo */
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+
     .bg-photo {
-      position: fixed; inset: 0;
-      width: 100%; height: 100%;
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: center center;
       z-index: 0;
-      background-color: #b2a08f;
-    }
-    .bg-photo.mobile-contain {
-      object-fit: contain;
-      object-position: center bottom;
+      background: #a79b91;
+      transform: scale(1.002);
     }
 
-    /* Overlay */
     .bg-overlay {
-      position: fixed; inset: 0;
-      background: linear-gradient(to bottom,
-        rgba(26,22,20,0.30) 0%,
-        rgba(26,22,20,0.15) 30%,
-        rgba(26,22,20,0.35) 70%,
-        rgba(26,22,20,0.55) 100%);
+      position: fixed;
+      inset: 0;
       z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 50% 43%, rgba(39,33,30,0) 40%, rgba(39,33,30,0.25) 100%),
+        linear-gradient(to bottom, rgba(39,33,30,0.30) 0%, rgba(39,33,30,0.08) 32%, rgba(39,33,30,0.12) 60%, rgba(39,33,30,0.42) 100%);
     }
 
-    /* Main container */
-    .landing {
-      position: relative; z-index: 3;
-      height: 100vh;
+    .landing-topbar {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 10;
+      min-height: 78px;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      padding-top: 10vh;
+      justify-content: space-between;
+      padding: 0.9rem 3rem;
+      background: linear-gradient(to bottom, rgba(39,33,30,0.34) 0%, rgba(39,33,30,0.10) 72%, rgba(39,33,30,0) 100%);
     }
 
-    /* Language switcher */
-    .lang-row {
-      position: absolute; top: 1.8rem; right: 2.2rem;
-      display: flex; align-items: center; gap: 0.5rem;
-      z-index: 4;
-    }
-    .lang-btn {
-      cursor: pointer; background: none;
-      border: 1px solid transparent;
-      color: rgba(245,240,232,0.6);
-      font-family: 'Cinzel', serif; font-size: 0.82rem; letter-spacing: 0.22em;
+    .brand {
+      font-family: 'Cinzel', serif;
+      font-size: 0.70rem;
+      letter-spacing: 0.31em;
       text-transform: uppercase;
-      transition: color 0.2s, border-color 0.2s;
-      padding: 0.3rem 0.75rem; border-radius: 2px;
+      color: var(--cream);
+      line-height: 1.5;
+      text-shadow: 0 1px 12px rgba(0,0,0,0.22);
     }
-    .lang-btn:hover { color: rgba(245,240,232,0.9); }
-    .lang-btn.active { color: var(--warm); border-color: var(--line); }
-    .lang-separator { color: rgba(200,169,110,0.35); font-size: 0.82rem; font-family: 'Cinzel', serif; }
 
-    /* Title block — always centred */
+    .brand span {
+      display: none;
+      font-size: 0.54rem;
+      letter-spacing: 0.34em;
+      color: rgba(245,239,230,0.70);
+    }
+
+    body.lang-en .brand [data-lang="en"],
+    body.lang-est .brand [data-lang="est"] { display: block; }
+
+    .lang-row { display: flex; align-items: center; gap: 0.5rem; }
+
+    .lang-btn {
+      cursor: pointer;
+      background: none;
+      border: 1px solid transparent;
+      color: rgba(245,239,230,0.72);
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.65rem;
+      border-radius: 2px;
+      transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .lang-btn:hover { color: #fff; }
+
+    .lang-btn.active {
+      color: #fff;
+      border-color: rgba(245,239,230,0.30);
+      background: rgba(245,239,230,0.035);
+    }
+
+    .lang-separator {
+      color: rgba(245,239,230,0.25);
+      font-size: 0.72rem;
+      font-family: 'Cinzel', serif;
+    }
+
+    .landing {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      height: 100svh;
+      min-height: 640px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6.5rem 2rem 7rem;
+    }
+
     .landing-content {
+      width: min(760px, 88vw);
       text-align: center;
-      opacity: 0; transform: translateY(28px);
+      opacity: 0;
+      transform: translateY(22px);
     }
-    .landing-content.ready {
-      animation: fadeUp 1.3s cubic-bezier(0.16,1,0.3,1) forwards;
-    }
+
+    .landing-content.ready { animation: fadeUp 1.15s cubic-bezier(0.16,1,0.3,1) forwards; }
 
     .landing-title {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(2.4rem, 6vw, 5rem);
-      font-weight: 400; color: var(--parchment);
-      letter-spacing: 0.06em; line-height: 1.05;
-    }
-    .landing-title em {
-      font-family: 'Cormorant Garamond', serif; font-style: italic;
-      font-size: clamp(2.7rem, 7vw, 5.8rem); font-weight: 300;
-      color: var(--warm); letter-spacing: 0.02em;
-      text-shadow: 0 0 1px rgba(26,22,20,0.6), 0 1px 3px rgba(26,22,20,0.35);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(4.5rem, 8vw, 7.5rem);
+      font-weight: 300;
+      line-height: 0.88;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--cream);
+      text-shadow: 0 2px 20px rgba(39,33,30,0.22);
     }
 
-    /* Enter button — always centred below title */
+    .landing-divider {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 0.85rem;
+      width: min(430px, 72%);
+      margin: 1.55rem auto 1rem;
+      color: var(--warm);
+    }
+
+    .landing-divider::before,
+    .landing-divider::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: rgba(184,147,93,0.82);
+    }
+
+    .landing-divider span { font-size: 0.88rem; line-height: 1; }
+
+    .landing-descriptor {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.68rem, 1vw, 0.9rem);
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: rgba(245,239,230,0.90);
+    }
+
+    .landing-descriptor [data-lang] { display: none; }
+    body.lang-en .landing-descriptor [data-lang="en"],
+    body.lang-est .landing-descriptor [data-lang="est"] { display: inline; }
+
     .enter-wrap {
-      margin-top: 2.4rem;
-      opacity: 0; transform: translateY(16px);
+      position: absolute;
+      left: 50%;
+      bottom: calc(2.8rem + env(safe-area-inset-bottom));
+      transform: translateX(-50%) translateY(14px);
+      opacity: 0;
     }
-    .enter-wrap.ready {
-      animation: fadeUp 1.3s cubic-bezier(0.16,1,0.3,1) 0.25s forwards;
-    }
+
+    .enter-wrap.ready { animation: enterUp 1.15s cubic-bezier(0.16,1,0.3,1) 0.22s forwards; }
 
     .enter-btn {
-      display: inline-block;
-      font-family: 'Cinzel', serif; font-size: 0.72rem;
-      letter-spacing: 0.32em; text-transform: uppercase;
-      color: rgba(245,240,232,0.75);
-      border: 1px solid rgba(245,240,232,0.35);
-      padding: 0.75rem 2rem; text-decoration: none;
-      position: relative; overflow: hidden;
-      transition: color 0.3s, border-color 0.3s;
-      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 180px;
+      padding: 0.86rem 2.1rem;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(245,239,230,0.34);
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(245,239,230,0.86);
+      background: rgba(39,33,30,0.12);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
     }
-    .enter-btn::before {
-      content: ''; position: absolute; inset: 0;
-      background: rgba(245,240,232,0.85); transform: translateX(-101%);
-      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); z-index: 0;
-    }
-    .enter-btn:hover { color: var(--ink); border-color: rgba(245,240,232,0.6); }
-    .enter-btn:hover::before { transform: translateX(0); }
-    .enter-btn span { position: relative; z-index: 1; }
 
-    /* Desktop: title top-left, button bottom-centre */
-    @media (min-width: 1025px) {
+    .enter-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(245,239,230,0.92);
+      transform: translateX(-101%);
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .enter-btn span { position: relative; z-index: 1; display: none; }
+    body.lang-en .enter-btn [data-lang="en"],
+    body.lang-est .enter-btn [data-lang="est"] { display: inline; }
+
+    .enter-btn:hover { color: var(--ink); border-color: rgba(245,239,230,0.60); }
+    .enter-btn:hover::before { transform: translateX(0); }
+
+    @media (min-width: 1101px) {
+      .bg-photo { object-fit: cover; object-position: center center; }
+      .landing { padding-top: 8rem; }
+    }
+
+    @media (min-width: 769px) and (max-width: 1100px) {
+      .landing-topbar { min-height: 72px; padding: 0.8rem 1.8rem; }
+      .brand { font-size: 0.66rem; }
+      .bg-photo { object-fit: cover; object-position: center center; }
+      .landing { min-height: 700px; padding: 6.5rem 2.2rem 7rem; }
+      .landing-content { width: min(700px, 84vw); }
+      .landing-title { font-size: clamp(4.8rem, 9vw, 6.5rem); }
+      .enter-wrap { bottom: calc(2.5rem + env(safe-area-inset-bottom)); }
+    }
+
+    @media (max-width: 768px) {
+      .landing-topbar {
+        min-height: 64px;
+        padding: calc(0.55rem + env(safe-area-inset-top)) 1.05rem 0.55rem;
+      }
+
+      .brand { font-size: 0.60rem; letter-spacing: 0.27em; }
+      .brand span { font-size: 0.46rem; letter-spacing: 0.30em; }
+      .lang-btn { font-size: 0.66rem; letter-spacing: 0.22em; padding: 0.25rem 0.52rem; }
+
+      .bg-photo { object-fit: cover; object-position: 48% center; }
+
+      .bg-overlay {
+        background:
+          radial-gradient(ellipse at 50% 38%, rgba(39,33,30,0) 43%, rgba(39,33,30,0.20) 100%),
+          linear-gradient(to bottom, rgba(39,33,30,0.28) 0%, rgba(39,33,30,0.06) 36%, rgba(39,33,30,0.10) 62%, rgba(39,33,30,0.40) 100%);
+      }
+
+      .landing {
+        height: 100svh;
+        min-height: 620px;
+        padding: calc(5.5rem + env(safe-area-inset-top)) 1.2rem calc(6.6rem + env(safe-area-inset-bottom));
+        align-items: flex-start;
+      }
+
+      .landing-content { width: 100%; margin-top: clamp(4.6rem, 14svh, 7rem); }
+      .landing-title { font-size: clamp(3.2rem, 13vw, 4.15rem); line-height: 0.90; letter-spacing: 0.045em; }
+      .landing-divider { width: min(275px, 72vw); margin: 1.15rem auto 0.82rem; gap: 0.70rem; }
+      .landing-descriptor { font-size: 0.55rem; letter-spacing: 0.27em; }
+      .enter-wrap { bottom: calc(2rem + env(safe-area-inset-bottom)); }
+      .enter-btn { min-width: 168px; padding: 0.82rem 1.8rem; font-size: 0.64rem; }
+    }
+
+    @media (max-width: 420px) {
+      .brand { font-size: 0.55rem; letter-spacing: 0.23em; }
+      .brand span { font-size: 0.42rem; }
+      .lang-row { gap: 0.28rem; }
+      .lang-btn { padding: 0.22rem 0.42rem; }
+      .bg-photo { object-position: 46% center; }
+      .landing-content { margin-top: clamp(4.3rem, 13svh, 6.3rem); }
+      .landing-title { font-size: clamp(2.9rem, 12.6vw, 3.65rem); }
+      .landing-divider { width: min(245px, 70vw); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes enterUp {
+      from { opacity: 0; transform: translateX(-50%) translateY(14px); }
+      to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .landing-content, .enter-wrap { opacity: 1 !important; animation: none !important; transform: none !important; }
+      .enter-wrap { transform: translateX(-50%) !important; }
+    }
+
+    /* ══════════════════════════════════════
+       LANDING REFINEMENT
+       Move text away from the musicians and
+       add a softer dark overlay for readability.
+    ══════════════════════════════════════ */
+
+    .bg-photo {
+      filter: brightness(0.92);
+    }
+
+    .bg-overlay {
+      background:
+        radial-gradient(
+          ellipse at 50% 43%,
+          rgba(39,33,30,0) 40%,
+          rgba(39,33,30,0.22) 100%
+        ),
+        linear-gradient(
+          to right,
+          rgba(39,33,30,0.34) 0%,
+          rgba(39,33,30,0.22) 22%,
+          rgba(39,33,30,0.08) 44%,
+          rgba(39,33,30,0.10) 100%
+        ),
+        linear-gradient(
+          to bottom,
+          rgba(39,33,30,0.24) 0%,
+          rgba(39,33,30,0.06) 32%,
+          rgba(39,33,30,0.10) 60%,
+          rgba(39,33,30,0.36) 100%
+        );
+    }
+
+    @media (min-width: 1101px) {
       .landing {
         align-items: flex-start;
         justify-content: flex-start;
-        padding-top: 6vh;
-        padding-left: 4vw;
+        padding: 8.3rem 4.2rem 7rem;
       }
-      .landing-content { text-align: left; }
-      .enter-wrap {
-        position: absolute;
-        bottom: 3.5rem;
-        left: 50%;
-        transform: translateX(-50%);
-        margin-top: 0;
+
+      .landing-content {
+        width: min(30vw, 420px);
+        text-align: left;
       }
-      .enter-wrap.ready {
-        animation: fadeUpDesktop 1.3s cubic-bezier(0.16,1,0.3,1) 0.25s forwards;
+
+      .landing-title {
+        font-size: clamp(4.1rem, 5.2vw, 5.9rem);
+        line-height: 0.92;
+        letter-spacing: 0.04em;
+      }
+
+      .landing-divider {
+        width: min(290px, 90%);
+        margin: 1.15rem 0 0.9rem;
+      }
+
+      .landing-descriptor {
+        display: block;
+        text-align: left;
       }
     }
 
-    /* Language show/hide */
-    [data-lang] { display: none; }
-    body.lang-en  [data-lang="en"]  { display: inline; }
-    body.lang-est [data-lang="est"] { display: inline; }
+    @media (min-width: 769px) and (max-width: 1100px) {
+      .bg-photo {
+        filter: brightness(0.92);
+      }
 
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeUpDesktop {
-      to { opacity: 0.85; transform: translateX(-50%) translateY(0); }
+      .bg-overlay {
+        background:
+          radial-gradient(
+            ellipse at 50% 43%,
+            rgba(39,33,30,0) 40%,
+            rgba(39,33,30,0.22) 100%
+          ),
+          linear-gradient(
+            to right,
+            rgba(39,33,30,0.30) 0%,
+            rgba(39,33,30,0.18) 24%,
+            rgba(39,33,30,0.06) 46%,
+            rgba(39,33,30,0.08) 100%
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(39,33,30,0.24) 0%,
+            rgba(39,33,30,0.06) 32%,
+            rgba(39,33,30,0.10) 60%,
+            rgba(39,33,30,0.34) 100%
+          );
+      }
+
+      .landing {
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 8rem 2.4rem 7rem;
+      }
+
+      .landing-content {
+        width: min(43vw, 430px);
+        text-align: left;
+      }
+
+      .landing-title {
+        font-size: clamp(4.2rem, 6.2vw, 5.5rem);
+        line-height: 0.92;
+      }
+
+      .landing-divider {
+        width: min(285px, 92%);
+        margin: 1.1rem 0 0.85rem;
+      }
+
+      .landing-descriptor {
+        display: block;
+        text-align: left;
+      }
     }
 
-    /* Small phones */
-    @media (max-width: 390px) {
-      .landing { padding-top: 8vh; }
-    }
   </style>
 </head>
 
@@ -218,16 +474,32 @@
   <img class="bg-photo" alt="" aria-hidden="true">
   <div class="bg-overlay" aria-hidden="true"></div>
 
-  <div class="landing">
+  <header class="landing-topbar">
+    <div class="brand">
+      Duo EnPassant
+      <span data-lang="en">Violin &amp; Cello</span>
+      <span data-lang="est">Viiul &amp; Tšello</span>
+    </div>
 
     <div class="lang-row" aria-label="Language selector">
       <button class="lang-btn active" data-lang-switch="en" type="button">EN</button>
       <span class="lang-separator">|</span>
       <button class="lang-btn" data-lang-switch="est" type="button">EST</button>
     </div>
+  </header>
 
+  <main class="landing">
     <div class="landing-content">
-      <h1 class="landing-title">Duo <em>En<br>Passant</em></h1>
+      <h1 class="landing-title">Duo En<br>Passant</h1>
+
+      <div class="landing-divider" aria-hidden="true">
+        <span>◇</span>
+      </div>
+
+      <div class="landing-descriptor">
+        <span data-lang="en">Violin &amp; Cello</span>
+        <span data-lang="est">Viiul &amp; Tšello</span>
+      </div>
     </div>
 
     <div class="enter-wrap">
@@ -236,55 +508,55 @@
         <span data-lang="est">Sisene</span>
       </a>
     </div>
-
-  </div>
+  </main>
 
   <script>
     const body = document.body;
+    const bgImg = document.querySelector('.bg-photo');
 
     function setLang(lang) {
-      body.classList.toggle('lang-en',  lang === 'en');
+      body.classList.toggle('lang-en', lang === 'en');
       body.classList.toggle('lang-est', lang === 'est');
       localStorage.setItem('dep-lang', lang);
-      document.querySelectorAll('[data-lang-switch]').forEach(b => {
-        b.classList.toggle('active', b.dataset.langSwitch === lang);
+      document.documentElement.lang = lang === 'est' ? 'et' : 'en';
+
+      document.querySelectorAll('[data-lang-switch]').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.langSwitch === lang);
       });
     }
-    const saved = localStorage.getItem('dep-lang');
-    if (saved) setLang(saved);
+
+    const savedLang = localStorage.getItem('dep-lang') || 'en';
+    setLang(savedLang);
+
     document.querySelectorAll('[data-lang-switch]').forEach(btn => {
       btn.addEventListener('click', () => setLang(btn.dataset.langSwitch));
     });
 
-    // Photo selection based on screen width
-    const bgImg = document.querySelector('.bg-photo');
-
     function applyPhoto() {
-      const isMobile = window.innerWidth < 1025;
-      bgImg.classList.toggle('mobile-contain', isMobile);
-      const src = isMobile ? '002.jpg' : '001.jpg';
-      if (bgImg.src !== src) bgImg.src = src;
+      const isMobile = window.innerWidth <= 768;
+      const nextSrc = isMobile ? '002.jpg' : '001.jpg';
+      if (!bgImg.getAttribute('src') || !bgImg.getAttribute('src').endsWith(nextSrc)) {
+        bgImg.src = nextSrc;
+      }
     }
 
     applyPhoto();
     window.addEventListener('resize', applyPhoto);
     window.addEventListener('orientationchange', () => setTimeout(applyPhoto, 150));
 
-    // Reveal content after image loads
     const revealTargets = document.querySelectorAll('.landing-content, .enter-wrap');
+
     function revealContent() {
       revealTargets.forEach(el => el.classList.add('ready'));
     }
-    if (bgImg.complete && bgImg.src) {
+
+    if (bgImg.complete && bgImg.currentSrc) {
       revealContent();
     } else {
-      bgImg.addEventListener('load', revealContent);
-      setTimeout(revealContent, 3000);
+      bgImg.addEventListener('load', revealContent, { once: true });
+      setTimeout(revealContent, 2500);
     }
   </script>
 
 </body>
 </html>
-
-
-
