@@ -62,12 +62,20 @@
           {
             "@type": "Person",
             "name": "Merily Leotoots",
-            "jobTitle": "Violinist"
+            "jobTitle": "Violinist",
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "Guildhall School of Music & Drama"
+            }
           },
           {
             "@type": "Person",
             "name": "Anna Ryland-Jones",
-            "jobTitle": "Cellist"
+            "jobTitle": "Cellist",
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "Guildhall School of Music & Drama"
+            }
           }
         ],
         "sameAs": [
@@ -654,7 +662,19 @@
       font-size: clamp(3rem, 5.5vw, 5rem);
       line-height: 1;
       letter-spacing: -.02em;
+      margin-bottom: 1.15rem;
+    }
+
+    .story-lead {
+      max-width: 700px;
       margin-bottom: 4rem;
+      font-family: "Raleway", sans-serif;
+      font-size: .68rem;
+      font-weight: 300;
+      line-height: 1.8;
+      letter-spacing: .20em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
     .story-grid {
@@ -1151,7 +1171,14 @@
 
       .story-title {
         font-size: clamp(2.45rem, 10vw, 3.35rem);
+        margin-bottom: 1rem;
+      }
+
+      .story-lead {
         margin-bottom: 2.7rem;
+        font-size: .58rem;
+        line-height: 1.7;
+        letter-spacing: .17em;
       }
 
       .story-grid {
@@ -1380,26 +1407,34 @@
 
 
     <!-- MEIE LUGU — EST -->
-    <section class="story-section" data-lang-block="est">
+    <section class="story-section" data-lang-block="est" aria-labelledby="story-title-et">
       <div class="container">
         <div class="reveal">
           <p class="eyebrow">Meie lugu</p>
-          <h2 class="story-title">Muusikaline kohtumine, mille juured ulatuvad Eestist Londonisse.</h2>
+          <h2 class="story-title" id="story-title-et">Duo EnPassant — viiuli- ja tšello kammerduo</h2>
+          <p class="story-lead">Klassikaline kammermuusika · Eesti · Rahvusvahelised esinemised</p>
         </div>
 
         <div class="story-grid">
           <div class="story-image-wrap reveal">
-            <img src="EP.jpg" alt="Duo EnPassant viiuli- ja tšello kammerduo" class="story-image">
+            <img
+              src="EP.jpg"
+              alt="Duo EnPassant viiuli- ja tšello kammerduo"
+              class="story-image"
+              loading="lazy"
+              decoding="async">
           </div>
 
           <div class="story-copy reveal">
-            <p>Duo EnPassant on viiuli- ja tšelloduo, kuhu kuuluvad Merily Leotoots ja Anna Ryland-Jones. Kuigi ansambel on loodud hiljuti, on nad koos musitseerinud juba kaks aastat erinevates kammerkoosseisudes ning esinenud festivalidel Eestis, Soomes ja Suurbritannias.</p>
+            <p>Duo EnPassant ühendab viiuldaja Merily Leotootsi ja tšellist Anna Ryland-Jonesi. Duo keskmes on klassikaline kammermuusika viiulile ja tšellole ning nende kunstilise tegevuse põhifookus on kontsertesinemistel.</p>
+
+            <p>Enne Duo EnPassanti loomist musitseerisid Merily ja Anna koos erinevates kammerkoosseisudes ning esinesid festivalidel Eestis, Soomes ja Suurbritannias. Esimest korda kohtusid nad Eestis, kus tekkis kiiresti loomulik muusikaline klapp.</p>
 
             <div class="story-quote">
-              <p>Huvitaval kombel ei kohtunud nad esimest korda mitte Ühendkuningriigis, vaid Eestis, kus tekkis kiiresti loomulik muusikaline klapp.</p>
+              <p>Koostöö sai alguse Eestis ja arenes edasi ühiste kammermuusikaprojektide kaudu.</p>
             </div>
 
-            <p>Mõlemad muusikud on õppinud Londoni mainekas Guildhall School of Music &amp; Drama's. Nende koostöö arenes peagi püsivaks duoks — ruumiks, kus koos kunstiliselt kasvada ja kujundada ühist kõlamaailma.</p>
+            <p>Mõlemad muusikud on Londoni Guildhall School of Music &amp; Drama vilistlased, olles õppinud seal eri aegadel. Duo EnPassant kasvas välja nende jätkuvast koostööst ja ühisest soovist arendada repertuaari, kontserdikavasid ning oma kõlalist identiteeti viiuli- ja tšelloduona.</p>
           </div>
         </div>
       </div>
