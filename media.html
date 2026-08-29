@@ -2,14 +2,105 @@
 
 <html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="canonical" href="https://www.duoenpassant.com/media.html" />
+  <!-- =======================================================
+       SEO — MEDIA
+  ======================================================== -->
+  <link rel="canonical" href="https://www.duoenpassant.com/media.html">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Duo EnPassant">
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Media | Duo EnPassant</title>
-  <meta name="description" content="Media — Duo EnPassant violin and cello duo. Videos and photos." />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+  <title>Videos &amp; Photos | Duo EnPassant — Violin &amp; Cello</title>
+  <meta name="description"
+        content="Watch performance videos and explore photos of Duo EnPassant, the violin and cello chamber duo of Merily Leotoots and Anna Ryland-Jones.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Duo EnPassant">
+  <meta property="og:title" content="Videos &amp; Photos | Duo EnPassant">
+  <meta property="og:description"
+        content="Performance videos and photography from Duo EnPassant, a violin and cello chamber duo.">
+  <meta property="og:url" content="https://www.duoenpassant.com/media.html">
+  <meta property="og:image" content="https://www.duoenpassant.com/og-cover.jpg">
+  <meta property="og:image:alt" content="Duo EnPassant — violin and cello chamber duo">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="et_EE">
+
+  <!-- X / Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Videos &amp; Photos | Duo EnPassant">
+  <meta name="twitter:description"
+        content="Performance videos and photography from Duo EnPassant, a violin and cello chamber duo.">
+  <meta name="twitter:image" content="https://www.duoenpassant.com/og-cover.jpg">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.duoenpassant.com/media.html#webpage",
+        "url": "https://www.duoenpassant.com/media.html",
+        "name": "Videos & Photos | Duo EnPassant",
+        "description": "Performance videos and photography from Duo EnPassant, the violin and cello chamber duo of Merily Leotoots and Anna Ryland-Jones.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://www.duoenpassant.com/#website",
+          "url": "https://www.duoenpassant.com/",
+          "name": "Duo EnPassant"
+        },
+        "about": {
+          "@id": "https://www.duoenpassant.com/#duo"
+        }
+      },
+      {
+        "@type": "MusicGroup",
+        "@id": "https://www.duoenpassant.com/#duo",
+        "name": "Duo EnPassant",
+        "alternateName": "Duo En Passant",
+        "url": "https://www.duoenpassant.com/",
+        "genre": "Classical",
+        "member": [
+          {
+            "@type": "Person",
+            "name": "Merily Leotoots",
+            "jobTitle": "Violinist"
+          },
+          {
+            "@type": "Person",
+            "name": "Anna Ryland-Jones",
+            "jobTitle": "Cellist"
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Duo EnPassant",
+            "item": "https://www.duoenpassant.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Media",
+            "item": "https://www.duoenpassant.com/media.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Connection hints for embedded performance videos -->
+  <link rel="preconnect" href="https://www.youtube-nocookie.com">
+  <link rel="preconnect" href="https://i.ytimg.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="Favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -1241,6 +1332,43 @@
       }
     }
 
+
+    /* Minimal related links: keeps the Media page uncluttered */
+    .media-related-links {
+      margin-top: 4.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.1rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.56rem;
+      letter-spacing: 0.31em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .media-related-links a {
+      transition: color 0.2s ease;
+    }
+
+    .media-related-links a:hover {
+      color: var(--warm);
+    }
+
+    .media-related-links > span {
+      color: var(--warm);
+      font-size: 0.72rem;
+    }
+
+    @media (max-width: 480px) {
+      .media-related-links {
+        margin-top: 3.2rem;
+        gap: 0.8rem;
+        font-size: 0.50rem;
+        letter-spacing: 0.24em;
+      }
+    }
+
   </style>
 
 </head>
@@ -1310,14 +1438,14 @@
 
   <!-- PAGE HERO -->
 
-  <section class="page-hero">
+  <section class="page-hero" aria-labelledby="media-page-title">
     <div class="page-hero-glow" aria-hidden="true"></div>
 
     <div class="page-hero-inner fade-in">
       <div class="page-hero-copy">
         <span class="page-hero-eyebrow">Duo EnPassant</span>
 
-        <h1 class="page-hero-title">
+        <h1 class="page-hero-title" id="media-page-title">
           <span data-lang-block="en">Media</span>
           <span data-lang-block="est">Meedia</span>
         </h1>
@@ -1338,15 +1466,15 @@
 
   <!-- VIDEOS -->
 
-  <section class="content-section" id="videos">
+  <section class="content-section" id="videos" aria-labelledby="videos-heading">
     <div class="container">
 
       <div class="media-simple-heading">
         <div data-lang-block="en">
-          <p class="section-label">Videos</p>
+          <h2 class="section-label" id="videos-heading">Videos</h2>
         </div>
         <div data-lang-block="est">
-          <p class="section-label">Videod</p>
+          <h2 class="section-label">Videod</h2>
         </div>
       </div>
 
@@ -1354,22 +1482,24 @@
         <div class="video-card reveal">
           <div class="video-frame-wrapper">
             <iframe
-              src="https://www.youtube.com/embed/KshG1i6PzKw"
+              src="https://www.youtube-nocookie.com/embed/KshG1i6PzKw"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
               loading="lazy"
-              title="Duo EnPassant — Video 1"></iframe>
+              referrerpolicy="strict-origin-when-cross-origin"
+              title="Duo EnPassant — violin and cello performance video 1"></iframe>
           </div>
         </div>
 
         <div class="video-card reveal">
           <div class="video-frame-wrapper">
             <iframe
-              src="https://www.youtube.com/embed/Q8cl2DfWa3c"
+              src="https://www.youtube-nocookie.com/embed/Q8cl2DfWa3c"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
               loading="lazy"
-              title="Duo EnPassant — Video 2"></iframe>
+              referrerpolicy="strict-origin-when-cross-origin"
+              title="Duo EnPassant — violin and cello performance video 2"></iframe>
           </div>
         </div>
       </div>
@@ -1379,15 +1509,15 @@
 
   <!-- PHOTOS -->
 
-  <section class="content-section" id="photos">
+  <section class="content-section" id="photos" aria-labelledby="gallery-heading">
     <div class="container">
 
       <div class="media-simple-heading">
         <div data-lang-block="en">
-          <p class="section-label">Gallery</p>
+          <h2 class="section-label" id="gallery-heading">Gallery</h2>
         </div>
         <div data-lang-block="est">
-          <p class="section-label">Galerii</p>
+          <h2 class="section-label">Galerii</h2>
         </div>
       </div>
 
@@ -1395,27 +1525,42 @@
         <div class="photo-item reveal" data-index="0">
           <img
             src="img.jpg"
-            alt="Duo EnPassant"
+            alt="Duo EnPassant violin and cello chamber duo"
             loading="lazy"
+            decoding="async"
             style="object-position:center center;">
         </div>
 
         <div class="photo-item reveal" data-index="1">
           <img
             src="EP.jpg"
-            alt="Duo EnPassant"
+            alt="Duo EnPassant chamber musicians"
             loading="lazy"
+            decoding="async"
             style="object-position:center top;">
         </div>
 
         <div class="photo-item reveal" data-index="2">
           <img
             src="Intro.png"
-            alt="Duo EnPassant"
+            alt="Duo EnPassant violin and cello duo"
             loading="lazy"
+            decoding="async"
             style="object-position:center center;">
         </div>
       </div>
+
+      <nav class="media-related-links reveal" aria-label="Explore Duo EnPassant">
+        <a href="concerts.html">
+          <span data-lang-block="en">Concerts</span>
+          <span data-lang-block="est">Kontserdid</span>
+        </a>
+        <span aria-hidden="true">◇</span>
+        <a href="repertoire.html">
+          <span data-lang-block="en">Repertoire</span>
+          <span data-lang-block="est">Repertuaar</span>
+        </a>
+      </nav>
 
     </div>
   </section>
@@ -1453,7 +1598,7 @@
       btn.addEventListener('click', () => setLang(btn.dataset.langSwitch));
     });
     const saved = localStorage.getItem('dep-lang');
-    if (saved) setLang(saved);
+    setLang(saved || 'en');
 
     // Hamburger
     const hamburger = document.getElementById('hamburgerBtn');
