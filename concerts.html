@@ -2,13 +2,106 @@
 
 <html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="canonical" href="https://www.duoenpassant.com/concerts.html" />
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Concerts | Duo EnPassant</title>
-  <meta name="description" content="Upcoming and past concerts — Duo EnPassant violin and cello duo." />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+  <!-- =======================================================
+       SEO — CONCERTS
+  ======================================================== -->
+  <link rel="canonical" href="https://www.duoenpassant.com/concerts.html">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Duo EnPassant">
+
+  <title>Concerts | Duo EnPassant — Violin &amp; Cello Chamber Duo</title>
+  <meta name="description"
+        content="Concerts and selected performances by Duo EnPassant, the violin and cello chamber duo of Merily Leotoots and Anna Ryland-Jones.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Duo EnPassant">
+  <meta property="og:title" content="Concerts | Duo EnPassant">
+  <meta property="og:description"
+        content="Concerts and selected performances by Duo EnPassant, a violin and cello chamber duo.">
+  <meta property="og:url" content="https://www.duoenpassant.com/concerts.html">
+  <meta property="og:image" content="https://www.duoenpassant.com/og-cover.jpg">
+  <meta property="og:image:alt" content="Duo EnPassant — violin and cello chamber duo">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="et_EE">
+
+  <!-- X / Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Concerts | Duo EnPassant">
+  <meta name="twitter:description"
+        content="Concerts and selected performances by Duo EnPassant, a violin and cello chamber duo.">
+  <meta name="twitter:image" content="https://www.duoenpassant.com/og-cover.jpg">
+
+  <!--
+    This is intentionally WebPage/MusicGroup structured data, not Event markup.
+    Google requires a separate, single-event URL for Event rich results.
+    When a new public concert is announced, we can create an individual event page.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.duoenpassant.com/concerts.html#webpage",
+        "url": "https://www.duoenpassant.com/concerts.html",
+        "name": "Concerts | Duo EnPassant",
+        "description": "Concerts and selected performances by Duo EnPassant, the violin and cello chamber duo of Merily Leotoots and Anna Ryland-Jones.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://www.duoenpassant.com/#website",
+          "url": "https://www.duoenpassant.com/",
+          "name": "Duo EnPassant"
+        },
+        "about": {
+          "@id": "https://www.duoenpassant.com/#duo"
+        }
+      },
+      {
+        "@type": "MusicGroup",
+        "@id": "https://www.duoenpassant.com/#duo",
+        "name": "Duo EnPassant",
+        "alternateName": "Duo En Passant",
+        "url": "https://www.duoenpassant.com/",
+        "genre": "Classical",
+        "member": [
+          {
+            "@type": "Person",
+            "name": "Merily Leotoots",
+            "jobTitle": "Violinist"
+          },
+          {
+            "@type": "Person",
+            "name": "Anna Ryland-Jones",
+            "jobTitle": "Cellist"
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Duo EnPassant",
+            "item": "https://www.duoenpassant.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Concerts",
+            "item": "https://www.duoenpassant.com/concerts.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="Favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -1173,8 +1266,8 @@
     <a href="concerts.html" class="drawer-close-on-click active" data-lang-block="en">Concerts</a>
     <a href="concerts.html" class="drawer-close-on-click active" data-lang-block="est">Kontserdid</a>
 
-    <a href="site.html#contact" class="drawer-close-on-click" data-lang-block="en">Contact</a>
-    <a href="site.html#contact" class="drawer-close-on-click" data-lang-block="est">Kontakt</a>
+    <a href="/#contact" class="drawer-close-on-click" data-lang-block="en">Contact</a>
+    <a href="/#contact" class="drawer-close-on-click" data-lang-block="est">Kontakt</a>
 
     <div class="mobile-drawer-rule"></div>
     <div class="mobile-lang-row">
@@ -1188,7 +1281,7 @@
 
   <header class="topbar">
     <div class="topbar-inner">
-      <a href="site.html" class="home-btn" aria-label="Duo EnPassant — Home">
+      <a href="/" class="home-btn" aria-label="Duo EnPassant — Home">
         <div class="home-wordmark">
           Duo EnPassant
           <span data-lang-block="en">Violin &amp; Cello</span>
@@ -1203,8 +1296,8 @@
         <a href="concerts.html" class="nav-link active" data-lang-block="en">Concerts</a>
         <a href="concerts.html" class="nav-link active" data-lang-block="est">Kontserdid</a>
 
-        <a href="site.html#contact" class="nav-link" data-lang-block="en">Contact</a>
-        <a href="site.html#contact" class="nav-link" data-lang-block="est">Kontakt</a>
+        <a href="/#contact" class="nav-link" data-lang-block="en">Contact</a>
+        <a href="/#contact" class="nav-link" data-lang-block="est">Kontakt</a>
       </nav>
 
       <div class="lang-toggle" aria-label="Language selector">
@@ -1221,14 +1314,14 @@
 
   <!-- PAGE HERO -->
 
-  <section class="page-hero">
+  <section class="page-hero" aria-labelledby="concerts-page-title">
     <div class="page-hero-glow" aria-hidden="true"></div>
 
     <div class="page-hero-inner fade-in">
       <div class="page-hero-copy">
         <span class="page-hero-eyebrow">Duo EnPassant</span>
 
-        <h1 class="page-hero-title">
+        <h1 class="page-hero-title" id="concerts-page-title">
           <span data-lang="en">Concerts</span>
           <span data-lang="est">Kontserdid</span>
         </h1>
@@ -1240,8 +1333,8 @@
         </div>
 
         <p class="page-hero-sub">
-          <span data-lang="en">Upcoming &amp; past performances</span>
-          <span data-lang="est">Tulevased ja toimunud esinemised</span>
+          <span data-lang="en">Classical chamber music · concerts &amp; selected performances</span>
+          <span data-lang="est">Klassikaline kammermuusika · kontserdid ja valitud esinemised</span>
         </p>
       </div>
     </div>
@@ -1264,18 +1357,18 @@
 
 
   <!-- UPCOMING (auto-populated by JS) -->
-  <div id="upcomingSection" class="concert-group">
+  <div id="upcomingSection" class="concert-group" aria-labelledby="upcoming-heading">
     <div class="concert-group-heading">
-      <div data-lang-block="en"><p class="section-label">Upcoming</p></div>
+      <div data-lang-block="en"><p class="section-label" id="upcoming-heading">Upcoming</p></div>
       <div data-lang-block="est"><p class="section-label">Tulevased</p></div>
     </div>
     <div class="concert-list" id="upcomingList"></div>
   </div>
 
   <!-- PAST (auto-populated by JS) -->
-  <div id="pastSection" class="concert-group past-group">
+  <div id="pastSection" class="concert-group past-group" aria-labelledby="past-heading">
     <div class="concert-group-heading">
-      <div data-lang-block="en"><p class="section-label">Past Performances</p></div>
+      <div data-lang-block="en"><p class="section-label" id="past-heading">Past Performances</p></div>
       <div data-lang-block="est"><p class="section-label">Varasemad esinemised</p></div>
     </div>
     <div class="concert-list" id="pastList"></div>
@@ -1291,7 +1384,7 @@
   <!-- Each item needs data-date="YYYY-MM-DD". JS handles the rest. -->
 
   <template id="concertData">
-<div class="concert-item" data-date="2026-07-25">
+<article class="concert-item" data-date="2026-07-25">
   <div class="concert-date-col">
     <div class="concert-day">25</div>
     <div class="concert-month-year">
@@ -1317,9 +1410,9 @@
     </div>
   </div>
   <div class="concert-status"></div>
-</div>
+</article>
 
-<div class="concert-item" data-date="2026-08-20">
+<article class="concert-item" data-date="2026-08-20">
   <div class="concert-date-col">
     <div class="concert-day">20</div>
     <div class="concert-month-year">
@@ -1345,9 +1438,9 @@
     </div>
   </div>
   <div class="concert-status"></div>
-</div>
+</article>
 
-<div class="concert-item" data-date="2026-08-28">
+<article class="concert-item" data-date="2026-08-28">
   <div class="concert-date-col">
     <div class="concert-day">28</div>
     <div class="concert-month-year">
@@ -1373,10 +1466,10 @@
     </div>
   </div>
   <div class="concert-status"></div>
-</div>
+</article>
 
 
-<div class="concert-item" data-date="2026-06-10">
+<article class="concert-item" data-date="2026-06-10">
   <div class="concert-date-col">
     <div class="concert-day">10</div>
     <div class="concert-month-year">
@@ -1402,9 +1495,9 @@
     </div>
   </div>
   <div class="concert-status"></div>
-</div>
+</article>
 
-<div class="concert-item" data-date="2026-04-16">
+<article class="concert-item" data-date="2026-04-16">
   <div class="concert-date-col">
     <div class="concert-day">16</div>
     <div class="concert-month-year">
@@ -1430,9 +1523,9 @@
     </div>
   </div>
   <div class="concert-status"></div>
-</div>
+</article>
 
-<div class="concert-item" data-date="2026-03-24">
+<article class="concert-item" data-date="2026-03-24">
   <div class="concert-date-col">
     <div class="concert-day">24</div>
     <div class="concert-month-year">Mar 2026</div>
@@ -1455,9 +1548,9 @@
     </div>
   </div>
   <div class="concert-status"></div>
-</div>
+</article>
 
-<div class="concert-item" data-date="2026-02-26">
+<article class="concert-item" data-date="2026-02-26">
   <div class="concert-date-col">
     <div class="concert-day">26</div>
     <div class="concert-month-year">Feb 2026</div>
@@ -1480,9 +1573,9 @@
     </div>
   </div>
   <div class="concert-status"></div>
-</div>
+</article>
 
-<div class="concert-item" data-date="2025-09-13">
+<article class="concert-item" data-date="2025-09-13">
   <div class="concert-date-col">
     <div class="concert-day">13</div>
     <div class="concert-month-year">Sep 2025</div>
@@ -1505,9 +1598,9 @@
     </div>
   </div>
   <div class="concert-status"></div>
-</div>
+</article>
 
-<div class="concert-item" data-date="2025-07-09">
+<article class="concert-item" data-date="2025-07-09">
   <div class="concert-date-col">
     <div class="concert-day">9</div>
     <div class="concert-month-year">Jul 2025</div>
@@ -1530,9 +1623,9 @@
     </div>
   </div>
   <div class="concert-status"></div>
-</div>
+</article>
 
-<div class="concert-item" data-date="2025-07-02">
+<article class="concert-item" data-date="2025-07-02">
   <div class="concert-date-col">
     <div class="concert-day">2</div>
     <div class="concert-month-year">Jul 2025</div>
@@ -1555,7 +1648,7 @@
     </div>
   </div>
   <div class="concert-status"></div>
-</div>
+</article>
 
 
   </template>
@@ -1603,6 +1696,13 @@
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
+    // Parse YYYY-MM-DD as a LOCAL calendar date.
+    // This avoids UTC timezone shifts changing an event's status.
+    function parseConcertDate(dateString) {
+      const [year, month, day] = dateString.split('-').map(Number);
+      return new Date(year, month - 1, day);
+    }
+
     const upcomingList = document.getElementById('upcomingList');
     const pastList     = document.getElementById('pastList');
     const upcomingSection = document.getElementById('upcomingSection');
@@ -1613,10 +1713,13 @@
     const items    = Array.from(template.content.querySelectorAll('.concert-item'));
 
     // Sort: upcoming → soonest first; past → most recent first
-    const upcoming = items.filter(el => new Date(el.dataset.date) >= today)
-                          .sort((a, b) => new Date(a.dataset.date) - new Date(b.dataset.date));
-    const past     = items.filter(el => new Date(el.dataset.date) <  today)
-                          .sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date));
+    const upcoming = items
+      .filter(el => parseConcertDate(el.dataset.date) >= today)
+      .sort((a, b) => parseConcertDate(a.dataset.date) - parseConcertDate(b.dataset.date));
+
+    const past = items
+      .filter(el => parseConcertDate(el.dataset.date) < today)
+      .sort((a, b) => parseConcertDate(b.dataset.date) - parseConcertDate(a.dataset.date));
 
     // Inject badge and class, then append
     function injectBadge(el, isPast) {
@@ -1641,8 +1744,8 @@
     if (upcoming.length === 0) {
       upcomingList.innerHTML = `
         <p class="no-concerts">
-          <span data-lang="en">No upcoming concerts at the moment. Check back soon.</span>
-          <span data-lang="est">Hetkel tulevasi kontserte pole. Tule varsti tagasi.</span>
+          <span data-lang="en">No upcoming concerts are currently announced.</span>
+          <span data-lang="est">Hetkel ei ole uusi kontserte välja kuulutatud.</span>
         </p>`;
     } else {
       upcoming.forEach(el => upcomingList.appendChild(injectBadge(el, false)));
