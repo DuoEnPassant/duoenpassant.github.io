@@ -363,12 +363,20 @@
       text-transform: uppercase;
     }
 
-    .home-wordmark span {
-      display: block;
+    .home-wordmark [data-lang-block] {
+      display: none;
       font-family: "Raleway", sans-serif;
       font-size: .46rem;
       letter-spacing: .31em;
       color: var(--muted);
+    }
+
+    body.lang-en .home-wordmark [data-lang-block="en"] {
+      display: block;
+    }
+
+    body.lang-est .home-wordmark [data-lang-block="est"] {
+      display: block;
     }
 
     .topbar.over-hero .home-wordmark {
