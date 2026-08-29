@@ -563,114 +563,11 @@
     .mobile-lang-btn.active {
       color: var(--warm);
     }
-
-    /* =========================================================
-       MAIN HERO
-    ========================================================= */
-    #home {
-      scroll-margin-top: 0;
-    }
-
-    .hero {
-      position: relative;
-      min-height: 100svh;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(39,33,30,.12),
-          rgba(39,33,30,.20)
-        ),
-        url("pilt.JPG") center center / cover no-repeat;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(
-          ellipse at 50% 42%,
-          rgba(39,33,30,0) 45%,
-          rgba(39,33,30,.25) 100%
-        );
-    }
-
-    .hero-title-block {
-      position: relative;
-      z-index: 2;
-      width: min(800px, calc(100% - 3rem));
-      text-align: center;
-      color: var(--cream);
-      animation: heroIn 1s cubic-bezier(.16,1,.3,1) both;
-    }
-
-    .hero-duo {
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(4.3rem, 8vw, 8rem);
-      line-height: .86;
-      letter-spacing: .025em;
-      font-weight: 300;
-      text-shadow: 0 2px 22px rgba(39,33,30,.28);
-    }
-
-    .hero-en {
-      font-style: italic;
-      color: var(--cream);
-    }
-
-    .hero-divider {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: .9rem;
-      width: min(380px, 66vw);
-      margin: 1.3rem auto .9rem;
-    }
-
-    .hero-divider::before,
-    .hero-divider::after {
-      content: "";
-      height: 1px;
-      background: rgba(245,239,230,.48);
-    }
-
-    .hero-divider span {
-      display: block;
-      width: 7px;
-      height: 7px;
-      border: 1px solid var(--warm);
-      transform: rotate(45deg);
-    }
-
-    .hero-descriptor {
-      font-family: "Raleway", sans-serif;
-      font-weight: 300;
-      font-size: .62rem;
-      letter-spacing: .34em;
-      text-transform: uppercase;
-      color: rgba(245,239,230,.82);
-    }
-
-    @keyframes heroIn {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     /* =========================================================
        OUR STORY
     ========================================================= */
     .story-section {
+      scroll-margin-top: var(--header-h);
       padding: clamp(6rem, 9vw, 9rem) 0;
       background: var(--parchment);
     }
@@ -1179,76 +1076,6 @@
         display: flex;
       }
 
-      /* Main hero.
-         Deliberately less zoomed + shifted left so violin and cello
-         get much more even visual weight. */
-      .hero {
-        height: clamp(690px, 84svh, 790px);
-        min-height: 690px;
-        max-height: 790px;
-        background-color: #a79b91;
-        background-image:
-          linear-gradient(
-            to bottom,
-            rgba(39,33,30,.10) 0%,
-            rgba(39,33,30,0) 35%,
-            rgba(39,33,30,.14) 100%
-          ),
-          url("pilt.JPG");
-        background-size:
-          100% 100%,
-          168% auto;
-        background-position:
-          center,
-          27% 100%;
-        background-repeat: no-repeat;
-      }
-
-      .hero::before {
-        background:
-          radial-gradient(
-            ellipse at 50% 38%,
-            rgba(39,33,30,0) 48%,
-            rgba(39,33,30,.18) 100%
-          );
-      }
-
-      .hero-title-block {
-        position: absolute;
-        top: 118px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: calc(100% - 2.4rem);
-        animation: heroResponsiveIn .9s cubic-bezier(.16,1,.3,1) both;
-      }
-
-      .hero-duo {
-        font-size: clamp(2.75rem, 11.6vw, 3.35rem);
-        line-height: .92;
-        letter-spacing: .045em;
-      }
-
-      .hero-divider {
-        width: min(270px, 72vw);
-        margin: 1rem auto .75rem;
-      }
-
-      .hero-descriptor {
-        font-size: .54rem;
-        letter-spacing: .25em;
-      }
-
-      @keyframes heroResponsiveIn {
-        from {
-          opacity: 0;
-          transform: translateX(-50%) translateY(14px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(-50%) translateY(0);
-        }
-      }
-
       .story-section,
       .musicians-section,
       .contact-section {
@@ -1321,24 +1148,6 @@
         width: min(245px, 70vw);
       }
 
-      .hero {
-        max-height: 740px;
-        background-size:
-          100% 100%,
-          174% auto;
-        background-position:
-          center,
-          26% 100%;
-      }
-
-      .hero-title-block {
-        top: 112px;
-        width: calc(100% - 1.7rem);
-      }
-
-      .hero-duo {
-        font-size: clamp(2.7rem, 12.4vw, 3.55rem);
-      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1380,8 +1189,8 @@
 
     <div class="intro-content">
       <div class="intro-title-wrap">
-        <!-- Intentionally not H1. The real SEO H1 is in the main hero below. -->
-        <div class="intro-title">Duo<br>En Passant</div>
+        <!-- Main page H1. The duplicate second hero has been removed. -->
+        <h1 class="intro-title">Duo<br>En Passant</h1>
 
         <div class="intro-divider" aria-hidden="true">
           <span></span>
@@ -1477,26 +1286,8 @@
        Everything below now lives on /
   ======================================================== -->
   <main id="home">
-
-    <!-- MAIN HERO -->
-    <section class="hero" id="mainHero">
-      <div class="hero-title-block">
-        <h1 class="hero-duo">Duo <span class="hero-en">En Passant</span></h1>
-
-        <div class="hero-divider" aria-hidden="true">
-          <span></span>
-        </div>
-
-        <div class="hero-descriptor">
-          <span data-lang-block="en">Violin &amp; Cello</span>
-          <span data-lang-block="est">Viiul &amp; Tšello</span>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- OUR STORY — EN -->
-    <section class="story-section" data-lang-block="en">
+<!-- OUR STORY — EN -->
+    <section class="story-section" id="story" data-lang-block="en">
       <div class="container">
         <div class="reveal">
           <p class="eyebrow">Our Story</p>
@@ -1624,17 +1415,15 @@
       <div class="container">
 
         <div data-lang-block="en">
-          <p class="eyebrow">Contact</p>
-          <h2 class="contact-title">Let’s make music.</h2>
-          <p class="contact-intro">For concerts, collaborations and private engagements.</p>
+          <h2 class="contact-title">Contact</h2>
+          <p class="contact-intro">Concerts, collaborations and private engagements.</p>
           <a class="contact-email" href="mailto:info@duoenpassant.com">info@duoenpassant.com</a>
 
           <p class="follow-text">Follow Duo EnPassant</p>
         </div>
 
         <div data-lang-block="est">
-          <p class="eyebrow">Kontakt</p>
-          <h2 class="contact-title">Loome koos muusikat.</h2>
+          <h2 class="contact-title">Kontakt</h2>
           <p class="contact-intro">Kontserdid, koostööprojektid ja eraesinemised.</p>
           <a class="contact-email" href="mailto:info@duoenpassant.com">info@duoenpassant.com</a>
 
@@ -1690,7 +1479,6 @@
       const body = document.body;
       const intro = document.getElementById("intro");
       const home = document.getElementById("home");
-      const mainHero = document.getElementById("mainHero");
       const topbar = document.getElementById("topbar");
       const enterBtn = document.getElementById("enterBtn");
       const hamburger = document.getElementById("hamburgerBtn");
@@ -1727,7 +1515,7 @@
          real homepage content on the same URL.
       ----------------------------------------- */
       enterBtn.addEventListener("click", () => {
-        home.scrollIntoView({ behavior: "smooth", block: "start" });
+        document.getElementById("story").scrollIntoView({ behavior: "smooth", block: "start" });
       });
 
 
@@ -1738,13 +1526,10 @@
       ----------------------------------------- */
       function updateHeader() {
         const homeTop = home.getBoundingClientRect().top;
-        const heroBottom = mainHero.getBoundingClientRect().bottom;
-
         const shouldShow = homeTop <= 90;
-        const overHero = shouldShow && heroBottom > 90;
 
         topbar.classList.toggle("visible", shouldShow);
-        topbar.classList.toggle("over-hero", overHero);
+        topbar.classList.remove("over-hero");
       }
 
       updateHeader();
