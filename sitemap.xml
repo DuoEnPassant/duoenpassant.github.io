@@ -1,6 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.duoenpassant.com/</loc></url>
-  <url><loc>https://www.duoenpassant.com/about.html</loc></url>
-  <url><loc>https://www.duoenpassant.com/concerts.html</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.duoenpassant.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.duoenpassant.com/en/" />
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.duoenpassant.com/et/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.duoenpassant.com/" />
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.duoenpassant.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.duoenpassant.com/en/" />
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.duoenpassant.com/et/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.duoenpassant.com/en/" />
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.duoenpassant.com/en/concerts.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.duoenpassant.com/en/concerts.html" />
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.duoenpassant.com/et/concerts.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.duoenpassant.com/en/concerts.html" />
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.duoenpassant.com/en/repertoire.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.duoenpassant.com/en/repertoire.html" />
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.duoenpassant.com/et/repertoire.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.duoenpassant.com/en/repertoire.html" />
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.duoenpassant.com/en/media.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.duoenpassant.com/en/media.html" />
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.duoenpassant.com/et/media.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.duoenpassant.com/en/media.html" />
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.duoenpassant.com/en/press.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.duoenpassant.com/en/press.html" />
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.duoenpassant.com/et/press.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.duoenpassant.com/en/press.html" />
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.duoenpassant.com/en/bookings.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.duoenpassant.com/en/bookings.html" />
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.duoenpassant.com/et/bookings.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.duoenpassant.com/en/bookings.html" />
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.duoenpassant.com/et/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.duoenpassant.com/en/" />
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.duoenpassant.com/et/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.duoenpassant.com/en/" />
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.duoenpassant.com/et/concerts.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.duoenpassant.com/en/concerts.html" />
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.duoenpassant.com/et/concerts.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.duoenpassant.com/en/concerts.html" />
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.duoenpassant.com/et/repertoire.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.duoenpassant.com/en/repertoire.html" />
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.duoenpassant.com/et/repertoire.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.duoenpassant.com/en/repertoire.html" />
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.duoenpassant.com/et/media.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.duoenpassant.com/en/media.html" />
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.duoenpassant.com/et/media.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.duoenpassant.com/en/media.html" />
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.duoenpassant.com/et/press.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.duoenpassant.com/en/press.html" />
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.duoenpassant.com/et/press.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.duoenpassant.com/en/press.html" />
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.duoenpassant.com/et/bookings.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.duoenpassant.com/en/bookings.html" />
+    <xhtml:link rel="alternate" hreflang="et" href="https://www.duoenpassant.com/et/bookings.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.duoenpassant.com/en/bookings.html" />
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
