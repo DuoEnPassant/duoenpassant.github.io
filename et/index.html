@@ -1,0 +1,1563 @@
+<!doctype html>
+
+<html lang="et">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- =======================================================
+       SEO — STEP 2
+       Concert-first positioning for Duo EnPassant
+  ======================================================== -->
+<link href="https://www.duoenpassant.com/et/" rel="canonical"/><link href="https://www.duoenpassant.com/en/" hreflang="en" rel="alternate"/><link href="https://www.duoenpassant.com/et/" hreflang="et" rel="alternate"/><link href="https://www.duoenpassant.com/" hreflang="x-default" rel="alternate"/>
+<meta content="index, follow" name="robots"/>
+<meta content="Duo EnPassant" name="author"/>
+<title>Duo EnPassant | Viiuli- ja tšello kammerduo</title>
+<meta content="Duo EnPassant on Merily Leotootsi ja Anna Ryland-Jonesi viiuli- ja tšello kammerduo. Tutvu kontsertide, repertuaari, videote ja esinemistega." name="description"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="Duo EnPassant" property="og:site_name"/>
+<meta content="Duo EnPassant | Viiuli- ja tšello kammerduo" property="og:title"/>
+<meta content="Duo EnPassant on Merily Leotootsi ja Anna Ryland-Jonesi viiuli- ja tšello kammerduo. Tutvu kontsertide, repertuaari, videote ja esinemistega." property="og:description"/>
+<meta content="https://www.duoenpassant.com/et/" property="og:url"/>
+<meta content="https://www.duoenpassant.com/og-cover.jpg" property="og:image"/>
+<meta content="Duo EnPassant — violin and cello chamber duo" property="og:image:alt"/>
+<meta content="et_EE" property="og:locale"/>
+<meta content="en_GB" property="og:locale:alternate"/>
+<!-- X / Twitter -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Duo EnPassant | Viiuli- ja tšello kammerduo" name="twitter:title"/>
+<meta content="Duo EnPassant on Merily Leotootsi ja Anna Ryland-Jonesi viiuli- ja tšello kammerduo. Tutvu kontsertide, repertuaari, videote ja esinemistega." name="twitter:description"/>
+<meta content="https://www.duoenpassant.com/og-cover.jpg" name="twitter:image"/>
+<!-- Structured data -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.duoenpassant.com/#website",
+        "url": "https://www.duoenpassant.com/et/",
+        "name": "Duo EnPassant",
+        "inLanguage": ["en", "et"]
+      },
+      {
+        "@type": "MusicGroup",
+        "@id": "https://www.duoenpassant.com/#duo",
+        "name": "Duo EnPassant",
+        "alternateName": "Duo En Passant",
+        "url": "https://www.duoenpassant.com/",
+        "image": "https://www.duoenpassant.com/og-cover.jpg",
+        "genre": "Classical",
+        "description": "Duo EnPassant is a violin and cello chamber duo featuring Merily Leotoots and Anna Ryland-Jones, performing classical chamber music in Estonia and internationally.",
+        "email": "info@duoenpassant.com",
+        "member": [
+          {
+            "@type": "Person",
+            "name": "Merily Leotoots",
+            "jobTitle": "Violinist",
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "Guildhall School of Music & Drama"
+            }
+          },
+          {
+            "@type": "Person",
+            "name": "Anna Ryland-Jones",
+            "jobTitle": "Cellist",
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "Guildhall School of Music & Drama"
+            }
+          }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/duo_enpassant/",
+          "https://www.facebook.com/profile.php?id=61576658983538",
+          "https://www.youtube.com/@DuoEnPassant",
+          "https://www.tiktok.com/@duo.enpassant"
+        ]
+      }
+    ]
+  }
+  </script>
+<link href="../Favicon.png" rel="icon" type="image/png"/>
+<link href="../apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Cinzel:wght@400;500&amp;family=Raleway:wght@300;400&amp;display=swap" rel="stylesheet"/>
+<style>
+    /* =========================================================
+       BASE
+    ========================================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink: #27211e;
+      --deep: #2b2522;
+      --parchment: #f2ece3;
+      --cream: #f5efe6;
+      --warm: #b8935d;
+      --muted: #7f746a;
+      --line: rgba(184,147,93,.28);
+      --max: 1160px;
+      --header-h: 72px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--parchment);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: var(--parchment);
+      color: var(--ink);
+      font-family: "Cormorant Garamond", Georgia, serif;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    [data-lang-block] {
+      display: none;
+    }
+
+    body.lang-en [data-lang-block="en"] {
+      display: block;
+    }
+
+    body.lang-est [data-lang-block="est"] {
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 6rem));
+      margin: 0 auto;
+    }
+
+    /* =========================================================
+       INTRO / LANDING
+       This remains the first full-screen experience,
+       but it is now part of the SAME index.html.
+    ========================================================= */
+    .intro {
+      position: relative;
+      width: 100%;
+      height: 100svh;
+      min-height: 650px;
+      overflow: hidden;
+      isolation: isolate;
+      background: #6e655f;
+    }
+
+    .intro-picture,
+    .intro-picture img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .intro-picture img {
+      object-fit: cover;
+      object-position: center center;
+      filter: brightness(.99);
+    }
+
+    .intro-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          to right,
+          rgba(39,33,30,.33) 0%,
+          rgba(39,33,30,.22) 14%,
+          rgba(39,33,30,.09) 23%,
+          rgba(39,33,30,.02) 30%,
+          rgba(39,33,30,0) 35%,
+          rgba(39,33,30,0) 100%
+        ),
+        radial-gradient(
+          ellipse at 58% 42%,
+          rgba(39,33,30,0) 58%,
+          rgba(39,33,30,.08) 100%
+        ),
+        linear-gradient(
+          to bottom,
+          rgba(39,33,30,.04) 0%,
+          rgba(39,33,30,0) 45%,
+          rgba(39,33,30,.22) 100%
+        );
+    }
+
+    /* No dark header strip on desktop. */
+    .intro-language {
+      position: absolute;
+      z-index: 4;
+      top: 1.3rem;
+      right: 2.1rem;
+      display: flex;
+      align-items: center;
+      gap: .34rem;
+    }
+
+    .intro-lang-btn {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      padding: .35rem .45rem;
+      cursor: pointer;
+      font-family: "Cinzel", serif;
+      font-size: .64rem;
+      letter-spacing: .24em;
+      color: rgba(245,239,230,.62);
+      text-transform: uppercase;
+      transition: color .25s ease;
+      text-shadow: 0 1px 12px rgba(39,33,30,.28);
+    }
+
+    .intro-lang-btn.active,
+    .intro-lang-btn:hover {
+      color: var(--cream);
+    }
+
+    .intro-lang-separator {
+      color: rgba(245,239,230,.34);
+      font-size: .7rem;
+    }
+
+    .intro-content {
+      position: relative;
+      z-index: 3;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 8.3rem 4.2rem 7rem;
+      pointer-events: none;
+    }
+
+    .intro-title-wrap {
+      width: min(30vw, 420px);
+      text-align: left;
+    }
+
+    .intro-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 300;
+      font-size: clamp(4.1rem, 5.2vw, 5.9rem);
+      line-height: .92;
+      letter-spacing: .04em;
+      color: var(--cream);
+      text-transform: uppercase;
+      text-shadow:
+        0 2px 18px rgba(39,33,30,.24),
+        0 1px 2px rgba(39,33,30,.18);
+    }
+
+    .intro-divider {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: .75rem;
+      width: min(290px, 90%);
+      margin: 1.15rem 0 .9rem;
+      color: var(--warm);
+    }
+
+    .intro-divider::before,
+    .intro-divider::after {
+      content: "";
+      height: 1px;
+      background: rgba(245,239,230,.46);
+    }
+
+    .intro-divider span {
+      font-size: .72rem;
+      transform: rotate(45deg);
+      display: block;
+      width: 7px;
+      height: 7px;
+      border: 1px solid var(--warm);
+    }
+
+    .intro-descriptor {
+      display: block;
+      font-family: "Raleway", sans-serif;
+      font-weight: 300;
+      font-size: .58rem;
+      line-height: 1.4;
+      letter-spacing: .30em;
+      text-transform: uppercase;
+      color: rgba(245,239,230,.80);
+      text-align: left;
+      text-shadow: 0 1px 10px rgba(39,33,30,.20);
+    }
+
+    .enter-wrap {
+      position: absolute;
+      left: 50%;
+      bottom: 2.35rem;
+      z-index: 5;
+      transform: translateX(-50%);
+    }
+
+    .enter-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 182px;
+      padding: .88rem 1.9rem;
+      border: 1px solid rgba(245,239,230,.52);
+      background: rgba(39,33,30,.10);
+      color: var(--cream);
+      cursor: pointer;
+      font-family: "Cinzel", serif;
+      font-size: .64rem;
+      letter-spacing: .33em;
+      text-transform: uppercase;
+      backdrop-filter: blur(2px);
+      transition:
+        background .25s ease,
+        border-color .25s ease,
+        transform .25s ease;
+    }
+
+    .enter-btn:hover {
+      background: rgba(39,33,30,.28);
+      border-color: rgba(245,239,230,.85);
+      transform: translateY(-2px);
+    }
+
+    /* =========================================================
+       MAIN SITE HEADER
+       Hidden while the visitor is on the intro.
+    ========================================================= */
+    .topbar {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      height: var(--header-h);
+      opacity: 0;
+      transform: translateY(-100%);
+      pointer-events: none;
+      transition:
+        opacity .32s ease,
+        transform .32s ease,
+        background .3s ease,
+        border-color .3s ease;
+      background: rgba(242,236,227,.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .topbar.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .topbar.over-hero {
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(39,33,30,.48) 0%,
+          rgba(39,33,30,.14) 74%,
+          rgba(39,33,30,0) 100%
+        );
+      border-bottom-color: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    .topbar-inner {
+      width: 100%;
+      max-width: 1480px;
+      min-height: var(--header-h);
+      margin: 0 auto;
+      padding: .6rem 2rem;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .home-btn {
+      display: flex;
+      align-items: center;
+      color: var(--ink);
+    }
+
+    .home-wordmark {
+      font-family: "Cinzel", serif;
+      font-size: .64rem;
+      letter-spacing: .28em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .home-wordmark [data-lang-block] {
+      display: none;
+      font-family: "Raleway", sans-serif;
+      font-size: .46rem;
+      letter-spacing: .31em;
+      color: var(--muted);
+    }
+
+    body.lang-en .home-wordmark [data-lang-block="en"] {
+      display: block;
+    }
+
+    body.lang-est .home-wordmark [data-lang-block="est"] {
+      display: block;
+    }
+
+    .topbar.over-hero .home-wordmark {
+      color: var(--cream);
+      text-shadow: 0 1px 10px rgba(0,0,0,.22);
+    }
+
+    .topbar.over-hero .home-wordmark span {
+      color: rgba(245,239,230,.68);
+    }
+
+    .topbar-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      position: relative;
+      font-family: "Cinzel", serif;
+      font-size: .62rem;
+      letter-spacing: .30em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color .25s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -.38rem;
+      width: 0;
+      height: 1px;
+      background: var(--warm);
+      transition: width .25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--ink);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .topbar.over-hero .nav-link {
+      color: rgba(245,239,230,.78);
+    }
+
+    .topbar.over-hero .nav-link:hover {
+      color: var(--cream);
+    }
+
+    .lang-toggle {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: .34rem;
+    }
+
+    .lang-btn {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      padding: .28rem .45rem;
+      cursor: pointer;
+      font-family: "Cinzel", serif;
+      font-size: .61rem;
+      letter-spacing: .24em;
+      color: var(--muted);
+      text-transform: uppercase;
+      transition: color .2s ease;
+    }
+
+    .lang-btn.active,
+    .lang-btn:hover {
+      color: var(--warm);
+    }
+
+    .lang-separator {
+      color: var(--line);
+    }
+
+    .topbar.over-hero .lang-btn {
+      color: rgba(245,239,230,.64);
+    }
+
+    .topbar.over-hero .lang-btn.active,
+    .topbar.over-hero .lang-btn:hover {
+      color: var(--cream);
+    }
+
+    .hamburger-btn {
+      display: none;
+      width: 40px;
+      height: 40px;
+      margin-left: auto;
+      padding: 7px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .hamburger-btn span {
+      width: 100%;
+      height: 1.5px;
+      background: var(--ink);
+      transition: transform .25s ease, opacity .25s ease;
+    }
+
+    .topbar.over-hero .hamburger-btn span {
+      background: var(--cream);
+    }
+
+    .hamburger-btn.open span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+
+    .hamburger-btn.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger-btn.open span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 6rem 1.5rem 2rem;
+      background:
+        radial-gradient(circle at 50% 18%, rgba(184,147,93,.08), transparent 30%),
+        rgba(242,236,227,.99);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease;
+    }
+
+    .mobile-drawer.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-drawer a {
+      font-family: "Cinzel", serif;
+      font-size: 1rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .mobile-drawer-rule {
+      width: 42px;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .mobile-lang-row {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .mobile-lang-btn {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      padding: .3rem .55rem;
+      cursor: pointer;
+      font-family: "Cinzel", serif;
+      font-size: .8rem;
+      letter-spacing: .24em;
+      color: var(--muted);
+    }
+
+    .mobile-lang-btn.active {
+      color: var(--warm);
+    }
+    /* =========================================================
+       OUR STORY
+    ========================================================= */
+    .section-anchor {
+      height: 0;
+      scroll-margin-top: var(--header-h);
+    }
+
+    .story-section {
+      scroll-margin-top: var(--header-h);
+      padding: clamp(6rem, 9vw, 9rem) 0;
+      background: var(--parchment);
+    }
+
+    .eyebrow {
+      font-family: "Cinzel", serif;
+      font-size: .61rem;
+      letter-spacing: .42em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 1.3rem;
+    }
+
+    .story-title {
+      max-width: 850px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 300;
+      font-size: clamp(3rem, 5.5vw, 5rem);
+      line-height: 1;
+      letter-spacing: -.02em;
+      margin-bottom: 1.15rem;
+    }
+
+    .story-lead {
+      max-width: 700px;
+      margin-bottom: 4rem;
+      font-family: "Raleway", sans-serif;
+      font-size: .68rem;
+      font-weight: 300;
+      line-height: 1.8;
+      letter-spacing: .20em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: minmax(280px, .9fr) minmax(0, 1.35fr);
+      gap: clamp(3rem, 7vw, 7rem);
+      align-items: start;
+    }
+
+    .story-image-wrap {
+      position: static;
+    }
+
+    .story-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      box-shadow: 14px 14px 0 rgba(184,147,93,.16);
+    }
+
+    .story-copy p {
+      font-size: clamp(1.14rem, 1.7vw, 1.32rem);
+      font-weight: 300;
+      line-height: 1.88;
+      margin-bottom: 1.55rem;
+    }
+
+    .story-copy p:first-child::first-letter {
+      float: left;
+      margin: .07em .12em 0 0;
+      font-family: "Cinzel", serif;
+      font-size: 4.4rem;
+      line-height: .73;
+      color: var(--warm);
+    }
+
+    .story-quote {
+      margin: 2.4rem 0;
+      padding: .8rem 0 .8rem 1.7rem;
+      border-left: 1px solid var(--warm);
+    }
+
+    .story-quote p {
+      margin: 0;
+      font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    /* =========================================================
+       NAME STORY
+    ========================================================= */
+    .name-section {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(5.5rem, 9vw, 8.5rem) 0;
+      background: var(--deep);
+      color: var(--cream);
+    }
+
+    .name-section::after {
+      content: "en passant";
+      position: absolute;
+      right: -1rem;
+      bottom: -2.4rem;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(6rem, 14vw, 13rem);
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(184,147,93,.055);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .name-content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .name-term {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(3.7rem, 7vw, 6.4rem);
+      line-height: .9;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--warm);
+      margin-bottom: .9rem;
+    }
+
+    .name-definition {
+      font-family: "Raleway", sans-serif;
+      font-size: .59rem;
+      letter-spacing: .29em;
+      text-transform: uppercase;
+      color: rgba(245,239,230,.43);
+      margin-bottom: 2rem;
+    }
+
+    .name-copy {
+      max-width: 650px;
+      font-size: clamp(1.15rem, 1.75vw, 1.35rem);
+      line-height: 1.85;
+      color: rgba(245,239,230,.74);
+      font-weight: 300;
+    }
+
+    /* =========================================================
+       MUSICIANS
+    ========================================================= */
+    .musicians-section {
+      padding: clamp(6rem, 9vw, 9rem) 0;
+      background: var(--parchment);
+    }
+
+    .musicians-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(3rem, 5vw, 4.7rem);
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 3.5rem;
+    }
+
+    .musicians-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--line);
+    }
+
+    .musician-card {
+      min-height: 390px;
+      padding: clamp(2.5rem, 4vw, 4.2rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .musician-card.dark {
+      background: var(--deep);
+      color: var(--cream);
+    }
+
+    .musician-card.light {
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    .musician-role {
+      margin-bottom: auto;
+      font-family: "Raleway", sans-serif;
+      font-size: .58rem;
+      letter-spacing: .34em;
+      text-transform: uppercase;
+      color: var(--warm);
+    }
+
+    .musician-name {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      line-height: .96;
+      font-weight: 300;
+      margin-bottom: .7rem;
+    }
+
+    .musician-instrument {
+      font-family: "Raleway", sans-serif;
+      font-size: .57rem;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .musician-card.dark .musician-instrument {
+      color: rgba(245,239,230,.48);
+    }
+
+    .cv-link {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: .7rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid rgba(184,147,93,.45);
+      font-family: "Cinzel", serif;
+      font-size: .57rem;
+      letter-spacing: .29em;
+      text-transform: uppercase;
+      color: var(--warm);
+    }
+
+    .cv-link::after {
+      content: "→";
+      font-family: Georgia, serif;
+      font-size: .9rem;
+      transition: transform .2s ease;
+    }
+
+    .cv-link:hover::after {
+      transform: translateX(4px);
+    }
+
+    /* =========================================================
+       CONTACT
+    ========================================================= */
+    .contact-section {
+      padding: clamp(6rem, 9vw, 9rem) 0;
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .contact-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(3rem, 6vw, 5.4rem);
+      line-height: .95;
+      font-weight: 300;
+      margin-bottom: 1.3rem;
+    }
+
+    .contact-intro {
+      max-width: 620px;
+      margin: 0 auto 2.3rem;
+      font-size: clamp(1.15rem, 2vw, 1.4rem);
+      line-height: 1.65;
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .contact-email {
+      display: inline-block;
+      margin-bottom: 3.2rem;
+      font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+      font-style: italic;
+      border-bottom: 1px solid var(--warm);
+    }
+
+    .follow-text {
+      margin-bottom: 1.35rem;
+      font-family: "Cinzel", serif;
+      font-size: .58rem;
+      letter-spacing: .36em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .9rem;
+    }
+
+    .social-icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      transition:
+        border-color .2s ease,
+        transform .2s ease,
+        background .2s ease;
+    }
+
+    .social-icon-link:hover {
+      transform: translateY(-2px);
+      border-color: var(--warm);
+      background: rgba(184,147,93,.06);
+    }
+
+    .social-icon {
+      width: 18px;
+      height: 18px;
+      color: var(--muted);
+    }
+
+    .price-link {
+      display: inline-block;
+      margin: -.8rem 0 3rem;
+      font-family: "Cinzel", serif;
+      font-size: .58rem;
+      letter-spacing: .30em;
+      text-transform: uppercase;
+      color: var(--warm);
+    }
+
+    .contact-resource-row {
+      margin: -.5rem 0 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .8rem 1.5rem;
+    }
+
+    .bookings-link,
+    .press-link {
+      display: inline-block;
+      font-family: "Cinzel", serif;
+      font-size: .54rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color .2s ease;
+    }
+
+    .bookings-link:hover,
+    .press-link:hover {
+      color: var(--warm);
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 2rem 3rem;
+      background: var(--deep);
+      color: rgba(245,239,230,.36);
+    }
+
+    footer .footer-logo {
+      font-family: "Cinzel", serif;
+      font-size: .59rem;
+      letter-spacing: .30em;
+      text-transform: uppercase;
+    }
+
+    footer .footer-copy {
+      font-style: italic;
+      color: rgba(184,147,93,.7);
+    }
+
+    /* =========================================================
+       REVEAL
+    ========================================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition:
+        opacity .8s cubic-bezier(.16,1,.3,1),
+        transform .8s cubic-bezier(.16,1,.3,1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       TABLET
+    ========================================================= */
+    @media (min-width: 769px) and (max-width: 1100px) {
+      .container {
+        width: min(var(--max), calc(100% - 3.6rem));
+      }
+
+      .intro-content {
+        padding: 7.7rem 3rem 6rem;
+      }
+
+      .intro-title-wrap {
+        width: min(36vw, 380px);
+      }
+
+      .intro-title {
+        font-size: clamp(3.6rem, 6vw, 5.2rem);
+      }
+
+      .story-grid {
+        grid-template-columns: .85fr 1.15fr;
+        gap: 3.5rem;
+      }
+
+      .topbar-inner {
+        padding-left: 1.3rem;
+        padding-right: 1.3rem;
+      }
+
+      .nav-links {
+        gap: 1.25rem;
+      }
+
+      .nav-link {
+        font-size: .56rem;
+      }
+    }
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+    @media (max-width: 768px) {
+      :root {
+        --header-h: 64px;
+      }
+
+      .container {
+        width: calc(100% - 2.2rem);
+      }
+
+      /* Landing mobile version: preserve the successful composition */
+      .intro {
+        min-height: 620px;
+      }
+
+      .intro-picture img {
+        object-position: center center;
+        filter: brightness(.99);
+      }
+
+      .intro-overlay {
+        background:
+          radial-gradient(
+            ellipse at 50% 38%,
+            rgba(39,33,30,0) 43%,
+            rgba(39,33,30,.16) 100%
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(39,33,30,.14) 0%,
+            rgba(39,33,30,.02) 31%,
+            rgba(39,33,30,.06) 60%,
+            rgba(39,33,30,.32) 100%
+          );
+      }
+
+      .intro-language {
+        top: calc(.7rem + env(safe-area-inset-top));
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+      }
+
+      .intro-lang-btn {
+        font-size: .66rem;
+        padding: .25rem .52rem;
+      }
+
+      .intro-content {
+        align-items: center;
+        justify-content: flex-start;
+        padding:
+          calc(5rem + env(safe-area-inset-top))
+          1.2rem
+          calc(6.6rem + env(safe-area-inset-bottom));
+      }
+
+      .intro-title-wrap {
+        width: 100%;
+        margin-top: clamp(1.4rem, 5svh, 2.6rem);
+        text-align: center;
+      }
+
+      .intro-title {
+        font-size: clamp(2.95rem, 11.8vw, 3.85rem);
+        line-height: .90;
+        letter-spacing: .04em;
+      }
+
+      .intro-divider {
+        width: min(275px, 72vw);
+        margin: .95rem auto .72rem;
+      }
+
+      .intro-descriptor {
+        text-align: center;
+        font-size: .52rem;
+        letter-spacing: .25em;
+      }
+
+      .enter-wrap {
+        bottom: calc(2rem + env(safe-area-inset-bottom));
+      }
+
+      .enter-btn {
+        min-width: 168px;
+        padding: .82rem 1.8rem;
+      }
+
+      /* Main header */
+      .topbar-inner {
+        padding: .5rem .95rem;
+      }
+
+      .home-wordmark {
+        font-size: .55rem;
+        letter-spacing: .23em;
+      }
+
+      .home-wordmark span {
+        font-size: .41rem;
+        letter-spacing: .28em;
+      }
+
+      .topbar-center,
+      .lang-toggle {
+        display: none;
+      }
+
+      .hamburger-btn {
+        display: flex;
+      }
+
+      .mobile-drawer {
+        display: flex;
+      }
+
+      .story-section,
+      .musicians-section,
+      .contact-section {
+        padding-top: 5.8rem;
+        padding-bottom: 5.8rem;
+      }
+
+      .story-title {
+        font-size: clamp(2.45rem, 10vw, 3.35rem);
+        margin-bottom: 1rem;
+      }
+
+      .story-lead {
+        margin-bottom: 2.7rem;
+        font-size: .58rem;
+        line-height: 1.7;
+        letter-spacing: .17em;
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+        gap: 2.7rem;
+      }
+
+      .story-image {
+        box-shadow: 10px 10px 0 rgba(184,147,93,.15);
+      }
+
+      .story-copy p {
+        font-size: 1.12rem;
+        line-height: 1.82;
+      }
+
+      .story-copy p:first-child::first-letter {
+        font-size: 3.8rem;
+      }
+
+      .story-quote {
+        margin: 2rem 0;
+      }
+
+      .name-section {
+        padding-top: 5.8rem;
+        padding-bottom: 5.8rem;
+      }
+
+      .name-term {
+        font-size: clamp(3.4rem, 15vw, 4.7rem);
+      }
+
+      .musicians-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .musician-card {
+        min-height: 340px;
+        padding: 2.4rem 1.6rem;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.6rem 1rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .intro-title-wrap {
+        margin-top: clamp(1rem, 4svh, 2rem);
+      }
+
+      .intro-title {
+        font-size: clamp(2.75rem, 11.8vw, 3.45rem);
+      }
+
+      .intro-divider {
+        width: min(245px, 70vw);
+      }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="lang-est" id="top">
+<!-- =======================================================
+       INTRO / LANDING
+       The desktop picture is 001.jpg.
+       The mobile picture is 002.jpg.
+  ======================================================== -->
+
+<!-- =======================================================
+       MAIN SITE HEADER
+       Appears only after the visitor starts entering the site.
+  ======================================================== -->
+<header class="topbar" id="topbar">
+<div class="topbar-inner">
+<a aria-label="Duo EnPassant — Avaleht" class="home-btn" href="#about">
+<div class="home-wordmark">
+          Duo EnPassant
+          
+<span>Viiul &amp; Tšello</span>
+</div>
+</a>
+<nav aria-label="Põhinavigatsioon" class="topbar-center nav-links">
+<a class="nav-link" href="media.html">
+<span>Meedia</span>
+</a>
+<a class="nav-link" href="concerts.html">
+<span>Kontserdid</span>
+</a>
+<a class="nav-link" href="repertoire.html">
+<span>Repertuaar</span>
+</a>
+<a class="nav-link" href="#contact">
+<span>Kontakt</span>
+</a>
+</nav>
+<div aria-label="Keelevalik" class="lang-toggle"><a class="lang-btn active" href="/et/">EST</a><span class="lang-separator">|</span><a class="lang-btn" href="/en/">EN</a></div>
+<button aria-expanded="false" aria-label="Ava menüü" class="hamburger-btn" id="hamburgerBtn" type="button">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</header>
+<div aria-label="Navigatsioon" class="mobile-drawer" id="mobileDrawer" role="dialog">
+<a class="drawer-close-on-click" href="media.html">
+<span>Meedia</span>
+</a>
+<a class="drawer-close-on-click" href="concerts.html">
+<span>Kontserdid</span>
+</a>
+<a class="drawer-close-on-click" href="repertoire.html">
+<span>Repertuaar</span>
+</a>
+<a class="drawer-close-on-click" href="#contact">
+<span>Kontakt</span>
+</a>
+<div class="mobile-drawer-rule"></div>
+<div class="mobile-lang-row"><a class="mobile-lang-btn active" href="/et/">EST</a><span style="color:var(--line)">|</span><a class="mobile-lang-btn" href="/en/">EN</a></div>
+</div>
+<!-- =======================================================
+       REAL HOMEPAGE CONTENT
+       Everything below now lives on /
+  ======================================================== -->
+<main id="home">
+<!-- OUR STORY — EN -->
+<!-- MEIE LUGU — EST -->
+<section aria-labelledby="story-title-et" class="story-section">
+<div class="container">
+<div class="reveal">
+<p class="eyebrow">Meie lugu</p>
+<h1 class="story-title" id="story-title-et">Duo EnPassant — viiuli- ja tšello kammerduo</h1>
+<p class="story-lead">Klassikaline kammermuusika · Eesti · Rahvusvahelised esinemised</p>
+</div>
+<div class="story-grid">
+<div class="story-image-wrap reveal">
+<img alt="Duo EnPassant viiuli- ja tšello kammerduo" class="story-image" decoding="async" loading="lazy" src="../EP.jpg"/>
+</div>
+<div class="story-copy reveal">
+<p>Duo EnPassant ühendab viiuldaja Merily Leotootsi ja tšellist Anna Ryland-Jonesi. Duo keskmes on klassikaline kammermuusika viiulile ja tšellole ning nende kunstilise tegevuse põhifookus on kontsertesinemistel.</p>
+<p>Enne Duo EnPassanti loomist musitseerisid Merily ja Anna koos erinevates kammerkoosseisudes ning esinesid festivalidel Eestis, Soomes ja Suurbritannias. Esimest korda kohtusid nad Eestis, kus tekkis kiiresti loomulik muusikaline klapp.</p>
+<div class="story-quote">
+<p>Koostöö sai alguse Eestis ja arenes edasi ühiste kammermuusikaprojektide kaudu.</p>
+</div>
+<p>Mõlemad muusikud on Londoni Guildhall School of Music &amp; Drama vilistlased, olles õppinud seal eri aegadel. Duo EnPassant kasvas välja nende jätkuvast koostööst ja ühisest soovist arendada repertuaari, kontserdikavasid ning oma kõlalist identiteeti viiuli- ja tšelloduona.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- NAME STORY -->
+<section class="name-section">
+<div class="container">
+<div class="name-content reveal">
+<p class="eyebrow">Nimi</p>
+<h2 class="name-term">En Passant</h2>
+<p class="name-definition">Prantsuse keeles · „möödaminnes” · maletermin</p>
+<p class="name-copy">Nimi EnPassant pärineb maleterminist, mis tähendab „möödaminnes” — kujund, mis sümboliseerib hetkelisust ja ootamatuid võimalusi ning peegeldab duo muusikalist mõtteviisi ja väljenduslaadi.</p>
+</div>
+</div>
+</section>
+<!-- MUSICIANS -->
+<section class="musicians-section">
+<div class="container">
+<div>
+<p class="eyebrow reveal">Duo</p>
+<h2 class="musicians-title reveal">Muusikud</h2>
+<div class="musicians-grid reveal">
+<article class="musician-card dark">
+<div class="musician-role">Viiul</div>
+<h3 class="musician-name">Merily Leotoots</h3>
+<div class="musician-instrument">Viiul</div>
+<a class="cv-link" href="../merily-est.pdf" rel="noopener" target="_blank">Curriculum Vitae</a>
+</article>
+<article class="musician-card light">
+<div class="musician-role">Tšello</div>
+<h3 class="musician-name">Anna Ryland-Jones</h3>
+<div class="musician-instrument">Tšello</div>
+<a class="cv-link" href="../anna-est.pdf" rel="noopener" target="_blank">Curriculum Vitae</a>
+</article>
+</div>
+</div>
+</div>
+</section>
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+<div class="container">
+<div>
+<h2 class="contact-title">Kontakt</h2>
+<p class="contact-intro">Kontserdid, koostööprojektid ja eraesinemised.</p>
+<a class="contact-email" href="mailto:info@duoenpassant.com">info@duoenpassant.com</a>
+<div class="contact-resource-row">
+<a class="bookings-link" href="bookings.html">Eraesinemised &amp; broneeringud →</a>
+<a class="press-link" href="press.html">Press &amp; korraldajatele →</a>
+</div>
+<div>
+<a class="price-link" href="../hinnakirja.pdf" rel="noopener" target="_blank">Vaata hinnakirja →</a>
+</div>
+<p class="follow-text">Jälgi Duo EnPassanti</p>
+</div>
+<div class="social-icons">
+<a aria-label="Instagram" class="social-icon-link" href="https://www.instagram.com/duo_enpassant/" rel="noopener" target="_blank">
+<svg aria-hidden="true" class="social-icon" viewbox="0 0 24 24">
+<rect fill="none" height="18" rx="5" ry="5" stroke="currentColor" stroke-width="1.8" width="18" x="3" y="3"></rect>
+<circle cx="12" cy="12" fill="none" r="5.2" stroke="currentColor" stroke-width="1.8"></circle>
+<circle cx="17" cy="7" fill="currentColor" r="1.2"></circle>
+</svg>
+</a>
+<a aria-label="Facebook" class="social-icon-link" href="https://www.facebook.com/profile.php?id=61576658983538" rel="noopener" target="_blank">
+<svg aria-hidden="true" class="social-icon" viewbox="0 0 24 24">
+<path d="M13.5 21v-7h2.3l.4-3h-2.7V8.3c0-.9.3-1.5 1.6-1.5h1.2V4.1C15.9 4 15 4 14 4c-2.4 0-3.9 1.4-3.9 4v3H8v3h2.1v7h3.4z" fill="currentColor"></path>
+</svg>
+</a>
+<a aria-label="TikTok" class="social-icon-link" href="https://www.tiktok.com/@duo.enpassant" rel="noopener" target="_blank">
+<svg aria-hidden="true" class="social-icon" viewbox="0 0 24 24">
+<path d="M17.5 7.6c-1-.4-1.8-1.1-2.3-2.1-.2-.4-.4-.9-.5-1.4H12v9a2 2 0 0 1-2 2 2 2 0 0 1 0-4c.3 0 .6 0 .9.2V9.1A4.4 4.4 0 0 0 10 9a4.9 4.9 0 1 0 4.9 4.9v-4a4.9 4.9 0 0 0 2.6.8V7.6z" fill="currentColor"></path>
+</svg>
+</a>
+<a aria-label="YouTube" class="social-icon-link" href="https://www.youtube.com/@DuoEnPassant" rel="noopener" target="_blank">
+<svg aria-hidden="true" class="social-icon" viewbox="0 0 24 24">
+<path d="M21 8.1s-.2-1.4-.8-2c-.7-.8-1.6-.8-2-.8C15.6 5 12 5 12 5s-3.6 0-6.2.3c-.4 0-1.3 0-2 .8-.6.6-.8 2-.8 2S2.5 9.8 2.5 11.6v1.7C2.5 15 3 16 3 16s.2 1.4.8 2c.7.8 1.7.7 2.1.8 1.5.1 6.1.3 6.1.3s3.6 0 6.2-.3c.4 0 1.3 0 2-0.8.6-.6.8-2 .8-2s.5-1.9.5-3.7v-1.7c0-1.8-.5-3.5-.5-3.5zM10 14.3V8.9l4.4 2.7L10 14.3z" fill="currentColor"></path>
+</svg>
+</a>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<span class="footer-logo">Duo EnPassant</span>
+<span class="footer-copy">© 2026 — Kõik õigused kaitstud</span>
+</footer>
+<script>
+    (() => {
+      const body = document.body;
+      const intro = document.getElementById("intro");
+      const home = document.getElementById("home");
+      const topbar = document.getElementById("topbar");
+      const hamburger = document.getElementById("hamburgerBtn");
+      const drawer = document.getElementById("mobileDrawer");
+
+      /* -----------------------------------------
+         LANGUAGE
+         One shared language state for intro + site.
+      ----------------------------------------- */
+      function setLang(lang) {
+        const safeLang = lang === "est" ? "est" : "en";
+
+        body.classList.toggle("lang-en", safeLang === "en");
+        body.classList.toggle("lang-est", safeLang === "est");
+
+        document.documentElement.lang = safeLang === "est" ? "et" : "en";
+        localStorage.setItem("dep-lang", safeLang);
+
+        document.querySelectorAll("[data-lang-switch]").forEach(btn => {
+          btn.classList.toggle("active", btn.dataset.langSwitch === safeLang);
+        });
+      }
+
+      document.querySelectorAll("[data-lang-switch]").forEach(btn => {
+        btn.addEventListener("click", () => setLang(btn.dataset.langSwitch));
+      });
+
+      setLang('est');
+
+
+      /* -----------------------------------------
+         ENTER
+         No page change. Smooth scroll to the
+         real homepage content on the same URL.
+      ----------------------------------------- */
+        }
+      });
+
+
+      /* -----------------------------------------
+         HEADER VISIBILITY
+         Hidden on the intro.
+         Visible once the main site begins.
+      ----------------------------------------- */
+      function updateHeader() {
+        const homeTop = home.getBoundingClientRect().top;
+        const shouldShow = homeTop <= 90;
+
+        topbar.classList.toggle("visible", shouldShow);
+        topbar.classList.remove("over-hero");
+      }
+
+      updateHeader();
+      window.addEventListener("scroll", updateHeader, { passive: true });
+      window.addEventListener("resize", updateHeader);
+
+
+      /* -----------------------------------------
+         MOBILE MENU
+      ----------------------------------------- */
+      function toggleDrawer(open) {
+        hamburger.classList.toggle("open", open);
+        drawer.classList.toggle("open", open);
+        hamburger.setAttribute("aria-expanded", String(open));
+        body.classList.toggle("menu-open", open);
+      }
+
+      hamburger.addEventListener("click", () => {
+        toggleDrawer(!drawer.classList.contains("open"));
+      });
+
+      drawer.querySelectorAll(".drawer-close-on-click").forEach(link => {
+        link.addEventListener("click", () => toggleDrawer(false));
+      });
+
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+          toggleDrawer(false);
+        }
+      });
+
+
+      /* -----------------------------------------
+         REVEAL ANIMATIONS
+      ----------------------------------------- */
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .12 });
+
+      document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+
+      /* -----------------------------------------
+         If somebody opens /#contact directly,
+         do not leave them visually stuck at intro.
+      ----------------------------------------- */
+      if (window.location.hash && window.location.hash !== "#top") {
+        requestAnimationFrame(() => {
+          const target = document.querySelector(window.location.hash);
+          if (target) {
+            target.scrollIntoView({ block: "start" });
+            updateHeader();
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
