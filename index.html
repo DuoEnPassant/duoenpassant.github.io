@@ -1191,8 +1191,7 @@
     }
   </style></head><body><section aria-label="Duo EnPassant introduction" class="intro" id="intro">
 <picture aria-hidden="true" class="intro-picture">
-<source media="(max-width: 768px)" srcset="002.jpg"/>
-<img alt="" src="001.jpg"/>
+<img alt="" id="introHeroImage" src="001.jpg"/>
 </picture>
 <div class="intro-overlay"></div>
 <div aria-label="Language selector" class="intro-language">
@@ -1249,4 +1248,21 @@
     });
   }
 })();
-</script></body></html>
+</script>
+<script>
+(function () {
+  const img = document.getElementById('introHeroImage');
+  if (!img || !window.matchMedia('(max-width: 768px)').matches) return;
+
+  const mobile = new Image();
+  mobile.onload = function () {
+    img.src = '002.jpg';
+  };
+  mobile.onerror = function () {
+    // Keep desktop image as a fallback if 002.jpg is missing or unavailable.
+  };
+  mobile.src = '002.jpg';
+})();
+</script>
+
+</body></html>
