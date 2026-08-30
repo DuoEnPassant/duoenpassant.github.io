@@ -1294,7 +1294,33 @@
        MAIN SITE HEADER
        Appears only after the visitor starts entering the site.
   ======================================================== -->
-<header class="topbar visible" id="topbar">
+<section aria-label="Duo EnPassant introduction" class="intro" id="intro">
+<picture aria-hidden="true" class="intro-picture">
+<source media="(max-width: 768px)" srcset="002.jpg"/>
+<img alt="" src="../001.jpg"/>
+</picture>
+<div class="intro-overlay"></div>
+<div aria-label="Language selector" class="intro-language"><a class="intro-lang-btn active" href="/en/">EN</a><span class="intro-lang-separator">|</span><a class="intro-lang-btn" href="/et/">EST</a></div>
+<div class="intro-content">
+<div class="intro-title-wrap">
+<!-- Main page H1. The duplicate second hero has been removed. -->
+<h1 class="intro-title">Duo<br/>En Passant</h1>
+<div aria-hidden="true" class="intro-divider">
+<span></span>
+</div>
+<div class="intro-descriptor">
+<span>Violin &amp; Cello</span>
+
+</div>
+</div>
+</div>
+<div class="enter-wrap">
+<button class="enter-btn" id="enterBtn" type="button">
+<span>Enter</span>
+
+</button>
+</div>
+</section><header class="topbar" id="topbar">
 <div class="topbar-inner">
 <a aria-label="Duo EnPassant — Home" class="home-btn" href="#about">
 <div class="home-wordmark">
@@ -1346,7 +1372,7 @@
   ======================================================== -->
 <main id="home">
 <!-- OUR STORY — EN -->
-<section aria-labelledby="story-title-en" class="story-section" id="story">
+<div aria-hidden="true" class="section-anchor" id="about"></div><section aria-labelledby="story-title-en" class="story-section" id="story">
 <div class="container">
 <div class="reveal">
 <p class="eyebrow">Our Story</p>
@@ -1447,22 +1473,37 @@
 <span class="footer-logo">Duo EnPassant</span>
 <span class="footer-copy">© 2026 — All rights reserved</span>
 </footer>
-
 <script>
 (() => {
   const body = document.body;
+  const intro = document.getElementById("intro");
+  const about = document.getElementById("about");
+  const enterBtn = document.getElementById("enterBtn");
   const topbar = document.getElementById("topbar");
   const hamburger = document.getElementById("hamburgerBtn");
   const drawer = document.getElementById("mobileDrawer");
 
-  // Language-specific homepages have no landing screen,
-  // so the main header is always visible.
-  if (topbar) {
-    topbar.classList.add("visible");
-    topbar.classList.remove("over-hero");
+  function updateHeader() {
+    if (!topbar) return;
+    if (!intro) {
+      topbar.classList.add("visible");
+      return;
+    }
+
+    const trigger = Math.max(120, intro.offsetHeight - 120);
+    topbar.classList.toggle("visible", window.scrollY >= trigger);
   }
 
-  // Mobile menu
+  updateHeader();
+  window.addEventListener("scroll", updateHeader, { passive: true });
+  window.addEventListener("resize", updateHeader);
+
+  if (enterBtn && about) {
+    enterBtn.addEventListener("click", () => {
+      about.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
   function toggleDrawer(open) {
     if (!hamburger || !drawer) return;
     hamburger.classList.toggle("open", open);
@@ -1485,7 +1526,6 @@
     if (event.key === "Escape") toggleDrawer(false);
   });
 
-  // Reveal animations
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -1494,18 +1534,21 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: .12 });
+    }, { threshold: .10 });
 
     document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
   } else {
     document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
   }
 
-  // Direct links such as /en/#contact or /et/#about
-  if (window.location.hash && window.location.hash !== "#top") {
+  // Links such as /en/#about and /et/#about should land directly on About.
+  if (window.location.hash) {
     requestAnimationFrame(() => {
       const target = document.querySelector(window.location.hash);
-      if (target) target.scrollIntoView({ block: "start" });
+      if (target) {
+        target.scrollIntoView({ block: "start" });
+        updateHeader();
+      }
     });
   }
 })();
