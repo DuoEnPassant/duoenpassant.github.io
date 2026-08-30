@@ -963,9 +963,17 @@
       color: var(--warm);
     }
 
-    .bookings-link {
-      display: inline-block;
+    .contact-resource-row {
       margin: -.5rem 0 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .8rem 1.5rem;
+    }
+
+    .bookings-link,
+    .press-link {
+      display: inline-block;
       font-family: "Cinzel", serif;
       font-size: .54rem;
       letter-spacing: .28em;
@@ -974,7 +982,8 @@
       transition: color .2s ease;
     }
 
-    .bookings-link:hover {
+    .bookings-link:hover,
+    .press-link:hover {
       color: var(--warm);
     }
 
@@ -1403,26 +1412,34 @@
   ======================================================== -->
   <main id="home">
 <!-- OUR STORY — EN -->
-    <section class="story-section" id="story" data-lang-block="en">
+    <section class="story-section" id="story" data-lang-block="en" aria-labelledby="story-title-en">
       <div class="container">
         <div class="reveal">
           <p class="eyebrow">Our Story</p>
-          <h2 class="story-title">A musical connection shaped between Estonia and London.</h2>
+          <h2 class="story-title" id="story-title-en">Duo EnPassant — violin &amp; cello chamber duo</h2>
+          <p class="story-lead">Classical chamber music · Estonia · International performances</p>
         </div>
 
         <div class="story-grid">
           <div class="story-image-wrap reveal">
-            <img src="EP.jpg" alt="Duo EnPassant violin and cello chamber duo" class="story-image">
+            <img
+              src="EP.jpg"
+              alt="Duo EnPassant violin and cello chamber duo"
+              class="story-image"
+              loading="lazy"
+              decoding="async">
           </div>
 
           <div class="story-copy reveal">
-            <p>Duo EnPassant is a violin and cello duo featuring Merily Leotoots and Anna Ryland-Jones. Although the ensemble was founded only recently, the two musicians have been performing together for two years in various chamber groups and festivals across Estonia, Finland and the United Kingdom.</p>
+            <p>Duo EnPassant brings together violinist Merily Leotoots and cellist Anna Ryland-Jones. The ensemble is centred on classical chamber music for violin and cello, with concert performance at the core of its artistic work.</p>
+
+            <p>Before establishing Duo EnPassant, Merily and Anna performed together in chamber ensembles and at festivals across Estonia, Finland and the United Kingdom. Their first meeting took place in Estonia, where a natural musical connection quickly developed.</p>
 
             <div class="story-quote">
-              <p>Their first meeting did not take place in the UK — but in Estonia, where a natural musical connection quickly developed.</p>
+              <p>The collaboration began in Estonia and developed through shared chamber-music projects.</p>
             </div>
 
-            <p>Both Merily and Anna are alumni of London’s renowned Guildhall School of Music &amp; Drama, having studied there at different times. Their collaboration soon evolved into the idea of forming a dedicated duo — a space to grow together artistically and to craft a shared sound world.</p>
+            <p>Both musicians are alumni of London’s Guildhall School of Music &amp; Drama, where they studied at different times. Duo EnPassant grew from their continuing collaboration and a shared aim to develop repertoire, programmes and a distinct musical identity as a violin and cello duo.</p>
           </div>
         </div>
       </div>
@@ -1543,8 +1560,9 @@
           <p class="contact-intro">Concerts, collaborations and private engagements.</p>
           <a class="contact-email" href="mailto:info@duoenpassant.com">info@duoenpassant.com</a>
 
-          <div>
+          <div class="contact-resource-row">
             <a href="bookings.html" class="bookings-link">Private performances &amp; bookings →</a>
+            <a href="press.html" class="press-link">Press &amp; presenters →</a>
           </div>
 
           <p class="follow-text">Follow Duo EnPassant</p>
@@ -1555,8 +1573,9 @@
           <p class="contact-intro">Kontserdid, koostööprojektid ja eraesinemised.</p>
           <a class="contact-email" href="mailto:info@duoenpassant.com">info@duoenpassant.com</a>
 
-          <div>
+          <div class="contact-resource-row">
             <a href="bookings.html" class="bookings-link">Eraesinemised &amp; broneeringud →</a>
+            <a href="press.html" class="press-link">Press &amp; korraldajatele →</a>
           </div>
 
           <div>
