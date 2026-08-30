@@ -758,7 +758,14 @@
         padding-right: 1.1rem;
       }
     }
-  </style>
+  
+.pricing-bridge{padding:76px 32px;background:#f2ece3;border-top:1px solid rgba(39,33,30,.08);border-bottom:1px solid rgba(39,33,30,.08)}
+.pricing-bridge-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:70px;align-items:end}
+.pricing-bridge h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,4vw,56px);line-height:.98;max-width:720px;margin:10px 0 16px}
+.pricing-bridge p:not(.section-eyebrow){max-width:720px;color:#7f746a;font-size:12px;line-height:1.7}
+.pricing-cta{font-family:Cinzel,serif;font-size:9px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid #b8935d;padding-bottom:7px;white-space:nowrap}
+@media(max-width:760px){.pricing-bridge{padding:60px 22px}.pricing-bridge-inner{grid-template-columns:1fr;gap:28px;align-items:start}}
+</style>
 </head>
 <body class="lang-est">
 <!-- MOBILE MENU: bookings intentionally NOT included -->
@@ -857,7 +864,17 @@
 </article>
 </div>
 </div>
-</section>
+</section><section class="pricing-bridge">
+<div class="container">
+<div class="pricing-bridge-inner reveal">
+<div>
+<p class="section-eyebrow">Hinnad</p>
+<h2>Selge lähtehind, täpne pakkumine vastavalt sündmusele.</h2>
+<p>Tseremooniate, vastuvõttude ja kombineeritud esinemiste lähtehinnad on nüüd eraldi lehel. Lõplik hind sõltub kuupäevast, asukohast, kestusest ja repertuaarist.</p>
+</div>
+<a class="pricing-cta" href="hinnad.html">Vaata hindu →</a>
+</div>
+</div></section>
 <!-- PROCESS EN -->
 <!-- PROCESS EST -->
 <section class="process-section">
@@ -887,7 +904,7 @@
 <h2>Broneeringupäringud</h2>
 <p>Saada meile sündmuse põhiinfo ning vastame esinemisvõimaluse ja kavavalikute kohta.</p>
 <a class="booking-email" href="mailto:info@duoenpassant.com">info@duoenpassant.com</a>
-<a class="back-link" href="/">Tagasi Duo EnPassanti lehele →</a>
+<a class="back-link" href="hinnad.html">Vaata hindu →</a><a class="back-link" href="/et/#about">Tagasi Duo EnPassanti lehele →</a>
 </div>
 </div>
 </section>
