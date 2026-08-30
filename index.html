@@ -1666,7 +1666,13 @@
          real homepage content on the same URL.
       ----------------------------------------- */
       enterBtn.addEventListener("click", () => {
-        document.getElementById("story").scrollIntoView({ behavior: "smooth", block: "start" });
+        const target = body.classList.contains("lang-est")
+          ? document.querySelector('.story-section[data-lang-block="est"]')
+          : document.querySelector('.story-section[data-lang-block="en"]');
+
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       });
 
 
