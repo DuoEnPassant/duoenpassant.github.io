@@ -154,3 +154,6 @@
 <priority>0.8</priority>
 </url>
 <url><loc>https://www.duoenpassant.com/en/pricing.html</loc><xhtml:link href="https://www.duoenpassant.com/en/pricing.html" hreflang="en" rel="alternate"/><xhtml:link href="https://www.duoenpassant.com/et/hinnad.html" hreflang="et" rel="alternate"/><xhtml:link href="https://www.duoenpassant.com/en/pricing.html" hreflang="x-default" rel="alternate"/><lastmod>2026-08-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://www.duoenpassant.com/et/hinnad.html</loc><xhtml:link href="https://www.duoenpassant.com/en/pricing.html" hreflang="en" rel="alternate"/><xhtml:link href="https://www.duoenpassant.com/et/hinnad.html" hreflang="et" rel="alternate"/><xhtml:link href="https://www.duoenpassant.com/en/pricing.html" hreflang="x-default" rel="alternate"/><lastmod>2026-08-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url></urlset>
+<url>
+  <loc>https://www.duoenpassant.com/et/pulmamuusika.html</loc>
+</url>
