@@ -1,77 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="et">
-
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-
-  <!-- SEO -->
-  <link
-    href="https://www.duoenpassant.com/et/pulmamuusika.html"
-    rel="canonical"
-  />
-
-  <meta content="index, follow" name="robots"/>
-  <meta content="Duo EnPassant" name="author"/>
-
-  <title>Pulmamuusika Eestis | Viiul ja tšello — Duo EnPassant</title>
-
-  <meta
-    content="Duo EnPassant pakub viiuli- ja tšellomuusikat pulmatseremooniatele ja vastuvõttudele üle Eesti. Repertuaar ulatub klassikast pop- ja rockmuusikani ning soovi korral saab kavasse lisada ka pruutpaari lemmiklugusid."
-    name="description"
-  />
-
-  <!-- Open Graph -->
-  <meta content="website" property="og:type"/>
-  <meta content="Duo EnPassant" property="og:site_name"/>
-
-  <meta
-    content="Pulmamuusika Eestis | Viiul ja tšello — Duo EnPassant"
-    property="og:title"
-  />
-
-  <meta
-    content="Viiuli- ja tšellomuusika pulmatseremooniatele ja vastuvõttudele üle Eesti."
-    property="og:description"
-  />
-
-  <meta
-    content="https://www.duoenpassant.com/et/pulmamuusika.html"
-    property="og:url"
-  />
-
-  <meta
-    content="https://www.duoenpassant.com/og-cover.jpg"
-    property="og:image"
-  />
-
-  <meta
-    content="Duo EnPassant — viiul ja tšello"
-    property="og:image:alt"
-  />
-
-  <meta content="et_EE" property="og:locale"/>
-
-  <!-- Twitter -->
-  <meta content="summary_large_image" name="twitter:card"/>
-
-  <meta
-    content="Pulmamuusika Eestis | Viiul ja tšello — Duo EnPassant"
-    name="twitter:title"
-  />
-
-  <meta
-    content="Viiuli- ja tšellomuusika pulmatseremooniatele ja vastuvõttudele üle Eesti."
-    name="twitter:description"
-  />
-
-  <meta
-    content="https://www.duoenpassant.com/og-cover.jpg"
-    name="twitter:image"
-  />
-
-  <!-- STRUCTURED DATA -->
-  <script type="application/ld+json">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- SEO -->
+<link href="https://www.duoenpassant.com/et/pulmamuusika.html" rel="canonical"/>
+<meta content="index, follow" name="robots"/>
+<meta content="Duo EnPassant" name="author"/>
+<title>Pulmamuusika Eestis | Viiul ja tšello — Duo EnPassant</title>
+<meta content="Duo EnPassant pakub viiuli- ja tšellomuusikat pulmatseremooniatele ja vastuvõttudele üle Eesti. Repertuaar ulatub klassikast pop- ja rockmuusikani ning soovi korral saab kavasse lisada ka pruutpaari lemmiklugusid." name="description"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="Duo EnPassant" property="og:site_name"/>
+<meta content="Pulmamuusika Eestis | Viiul ja tšello — Duo EnPassant" property="og:title"/>
+<meta content="Viiuli- ja tšellomuusika pulmatseremooniatele ja vastuvõttudele üle Eesti." property="og:description"/>
+<meta content="https://www.duoenpassant.com/et/pulmamuusika.html" property="og:url"/>
+<meta content="https://www.duoenpassant.com/og-cover.jpg" property="og:image"/>
+<meta content="Duo EnPassant — viiul ja tšello" property="og:image:alt"/>
+<meta content="et_EE" property="og:locale"/>
+<!-- Twitter -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Pulmamuusika Eestis | Viiul ja tšello — Duo EnPassant" name="twitter:title"/>
+<meta content="Viiuli- ja tšellomuusika pulmatseremooniatele ja vastuvõttudele üle Eesti." name="twitter:description"/>
+<meta content="https://www.duoenpassant.com/og-cover.jpg" name="twitter:image"/>
+<!-- STRUCTURED DATA -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
@@ -170,17 +124,11 @@
     ]
   }
   </script>
-
-  <!-- FONTS -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Raleway:wght@300;400&display=swap"
-    rel="stylesheet"
-  />
-
-  <link href="../Favicon.png" rel="icon" type="image/png"/>
-  <link href="../apple-touch-icon.png" rel="apple-touch-icon"/>
-
-  <style>
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Cinzel:wght@400;500&amp;family=Raleway:wght@300;400&amp;display=swap" rel="stylesheet"/>
+<link href="../Favicon.png" rel="icon" type="image/png"/>
+<link href="../apple-touch-icon.png" rel="apple-touch-icon"/>
+<style>
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -1090,371 +1038,270 @@
         padding-right: 1.1rem;
       }
     }
-  </style>
+  
+/* Unified navigation, matching the other Estonian pages */
+.dep-service{position:relative;display:flex;align-items:center;align-self:stretch;z-index:1200;}
+.dep-service>button{appearance:none;border:0;background:none;padding:0;cursor:pointer;font-family:"Cinzel",serif;font-size:.62rem;letter-spacing:.30em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+.dep-service>button::before,.dep-service>button::after{content:none!important;display:none!important;}
+.dep-service>button:hover,.dep-service.is-open>button{color:var(--warm);}
+.dep-service-panel{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);min-width:218px;padding:12px 0;background:#f5efe6;border:1px solid rgba(184,147,93,.25);box-shadow:0 14px 34px rgba(24,18,15,.15);z-index:1201;}
+.dep-service:hover>.dep-service-panel,.dep-service.is-open>.dep-service-panel{display:flex;flex-direction:column;}
+.dep-service-panel>a{display:block;padding:11px 22px;font:400 10px/1.5 "Cinzel",serif;letter-spacing:.14em;text-transform:uppercase;color:#27211e;white-space:nowrap;text-decoration:none;}
+.dep-service-panel>a:hover,.dep-service-panel>a:focus-visible{color:#b8935d;background:rgba(184,147,93,.08);}
+.dep-mobile-service{text-align:center;color:var(--ink);}
+.dep-mobile-service>summary{cursor:pointer;list-style:none;font:400 1rem/1.4 "Cinzel",serif;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);}
+.dep-mobile-service>summary::-webkit-details-marker{display:none;}
+.dep-mobile-service>summary::marker{content:"";}
+.dep-mobile-service>summary::before,.dep-mobile-service>summary::after{content:none!important;display:none!important;}
+.dep-mobile-links{display:flex;flex-direction:column;align-items:center;gap:15px;padding:18px 0 4px;}
+.dep-mobile-links>a{font-family:"Cinzel",serif;font-size:.73rem;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;text-decoration:none;}
+@media(min-width:769px) and (max-width:1100px){.topbar-center,.lang-toggle{display:none!important;}.hamburger-btn,.mobile-drawer{display:flex!important;}}
+@media(max-width:1100px){.dep-service{display:none;}.mobile-drawer:has(.dep-mobile-service){overflow-y:auto;justify-content:safe center;gap:1.5rem;}}
+@media(max-width:768px){.mobile-drawer:has(.dep-mobile-service){padding-top:6rem;padding-bottom:2rem;}.media-related-links{flex-wrap:wrap;}}
+</style>
 </head>
-
 <body>
-
-  <!-- MOBILE MENU -->
-
-  <div
-    aria-label="Navigatsioon"
-    class="mobile-drawer"
-    id="mobileDrawer"
-    role="dialog"
-  >
-    <a class="drawer-close-on-click" href="media.html">
+<!-- MOBILE MENU -->
+<div aria-label="Navigatsioon" class="mobile-drawer" id="mobileDrawer" role="dialog">
+<a class="drawer-close-on-click" href="media.html">
       Meedia
     </a>
-
-    <a class="drawer-close-on-click" href="concerts.html">
+<a class="drawer-close-on-click" href="concerts.html">
       Kontserdid
     </a>
-
-    <a class="drawer-close-on-click" href="repertoire.html">
+<a class="drawer-close-on-click" href="repertoire.html">
       Repertuaar
     </a>
-
-    <a class="drawer-close-on-click" href="/et/#contact">
+<details class="dep-mobile-service"><summary>Eraesinemised</summary><div class="dep-mobile-links"><a class="drawer-close-on-click" href="bookings.html">Eraesinemised</a><a class="drawer-close-on-click" href="pulmamuusika.html">Pulmamuusika</a><a class="drawer-close-on-click" href="hinnad.html">Hinnad</a></div></details><a class="drawer-close-on-click" href="/et/#contact">
       Kontakt
     </a>
-
-    <div class="mobile-drawer-rule"></div>
-
-    <div class="mobile-lang-row">
-      <a
-        class="mobile-lang-btn active"
-        href="/et/pulmamuusika.html"
-      >
+<div class="mobile-drawer-rule"></div>
+<div class="mobile-lang-row">
+<a class="mobile-lang-btn active" href="/et/pulmamuusika.html">
         EST
       </a>
-
-      <span style="color:var(--line)">|</span>
-
-      <a
-        class="mobile-lang-btn"
-        href="/en/bookings.html"
-      >
+<span style="color:var(--line)">|</span>
+<a class="mobile-lang-btn" href="/en/bookings.html">
         EN
       </a>
-    </div>
-  </div>
-
-  <!-- HEADER -->
-
-  <header class="topbar">
-    <div class="topbar-inner">
-
-      <a
-        aria-label="Duo EnPassant — Avaleht"
-        class="home-btn"
-        href="/et/#about"
-      >
-        <div class="home-wordmark">
+</div>
+</div>
+<!-- HEADER -->
+<header class="topbar">
+<div class="topbar-inner">
+<a aria-label="Duo EnPassant — Avaleht" class="home-btn" href="/et/#about">
+<div class="home-wordmark">
           Duo EnPassant
           <span>Viiul &amp; Tšello</span>
-        </div>
-      </a>
-
-      <nav
-        aria-label="Põhinavigatsioon"
-        class="topbar-center nav-links"
-      >
-        <a class="nav-link" href="media.html">
+</div>
+</a>
+<nav aria-label="Põhinavigatsioon" class="topbar-center nav-links">
+<a class="nav-link" href="media.html">
           Meedia
         </a>
-
-        <a class="nav-link" href="concerts.html">
+<a class="nav-link" href="concerts.html">
           Kontserdid
         </a>
-
-        <a class="nav-link" href="repertoire.html">
+<a class="nav-link" href="repertoire.html">
           Repertuaar
         </a>
-
-        <a class="nav-link" href="/et/#contact">
+<div class="dep-service"><button aria-expanded="false" aria-label="Eraesinemiste menüü" type="button">Eraesinemised</button><div class="dep-service-panel"><a href="bookings.html">Eraesinemised</a><a href="pulmamuusika.html">Pulmamuusika</a><a href="hinnad.html">Hinnad</a></div></div><a class="nav-link" href="/et/#contact">
           Kontakt
         </a>
-      </nav>
-
-      <div
-        aria-label="Keelevalik"
-        class="lang-toggle"
-      >
-        <a
-          class="lang-btn active"
-          href="/et/pulmamuusika.html"
-        >
+</nav>
+<div aria-label="Keelevalik" class="lang-toggle">
+<a class="lang-btn active" href="/et/pulmamuusika.html">
           EST
         </a>
-
-        <span class="lang-separator">|</span>
-
-        <a
-          class="lang-btn"
-          href="/en/bookings.html"
-        >
+<span class="lang-separator">|</span>
+<a class="lang-btn" href="/en/bookings.html">
           EN
         </a>
-      </div>
-
-      <button
-        aria-expanded="false"
-        aria-label="Ava menüü"
-        class="hamburger-btn"
-        id="hamburgerBtn"
-        type="button"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-    </div>
-  </header>
-
-  <!-- HERO -->
-
-  <section
-    aria-labelledby="pulmamuusika-title"
-    class="page-hero"
-  >
-    <div class="page-hero-inner">
-
-      <div class="reveal">
-
-        <p class="page-hero-eyebrow">
+</div>
+<button aria-expanded="false" aria-label="Ava menüü" class="hamburger-btn" id="hamburgerBtn" type="button">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</header>
+<!-- HERO -->
+<section aria-labelledby="pulmamuusika-title" class="page-hero">
+<div class="page-hero-inner">
+<div class="reveal">
+<p class="page-hero-eyebrow">
           Duo EnPassant
         </p>
-
-        <h1
-          class="page-hero-title"
-          id="pulmamuusika-title"
-        >
+<h1 class="page-hero-title" id="pulmamuusika-title">
           Pulmamuusika
         </h1>
-
-        <div
-          aria-hidden="true"
-          class="page-hero-divider"
-        >
-          <span></span>
-          <i>◇</i>
-          <span></span>
-        </div>
-
-        <p class="page-hero-sub">
+<div aria-hidden="true" class="page-hero-divider">
+<span></span>
+<i>◇</i>
+<span></span>
+</div>
+<p class="page-hero-sub">
           Viiul &amp; tšello pulmatseremooniatele ja vastuvõttudele
         </p>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- INTRO -->
-
-  <section class="intro-section">
-    <div class="container">
-
-      <div class="reveal">
-
-        <p class="section-eyebrow">
+</div>
+</div>
+</section>
+<!-- INTRO -->
+<section class="intro-section">
+<div class="container">
+<div class="reveal">
+<p class="section-eyebrow">
           Pulmad
         </p>
-
-        <h2 class="intro-title">
+<h2 class="intro-title">
           Viiuli ja tšello muusika teie pulmapäevaks.
         </h2>
-
-        <p class="intro-copy">
+<p class="intro-copy">
           Duo EnPassant on Tallinnas tegutsev professionaalne viiuli- ja tšelloduo,
           kes esineb pulmades üle Eesti. Pakume elavat muusikat pulmatseremooniatele,
           vastuvõttudele ja teistele pulmapäeva hetkedele. Repertuaar ja esinemise
           ülesehitus valitakse koostöös pruutpaariga vastavalt sündmuse iseloomule,
           asukohale ja soovitud atmosfäärile.
         </p>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FORMATS -->
-
-  <section class="formats-section">
-    <div class="container">
-
-      <div class="formats-grid reveal">
-
-        <article class="format-card">
-
-          <div class="format-number">
+</div>
+</div>
+</section>
+<!-- FORMATS -->
+<section class="formats-section">
+<div class="container">
+<div class="formats-grid reveal">
+<article class="format-card">
+<div class="format-number">
             01
           </div>
-
-          <h2 class="format-title">
+<h2 class="format-title">
             Pulmatseremoonia
           </h2>
-
-          <p class="format-copy">
+<p class="format-copy">
             Muusika külaliste saabumisel, pruutpaari
             sisenemisel, tseremoonia olulisematel hetkedel
             ning väljaminekul. Muusikavalik lepitakse enne
             pulmapäeva pruutpaariga kokku.
           </p>
-
-        </article>
-
-        <article class="format-card">
-
-          <div class="format-number">
+</article>
+<article class="format-card">
+<div class="format-number">
             02
           </div>
-
-          <h2 class="format-title">
+<h2 class="format-title">
             Vastuvõtt
           </h2>
-
-          <p class="format-copy">
+<p class="format-copy">
             Viiuli- ja tšellomuusika külaliste saabumisel,
             tervitusjoogi ajal, õhtusöögi eel või mõnes muus
             pulmapäeva osas.
           </p>
-
-        </article>
-
-        <article class="format-card">
-
-          <div class="format-number">
+</article>
+<article class="format-card">
+<div class="format-number">
             03
           </div>
-
-          <h2 class="format-title">
+<h2 class="format-title">
             Tseremoonia &amp; vastuvõtt
           </h2>
-
-          <p class="format-copy">
+<p class="format-copy">
             Terviklik muusikaline lahendus, mis ühendab
             pulmatseremoonia ja sellele järgneva vastuvõtu
             üheks tervikuks.
           </p>
-
-        </article>
-
-      </div>
-
-    </div>
-  </section>
-
-  
+</article>
+</div>
+</div>
+</section>
 <!-- REPERTOIRE -->
-
 <section class="repertoire-section">
-  <div class="container">
-    <div class="repertoire-inner reveal">
-
-      <div>
-        <p class="section-eyebrow">
+<div class="container">
+<div class="repertoire-inner reveal">
+<div>
+<p class="section-eyebrow">
           Repertuaar
         </p>
-
-        <h2 class="repertoire-title">
+<h2 class="repertoire-title">
           Klassikast tänapäevani
         </h2>
-      </div>
-
-      <div class="repertoire-copy">
-
-        <p>
+</div>
+<div class="repertoire-copy">
+<p>
           Meie repertuaar ühendab klassikalise muusika,
           romantilised poplood, rockmuusika, filmimuusika
           ja kaasaegsed instrumentaalteosed.
           Allpool leiate valiku teostest, mida esitame
           viiuli ja tšello seades.
         </p>
-
-        <!-- KLASSIKALINE MUUSIKA -->
-
-        <ul class="wedding-repertoire-list">
-          <li>Johann Pachelbel – Canon in D</li>
-          <li>Edward Elgar – Salut d’Amour</li>
-          <li>Antonín Dvořák – Romantic Piece No. 3, Op. 75</li>
-          <li>Antonín Dvořák – Humoresque, Op. 101 No. 7</li>
-          <li>Franz Schubert – Ave Maria</li>
-          <li>Felix Mendelssohn – Wedding March</li>
-          <li>Pyotr Tchaikovsky – Waltz from The Sleeping Beauty</li>
-          <li>Reinhold Glière – Selections from 8 Pieces for Violin and Cello, Op. 39</li>
-        </ul>
-
-        <!-- ROMANTILINE POPMUUSIKA -->
-
-        <ul class="wedding-repertoire-list" style="margin-top: 2rem;">
-          <li>Elvis Presley – Can’t Help Falling in Love</li>
-          <li>Ed Sheeran – Perfect</li>
-          <li>Ed Sheeran – Thinking Out Loud</li>
-          <li>John Legend – All of Me</li>
-          <li>Stephen Sanchez – Until I Found You</li>
-          <li>James Arthur – Say You Won’t Let Go</li>
-          <li>Kodaline – The One</li>
-          <li>Dan + Shay – Speechless</li>
-          <li>Calum Scott – You Are the Reason</li>
-          <li>Christina Perri – A Thousand Years</li>
-          <li>Bob Dylan / Adele – Make You Feel My Love</li>
-          <li>Ben E. King – Stand by Me</li>
-          <li>Frankie Valli – Can’t Take My Eyes Off You</li>
-          <li>Edith Piaf – La Vie en Rose</li>
-          <li>Taylor Swift – Lover</li>
-          <li>Lana Del Rey – Young and Beautiful</li>
-          <li>Lana Del Rey – Born to Die</li>
-          <li>Billie Eilish – Birds of a Feather</li>
-          <li>Billie Eilish – Lovely</li>
-          <li>Billie Eilish – Happier Than Ever</li>
-          <li>Leonard Cohen – Hallelujah</li>
-        </ul>
-
-        <!-- ROCK JA ALTERNATIIVMUUSIKA -->
-
-        <ul class="wedding-repertoire-list" style="margin-top: 2rem;">
-          <li>Queen – Bohemian Rhapsody</li>
-          <li>Queen – Love of My Life</li>
-          <li>The Beatles – Yesterday</li>
-          <li>The Beatles – All You Need Is Love</li>
-          <li>The Beatles – Hey Jude</li>
-          <li>AC/DC – Back in Black</li>
-          <li>AC/DC – Hells Bells</li>
-          <li>AC/DC – Thunderstruck</li>
-          <li>The Animals – House of the Rising Sun</li>
-          <li>The White Stripes – Seven Nation Army</li>
-          <li>Michael Jackson – Billie Jean</li>
-          <li>Michael Jackson – Smooth Criminal</li>
-        </ul>
-
-        <!-- FILMI JA MUUSIKALIMUUSIKA -->
-
-        <ul class="wedding-repertoire-list" style="margin-top: 2rem;">
-          <li>Elton John – Can You Feel the Love Tonight (The Lion King)</li>
-          <li>Leonard Bernstein – America (West Side Story)</li>
-          <li>Leonard Bernstein – I Feel Pretty (West Side Story)</li>
-          <li>Yann Tiersen – La Valse d’Amélie (Amélie)</li>
-          <li>David Foster / Carole Bayer Sager – The Prayer</li>
-        </ul>
-
-        <!-- GOSPEL JA VAIMULIK MUUSIKA -->
-
-        <ul class="wedding-repertoire-list" style="margin-top: 2rem;">
-          <li>CeCe Winans – Goodness of God</li>
-          <li>Hillsong UNITED – Oceans (Where Feet May Fail)</li>
-          <li>Kari Jobe &amp; Cody Carnes – The Blessing</li>
-        </ul>
-
-        <!-- KAASAEGNE INSTRUMENTAALMUUSIKA -->
-
-        <ul class="wedding-repertoire-list" style="margin-top: 2rem;">
-          <li>Ludovico Einaudi – Experience</li>
-        </ul>
-
-        <p class="repertoire-note">
+<!-- KLASSIKALINE MUUSIKA -->
+<ul class="wedding-repertoire-list">
+<li>Johann Pachelbel – Canon in D</li>
+<li>Edward Elgar – Salut d’Amour</li>
+<li>Antonín Dvořák – Romantic Piece No. 3, Op. 75</li>
+<li>Antonín Dvořák – Humoresque, Op. 101 No. 7</li>
+<li>Franz Schubert – Ave Maria</li>
+<li>Felix Mendelssohn – Wedding March</li>
+<li>Pyotr Tchaikovsky – Waltz from The Sleeping Beauty</li>
+<li>Reinhold Glière – Selections from 8 Pieces for Violin and Cello, Op. 39</li>
+</ul>
+<!-- ROMANTILINE POPMUUSIKA -->
+<ul class="wedding-repertoire-list" style="margin-top: 2rem;">
+<li>Elvis Presley – Can’t Help Falling in Love</li>
+<li>Ed Sheeran – Perfect</li>
+<li>Ed Sheeran – Thinking Out Loud</li>
+<li>John Legend – All of Me</li>
+<li>Stephen Sanchez – Until I Found You</li>
+<li>James Arthur – Say You Won’t Let Go</li>
+<li>Kodaline – The One</li>
+<li>Dan + Shay – Speechless</li>
+<li>Calum Scott – You Are the Reason</li>
+<li>Christina Perri – A Thousand Years</li>
+<li>Bob Dylan / Adele – Make You Feel My Love</li>
+<li>Ben E. King – Stand by Me</li>
+<li>Frankie Valli – Can’t Take My Eyes Off You</li>
+<li>Edith Piaf – La Vie en Rose</li>
+<li>Taylor Swift – Lover</li>
+<li>Lana Del Rey – Young and Beautiful</li>
+<li>Lana Del Rey – Born to Die</li>
+<li>Billie Eilish – Birds of a Feather</li>
+<li>Billie Eilish – Lovely</li>
+<li>Billie Eilish – Happier Than Ever</li>
+<li>Leonard Cohen – Hallelujah</li>
+</ul>
+<!-- ROCK JA ALTERNATIIVMUUSIKA -->
+<ul class="wedding-repertoire-list" style="margin-top: 2rem;">
+<li>Queen – Bohemian Rhapsody</li>
+<li>Queen – Love of My Life</li>
+<li>The Beatles – Yesterday</li>
+<li>The Beatles – All You Need Is Love</li>
+<li>The Beatles – Hey Jude</li>
+<li>AC/DC – Back in Black</li>
+<li>AC/DC – Hells Bells</li>
+<li>AC/DC – Thunderstruck</li>
+<li>The Animals – House of the Rising Sun</li>
+<li>The White Stripes – Seven Nation Army</li>
+<li>Michael Jackson – Billie Jean</li>
+<li>Michael Jackson – Smooth Criminal</li>
+</ul>
+<!-- FILMI JA MUUSIKALIMUUSIKA -->
+<ul class="wedding-repertoire-list" style="margin-top: 2rem;">
+<li>Elton John – Can You Feel the Love Tonight (The Lion King)</li>
+<li>Leonard Bernstein – America (West Side Story)</li>
+<li>Leonard Bernstein – I Feel Pretty (West Side Story)</li>
+<li>Yann Tiersen – La Valse d’Amélie (Amélie)</li>
+<li>David Foster / Carole Bayer Sager – The Prayer</li>
+</ul>
+<!-- GOSPEL JA VAIMULIK MUUSIKA -->
+<ul class="wedding-repertoire-list" style="margin-top: 2rem;">
+<li>CeCe Winans – Goodness of God</li>
+<li>Hillsong UNITED – Oceans (Where Feet May Fail)</li>
+<li>Kari Jobe &amp; Cody Carnes – The Blessing</li>
+</ul>
+<!-- KAASAEGNE INSTRUMENTAALMUUSIKA -->
+<ul class="wedding-repertoire-list" style="margin-top: 2rem;">
+<li>Ludovico Einaudi – Experience</li>
+</ul>
+<p class="repertoire-note">
           See ei ole kogu meie repertuaar.
           Võite saata meile ka oma lemmikartiste või
           -lugusid ning vaatame, mida neist saaks
@@ -1465,261 +1312,173 @@
           lepime selle võimaluse ja võimaliku lisatasu
           enne kokku.
         </p>
-
-        <a class="text-link" href="repertoire.html">
+<a class="text-link" href="repertoire.html">
           Vaata klassikalist repertuaari →
         </a>
-
-      </div>
-    </div>
-  </div>
+</div>
+</div>
+</div>
 </section>
-
-
-  <!-- PRICING -->
-
-  <section class="pricing-bridge">
-    <div class="container">
-
-      <div class="pricing-bridge-inner reveal">
-
-        <div>
-
-          <p class="section-eyebrow">
+<!-- PRICING -->
+<section class="pricing-bridge">
+<div class="container">
+<div class="pricing-bridge-inner reveal">
+<div>
+<p class="section-eyebrow">
             Hinnad
           </p>
-
-          <h2>
+<h2>
             Selge lähtehind, täpne pakkumine vastavalt pulmapäevale.
           </h2>
-
-          <p>
+<p>
             Pulmatseremooniate, vastuvõttude ja kombineeritud
             esinemiste lähtehinnad on eraldi hinnalehel.
             Lõplik hind sõltub kuupäevast, asukohast,
             kestusest ja repertuaarist.
           </p>
-
-        </div>
-
-        <a
-          class="pricing-cta"
-          href="hinnad.html"
-        >
+</div>
+<a class="pricing-cta" href="hinnad.html">
           Vaata hindu →
         </a>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-
-  <section class="process-section">
-    <div class="container">
-
-      <p class="section-eyebrow">
+</div>
+</div>
+</section>
+<!-- PROCESS -->
+<section class="process-section">
+<div class="container">
+<p class="section-eyebrow">
         Päring
       </p>
-
-      <h2 class="process-title">
+<h2 class="process-title">
         Mida pulmamuusika päringusse lisada
       </h2>
-
-      <div class="process-list reveal">
-
-        <div class="process-row">
-
-          <div class="process-label">
+<div class="process-list reveal">
+<div class="process-row">
+<div class="process-label">
             Kuupäev &amp; koht
           </div>
-
-          <div class="process-copy">
+<div class="process-copy">
             Pulma kuupäev, toimumiskoht või linn ning
             ligikaudne kellaaeg.
           </div>
-
-        </div>
-
-        <div class="process-row">
-
-          <div class="process-label">
+</div>
+<div class="process-row">
+<div class="process-label">
             Pulmapäev
           </div>
-
-          <div class="process-copy">
+<div class="process-copy">
             Kas soovite muusikat tseremooniale,
             vastuvõtule või mõlemasse pulmapäeva ossa.
           </div>
-
-        </div>
-
-        <div class="process-row">
-
-          <div class="process-label">
+</div>
+<div class="process-row">
+<div class="process-label">
             Repertuaar
           </div>
-
-          <div class="process-copy">
+<div class="process-copy">
             Soovitud teosed, erilised muusikapalad või muud
             repertuaari puudutavad soovid, kui need on juba teada.
           </div>
-
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FAQ -->
-
-  <section class="faq-section">
-    <div class="container">
-
-      <div class="reveal">
-
-        <p class="section-eyebrow">
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="faq-section">
+<div class="container">
+<div class="reveal">
+<p class="section-eyebrow">
           Küsimused
         </p>
-
-        <h2 class="faq-title">
+<h2 class="faq-title">
           Pulmamuusika — korduma kippuvad küsimused
         </h2>
-
-        <div class="faq-list">
-
-          <article class="faq-item">
-
-            <h3>
+<div class="faq-list">
+<article class="faq-item">
+<h3>
               Kas Duo EnPassant esineb pulmades üle Eesti?
             </h3>
-
-            <p>
+<p>
               Jah. Duo EnPassant esineb pulmades Tallinnas
               ja mujal Eestis. Väljaspool Tallinna võivad
               lisanduda transpordikulud.
             </p>
-
-          </article>
-
-          <article class="faq-item">
-
-            <h3>
+</article>
+<article class="faq-item">
+<h3>
               Kas saame ise muusikapalad valida?
             </h3>
-
-            <p>
+<p>
               Jah. Repertuaar lepitakse enne pulmapäeva kokku
               ning võimalusel saab kavasse lisada ka pruutpaari
               soovitud teoseid.
             </p>
-
-          </article>
-
-          <article class="faq-item">
-
-            <h3>
+</article>
+<article class="faq-item">
+<h3>
               Kas duo saab mängida nii tseremoonial kui vastuvõtul?
             </h3>
-
-            <p>
+<p>
               Jah. Võimalik on tellida esinemine ainult
               pulmatseremooniale, ainult vastuvõtule või
               mõlemasse pulmapäeva ossa.
             </p>
-
-          </article>
-
-          <article class="faq-item">
-
-            <h3>
+</article>
+<article class="faq-item">
+<h3>
               Kui palju pulmamuusika maksab?
             </h3>
-
-            <p>
+<p>
               Esinemiste lähtehinnad on avaldatud meie
               hinnalehel. Lõplik hind sõltub kuupäevast,
               asukohast, kestusest ja repertuaarist.
             </p>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-
-  <section class="booking-contact">
-    <div class="container">
-
-      <div class="reveal">
-
-        <p class="section-eyebrow">
+</article>
+</div>
+</div>
+</div>
+</section>
+<!-- CONTACT -->
+<section class="booking-contact">
+<div class="container">
+<div class="reveal">
+<p class="section-eyebrow">
           Broneering
         </p>
-
-        <h2>
+<h2>
           Räägi meile oma pulmapäevast
         </h2>
-
-        <p>
+<p>
           Saada meile pulma kuupäev, asukoht ning lühidalt,
           millises pulmapäeva osas muusikat soovite.
           Vastame esinemisvõimaluse, repertuaari ja täpse
           hinnapakkumisega.
         </p>
-
-        <a
-          class="booking-email"
-          href="mailto:info@duoenpassant.com"
-        >
+<a class="booking-email" href="mailto:info@duoenpassant.com">
           info@duoenpassant.com
         </a>
-
-        <div class="contact-links">
-
-          <a
-            class="back-link"
-            href="hinnad.html"
-          >
+<div class="contact-links">
+<a class="back-link" href="hinnad.html">
             Vaata hindu →
           </a>
-
-          <a
-            class="back-link"
-            href="/et/#about"
-          >
+<a class="back-link" href="/et/#about">
             Tagasi Duo EnPassanti lehele →
           </a>
-
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer>
-    <span class="logo">
+</div>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<span class="logo">
       Duo EnPassant
     </span>
-
-    <span class="tagline">
+<span class="tagline">
       © 2026 — Kõik õigused kaitstud
     </span>
-  </footer>
-
-  <!-- JS -->
-
-  <script>
+</footer>
+<!-- JS -->
+<script>
     (() => {
       const body = document.body;
       const hamburger = document.getElementById("hamburgerBtn");
@@ -1768,7 +1527,18 @@
         .querySelectorAll(".reveal")
         .forEach(el => observer.observe(el));
     })();
-  </script>
-
+  
+/* Booking dropdown: hover on desktop, click for keyboard/touch */
+(() => {
+  const menu = document.querySelector('.dep-service');
+  const button = menu?.querySelector('button');
+  if (!menu || !button) return;
+  const setOpen = value => { menu.classList.toggle('is-open',value); button.setAttribute('aria-expanded',String(value)); };
+  button.addEventListener('click', event => { event.stopPropagation(); setOpen(!menu.classList.contains('is-open')); });
+  document.addEventListener('click', event => { if (!menu.contains(event.target)) setOpen(false); });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') setOpen(false); });
+  menu.addEventListener('mouseleave', () => setOpen(false));
+})();
+</script>
 </body>
 </html>
