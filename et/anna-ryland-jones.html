@@ -301,13 +301,44 @@ a{color:inherit}
     <a class="home-btn" href="/et/#about" aria-label="Duo EnPassant — Avaleht">
       <div class="home-wordmark">Duo EnPassant<span>Viiul & Tšello</span></div>
     </a>
-    <nav class="nav-links" aria-label="Põhinavigatsioon"><a class="nav-link" href="media.html">Meedia</a><a class="nav-link" href="concerts.html">Kontserdid</a><a class="nav-link" href="repertoire.html">Repertuaar</a><a class="nav-link" href="/et/#contact">Kontakt</a></nav>
+    <nav class="nav-links" aria-label="Põhinavigatsioon">
+      <a class="nav-link" href="media.html">Meedia</a>
+      <a class="nav-link" href="concerts.html">Kontserdid</a>
+      <a class="nav-link" href="repertoire.html">Repertuaar</a>
+      <div class="nav-dropdown">
+        <a class="nav-link" href="bookings.html">Eraesinemised</a>
+        <button class="dropdown-toggle" type="button" aria-label="Ava eraesinemiste valikud" aria-expanded="false" aria-controls="privateDropdown">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="dropdown-menu" id="privateDropdown">
+          <div class="dropdown-menu-inner">
+            <a href="bookings.html">Eraesinemised</a>
+            <a href="pulmamuusika.html">Pulmamuusika</a>
+            <a href="hinnad.html">Hinnad</a>
+          </div>
+        </div>
+      </div>
+      <a class="nav-link" href="/et/#contact">Kontakt</a>
+    </nav>
     <div class="lang-toggle" aria-label="Keelevalik"><a class="lang-btn active" href="/et/anna-ryland-jones.html">EST</a><span class="lang-separator">|</span><a class="lang-btn" href="/en/anna-ryland-jones.html">EN</a></div>
     <button class="hamburger" id="hamburger" aria-label="Menüü" aria-expanded="false"><span></span></button>
   </div>
 </header>
 
-<div class="mobile-menu" id="mobileMenu" aria-label="Mobiilinavigatsioon"><a href="media.html">Meedia</a><a href="concerts.html">Kontserdid</a><a href="repertoire.html">Repertuaar</a><a href="/et/#contact">Kontakt</a></div>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobiilinavigatsioon">
+  <a href="media.html">Meedia</a>
+  <a href="concerts.html">Kontserdid</a>
+  <a href="repertoire.html">Repertuaar</a>
+  <details class="mobile-submenu">
+    <summary>Eraesinemised</summary>
+    <div class="mobile-submenu-links">
+      <a href="bookings.html">Eraesinemised</a>
+      <a href="pulmamuusika.html">Pulmamuusika</a>
+      <a href="hinnad.html">Hinnad</a>
+    </div>
+  </details>
+  <a href="/et/#contact">Kontakt</a>
+</nav>
 
 <main>
   <section class="hero" aria-labelledby="artist-name">
@@ -411,7 +442,7 @@ a{color:inherit}
     <p class="eyebrow">Duo EnPassant</p>
     <h2>Duo EnPassant</h2>
     <p>Tutvu Duo EnPassanti kontsertide, repertuaari ja kunstilise tegevusega.</p>
-    <div class="return-links"><a class="text-link" href="/et/#about">Tagasi Duo EnPassanti juurde</a> <a class="text-link" href="merily-leotoots.html">Merily Leotoots — artistiprofiil</a></div>
+    <div class="return-links"><a class="text-link" href="/et/#about">Tagasi Duo EnPassanti juurde</a> <a class="text-link" href="merily-leotoots.html">Merily Leotoots — artistiprofiil</a> <a class="text-link" href="muusikatunnid.html">Tšellotunnid ja kammermuusika</a></div>
   </section>
 </main>
 
@@ -432,6 +463,29 @@ a{color:inherit}
 const topbar=document.getElementById('topbar');
 const hamburger=document.getElementById('hamburger');
 const mobileMenu=document.getElementById('mobileMenu');
+const dropdownToggle=document.querySelector('.dropdown-toggle');
+const navDropdown=document.querySelector('.nav-dropdown');
+
+// Klõps avab menüü ka ilma hiire hover-toeta.
+dropdownToggle?.addEventListener('click',()=>{
+  const expanded=dropdownToggle.getAttribute('aria-expanded')==='true';
+  dropdownToggle.setAttribute('aria-expanded',String(!expanded));
+  navDropdown?.classList.toggle('clicked-open',!expanded);
+});
+document.addEventListener('click',event=>{
+  if(navDropdown&&!navDropdown.contains(event.target)){
+    navDropdown.classList.remove('clicked-open');
+    dropdownToggle?.setAttribute('aria-expanded','false');
+  }
+});
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'){
+    navDropdown?.classList.remove('clicked-open');
+    dropdownToggle?.setAttribute('aria-expanded','false');
+    mobileMenu?.classList.remove('open');
+    hamburger?.setAttribute('aria-expanded','false');
+  }
+});
 
 function updateHeader(){
   topbar?.classList.toggle('scrolled', window.scrollY > 60);
