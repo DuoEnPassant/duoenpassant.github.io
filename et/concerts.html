@@ -1249,7 +1249,54 @@
       }
     }
 
-  </style>
+  
+    /* SHARED SERVICE NAVIGATION */
+    .nav-dropdown { position:relative; display:flex; align-items:center; z-index:1101; }
+    .nav-dropdown-trigger { display:inline-flex; align-items:center; gap:.35rem; white-space:nowrap; }
+    .nav-chevron { font-size:1rem; line-height:0.7; transition:transform .2s; }
+    .nav-dropdown-panel {
+      position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px);
+      z-index:1102;
+      min-width:190px; padding:.8rem 0; background:rgba(245,239,230,.99);
+      border:1px solid rgba(184,147,93,.26); box-shadow:0 14px 28px rgba(39,33,30,.1);
+      opacity:0; visibility:hidden; pointer-events:none;
+      transition:opacity .2s,transform .2s,visibility .2s;
+    }
+    .nav-dropdown-panel::before { content:""; position:absolute; top:-12px; height:12px; left:0; right:0; }
+    .nav-dropdown-panel a {
+      display:block; padding:.75rem 1.25rem; font-family:'Cinzel',serif;
+      font-size:.60rem; letter-spacing:.15em; text-transform:uppercase;
+      color:var(--muted); white-space:nowrap;
+    }
+    .nav-dropdown-panel a:hover,.nav-dropdown-panel a:focus-visible { color:var(--warm); background:rgba(184,147,93,.07); }
+    .nav-dropdown:hover .nav-dropdown-panel,
+    .nav-dropdown:focus-within .nav-dropdown-panel,
+    .nav-dropdown.is-open .nav-dropdown-panel {
+      opacity:1; visibility:visible; pointer-events:auto;
+      transform:translateX(-50%) translateY(0);
+    }
+    .nav-dropdown:hover .nav-chevron,.nav-dropdown.is-open .nav-chevron { transform:rotate(180deg); }
+    .mobile-services { display:flex; flex-direction:column; align-items:center; gap:.5rem; }
+    .mobile-services-toggle { display:flex; gap:.7rem; align-items:center; font-family:Cinzel,serif; font-size:1rem; letter-spacing:.28em; text-transform:uppercase; color:var(--ink); background:none; border:0; cursor:pointer; }
+    .mobile-services-list { flex-direction:column; align-items:center; gap:.85rem; }
+    .mobile-services-list[hidden] { display:none !important; }
+    .mobile-services-list:not([hidden]) { display:flex; }
+    .mobile-services-list a { font-size:.79rem; letter-spacing:.15em; color:var(--muted); }
+    .mobile-drawer { overflow-y:auto; }
+    .nav-dropdown-panel[hidden] { display:none !important; }
+    @media (max-width:1100px) {
+      .topbar-center,.lang-toggle { display:none !important; }
+      .hamburger-btn { display:flex !important; }
+      .mobile-drawer { display:flex !important; }
+      .mobile-drawer { gap:1.35rem !important; }
+    }
+    @media (min-width:1101px) and (max-width:1350px) {
+      .nav-links { gap:1.4rem; font-size:.62rem; letter-spacing:.20em; }
+    }
+    .lesson-footer-link {display:block;text-align:center;padding:1.7rem 1rem;background:var(--parchment);}
+    .lesson-footer-link a {font-family:Cinzel,serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;border-bottom:1px solid var(--warm);padding-bottom:.4rem;}
+
+</style>
 </head>
 <body class="lang-est">
 <!-- MOBILE DRAWER -->
@@ -1257,6 +1304,14 @@
 <a class="drawer-close-on-click" href="media.html">Meedia</a>
 <a class="drawer-close-on-click active" href="concerts.html">Kontserdid</a>
 <a class="drawer-close-on-click" href="repertoire.html">Repertuaar</a>
+<div class="mobile-services">
+  <button class="mobile-services-toggle" id="mobileServicesToggle" type="button" aria-expanded="false" aria-controls="mobileServicesList">Eraesinemised <span aria-hidden="true">⌄</span></button>
+  <div class="mobile-services-list" id="mobileServicesList" hidden>
+    <a class="drawer-close-on-click" href="bookings.html">Eraesinemised</a>
+    <a class="drawer-close-on-click" href="pulmamuusika.html">Pulmamuusika</a>
+    <a class="drawer-close-on-click" href="hinnad.html">Hinnad</a>
+  </div>
+</div>
 <a class="drawer-close-on-click" href="/et/#contact">Kontakt</a>
 <div class="mobile-drawer-rule"></div>
 <div class="mobile-lang-row"><a class="mobile-lang-btn active" href="/et/concerts.html">EST</a><span style="color:var(--line)">|</span><a class="mobile-lang-btn" href="/en/concerts.html">EN</a></div>
@@ -1275,6 +1330,14 @@
 <a class="nav-link" href="media.html">Meedia</a>
 <a class="nav-link active" href="concerts.html">Kontserdid</a>
 <a class="nav-link" href="repertoire.html">Repertuaar</a>
+<div class="nav-dropdown">
+  <a class="nav-link nav-dropdown-trigger" href="bookings.html" aria-haspopup="true">Eraesinemised <span class="nav-chevron" aria-hidden="true">⌄</span></a>
+  <div class="nav-dropdown-panel">
+    <a href="bookings.html">Eraesinemised</a>
+    <a href="pulmamuusika.html">Pulmamuusika</a>
+    <a href="hinnad.html">Hinnad</a>
+  </div>
+</div>
 <a class="nav-link" href="/et/#contact">Kontakt</a>
 </nav>
 <div aria-label="Keelevalik" class="lang-toggle"><a class="lang-btn active" href="/et/concerts.html">EST</a><span class="lang-separator">|</span><a class="lang-btn" href="/en/concerts.html">EN</a></div>
@@ -1555,6 +1618,7 @@
 <div class="concert-status"></div>
 </article>
 </template>
+<div class="lesson-footer-link"><a href="muusikatunnid.html">Viiuli- ja tšellotunnid →</a></div>
 <!-- FOOTER -->
 <footer>
 <span class="logo">Duo EnPassant</span>
@@ -1590,6 +1654,20 @@
     hamburger.addEventListener('click', () => toggleDrawer(!drawer.classList.contains('open')));
     drawer.querySelectorAll('.drawer-close-on-click').forEach(l => l.addEventListener('click', () => toggleDrawer(false)));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleDrawer(false); });
+
+
+    // Eraesinemiste alammenüü mobiilis
+    const servicesToggle = document.getElementById('mobileServicesToggle');
+    const servicesList = document.getElementById('mobileServicesList');
+    servicesToggle?.addEventListener('click', () => {
+      const expand = servicesToggle.getAttribute('aria-expanded') !== 'true';
+      servicesToggle.setAttribute('aria-expanded', String(expand));
+      servicesList.hidden = !expand;
+    });
+    // Sulge menüü väljaspool klõpsates; klõps põhilingil viib eraesinemiste lehele.
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.nav-dropdown')) document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('is-open'));
+    });
 
     // ── Auto past/upcoming logic ──
     const today = new Date();
