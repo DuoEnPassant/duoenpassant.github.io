@@ -770,6 +770,8 @@
 
 /* ERAESINEMISED DROPDOWN */
 .nav-dropdown { position:relative; }
+.nav-submenu { display:none; }
+.nav-dropdown[open] .nav-submenu { display:block; }
 .nav-dropdown > summary { list-style:none; cursor:pointer; display:flex; align-items:center; gap:.45rem; white-space:nowrap; }
 .nav-dropdown > summary::-webkit-details-marker { display:none; }
 .nav-dropdown > summary::after { content:""; width:5px; height:5px; border-right:1px solid currentColor; border-bottom:1px solid currentColor; transform:rotate(45deg) translateY(-2px); }
