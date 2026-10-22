@@ -1,21 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="et">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Muusikatunnid Tallinnas | Viiul, tšello ja kammermuusika — Duo EnPassant</title>
-  <meta name="description" content="Duo EnPassanti viiuli- ja tšellotunnid ning kammermuusika juhendamine. Individuaalne lähenemine, professionaalsed juhendajad ja selge hinnakiri.">
-  <link rel="canonical" href="https://www.duoenpassant.com/et/muusikatunnid.html">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Duo EnPassant">
-  <meta property="og:title" content="Muusikatunnid | Duo EnPassant">
-  <meta property="og:description" content="Viiuli- ja tšellotunnid ning kammermuusika juhendamine.">
-  <meta property="og:url" content="https://www.duoenpassant.com/et/muusikatunnid.html">
-  <meta property="og:image" content="https://www.duoenpassant.com/og-cover.jpg">
-  <link rel="icon" href="../Favicon.png" type="image/png">
-  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Muusikatunnid Tallinnas | Viiul, tšello ja kammermuusika — Duo EnPassant</title>
+<meta content="Duo EnPassanti viiuli- ja tšellotunnid ning kammermuusika juhendamine. Individuaalne lähenemine, professionaalsed juhendajad ja selge hinnakiri." name="description"/>
+<link href="https://www.duoenpassant.com/et/muusikatunnid.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Duo EnPassant" property="og:site_name"/>
+<meta content="Muusikatunnid | Duo EnPassant" property="og:title"/>
+<meta content="Viiuli- ja tšellotunnid ning kammermuusika juhendamine." property="og:description"/>
+<meta content="https://www.duoenpassant.com/et/muusikatunnid.html" property="og:url"/>
+<meta content="https://www.duoenpassant.com/og-cover.jpg" property="og:image"/>
+<link href="../Favicon.png" rel="icon" type="image/png"/>
+<link href="../apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Cinzel:wght@400;500&amp;family=Raleway:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<style>
     :root { --ink:#27211e; --deep:#2b2522; --parchment:#f2ece3; --cream:#f5efe6; --gold:#b8935d; --muted:#776c63; --line:rgba(184,147,93,.30); --max:1120px; }
     * { box-sizing:border-box; }
     html { scroll-behavior:smooth; }
@@ -80,118 +81,147 @@
     .footer-inner span:first-child { font-family:Cinzel,serif; text-transform:uppercase; font-size:.65rem; letter-spacing:.20em; }
     @media (max-width:980px) { .nav,.lang { display:none; } .menu-button { display:block; } .mobile-menu.open { display:block; } .top-inner { min-height:68px; } }
     @media (max-width:720px) { .container,.top-inner { width:min(calc(100% - 38px),var(--max)); } .hero { padding:85px 0 87px; } .section { padding:73px 0; } .intro-grid,.teachers { grid-template-columns:1fr; gap:18px; } .services { grid-template-columns:1fr; } .service { min-height:0; } .service + .service { border-left:0; border-top:1px solid var(--line); } .price-row { grid-template-columns:1fr auto; gap:7px 12px; } .price-label { grid-column:1; } .duration { grid-column:1; } .amount { grid-column:2; grid-row:1 / span 2; } .footer-inner { flex-direction:column; text-align:center; } }
-  </style>
-  <script type="application/ld+json">
+  
+/* Unified Duo EnPassant booking dropdown: no decorative arrows or lines */
+.dep-service { position:relative; display:flex; align-items:center; align-self:stretch; z-index:1200; }
+.dep-service > button { list-style:none; cursor:pointer; font:inherit; font-family:Cinzel,serif; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:inherit; user-select:none; display:flex; align-items:center; white-space:nowrap; }
+.dep-service > button::-webkit-details-marker { display:none; }
+.dep-service > button::marker { content:""; }
+.dep-service > button::before,.dep-service > button::after { content:none !important; display:none !important; }
+.dep-service > button:hover,.dep-service.is-open > summary { color:var(--warm,var(--gold,#b8935d)); }
+.dep-service-panel { display:none; position:absolute; left:50%; top:100%; transform:translateX(-50%); min-width:218px; padding:14px 0; background:#f5efe6; box-shadow:0 14px 34px rgba(24,18,15,.15); border:1px solid rgba(184,147,93,.25); z-index:1201; }
+.dep-service:hover > .dep-service-panel,.dep-service:focus-within > .dep-service-panel,.dep-service.is-open > .dep-service-panel { display:flex; flex-direction:column; }
+.dep-service-panel > a { display:block; font:400 10px/1.5 Cinzel,serif; letter-spacing:.14em; text-transform:uppercase; color:#27211e; text-decoration:none; padding:10px 23px; white-space:nowrap; }
+.dep-service-panel > a:hover,.dep-service-panel > a:focus { color:#b8935d; background:rgba(184,147,93,.08); }
+.dep-mobile-service { width:100%; text-align:center; color:#27211e; }
+.dep-mobile-service > summary { cursor:pointer; list-style:none; font:inherit; text-transform:uppercase; color:inherit; }
+.dep-mobile-service > summary::-webkit-details-marker { display:none; }
+.dep-mobile-service > summary::marker { content:""; }
+.dep-mobile-service > summary::before,.dep-mobile-service > summary::after { content:none !important; }
+.dep-mobile-links { display:flex; flex-direction:column; align-items:center; gap:15px; padding:18px 0 4px; }
+.dep-mobile-links > a { text-decoration:none; font-family:Cinzel,serif; font-size:11px; letter-spacing:.16em; color:#7f746a; text-transform:uppercase; }
+.dep-mobile-links > a:hover { color:#b8935d; }
+@media(max-width:1100px) { .dep-service { display:none; } }
+@media(max-width:900px) { .mobile-menu:has(.dep-mobile-service),.mobile-nav:has(.dep-mobile-service) { max-height:calc(100dvh - 72px); overflow-y:auto; } }
+@media(max-width:1100px) { .mobile-drawer:has(.dep-mobile-service) { overflow-y:auto; justify-content:safe center; } }
+
+.dep-service > button { background:none; border:none; padding:0; outline-offset:7px; }
+.dep-service.is-open > .dep-service-panel { display:flex; flex-direction:column; }
+
+
+/* Navbar alignment with the rest of Duo EnPassant site */
+.nav { gap:clamp(12px,1.75vw,27px); }
+.nav > a,.dep-service > button { font-family:Cinzel,serif; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); white-space:nowrap; }
+.dep-service > button { padding:14px 0; }
+.dep-service-panel { background:var(--cream); }
+.mobile-menu .dep-mobile-service { padding:13px 0; border-bottom:1px solid var(--line); }
+.mobile-menu .dep-mobile-service > summary { font-family:Cinzel,serif; font-size:.72rem; letter-spacing:.12em; }
+.mobile-menu .dep-mobile-links { padding:9px 0 4px 16px; align-items:flex-start; }
+.mobile-menu .dep-mobile-links a { border:0; padding:6px 0; font-size:10px; }
+@media(max-width:1100px) { .nav,.lang { display:none; } .menu-button { display:block; } .mobile-menu.open { display:block; } .dep-service { display:none; } }
+</style>
+<script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebPage","name":"Muusikatunnid | Duo EnPassant","url":"https://www.duoenpassant.com/et/muusikatunnid.html","inLanguage":"et","about":{"@type":"MusicGroup","name":"Duo EnPassant","url":"https://www.duoenpassant.com/"}}
   </script>
 </head>
 <body>
-  <header class="topbar">
-    <div class="top-inner">
-      <a class="logo" href="/et/#about" aria-label="Duo EnPassant avaleht">Duo EnPassant<small>Viiul &amp; Tšello</small></a>
-      <nav class="nav" aria-label="Põhinavigatsioon">
-        <a href="media.html">Meedia</a>
-        <a href="concerts.html">Kontserdid</a>
-        <a href="repertoire.html">Repertuaar</a>
-        <div class="dropdown" id="desktopDropdown">
-          <button class="drop-trigger" type="button" aria-expanded="false" aria-controls="desktopBookingMenu">Eraesinemised <svg viewBox="0 0 12 12" aria-hidden="true"><path d="m2 4 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
-          <div class="drop-menu" id="desktopBookingMenu">
-            <a href="bookings.html">Eraesinemised</a>
-            <a href="pulmamuusika.html">Pulmamuusika</a>
-            <a href="hinnad.html">Hinnad</a>
-          </div>
-        </div>
-        <a href="/et/#contact">Kontakt</a>
-      </nav>
-      <div class="lang"><span class="active">EST</span> | <a href="/en/">EN</a></div>
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobileMenu" id="menuToggle">Menüü ☰</button>
-    </div>
-    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobiilimenüü">
-      <a href="media.html">Meedia</a>
-      <a href="concerts.html">Kontserdid</a>
-      <a href="repertoire.html">Repertuaar</a>
-      <a href="bookings.html">Eraesinemised</a>
-      <div class="mobile-sub"><a href="pulmamuusika.html">Pulmamuusika</a><a href="hinnad.html">Hinnad</a></div>
-      <a href="/et/#contact">Kontakt</a>
-      <a href="/en/">English</a>
-    </nav>
-  </header>
+<header class="topbar">
+<div class="top-inner">
+<a aria-label="Duo EnPassant avaleht" class="logo" href="/et/#about">Duo EnPassant<small>Viiul &amp; Tšello</small></a>
+<nav aria-label="Põhinavigatsioon" class="nav">
+<a href="media.html">Meedia</a>
+<a href="concerts.html">Kontserdid</a>
+<a href="repertoire.html">Repertuaar</a>
+<div class="dep-service"><button aria-expanded="false" aria-label="Eraesinemiste menüü" type="button">Eraesinemised</button><div class="dep-service-panel"><a href="bookings.html">Eraesinemised</a><a href="pulmamuusika.html">Pulmamuusika</a><a href="hinnad.html">Hinnad</a></div></div>
+<a href="/et/#contact">Kontakt</a>
+</nav>
+<div class="lang"><span class="active">EST</span> | <a href="/en/">EN</a></div>
+<button aria-controls="mobileMenu" aria-expanded="false" class="menu-button" id="menuToggle" type="button">Menüü ☰</button>
+</div>
+<nav aria-label="Mobiilimenüü" class="mobile-menu" id="mobileMenu">
+<a href="media.html">Meedia</a>
+<a href="concerts.html">Kontserdid</a>
+<a href="repertoire.html">Repertuaar</a>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <p class="eyebrow">Duo EnPassant · Muusikaõpe</p>
-        <h1>Muusikatunnid</h1>
-        <div class="hero-rule"></div>
-        <p class="hero-sub">Viiul · Tšello · Kammermuusika</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container intro-grid">
-        <div><p class="eyebrow">Muusikaõpe</p><h2>Muusikaline areng isiklikus tempos.</h2></div>
-        <div><p class="lead">Pakume individuaalseid viiuli- ja tšellotunde ning kammermuusika juhendamist. Tundide sisu kujundame vastavalt õppija senisele kogemusele, eesmärkidele ja muusikalistele huvidele.</p><p class="lead">Olgu sooviks pillimängu arendamine, konkreetse teose ettevalmistamine või koosmängu süvendamine, keskendume sisulisele ja toetavale tööle muusikaga.</p></div>
-      </div>
-    </section>
-
-    <section class="section service-section">
-      <div class="container">
-        <p class="eyebrow">Võimalused</p>
-        <h2>Leia endale sobiv tund.</h2>
-        <div class="services">
-          <article class="service"><span class="number">01</span><h3>Viiul</h3><p>Individuaaltunnid viiuldaja Merily Leotootsiga. Töö tehnika, kõlakvaliteedi, interpretatsiooni ja repertuaariga vastavalt õppija vajadustele.</p></article>
-          <article class="service"><span class="number">02</span><h3>Tšello</h3><p>Individuaaltunnid tšellist Anna Ryland-Jonesiga. Tähelepanu pillimängu põhialustele, väljendusrikkale kõlale ja muusikalisele tervikule.</p></article>
-          <article class="service"><span class="number">03</span><h3>Kammermuusika</h3><p>Koosmängu juhendamine ansamblitele ühe või kahe muusikuga. Keskendume kuulamisele, ansamblitunnetusele, fraseerimisele ja ühisele interpretatsioonile.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <p class="eyebrow">Juhendajad</p><h2>Õpi koos tegevmuusikutega.</h2>
-        <div class="teachers">
-          <article class="teacher"><div class="role">Viiul</div><h3>Merily Leotoots</h3><p>Duo EnPassanti viiuldaja ja Londoni Guildhall School of Music &amp; Drama vilistlane. Individuaalsed viiulitunnid ja kammermuusika juhendamine.</p></article>
-          <article class="teacher"><div class="role">Tšello</div><h3>Anna Ryland-Jones</h3><p>Duo EnPassanti tšellist ja Londoni Guildhall School of Music &amp; Drama vilistlane. Individuaalsed tšellotunnid ja kammermuusika juhendamine.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section price-section" id="hinnad">
-      <div class="container">
-        <p class="eyebrow">Hinnakiri</p><h2>Tunnid ja hinnad</h2>
-        <p class="lead">Vali individuaaltund, kammermuusika juhendamine või viie individuaaltunni pakett.</p>
-        <div class="pricing">
-          <div class="price-row"><div class="price-label">Individuaaltund · viiul</div><div class="duration">60 min</div><div class="amount">50 €</div></div>
-          <div class="price-row"><div class="price-label">Individuaaltund · tšello</div><div class="duration">60 min</div><div class="amount">50 €</div></div>
-          <div class="price-row"><div class="price-label">Kammermuusika · üks juhendaja</div><div class="duration">60 min</div><div class="amount">65 €</div></div>
-          <div class="price-row"><div class="price-label">Kammermuusika · mõlemad juhendajad</div><div class="duration">60 min</div><div class="amount">95 €</div></div>
-          <div class="price-row"><div class="price-label">Kammermuusika · üks juhendaja</div><div class="duration">90 min</div><div class="amount">90 €</div></div>
-          <div class="price-row"><div class="price-label">Kammermuusika · mõlemad juhendajad</div><div class="duration">90 min</div><div class="amount">135 €</div></div>
-          <div class="price-row"><div class="price-label">Tunnipakett · 5 individuaaltundi</div><div class="duration">5 × 60 min</div><div class="amount">235 €</div></div>
-        </div>
-        <p class="pricing-note">Kõigile hindadele lisandub käibemaks. Tunni toimumisaeg ja koht lepitakse kokku individuaalselt.</p>
-      </div>
-    </section>
-
-    <section class="section booking" id="kontakt">
-      <div class="container">
-        <p class="eyebrow">Võta ühendust</p><h2>Alustame muusikast.</h2>
-        <p>Kirjuta meile, millist pilli soovid õppida, milline on sinu senine kogemus ning millised on sinu eesmärgid. Leiame koos sobiva formaadi.</p>
-        <a class="email" href="mailto:info@duoenpassant.com?subject=Muusikatundide%20p%C3%A4ring">info@duoenpassant.com</a><br>
-        <a class="extra-link" href="/et/#about">Tagasi Duo EnPassanti avalehele →</a>
-      </div>
-    </section>
-  </main>
-  <footer><div class="container footer-inner"><span>Duo EnPassant</span><span>© 2026 · Kõik õigused kaitstud</span></div></footer>
-  <script>
-    const mobileButton=document.getElementById('menuToggle');
-    const mobileMenu=document.getElementById('mobileMenu');
-    mobileButton.addEventListener('click',()=>{const open=mobileMenu.classList.toggle('open');mobileButton.setAttribute('aria-expanded',String(open));});
-    const dropdown=document.getElementById('desktopDropdown');
-    const dropdownButton=dropdown.querySelector('button');
-    dropdownButton.addEventListener('click',()=>{const open=dropdown.classList.toggle('open');dropdownButton.setAttribute('aria-expanded',String(open));});
-    document.addEventListener('click',event=>{if(!dropdown.contains(event.target)){dropdown.classList.remove('open');dropdownButton.setAttribute('aria-expanded','false');}});
-    document.addEventListener('keydown',event=>{if(event.key==='Escape'){dropdown.classList.remove('open');dropdownButton.setAttribute('aria-expanded','false');mobileMenu.classList.remove('open');mobileButton.setAttribute('aria-expanded','false');}});
-  </script>
+<details class="dep-mobile-service"><summary>Eraesinemised</summary><div class="dep-mobile-links"><a href="bookings.html">Eraesinemised</a><a href="pulmamuusika.html">Pulmamuusika</a><a href="hinnad.html">Hinnad</a></div></details>
+<a href="/et/#contact">Kontakt</a>
+<a href="/en/">English</a>
+</nav>
+</header>
+<main>
+<section class="hero">
+<div class="container">
+<p class="eyebrow">Duo EnPassant · Muusikaõpe</p>
+<h1>Muusikatunnid</h1>
+<div class="hero-rule"></div>
+<p class="hero-sub">Viiul · Tšello · Kammermuusika</p>
+</div>
+</section>
+<section class="section">
+<div class="container intro-grid">
+<div><p class="eyebrow">Muusikaõpe</p><h2>Muusikaline areng isiklikus tempos.</h2></div>
+<div><p class="lead">Pakume individuaalseid viiuli- ja tšellotunde ning kammermuusika juhendamist. Tundide sisu kujundame vastavalt õppija senisele kogemusele, eesmärkidele ja muusikalistele huvidele.</p><p class="lead">Olgu sooviks pillimängu arendamine, konkreetse teose ettevalmistamine või koosmängu süvendamine, keskendume sisulisele ja toetavale tööle muusikaga.</p></div>
+</div>
+</section>
+<section class="section service-section">
+<div class="container">
+<p class="eyebrow">Võimalused</p>
+<h2>Leia endale sobiv tund.</h2>
+<div class="services">
+<article class="service"><span class="number">01</span><h3>Viiul</h3><p>Individuaaltunnid viiuldaja Merily Leotootsiga. Töö tehnika, kõlakvaliteedi, interpretatsiooni ja repertuaariga vastavalt õppija vajadustele.</p></article>
+<article class="service"><span class="number">02</span><h3>Tšello</h3><p>Individuaaltunnid tšellist Anna Ryland-Jonesiga. Tähelepanu pillimängu põhialustele, väljendusrikkale kõlale ja muusikalisele tervikule.</p></article>
+<article class="service"><span class="number">03</span><h3>Kammermuusika</h3><p>Koosmängu juhendamine ansamblitele ühe või kahe muusikuga. Keskendume kuulamisele, ansamblitunnetusele, fraseerimisele ja ühisele interpretatsioonile.</p></article>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container">
+<p class="eyebrow">Juhendajad</p><h2>Õpi koos tegevmuusikutega.</h2>
+<div class="teachers">
+<article class="teacher"><div class="role">Viiul</div><h3>Merily Leotoots</h3><p>Duo EnPassanti viiuldaja ja Londoni Guildhall School of Music &amp; Drama vilistlane. Individuaalsed viiulitunnid ja kammermuusika juhendamine.</p></article>
+<article class="teacher"><div class="role">Tšello</div><h3>Anna Ryland-Jones</h3><p>Duo EnPassanti tšellist ja Londoni Guildhall School of Music &amp; Drama vilistlane. Individuaalsed tšellotunnid ja kammermuusika juhendamine.</p></article>
+</div>
+</div>
+</section>
+<section class="section price-section" id="hinnad">
+<div class="container">
+<p class="eyebrow">Hinnakiri</p><h2>Tunnid ja hinnad</h2>
+<p class="lead">Vali individuaaltund, kammermuusika juhendamine või viie individuaaltunni pakett.</p>
+<div class="pricing">
+<div class="price-row"><div class="price-label">Individuaaltund · viiul</div><div class="duration">60 min</div><div class="amount">50 €</div></div>
+<div class="price-row"><div class="price-label">Individuaaltund · tšello</div><div class="duration">60 min</div><div class="amount">50 €</div></div>
+<div class="price-row"><div class="price-label">Kammermuusika · üks juhendaja</div><div class="duration">60 min</div><div class="amount">65 €</div></div>
+<div class="price-row"><div class="price-label">Kammermuusika · mõlemad juhendajad</div><div class="duration">60 min</div><div class="amount">95 €</div></div>
+<div class="price-row"><div class="price-label">Kammermuusika · üks juhendaja</div><div class="duration">90 min</div><div class="amount">90 €</div></div>
+<div class="price-row"><div class="price-label">Kammermuusika · mõlemad juhendajad</div><div class="duration">90 min</div><div class="amount">135 €</div></div>
+<div class="price-row"><div class="price-label">Tunnipakett · 5 individuaaltundi</div><div class="duration">5 × 60 min</div><div class="amount">235 €</div></div>
+</div>
+<p class="pricing-note">Kõigile hindadele lisandub käibemaks. Tunni toimumisaeg ja koht lepitakse kokku individuaalselt.</p>
+</div>
+</section>
+<section class="section booking" id="kontakt">
+<div class="container">
+<p class="eyebrow">Võta ühendust</p><h2>Alustame muusikast.</h2>
+<p>Kirjuta meile, millist pilli soovid õppida, milline on sinu senine kogemus ning millised on sinu eesmärgid. Leiame koos sobiva formaadi.</p>
+<a class="email" href="mailto:info@duoenpassant.com?subject=Muusikatundide%20p%C3%A4ring">info@duoenpassant.com</a><br/>
+<a class="extra-link" href="/et/#about">Tagasi Duo EnPassanti avalehele →</a>
+</div>
+</section>
+</main>
+<footer><div class="container footer-inner"><span>Duo EnPassant</span><span>© 2026 · Kõik õigused kaitstud</span></div></footer>
+<script>
+const mobileButton=document.getElementById('menuToggle');
+const mobileMenu=document.getElementById('mobileMenu');
+mobileButton.addEventListener('click',()=>{const open=mobileMenu.classList.toggle('open');mobileButton.setAttribute('aria-expanded',String(open));});
+mobileMenu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{mobileMenu.classList.remove('open');mobileButton.setAttribute('aria-expanded','false');}));
+document.querySelectorAll('.dep-service').forEach(menu=>{
+  const trigger=menu.querySelector('button');
+  const close=()=>{menu.classList.remove('is-open');trigger.setAttribute('aria-expanded','false')};
+  trigger.addEventListener('click',event=>{event.stopPropagation();const next=!menu.classList.contains('is-open');menu.classList.toggle('is-open',next);trigger.setAttribute('aria-expanded',String(next))});
+  document.addEventListener('click',event=>{if(!menu.contains(event.target))close()});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')close()});
+});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'){mobileMenu.classList.remove('open');mobileButton.setAttribute('aria-expanded','false')}});
+</script>
 </body>
 </html>
