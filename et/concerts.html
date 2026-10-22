@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="et">
 <head>
@@ -1296,6 +1296,32 @@
     .lesson-footer-link {display:block;text-align:center;padding:1.7rem 1rem;background:var(--parchment);}
     .lesson-footer-link a {font-family:Cinzel,serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;border-bottom:1px solid var(--warm);padding-bottom:.4rem;}
 
+
+/* Unified Duo EnPassant booking dropdown: no decorative arrows or lines */
+.dep-service { position:relative; display:flex; align-items:center; align-self:stretch; z-index:1200; }
+.dep-service > button { list-style:none; cursor:pointer; font:inherit; font-family:Cinzel,serif; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:inherit; user-select:none; display:flex; align-items:center; white-space:nowrap; }
+.dep-service > button::-webkit-details-marker { display:none; }
+.dep-service > button::marker { content:""; }
+.dep-service > button::before,.dep-service > button::after { content:none !important; display:none !important; }
+.dep-service > button:hover,.dep-service.is-open > summary { color:var(--warm,var(--gold,#b8935d)); }
+.dep-service-panel { display:none; position:absolute; left:50%; top:100%; transform:translateX(-50%); min-width:218px; padding:14px 0; background:#f5efe6; box-shadow:0 14px 34px rgba(24,18,15,.15); border:1px solid rgba(184,147,93,.25); z-index:1201; }
+.dep-service:hover > .dep-service-panel,.dep-service:focus-within > .dep-service-panel,.dep-service.is-open > .dep-service-panel { display:flex; flex-direction:column; }
+.dep-service-panel > a { display:block; font:400 10px/1.5 Cinzel,serif; letter-spacing:.14em; text-transform:uppercase; color:#27211e; text-decoration:none; padding:10px 23px; white-space:nowrap; }
+.dep-service-panel > a:hover,.dep-service-panel > a:focus { color:#b8935d; background:rgba(184,147,93,.08); }
+.dep-mobile-service { width:100%; text-align:center; color:#27211e; }
+.dep-mobile-service > summary { cursor:pointer; list-style:none; font:inherit; text-transform:uppercase; color:inherit; }
+.dep-mobile-service > summary::-webkit-details-marker { display:none; }
+.dep-mobile-service > summary::marker { content:""; }
+.dep-mobile-service > summary::before,.dep-mobile-service > summary::after { content:none !important; }
+.dep-mobile-links { display:flex; flex-direction:column; align-items:center; gap:15px; padding:18px 0 4px; }
+.dep-mobile-links > a { text-decoration:none; font-family:Cinzel,serif; font-size:11px; letter-spacing:.16em; color:#7f746a; text-transform:uppercase; }
+.dep-mobile-links > a:hover { color:#b8935d; }
+@media(max-width:1100px) { .dep-service { display:none; } }
+@media(max-width:900px) { .mobile-menu:has(.dep-mobile-service),.mobile-nav:has(.dep-mobile-service) { max-height:calc(100dvh - 72px); overflow-y:auto; } }
+@media(max-width:1100px) { .mobile-drawer:has(.dep-mobile-service) { overflow-y:auto; justify-content:safe center; } }
+
+.dep-service > button { background:none; border:none; padding:0; outline-offset:7px; }
+.dep-service.is-open > .dep-service-panel { display:flex; flex-direction:column; }
 </style>
 </head>
 <body class="lang-est">
@@ -1304,14 +1330,7 @@
 <a class="drawer-close-on-click" href="media.html">Meedia</a>
 <a class="drawer-close-on-click active" href="concerts.html">Kontserdid</a>
 <a class="drawer-close-on-click" href="repertoire.html">Repertuaar</a>
-<div class="mobile-services">
-  <button class="mobile-services-toggle" id="mobileServicesToggle" type="button" aria-expanded="false" aria-controls="mobileServicesList">Eraesinemised <span aria-hidden="true">⌄</span></button>
-  <div class="mobile-services-list" id="mobileServicesList" hidden>
-    <a class="drawer-close-on-click" href="bookings.html">Eraesinemised</a>
-    <a class="drawer-close-on-click" href="pulmamuusika.html">Pulmamuusika</a>
-    <a class="drawer-close-on-click" href="hinnad.html">Hinnad</a>
-  </div>
-</div>
+<details class="dep-mobile-service"><summary>Eraesinemised</summary><div class="dep-mobile-links"><a href="bookings.html">Eraesinemised</a><a href="pulmamuusika.html">Pulmamuusika</a><a href="hinnad.html">Hinnad</a></div></details>
 <a class="drawer-close-on-click" href="/et/#contact">Kontakt</a>
 <div class="mobile-drawer-rule"></div>
 <div class="mobile-lang-row"><a class="mobile-lang-btn active" href="/et/concerts.html">EST</a><span style="color:var(--line)">|</span><a class="mobile-lang-btn" href="/en/concerts.html">EN</a></div>
@@ -1330,14 +1349,7 @@
 <a class="nav-link" href="media.html">Meedia</a>
 <a class="nav-link active" href="concerts.html">Kontserdid</a>
 <a class="nav-link" href="repertoire.html">Repertuaar</a>
-<div class="nav-dropdown">
-  <a class="nav-link nav-dropdown-trigger" href="bookings.html" aria-haspopup="true">Eraesinemised <span class="nav-chevron" aria-hidden="true">⌄</span></a>
-  <div class="nav-dropdown-panel">
-    <a href="bookings.html">Eraesinemised</a>
-    <a href="pulmamuusika.html">Pulmamuusika</a>
-    <a href="hinnad.html">Hinnad</a>
-  </div>
-</div>
+<div class="dep-service"><button aria-expanded="false" aria-label="Eraesinemiste menüü" type="button">Eraesinemised</button><div class="dep-service-panel"><a href="bookings.html">Eraesinemised</a><a href="pulmamuusika.html">Pulmamuusika</a><a href="hinnad.html">Hinnad</a></div></div>
 <a class="nav-link" href="/et/#contact">Kontakt</a>
 </nav>
 <div aria-label="Keelevalik" class="lang-toggle"><a class="lang-btn active" href="/et/concerts.html">EST</a><span class="lang-separator">|</span><a class="lang-btn" href="/en/concerts.html">EN</a></div>
@@ -1748,5 +1760,5 @@
     }, { threshold: 0.08 });
     document.querySelectorAll('.concert-item').forEach(el => obs.observe(el));
   </script>
-</body>
+<script>document.querySelectorAll('.dep-service').forEach(menu=>{const trigger=menu.querySelector('button');const close=()=>{menu.classList.remove('is-open');trigger.setAttribute('aria-expanded','false')};trigger.addEventListener('click',event=>{event.stopPropagation();const next=!menu.classList.contains('is-open');document.querySelectorAll('.dep-service').forEach(m=>{m.classList.remove('is-open');m.querySelector('button')?.setAttribute('aria-expanded','false')});menu.classList.toggle('is-open',next);trigger.setAttribute('aria-expanded',String(next))});document.addEventListener('click',event=>{if(!menu.contains(event.target))close()});document.addEventListener('keydown',event=>{if(event.key==='Escape')close()})});</script></body>
 </html>
