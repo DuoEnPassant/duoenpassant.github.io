@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Muusikatunnid Tallinnas | Viiul, tšello ja kammermuusika — Duo EnPassant</title>
+  <meta name="description" content="Duo EnPassanti viiuli- ja tšellotunnid ning kammermuusika juhendamine. Individuaalne lähenemine, professionaalsed juhendajad ja selge hinnakiri.">
+  <link rel="canonical" href="https://www.duoenpassant.com/et/muusikatunnid.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Duo EnPassant">
+  <meta property="og:title" content="Muusikatunnid | Duo EnPassant">
+  <meta property="og:description" content="Viiuli- ja tšellotunnid ning kammermuusika juhendamine.">
+  <meta property="og:url" content="https://www.duoenpassant.com/et/muusikatunnid.html">
+  <meta property="og:image" content="https://www.duoenpassant.com/og-cover.jpg">
+  <link rel="icon" href="../Favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#27211e; --deep:#2b2522; --parchment:#f2ece3; --cream:#f5efe6; --gold:#b8935d; --muted:#776c63; --line:rgba(184,147,93,.30); --max:1120px; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--parchment); color:var(--ink); font-family:"Cormorant Garamond",Georgia,serif; }
+    a { color:inherit; text-decoration:none; }
+    button { font:inherit; }
+    .container { width:min(calc(100% - 64px),var(--max)); margin:auto; }
+    .topbar { position:sticky; top:0; z-index:30; background:rgba(242,236,227,.97); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+    .top-inner { width:min(calc(100% - 64px),var(--max)); margin:auto; min-height:78px; display:flex; justify-content:space-between; align-items:center; gap:30px; }
+    .logo { font-family:Cinzel,serif; text-transform:uppercase; font-size:.70rem; letter-spacing:.23em; line-height:1.6; white-space:nowrap; }
+    .logo small { display:block; font-family:Raleway,sans-serif; font-size:.54rem; color:var(--muted); letter-spacing:.30em; }
+    .nav { display:flex; align-items:center; gap:27px; }
+    .nav > a, .drop-trigger, .lang { font-family:Cinzel,serif; text-transform:uppercase; font-size:.60rem; letter-spacing:.15em; color:var(--muted); }
+    .nav a:hover, .drop-trigger:hover, .nav a:focus-visible { color:var(--gold); }
+    .dropdown { position:relative; }
+    .drop-trigger { background:none; border:0; cursor:pointer; padding:14px 0; }
+    .drop-trigger svg { width:10px; height:10px; margin-left:5px; vertical-align:middle; }
+    .drop-menu { display:none; position:absolute; top:100%; left:-18px; min-width:190px; padding:12px 0; background:var(--cream); border:1px solid var(--line); box-shadow:0 15px 32px rgba(30,22,18,.12); }
+    .drop-menu a { display:block; padding:12px 18px; font-family:Raleway,sans-serif; font-size:.72rem; letter-spacing:.04em; color:var(--ink); }
+    .dropdown:hover .drop-menu, .dropdown:focus-within .drop-menu, .dropdown.open .drop-menu { display:block; }
+    .lang a.active { color:var(--gold); }
+    .menu-button { display:none; background:transparent; border:1px solid var(--line); padding:10px 12px; font-family:Raleway,sans-serif; color:var(--ink); cursor:pointer; }
+    .mobile-menu { display:none; padding:10px 32px 26px; border-top:1px solid var(--line); }
+    .mobile-menu a { display:block; padding:13px 0; font-family:Cinzel,serif; font-size:.72rem; letter-spacing:.12em; border-bottom:1px solid var(--line); }
+    .mobile-sub { padding-left:20px; }
+    .hero { background:radial-gradient(circle at 75% 25%,rgba(184,147,93,.11),transparent 35%),linear-gradient(125deg,#302923,#211c1a); padding:105px 0 108px; color:var(--cream); position:relative; overflow:hidden; }
+    .eyebrow { margin:0 0 23px; font-family:Cinzel,serif; font-size:.63rem; font-weight:400; letter-spacing:.31em; text-transform:uppercase; color:var(--gold); }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { font-weight:300; font-size:clamp(4.2rem,9vw,7.2rem); letter-spacing:-.03em; line-height:.94; margin-bottom:25px; }
+    .hero-rule { width:190px; height:1px; background:var(--gold); margin:30px 0; }
+    .hero-sub { max-width:640px; font-style:italic; font-size:clamp(1.3rem,2vw,1.55rem); line-height:1.5; color:#d6cbc0; }
+    .section { padding:110px 0; }
+    .intro-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:9%; }
+    h2 { font-size:clamp(2.8rem,5vw,4.5rem); font-weight:300; line-height:1; letter-spacing:-.025em; }
+    .lead { font-size:1.42rem; line-height:1.65; color:var(--muted); }
+    .service-section { background:var(--cream); }
+    .services { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border:1px solid var(--line); margin-top:52px; }
+    .service { padding:35px 30px 39px; min-height:245px; }
+    .service + .service { border-left:1px solid var(--line); }
+    .number { font-family:Cinzel,serif; font-size:.6rem; color:var(--gold); letter-spacing:.2em; }
+    h3 { font-weight:400; font-size:2.2rem; margin:25px 0 14px; }
+    .service p, .teacher p { font-size:1.16rem; line-height:1.7; color:var(--muted); margin-bottom:0; }
+    .teachers { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:45px; }
+    .teacher { border-top:1px solid var(--line); padding-top:22px; }
+    .teacher h3 { margin:8px 0 6px; }
+    .teacher .role { font-family:Raleway,sans-serif; font-size:.75rem; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); }
+    .price-section { background:var(--deep); color:var(--cream); }
+    .price-section .lead { color:#cfc4ba; }
+    .pricing { margin-top:45px; border-top:1px solid rgba(184,147,93,.4); }
+    .price-row { display:grid; grid-template-columns:1fr 130px 125px; align-items:center; gap:18px; padding:19px 0; border-bottom:1px solid rgba(184,147,93,.26); }
+    .price-label { font-size:1.34rem; }
+    .duration { font-family:Raleway,sans-serif; font-size:.77rem; color:#c6b9ad; }
+    .amount { text-align:right; font-size:1.55rem; white-space:nowrap; }
+    .pricing-note { margin:22px 0 0; font-size:1.1rem; color:#c6b9ad; line-height:1.6; }
+    .booking { text-align:center; }
+    .booking h2 { max-width:760px; margin:0 auto 25px; }
+    .booking p:not(.eyebrow) { max-width:680px; margin:0 auto 27px; font-size:1.3rem; color:var(--muted); line-height:1.6; }
+    .email { font-size:clamp(1.5rem,3vw,2rem); font-style:italic; border-bottom:1px solid var(--gold); padding-bottom:5px; }
+    .extra-link { display:inline-block; margin-top:34px; font-family:Cinzel,serif; text-transform:uppercase; font-size:.58rem; letter-spacing:.17em; border-bottom:1px solid var(--gold); padding-bottom:7px; }
+    footer { background:#241f1c; color:#bcb0a4; padding:33px 0; }
+    .footer-inner { display:flex; align-items:center; justify-content:space-between; gap:20px; font-size:1.04rem; }
+    .footer-inner span:first-child { font-family:Cinzel,serif; text-transform:uppercase; font-size:.65rem; letter-spacing:.20em; }
+    @media (max-width:980px) { .nav,.lang { display:none; } .menu-button { display:block; } .mobile-menu.open { display:block; } .top-inner { min-height:68px; } }
+    @media (max-width:720px) { .container,.top-inner { width:min(calc(100% - 38px),var(--max)); } .hero { padding:85px 0 87px; } .section { padding:73px 0; } .intro-grid,.teachers { grid-template-columns:1fr; gap:18px; } .services { grid-template-columns:1fr; } .service { min-height:0; } .service + .service { border-left:0; border-top:1px solid var(--line); } .price-row { grid-template-columns:1fr auto; gap:7px 12px; } .price-label { grid-column:1; } .duration { grid-column:1; } .amount { grid-column:2; grid-row:1 / span 2; } .footer-inner { flex-direction:column; text-align:center; } }
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Muusikatunnid | Duo EnPassant","url":"https://www.duoenpassant.com/et/muusikatunnid.html","inLanguage":"et","about":{"@type":"MusicGroup","name":"Duo EnPassant","url":"https://www.duoenpassant.com/"}}
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="top-inner">
+      <a class="logo" href="/et/#about" aria-label="Duo EnPassant avaleht">Duo EnPassant<small>Viiul &amp; Tšello</small></a>
+      <nav class="nav" aria-label="Põhinavigatsioon">
+        <a href="media.html">Meedia</a>
+        <a href="concerts.html">Kontserdid</a>
+        <a href="repertoire.html">Repertuaar</a>
+        <div class="dropdown" id="desktopDropdown">
+          <button class="drop-trigger" type="button" aria-expanded="false" aria-controls="desktopBookingMenu">Eraesinemised <svg viewBox="0 0 12 12" aria-hidden="true"><path d="m2 4 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
+          <div class="drop-menu" id="desktopBookingMenu">
+            <a href="bookings.html">Eraesinemised</a>
+            <a href="pulmamuusika.html">Pulmamuusika</a>
+            <a href="hinnad.html">Hinnad</a>
+          </div>
+        </div>
+        <a href="/et/#contact">Kontakt</a>
+      </nav>
+      <div class="lang"><span class="active">EST</span> | <a href="/en/">EN</a></div>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobileMenu" id="menuToggle">Menüü ☰</button>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobiilimenüü">
+      <a href="media.html">Meedia</a>
+      <a href="concerts.html">Kontserdid</a>
+      <a href="repertoire.html">Repertuaar</a>
+      <a href="bookings.html">Eraesinemised</a>
+      <div class="mobile-sub"><a href="pulmamuusika.html">Pulmamuusika</a><a href="hinnad.html">Hinnad</a></div>
+      <a href="/et/#contact">Kontakt</a>
+      <a href="/en/">English</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">Duo EnPassant · Muusikaõpe</p>
+        <h1>Muusikatunnid</h1>
+        <div class="hero-rule"></div>
+        <p class="hero-sub">Viiul · Tšello · Kammermuusika</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container intro-grid">
+        <div><p class="eyebrow">Muusikaõpe</p><h2>Muusikaline areng isiklikus tempos.</h2></div>
+        <div><p class="lead">Pakume individuaalseid viiuli- ja tšellotunde ning kammermuusika juhendamist. Tundide sisu kujundame vastavalt õppija senisele kogemusele, eesmärkidele ja muusikalistele huvidele.</p><p class="lead">Olgu sooviks pillimängu arendamine, konkreetse teose ettevalmistamine või koosmängu süvendamine, keskendume sisulisele ja toetavale tööle muusikaga.</p></div>
+      </div>
+    </section>
+
+    <section class="section service-section">
+      <div class="container">
+        <p class="eyebrow">Võimalused</p>
+        <h2>Leia endale sobiv tund.</h2>
+        <div class="services">
+          <article class="service"><span class="number">01</span><h3>Viiul</h3><p>Individuaaltunnid viiuldaja Merily Leotootsiga. Töö tehnika, kõlakvaliteedi, interpretatsiooni ja repertuaariga vastavalt õppija vajadustele.</p></article>
+          <article class="service"><span class="number">02</span><h3>Tšello</h3><p>Individuaaltunnid tšellist Anna Ryland-Jonesiga. Tähelepanu pillimängu põhialustele, väljendusrikkale kõlale ja muusikalisele tervikule.</p></article>
+          <article class="service"><span class="number">03</span><h3>Kammermuusika</h3><p>Koosmängu juhendamine ansamblitele ühe või kahe muusikuga. Keskendume kuulamisele, ansamblitunnetusele, fraseerimisele ja ühisele interpretatsioonile.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">Juhendajad</p><h2>Õpi koos tegevmuusikutega.</h2>
+        <div class="teachers">
+          <article class="teacher"><div class="role">Viiul</div><h3>Merily Leotoots</h3><p>Duo EnPassanti viiuldaja ja Londoni Guildhall School of Music &amp; Drama vilistlane. Individuaalsed viiulitunnid ja kammermuusika juhendamine.</p></article>
+          <article class="teacher"><div class="role">Tšello</div><h3>Anna Ryland-Jones</h3><p>Duo EnPassanti tšellist ja Londoni Guildhall School of Music &amp; Drama vilistlane. Individuaalsed tšellotunnid ja kammermuusika juhendamine.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section price-section" id="hinnad">
+      <div class="container">
+        <p class="eyebrow">Hinnakiri</p><h2>Tunnid ja hinnad</h2>
+        <p class="lead">Vali individuaaltund, kammermuusika juhendamine või viie individuaaltunni pakett.</p>
+        <div class="pricing">
+          <div class="price-row"><div class="price-label">Individuaaltund · viiul</div><div class="duration">60 min</div><div class="amount">50 €</div></div>
+          <div class="price-row"><div class="price-label">Individuaaltund · tšello</div><div class="duration">60 min</div><div class="amount">50 €</div></div>
+          <div class="price-row"><div class="price-label">Kammermuusika · üks juhendaja</div><div class="duration">60 min</div><div class="amount">65 €</div></div>
+          <div class="price-row"><div class="price-label">Kammermuusika · mõlemad juhendajad</div><div class="duration">60 min</div><div class="amount">95 €</div></div>
+          <div class="price-row"><div class="price-label">Kammermuusika · üks juhendaja</div><div class="duration">90 min</div><div class="amount">90 €</div></div>
+          <div class="price-row"><div class="price-label">Kammermuusika · mõlemad juhendajad</div><div class="duration">90 min</div><div class="amount">135 €</div></div>
+          <div class="price-row"><div class="price-label">Tunnipakett · 5 individuaaltundi</div><div class="duration">5 × 60 min</div><div class="amount">235 €</div></div>
+        </div>
+        <p class="pricing-note">Kõigile hindadele lisandub käibemaks. Tunni toimumisaeg ja koht lepitakse kokku individuaalselt.</p>
+      </div>
+    </section>
+
+    <section class="section booking" id="kontakt">
+      <div class="container">
+        <p class="eyebrow">Võta ühendust</p><h2>Alustame muusikast.</h2>
+        <p>Kirjuta meile, millist pilli või koosseisu soovid õppida, milline on sinu senine kogemus ning millised on sinu eesmärgid. Leiame koos sobiva formaadi.</p>
+        <a class="email" href="mailto:info@duoenpassant.com?subject=Muusikatundide%20p%C3%A4ring">info@duoenpassant.com</a><br>
+        <a class="extra-link" href="/et/#about">Tagasi Duo EnPassanti avalehele →</a>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container footer-inner"><span>Duo EnPassant</span><span>© 2026 · Kõik õigused kaitstud</span></div></footer>
+  <script>
+    const mobileButton=document.getElementById('menuToggle');
+    const mobileMenu=document.getElementById('mobileMenu');
+    mobileButton.addEventListener('click',()=>{const open=mobileMenu.classList.toggle('open');mobileButton.setAttribute('aria-expanded',String(open));});
+    const dropdown=document.getElementById('desktopDropdown');
+    const dropdownButton=dropdown.querySelector('button');
+    dropdownButton.addEventListener('click',()=>{const open=dropdown.classList.toggle('open');dropdownButton.setAttribute('aria-expanded',String(open));});
+    document.addEventListener('click',event=>{if(!dropdown.contains(event.target)){dropdown.classList.remove('open');dropdownButton.setAttribute('aria-expanded','false');}});
+    document.addEventListener('keydown',event=>{if(event.key==='Escape'){dropdown.classList.remove('open');dropdownButton.setAttribute('aria-expanded','false');mobileMenu.classList.remove('open');mobileButton.setAttribute('aria-expanded','false');}});
+  </script>
+</body>
+</html>
