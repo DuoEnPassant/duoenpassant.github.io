@@ -36,7 +36,7 @@
       "name": "Eraesinemised ja broneeringud | Duo EnPassant",
       "description": "Duo EnPassant võtab vastu valitud eraesinemisi ja koostööpäringuid, kus viiuli ja tšello kõla sobib sündmuse iseloomuga.",
       "inLanguage": "et",
-      "dateModified": "2026-09-16",
+      "dateModified": "2026-10-22",
       "isPartOf": {
         "@type": "WebSite",
         "@id": "https://www.duoenpassant.com/#website",
@@ -767,27 +767,51 @@
 .pricing-bridge p:not(.section-eyebrow){max-width:720px;color:#7f746a;font-size:12px;line-height:1.7}
 .pricing-cta{font-family:Cinzel,serif;font-size:9px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid #b8935d;padding-bottom:7px;white-space:nowrap}
 @media(max-width:760px){.pricing-bridge{padding:60px 22px}.pricing-bridge-inner{grid-template-columns:1fr;gap:28px;align-items:start}}
+
+/* ERAESINEMISED DROPDOWN */
+.nav-dropdown { position:relative; }
+.nav-dropdown > summary { list-style:none; cursor:pointer; display:flex; align-items:center; gap:.45rem; white-space:nowrap; }
+.nav-dropdown > summary::-webkit-details-marker { display:none; }
+.nav-dropdown > summary::after { content:""; width:5px; height:5px; border-right:1px solid currentColor; border-bottom:1px solid currentColor; transform:rotate(45deg) translateY(-2px); }
+.nav-dropdown[open] > summary { color:var(--ink); }
+.nav-submenu { position:absolute; top:calc(100% + 18px); left:-24px; min-width:205px; padding:13px 0; background:var(--cream); border:1px solid var(--line); box-shadow:0 14px 35px rgba(39,33,30,.12); }
+.nav-submenu::before { content:""; position:absolute; height:20px; left:0; right:0; top:-20px; }
+.nav-submenu a { display:block; padding:10px 22px; color:var(--ink); font-family:"Cinzel",serif; font-size:.60rem; letter-spacing:.13em; text-transform:uppercase; white-space:nowrap; }
+.nav-submenu a:hover,.nav-submenu a:focus-visible { background:var(--parchment); color:var(--warm); }
+@media (hover:hover) and (pointer:fine) {
+  .nav-dropdown:hover .nav-submenu { display:block; }
+  .nav-dropdown:not([open]):not(:hover) .nav-submenu { display:none; }
+}
+@media (max-width:1100px) {
+  .mobile-drawer { overflow-y:auto; justify-content:flex-start; padding-top:110px; padding-bottom:45px; gap:1.4rem; }
+  .mobile-nav-dropdown { text-align:center; }
+  .mobile-nav-dropdown summary { cursor:pointer; font-family:"Cinzel",serif; font-size:1rem; letter-spacing:.28em; text-transform:uppercase; color:var(--ink); list-style:none; }
+  .mobile-nav-dropdown summary::-webkit-details-marker { display:none; }
+  .mobile-nav-dropdown summary::after { content:"⌄"; font-family:Arial,sans-serif; margin-left:8px; color:var(--warm); }
+  .mobile-nav-submenu { display:flex; flex-direction:column; align-items:center; gap:1.25rem; padding:1.5rem 0 .25rem; }
+  .mobile-nav-submenu a { font-size:.78rem; letter-spacing:.16em; color:var(--muted); }
+}
 </style>
 </head>
 <body class="lang-est">
-<!-- MOBILE MENU: bookings intentionally NOT included -->
-<div aria-label="Navigatsioon" class="mobile-drawer" id="mobileDrawer" role="dialog">
-<a class="drawer-close-on-click" href="media.html">
-<span>Meedia</span>
-</a>
-<a class="drawer-close-on-click" href="concerts.html">
-<span>Kontserdid</span>
-</a>
-<a class="drawer-close-on-click" href="repertoire.html">
-<span>Repertuaar</span>
-</a>
-<a class="drawer-close-on-click" href="/et/#contact">
-<span>Kontakt</span>
-</a>
+<!-- MOBILE MENU -->
+<div aria-label="Navigatsioon" class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true">
+<a class="drawer-close-on-click" href="media.html">Meedia</a>
+<a class="drawer-close-on-click" href="concerts.html">Kontserdid</a>
+<a class="drawer-close-on-click" href="repertoire.html">Repertuaar</a>
+<details class="mobile-nav-dropdown">
+<summary>Eraesinemised</summary>
+<div class="mobile-nav-submenu">
+<a class="drawer-close-on-click" href="bookings.html" aria-current="page">Eraesinemised</a>
+<a class="drawer-close-on-click" href="pulmamuusika.html">Pulmamuusika</a>
+<a class="drawer-close-on-click" href="hinnad.html">Hinnad</a>
+</div>
+</details>
+<a class="drawer-close-on-click" href="/et/#contact">Kontakt</a>
 <div class="mobile-drawer-rule"></div>
 <div class="mobile-lang-row"><a class="mobile-lang-btn active" href="/et/bookings.html">EST</a><span style="color:var(--line)">|</span><a class="mobile-lang-btn" href="/en/bookings.html">EN</a></div>
 </div>
-<!-- HEADER: bookings intentionally NOT included -->
+<!-- HEADER -->
 <header class="topbar">
 <div class="topbar-inner">
 <a aria-label="Duo EnPassant — Avaleht" class="home-btn" href="/et/#about">
@@ -798,18 +822,18 @@
 </div>
 </a>
 <nav aria-label="Põhinavigatsioon" class="topbar-center nav-links">
-<a class="nav-link" href="media.html">
-<span>Meedia</span>
-</a>
-<a class="nav-link" href="concerts.html">
-<span>Kontserdid</span>
-</a>
-<a class="nav-link" href="repertoire.html">
-<span>Repertuaar</span>
-</a>
-<a class="nav-link" href="/et/#contact">
-<span>Kontakt</span>
-</a>
+<a class="nav-link" href="media.html">Meedia</a>
+<a class="nav-link" href="concerts.html">Kontserdid</a>
+<a class="nav-link" href="repertoire.html">Repertuaar</a>
+<details class="nav-dropdown" id="desktopBookings">
+<summary class="nav-link" aria-label="Eraesinemiste menüü">Eraesinemised</summary>
+<div class="nav-submenu">
+<a href="bookings.html" aria-current="page">Eraesinemised</a>
+<a href="pulmamuusika.html">Pulmamuusika</a>
+<a href="hinnad.html">Hinnad</a>
+</div>
+</details>
+<a class="nav-link" href="/et/#contact">Kontakt</a>
 </nav>
 <div aria-label="Keelevalik" class="lang-toggle"><a class="lang-btn active" href="/et/bookings.html">EST</a><span class="lang-separator">|</span><a class="lang-btn" href="/en/bookings.html">EN</a></div>
 <button aria-expanded="false" aria-label="Ava menüü" class="hamburger-btn" id="hamburgerBtn" type="button">
@@ -906,7 +930,7 @@
 <h2>Broneeringupäringud</h2>
 <p>Saada meile sündmuse põhiinfo ning vastame esinemisvõimaluse ja kavavalikute kohta.</p>
 <a class="booking-email" href="mailto:info@duoenpassant.com">info@duoenpassant.com</a>
-<a class="back-link" href="pulmamuusika.html">Pulmamuusika →</a><a class="back-link" href="hinnad.html">Vaata hindu →</a><a class="back-link" href="/et/#about">Tagasi Duo EnPassanti lehele →</a>
+<a class="back-link" href="pulmamuusika.html">Pulmamuusika →</a><a class="back-link" href="muusikatunnid.html">Muusikatunnid →</a><a class="back-link" href="hinnad.html">Vaata hindu →</a><a class="back-link" href="/et/#about">Tagasi Duo EnPassanti lehele →</a>
 </div>
 </div>
 </section>
@@ -919,6 +943,21 @@
       const body = document.body;
       const hamburger = document.getElementById("hamburgerBtn");
       const drawer = document.getElementById("mobileDrawer");
+
+      // Desktop: hover and keyboard/click dropdown navigation.
+      const bookingDropdown = document.getElementById("desktopBookings");
+      if (bookingDropdown) {
+        bookingDropdown.addEventListener("mouseenter", () => {
+          if (window.matchMedia("(hover:hover) and (pointer:fine)").matches) bookingDropdown.open = true;
+        });
+        bookingDropdown.addEventListener("mouseleave", () => {
+          if (window.matchMedia("(hover:hover) and (pointer:fine)").matches) bookingDropdown.open = false;
+        });
+        document.addEventListener("click", event => {
+          if (!bookingDropdown.contains(event.target)) bookingDropdown.open = false;
+        });
+      }
+
 
       function setLang(lang) {
         const safeLang = lang === "est" ? "est" : "en";
@@ -954,7 +993,7 @@
       });
 
       document.addEventListener("keydown", event => {
-        if (event.key === "Escape") toggleDrawer(false);
+        if (event.key === "Escape") { toggleDrawer(false); if (bookingDropdown) bookingDropdown.open = false; }
       });
 
       const observer = new IntersectionObserver(entries => {
