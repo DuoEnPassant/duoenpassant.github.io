@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="et">
 <head>
@@ -1367,7 +1367,27 @@
       }
     }
 
-  </style>
+  
+/* Unified navigation, matching the other Estonian pages */
+.dep-service{position:relative;display:flex;align-items:center;align-self:stretch;z-index:1200;}
+.dep-service>button{appearance:none;border:0;background:none;padding:0;cursor:pointer;font-family:"Cinzel",serif;font-size:.62rem;letter-spacing:.30em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+.dep-service>button::before,.dep-service>button::after{content:none!important;display:none!important;}
+.dep-service>button:hover,.dep-service.is-open>button{color:var(--warm);}
+.dep-service-panel{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);min-width:218px;padding:12px 0;background:#f5efe6;border:1px solid rgba(184,147,93,.25);box-shadow:0 14px 34px rgba(24,18,15,.15);z-index:1201;}
+.dep-service:hover>.dep-service-panel,.dep-service:focus-within>.dep-service-panel,.dep-service.is-open>.dep-service-panel{display:flex;flex-direction:column;}
+.dep-service-panel>a{display:block;padding:11px 22px;font:400 10px/1.5 "Cinzel",serif;letter-spacing:.14em;text-transform:uppercase;color:#27211e;white-space:nowrap;text-decoration:none;}
+.dep-service-panel>a:hover,.dep-service-panel>a:focus-visible{color:#b8935d;background:rgba(184,147,93,.08);}
+.dep-mobile-service{text-align:center;color:var(--ink);}
+.dep-mobile-service>summary{cursor:pointer;list-style:none;font:400 1rem/1.4 "Cinzel",serif;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);}
+.dep-mobile-service>summary::-webkit-details-marker{display:none;}
+.dep-mobile-service>summary::marker{content:"";}
+.dep-mobile-service>summary::before,.dep-mobile-service>summary::after{content:none!important;display:none!important;}
+.dep-mobile-links{display:flex;flex-direction:column;align-items:center;gap:15px;padding:18px 0 4px;}
+.dep-mobile-links>a{font-family:"Cinzel",serif;font-size:.73rem;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;text-decoration:none;}
+@media(min-width:769px) and (max-width:1100px){.topbar-center,.lang-toggle{display:none!important;}.hamburger-btn,.mobile-drawer{display:flex!important;}}
+@media(max-width:1100px){.dep-service{display:none;}.mobile-drawer:has(.dep-mobile-service){overflow-y:auto;justify-content:safe center;gap:1.5rem;}}
+@media(max-width:768px){.mobile-drawer:has(.dep-mobile-service){padding-top:6rem;padding-bottom:2rem;}.media-related-links{flex-wrap:wrap;}}
+</style>
 </head>
 <body class="lang-est">
 <!-- MOBILE DRAWER -->
@@ -1375,7 +1395,7 @@
 <a class="drawer-close-on-click active" href="media.html">Meedia</a>
 <a class="drawer-close-on-click" href="concerts.html">Kontserdid</a>
 <a class="drawer-close-on-click" href="repertoire.html">Repertuaar</a>
-<a class="drawer-close-on-click" href="/et/#contact">Kontakt</a>
+<details class="dep-mobile-service"><summary>Eraesinemised</summary><div class="dep-mobile-links"><a class="drawer-close-on-click" href="bookings.html">Eraesinemised</a><a class="drawer-close-on-click" href="pulmamuusika.html">Pulmamuusika</a><a class="drawer-close-on-click" href="hinnad.html">Hinnad</a></div></details><a class="drawer-close-on-click" href="/et/#contact">Kontakt</a>
 <div class="mobile-drawer-rule"></div>
 <div class="mobile-lang-row"><a class="mobile-lang-btn active" href="/et/media.html">EST</a><span style="color:var(--line)">|</span><a class="mobile-lang-btn" href="/en/media.html">EN</a></div>
 </div>
@@ -1393,7 +1413,7 @@
 <a class="nav-link active" href="media.html">Meedia</a>
 <a class="nav-link" href="concerts.html">Kontserdid</a>
 <a class="nav-link" href="repertoire.html">Repertuaar</a>
-<a class="nav-link" href="/et/#contact">Kontakt</a>
+<div class="dep-service"><button aria-expanded="false" aria-label="Eraesinemiste menüü" type="button">Eraesinemised</button><div class="dep-service-panel"><a href="bookings.html">Eraesinemised</a><a href="pulmamuusika.html">Pulmamuusika</a><a href="hinnad.html">Hinnad</a></div></div><a class="nav-link" href="/et/#contact">Kontakt</a>
 </nav>
 <div aria-label="Keelevalik" class="lang-toggle"><a class="lang-btn active" href="/et/media.html">EST</a><span class="lang-separator">|</span><a class="lang-btn" href="/en/media.html">EN</a></div>
 <button aria-expanded="false" aria-label="Ava menüü" class="hamburger-btn" id="hamburgerBtn">
@@ -1474,7 +1494,7 @@
 <a href="press.html">
 <span>Press &amp; korraldajatele</span>
 </a>
-</nav>
+<span aria-hidden="true">◇</span><a href="muusikatunnid.html"><span>Muusikatunnid</span></a></nav>
 </div>
 </section>
 <!-- FOOTER -->
@@ -1569,6 +1589,18 @@
       if (e.key === 'ArrowLeft')  prevPhoto();
       if (e.key === 'ArrowRight') nextPhoto();
     });
-  </script>
+  
+/* Booking dropdown: hover on desktop, click for keyboard/touch */
+(() => {
+  const menu = document.querySelector('.dep-service');
+  const button = menu?.querySelector('button');
+  if (!menu || !button) return;
+  const setOpen = value => { menu.classList.toggle('is-open',value); button.setAttribute('aria-expanded',String(value)); };
+  button.addEventListener('click', event => { event.stopPropagation(); setOpen(!menu.classList.contains('is-open')); });
+  document.addEventListener('click', event => { if (!menu.contains(event.target)) setOpen(false); });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') setOpen(false); });
+  menu.addEventListener('mouseleave', () => setOpen(false));
+})();
+</script>
 </body>
 </html>
