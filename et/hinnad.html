@@ -1,29 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="et">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hinnad | Duo EnPassant — Eraesinemised, tunnid & projektid</title>
-<meta name="description" content="Duo EnPassanti eraesinemiste, tseremooniate, vastuvõttude, viiuli- ja tšellotundide ning kammermuusika juhendamise hinnad.">
-<meta name="robots" content="index, follow">
-<meta name="author" content="Duo EnPassant">
-<link rel="canonical" href="https://www.duoenpassant.com/et/hinnad.html">
-<link rel="alternate" hreflang="en" href="https://www.duoenpassant.com/en/pricing.html">
-<link rel="alternate" hreflang="et" href="https://www.duoenpassant.com/et/hinnad.html">
-<link rel="alternate" hreflang="x-default" href="https://www.duoenpassant.com/en/pricing.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Duo EnPassant">
-<meta property="og:title" content="Hinnad | Duo EnPassant — Eraesinemised, tunnid & projektid">
-<meta property="og:description" content="Duo EnPassanti eraesinemiste, tseremooniate, vastuvõttude, viiuli- ja tšellotundide ning kammermuusika juhendamise hinnad.">
-<meta property="og:url" content="https://www.duoenpassant.com/et/hinnad.html">
-<meta property="og:image" content="https://www.duoenpassant.com/og-cover.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Hinnad | Duo EnPassant — Eraesinemised, tunnid & projektid">
-<meta name="twitter:description" content="Duo EnPassanti eraesinemiste, tseremooniate, vastuvõttude, viiuli- ja tšellotundide ning kammermuusika juhendamise hinnad.">
-<meta name="twitter:image" content="https://www.duoenpassant.com/og-cover.jpg">
-<link rel="icon" href="../Favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Hinnad | Duo EnPassant — Eraesinemised, tunnid &amp; projektid</title>
+<meta content="Duo EnPassanti eraesinemiste, tseremooniate, vastuvõttude, viiuli- ja tšellotundide ning kammermuusika juhendamise hinnad." name="description"/>
+<meta content="index, follow" name="robots"/>
+<meta content="Duo EnPassant" name="author"/>
+<link href="https://www.duoenpassant.com/et/hinnad.html" rel="canonical"/>
+<link href="https://www.duoenpassant.com/en/pricing.html" hreflang="en" rel="alternate"/>
+<link href="https://www.duoenpassant.com/et/hinnad.html" hreflang="et" rel="alternate"/>
+<link href="https://www.duoenpassant.com/en/pricing.html" hreflang="x-default" rel="alternate"/>
+<meta content="website" property="og:type"/>
+<meta content="Duo EnPassant" property="og:site_name"/>
+<meta content="Hinnad | Duo EnPassant — Eraesinemised, tunnid &amp; projektid" property="og:title"/>
+<meta content="Duo EnPassanti eraesinemiste, tseremooniate, vastuvõttude, viiuli- ja tšellotundide ning kammermuusika juhendamise hinnad." property="og:description"/>
+<meta content="https://www.duoenpassant.com/et/hinnad.html" property="og:url"/>
+<meta content="https://www.duoenpassant.com/og-cover.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Hinnad | Duo EnPassant — Eraesinemised, tunnid &amp; projektid" name="twitter:title"/>
+<meta content="Duo EnPassanti eraesinemiste, tseremooniate, vastuvõttude, viiuli- ja tšellotundide ning kammermuusika juhendamise hinnad." name="twitter:description"/>
+<meta content="https://www.duoenpassant.com/og-cover.jpg" name="twitter:image"/>
+<link href="../Favicon.png" rel="icon" type="image/png"/>
+<link href="../apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Cinzel:wght@400;500&amp;family=Raleway:wght@300;400&amp;display=swap" rel="stylesheet"/>
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -200,154 +201,203 @@ a{color:inherit}
  .lesson-row{grid-template-columns:1fr 74px} .lesson-price{grid-column:1/3;text-align:left;font-size:23px} .lesson-duration{text-align:right}
  .cta{padding:82px 20px}
 }
+
+/* Eraesinemiste tagasihoidlik rippmenüü: ilma noole või dekoratiivse triibuta */
+.nav-service {position:relative;display:flex;align-items:center;}
+.nav-service summary {list-style:none;cursor:pointer;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:inherit;white-space:nowrap;}
+.nav-service summary::-webkit-details-marker {display:none;}
+.nav-service summary::after {content:none!important;display:none!important;}
+.nav-service summary:hover,.nav-service[open] summary {color:var(--gold);}
+.nav-service-links {position:absolute;left:-18px;top:100%;min-width:190px;padding:21px 0 8px;display:none;z-index:100;background:transparent;}
+.nav-service-links-inner {background:var(--paper);border:1px solid rgba(184,147,93,.28);box-shadow:0 14px 28px rgba(0,0,0,.13);padding:8px 0;}
+.nav-service-links a {display:block;padding:11px 18px;font-family:Cinzel,serif;font-size:9px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink);white-space:nowrap;}
+.nav-service-links a:hover {color:var(--gold);background:var(--cream);}
+.nav-service[open] .nav-service-links {display:block;}
+@media(hover:hover) and (pointer:fine) {.nav-service:hover .nav-service-links {display:block;}}
+.mobile-service summary {font-family:Cinzel,serif;text-transform:uppercase;letter-spacing:.16em;font-size:10px;cursor:pointer;list-style:none;color:var(--ink);}
+.mobile-service summary::-webkit-details-marker {display:none;}
+.mobile-service summary::after {display:none!important;content:none!important;}
+.mobile-service-links {display:flex;flex-direction:column;gap:14px;padding:14px 0 0 16px;}
+.mobile-service-links a {color:var(--muted);}
+@media(min-width:901px) and (max-width:1260px){.nav{gap:16px}.topbar-inner{padding:0 24px}}
+
+.lesson-detail-link {display:inline-block;margin-top:22px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:6px;font-family:Cinzel,serif;font-size:9px;letter-spacing:.18em;text-transform:uppercase;}
+
+/* Unified Duo EnPassant booking dropdown: no decorative arrows or lines */
+.dep-service { position:relative; display:flex; align-items:center; align-self:stretch; z-index:1200; }
+.dep-service > button { list-style:none; cursor:pointer; font:inherit; font-family:Cinzel,serif; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:inherit; user-select:none; display:flex; align-items:center; white-space:nowrap; }
+.dep-service > button::-webkit-details-marker { display:none; }
+.dep-service > button::marker { content:""; }
+.dep-service > button::before,.dep-service > button::after { content:none !important; display:none !important; }
+.dep-service > button:hover,.dep-service.is-open > summary { color:var(--warm,var(--gold,#b8935d)); }
+.dep-service-panel { display:none; position:absolute; left:50%; top:100%; transform:translateX(-50%); min-width:218px; padding:14px 0; background:#f5efe6; box-shadow:0 14px 34px rgba(24,18,15,.15); border:1px solid rgba(184,147,93,.25); z-index:1201; }
+.dep-service:hover > .dep-service-panel,.dep-service:focus-within > .dep-service-panel,.dep-service.is-open > .dep-service-panel { display:flex; flex-direction:column; }
+.dep-service-panel > a { display:block; font:400 10px/1.5 Cinzel,serif; letter-spacing:.14em; text-transform:uppercase; color:#27211e; text-decoration:none; padding:10px 23px; white-space:nowrap; }
+.dep-service-panel > a:hover,.dep-service-panel > a:focus { color:#b8935d; background:rgba(184,147,93,.08); }
+.dep-mobile-service { width:100%; text-align:center; color:#27211e; }
+.dep-mobile-service > summary { cursor:pointer; list-style:none; font:inherit; text-transform:uppercase; color:inherit; }
+.dep-mobile-service > summary::-webkit-details-marker { display:none; }
+.dep-mobile-service > summary::marker { content:""; }
+.dep-mobile-service > summary::before,.dep-mobile-service > summary::after { content:none !important; }
+.dep-mobile-links { display:flex; flex-direction:column; align-items:center; gap:15px; padding:18px 0 4px; }
+.dep-mobile-links > a { text-decoration:none; font-family:Cinzel,serif; font-size:11px; letter-spacing:.16em; color:#7f746a; text-transform:uppercase; }
+.dep-mobile-links > a:hover { color:#b8935d; }
+@media(max-width:1100px) { .dep-service { display:none; } }
+@media(max-width:900px) { .mobile-menu:has(.dep-mobile-service),.mobile-nav:has(.dep-mobile-service) { max-height:calc(100dvh - 72px); overflow-y:auto; } }
+@media(max-width:1100px) { .mobile-drawer:has(.dep-mobile-service) { overflow-y:auto; justify-content:safe center; } }
+
+.dep-service > button { background:none; border:none; padding:0; outline-offset:7px; }
+.dep-service.is-open > .dep-service-panel { display:flex; flex-direction:column; }
 </style>
 </head>
 <body>
 <header class="topbar" id="topbar">
-  <div class="topbar-inner">
-    <a class="home-btn" href="/et/#about"><div class="home-wordmark">Duo EnPassant<span>Viiul & tšello</span></div></a>
-    <nav class="nav" aria-label="Põhinavigatsioon"><a class="nav-link" href="media.html">Meedia</a><a class="nav-link" href="concerts.html">Kontserdid</a><a class="nav-link" href="repertoire.html">Repertuaar</a><a class="nav-link" href="/et/#contact">Kontakt</a></nav>
-    <div class="lang">
-      <a class="" href="/en/pricing.html">EN</a><i>|</i><a class="active" href="/et/hinnad.html">EST</a>
-    </div>
-    <button class="hamburger" id="hamburger" aria-label="Menüü" aria-expanded="false"><span></span></button>
-  </div>
+<div class="topbar-inner">
+<a class="home-btn" href="/et/#about"><div class="home-wordmark">Duo EnPassant<span>Viiul &amp; tšello</span></div></a>
+<nav aria-label="Põhinavigatsioon" class="nav">
+<a class="nav-link" href="media.html">Meedia</a>
+<a class="nav-link" href="concerts.html">Kontserdid</a>
+<a class="nav-link" href="repertoire.html">Repertuaar</a>
+<div class="dep-service"><button aria-expanded="false" aria-label="Eraesinemiste menüü" type="button">Eraesinemised</button><div class="dep-service-panel"><a href="bookings.html">Eraesinemised</a><a href="pulmamuusika.html">Pulmamuusika</a><a href="hinnad.html">Hinnad</a></div></div>
+<a class="nav-link" href="/et/#contact">Kontakt</a>
+</nav>
+<div class="lang">
+<a class="" href="/en/pricing.html">EN</a><i>|</i><a class="active" href="/et/hinnad.html">EST</a>
+</div>
+<button aria-expanded="false" aria-label="Menüü" class="hamburger" id="hamburger"><span></span></button>
+</div>
 </header>
-<div class="mobile-nav" id="mobileNav"><a href="media.html">Meedia</a><a href="concerts.html">Kontserdid</a><a href="repertoire.html">Repertuaar</a><a href="/et/#contact">Kontakt</a></div>
-
+<div class="mobile-nav" id="mobileNav">
+<a href="media.html">Meedia</a><a href="concerts.html">Kontserdid</a><a href="repertoire.html">Repertuaar</a>
+<details class="dep-mobile-service"><summary>Eraesinemised</summary><div class="dep-mobile-links"><a href="bookings.html">Eraesinemised</a><a href="pulmamuusika.html">Pulmamuusika</a><a href="hinnad.html">Hinnad</a></div></details>
+<a href="/et/#contact">Kontakt</a></div>
 <main>
 <section class="hero">
-  <div class="hero-inner">
-    <p class="hero-eyebrow">Duo EnPassant · Hinnad 2026–2027</p>
-    <h1>Eraesinemised</h1>
-    <div class="hero-sub">Viiul & tšello</div>
-    <p class="hero-copy">Kammermuusika tseremooniatele, vastuvõttudele ja valitud sündmustele. Iga esinemine kujundatakse vastavalt ruumile, kestusele ja sündmuse iseloomule.</p>
-  </div>
+<div class="hero-inner">
+<p class="hero-eyebrow">Duo EnPassant · Hinnad 2026–2027</p>
+<h1>Eraesinemised</h1>
+<div class="hero-sub">Viiul &amp; tšello</div>
+<p class="hero-copy">Kammermuusika tseremooniatele, vastuvõttudele ja valitud sündmustele. Iga esinemine kujundatakse vastavalt ruumile, kestusele ja sündmuse iseloomule.</p>
+</div>
 </section>
-
 <section class="intro">
- <div class="container intro-grid">
-  <div><p class="section-eyebrow">01</p><h2>Eraesinemised</h2></div>
-  <p class="intro-copy">Allolevad hinnad on lähtehinnad. Täpne pakkumine kujuneb vastavalt sündmuse kuupäevale, asukohale, kestusele ja repertuaarile.</p>
- </div>
+<div class="container intro-grid">
+<div><p class="section-eyebrow">01</p><h2>Eraesinemised</h2></div>
+<p class="intro-copy">Allolevad hinnad on lähtehinnad. Täpne pakkumine kujuneb vastavalt sündmuse kuupäevale, asukohale, kestusele ja repertuaarile.</p>
+</div>
 </section>
-
 <section class="prices">
- <div class="container">
-  <div class="price-list"><article class="price-row featured">
-          <div class="row-no">01</div>
-          <div class="row-main">
-            <p class="row-kicker">kuni 60 min</p>
-            <h3>Tseremoonia</h3>
-            <p>Sissepääs, tseremoonia võtmehetked ja väljaminek. Repertuaar lepitakse enne sündmust kokku.</p>
-          </div>
-          <div class="row-price">alates 450 €</div>
-        </article>
+<div class="container">
+<div class="price-list"><article class="price-row featured">
+<div class="row-no">01</div>
+<div class="row-main">
+<p class="row-kicker">kuni 60 min</p>
+<h3>Tseremoonia</h3>
+<p>Sissepääs, tseremoonia võtmehetked ja väljaminek. Repertuaar lepitakse enne sündmust kokku.</p>
+</div>
+<div class="row-price">alates 450 €</div>
+</article>
 <article class="price-row featured">
-          <div class="row-no">02</div>
-          <div class="row-main">
-            <p class="row-kicker">kuni 2 tundi</p>
-            <h3>Vastuvõtt & erasündmus</h3>
-            <p>Muusikalised setid koos vajalike pausidega, sobilik vastuvõtuks, õhtusöögiks või pidulikuks sündmuseks.</p>
-          </div>
-          <div class="row-price">alates 650 €</div>
-        </article>
+<div class="row-no">02</div>
+<div class="row-main">
+<p class="row-kicker">kuni 2 tundi</p>
+<h3>Vastuvõtt &amp; erasündmus</h3>
+<p>Muusikalised setid koos vajalike pausidega, sobilik vastuvõtuks, õhtusöögiks või pidulikuks sündmuseks.</p>
+</div>
+<div class="row-price">alates 650 €</div>
+</article>
 <article class="price-row featured">
-          <div class="row-no">03</div>
-          <div class="row-main">
-            <p class="row-kicker">terviklahendus</p>
-            <h3>Tseremoonia & vastuvõtt</h3>
-            <p>Muusika nii tseremooniale kui sellele järgnevale vastuvõtule, ühe tervikliku muusikalise lahendusena.</p>
-          </div>
-          <div class="row-price">alates 850 €</div>
-        </article></div>
- </div>
+<div class="row-no">03</div>
+<div class="row-main">
+<p class="row-kicker">terviklahendus</p>
+<h3>Tseremoonia &amp; vastuvõtt</h3>
+<p>Muusika nii tseremooniale kui sellele järgnevale vastuvõtule, ühe tervikliku muusikalise lahendusena.</p>
+</div>
+<div class="row-price">alates 850 €</div>
+</article></div>
+</div>
 </section>
-
 <section class="signature">
- <div class="container signature-grid">
-  <div><p class="section-eyebrow">02</p><h2>Muud projektid</h2></div>
-  <div class="simple-list"><article class="simple-row">
-          <div><h3>Kontsertesinemine</h3><p>Sõltub asukohast, kavast ja esinemise mahust.</p></div>
-          <div class="simple-price">hind kokkuleppel</div>
-        </article>
+<div class="container signature-grid">
+<div><p class="section-eyebrow">02</p><h2>Muud projektid</h2></div>
+<div class="simple-list"><article class="simple-row">
+<div><h3>Kontsertesinemine</h3><p>Sõltub asukohast, kavast ja esinemise mahust.</p></div>
+<div class="simple-price">hind kokkuleppel</div>
+</article>
 <article class="simple-row">
-          <div><h3>Hariduskontsert / kooliesinemine</h3><p>Kava ja formaat kohandatakse publikule ja sündmusele.</p></div>
-          <div class="simple-price">hind kokkuleppel</div>
-        </article>
+<div><h3>Hariduskontsert / kooliesinemine</h3><p>Kava ja formaat kohandatakse publikule ja sündmusele.</p></div>
+<div class="simple-price">hind kokkuleppel</div>
+</article>
 <article class="simple-row">
-          <div><h3>Stuudiosalvestus</h3><p>Stuudio, repertuaar ja salvestuse maht lepitakse eraldi kokku.</p></div>
-          <div class="simple-price">hind kokkuleppel</div>
-        </article></div>
- </div>
+<div><h3>Stuudiosalvestus</h3><p>Stuudio, repertuaar ja salvestuse maht lepitakse eraldi kokku.</p></div>
+<div class="simple-price">hind kokkuleppel</div>
+</article></div>
+</div>
 </section>
-
 <section class="lessons">
- <div class="container lessons-grid">
-  <div><p class="section-eyebrow">03</p><h2 class="section-title">Tunnid & kammermuusika</h2></div>
-  <div class="lesson-table"><div class="lesson-row">
-          <div class="lesson-name">Individuaaltund — viiul</div>
-          <div class="lesson-duration">60 min</div>
-          <div class="lesson-price">50 €</div>
-        </div>
+<div class="container lessons-grid">
+<div><p class="section-eyebrow">03</p><h2 class="section-title">Tunnid &amp; kammermuusika</h2></div>
+<div class="lesson-table"><div class="lesson-row">
+<div class="lesson-name">Individuaaltund — viiul</div>
+<div class="lesson-duration">60 min</div>
+<div class="lesson-price">50 €</div>
+</div>
 <div class="lesson-row">
-          <div class="lesson-name">Individuaaltund — tšello</div>
-          <div class="lesson-duration">60 min</div>
-          <div class="lesson-price">50 €</div>
-        </div>
+<div class="lesson-name">Individuaaltund — tšello</div>
+<div class="lesson-duration">60 min</div>
+<div class="lesson-price">50 €</div>
+</div>
 <div class="lesson-row">
-          <div class="lesson-name">Kammermuusika — üks juhendaja</div>
-          <div class="lesson-duration">60 min</div>
-          <div class="lesson-price">65 €</div>
-        </div>
+<div class="lesson-name">Kammermuusika — üks juhendaja</div>
+<div class="lesson-duration">60 min</div>
+<div class="lesson-price">65 €</div>
+</div>
 <div class="lesson-row">
-          <div class="lesson-name">Kammermuusika — mõlemad juhendajad</div>
-          <div class="lesson-duration">60 min</div>
-          <div class="lesson-price">95 €</div>
-        </div>
+<div class="lesson-name">Kammermuusika — mõlemad juhendajad</div>
+<div class="lesson-duration">60 min</div>
+<div class="lesson-price">95 €</div>
+</div>
 <div class="lesson-row">
-          <div class="lesson-name">Kammermuusika — üks juhendaja</div>
-          <div class="lesson-duration">90 min</div>
-          <div class="lesson-price">90 €</div>
-        </div>
+<div class="lesson-name">Kammermuusika — üks juhendaja</div>
+<div class="lesson-duration">90 min</div>
+<div class="lesson-price">90 €</div>
+</div>
 <div class="lesson-row">
-          <div class="lesson-name">Kammermuusika — mõlemad juhendajad</div>
-          <div class="lesson-duration">90 min</div>
-          <div class="lesson-price">135 €</div>
-        </div>
+<div class="lesson-name">Kammermuusika — mõlemad juhendajad</div>
+<div class="lesson-duration">90 min</div>
+<div class="lesson-price">135 €</div>
+</div>
 <div class="lesson-row">
-          <div class="lesson-name">Tunnipakett — 5 × individuaaltund</div>
-          <div class="lesson-duration">5 × 60 min</div>
-          <div class="lesson-price">235 €</div>
-        </div></div>
- </div>
+<div class="lesson-name">Tunnipakett — 5 × individuaaltund</div>
+<div class="lesson-duration">5 × 60 min</div>
+<div class="lesson-price">235 €</div>
+</div></div>
+</div>
 </section>
-
 <section class="notes">
- <div class="container notes-grid">
-  <div><p class="section-eyebrow">04</p><h2>Hinnastamise põhimõtted</h2></div>
-  <ul><li>Kõikidele hindadele lisandub käibemaks.</li><li>Eraesinemiste hinnad sisaldavad ettevalmistust ja transporti Tallinna piires.</li><li>Väljaspool Tallinna lisanduvad transpordikulud vastavalt asukohale.</li><li>Erisoovid, uus repertuaar, arranžeeringud ja tavapärasest pikemad esinemised hinnastatakse eraldi.</li><li>Lõplik hind sõltub kuupäevast, asukohast, kestusest ja repertuaarist.</li></ul>
- </div>
+<div class="container notes-grid">
+<div><p class="section-eyebrow">04</p><h2>Hinnastamise põhimõtted</h2></div>
+<ul><li>Kõikidele hindadele lisandub käibemaks.</li><li>Eraesinemiste hinnad sisaldavad ettevalmistust ja transporti Tallinna piires.</li><li>Väljaspool Tallinna lisanduvad transpordikulud vastavalt asukohale.</li><li>Erisoovid, uus repertuaar, arranžeeringud ja tavapärasest pikemad esinemised hinnastatakse eraldi.</li><li>Lõplik hind sõltub kuupäevast, asukohast, kestusest ja repertuaarist.</li></ul>
+</div>
 </section>
-
 <section class="cta">
- <p class="section-eyebrow">Duo EnPassant</p>
- <h2>Räägi meile oma sündmusest</h2>
- <p>Saada kuupäev, asukoht, sündmuse tüüp ja ligikaudne esinemise pikkus. Vastame esinemisvõimaluse ja täpse hinnapakkumisega.</p>
- <a class="email" href="mailto:info@duoenpassant.com">info@duoenpassant.com</a>
- <a class="back" href="bookings.html">Tagasi eraesinemiste lehele →</a>
+<p class="section-eyebrow">Duo EnPassant</p>
+<h2>Räägi meile oma sündmusest</h2>
+<p>Saada kuupäev, asukoht, sündmuse tüüp ja ligikaudne esinemise pikkus. Vastame esinemisvõimaluse ja täpse hinnapakkumisega.</p>
+<a class="email" href="mailto:info@duoenpassant.com">info@duoenpassant.com</a>
+<a class="back" href="bookings.html">Tagasi eraesinemiste lehele →</a>
 </section>
 </main>
-
 <footer class="footer">
-  <span class="footer-logo">Duo EnPassant</span>
-  <span class="footer-copy">© 2026 — Kõik õigused kaitstud</span>
+<span class="footer-logo">Duo EnPassant</span>
+<span class="footer-copy">© 2026 — Kõik õigused kaitstud</span>
 </footer>
 <script>
 const topbar=document.getElementById('topbar'),hamburger=document.getElementById('hamburger'),mobileNav=document.getElementById('mobileNav');
 function header(){topbar.classList.toggle('scrolled',window.scrollY>55)} header(); window.addEventListener('scroll',header,{passive:true});
 hamburger?.addEventListener('click',()=>{const o=mobileNav.classList.toggle('open');hamburger.setAttribute('aria-expanded',o?'true':'false')});
+document.addEventListener('click',e=>{const d=document.getElementById('desktopService');if(d&&!d.contains(e.target))d.open=false;});
 mobileNav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileNav.classList.remove('open');hamburger.setAttribute('aria-expanded','false')}));
 </script>
-</body>
+<script>document.querySelectorAll('.dep-service').forEach(menu=>{const trigger=menu.querySelector('button');const close=()=>{menu.classList.remove('is-open');trigger.setAttribute('aria-expanded','false')};trigger.addEventListener('click',event=>{event.stopPropagation();const next=!menu.classList.contains('is-open');document.querySelectorAll('.dep-service').forEach(m=>{m.classList.remove('is-open');m.querySelector('button')?.setAttribute('aria-expanded','false')});menu.classList.toggle('is-open',next);trigger.setAttribute('aria-expanded',String(next))});document.addEventListener('click',event=>{if(!menu.contains(event.target))close()});document.addEventListener('keydown',event=>{if(event.key==='Escape')close()})});</script></body>
 </html>
