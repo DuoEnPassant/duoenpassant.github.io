@@ -294,6 +294,26 @@ a{color:inherit}
   .lang-btn{font-size:9px}
 }
 </style>
+
+<style id="dep-services-nav-css">
+/* Services dropdown, matched to existing Duo EnPassant palette */
+.dep-service-nav{position:relative;display:inline-flex;align-items:center;flex-shrink:0;vertical-align:middle}
+.dep-service-nav>summary{display:inline-flex;align-items:center;gap:.32rem;list-style:none;cursor:pointer;color:var(--muted,#7f746a);font:400 10px/1.4 "Cinzel",serif;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap}
+.dep-service-nav>summary::-webkit-details-marker,.dep-mobile-services>summary::-webkit-details-marker{display:none}
+.dep-service-nav>summary::after,.dep-mobile-services>summary::after{content:"⌄";font:12px Arial,sans-serif;opacity:.7;margin-left:4px}
+.dep-service-nav[open]>summary,.dep-service-nav>summary:hover{color:var(--warm,var(--gold,#b8935d))}
+.dep-service-panel{position:absolute;top:calc(100% + 18px);left:50%;transform:translateX(-50%);min-width:244px;padding:8px 0;background:var(--cream,var(--paper,#f5efe6));border:1px solid var(--line,rgba(184,147,93,.28));box-shadow:0 14px 35px rgba(30,22,18,.17);z-index:9999;text-align:left}
+.dep-service-panel a{display:block!important;padding:12px 16px!important;color:var(--ink,#27211e)!important;font:400 10px/1.5 "Cinzel",serif!important;letter-spacing:.10em!important;text-transform:uppercase;text-decoration:none!important;white-space:nowrap}
+.dep-service-panel a:hover{background:rgba(184,147,93,.09);color:var(--warm,var(--gold,#b8935d))!important}
+.dep-mobile-services{width:100%;text-align:center;display:block;max-width:340px;justify-self:center}
+.dep-mobile-services>summary{list-style:none;cursor:pointer;color:var(--ink,#27211e);font:400 12px/1.5 "Cinzel",serif;letter-spacing:.18em;text-transform:uppercase}
+.dep-mobile-services[open]>summary{color:var(--warm,var(--gold,#b8935d))}
+.dep-mobile-service-links{display:flex;flex-direction:column;align-items:center;gap:12px;padding:15px 0 4px}
+.dep-mobile-service-links>a{display:block!important;color:var(--muted,#7f746a)!important;font:400 10px/1.5 "Cinzel",serif!important;letter-spacing:.12em!important;text-transform:uppercase!important;padding:4px 8px!important;text-decoration:none!important}
+.dep-mobile-service-links>a:hover{color:var(--warm,var(--gold,#b8935d))!important}
+@media (min-width:769px) and (max-width:1200px){.nav-links{gap:clamp(8px,1.3vw,18px)!important}.nav{gap:clamp(8px,1.4vw,19px)!important}.dep-service-nav>summary{font-size:9px;letter-spacing:.10em}}
+@media (max-width:900px){.mobile-drawer.open{overflow-y:auto;justify-content:safe center;padding-top:85px;padding-bottom:25px}.mobile-menu.open,.mobile-nav.open{overflow-y:auto;max-height:calc(100dvh - 55px)}}
+</style>
 </head>
 <body>
 <header class="topbar" id="topbar">
@@ -301,13 +321,16 @@ a{color:inherit}
     <a class="home-btn" href="/en/#about" aria-label="Duo EnPassant — Home">
       <div class="home-wordmark">Duo EnPassant<span>Violin & Cello</span></div>
     </a>
-    <nav class="nav-links" aria-label="Main navigation"><a class="nav-link" href="media.html">Media</a><a class="nav-link" href="concerts.html">Concerts</a><a class="nav-link" href="repertoire.html">Repertoire</a><a class="nav-link" href="/en/#contact">Contact</a></nav>
+    <nav class="nav-links" aria-label="Main navigation"><a class="nav-link" href="media.html">Media</a><a class="nav-link" href="concerts.html">Concerts</a><a class="nav-link" href="repertoire.html">Repertoire</a><details class="dep-service-nav"><summary>Services</summary><div class="dep-service-panel"><a href="bookings.html">Private Performances</a><a href="wedding-music.html">Wedding Music</a><a href="online-violin-lessons.html">Online Violin Lessons</a><a href="online-cello-lessons.html">Online Cello Lessons</a></div></details>
+<a class="nav-link" href="/en/#contact">Contact</a></nav>
     <div class="lang-toggle" aria-label="Language selector"><a class="lang-btn active" href="/en/merily-leotoots.html">EN</a><span class="lang-separator">|</span><a class="lang-btn" href="/et/merily-leotoots.html">EST</a></div>
     <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span></button>
   </div>
 </header>
 
-<div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation"><a href="media.html">Media</a><a href="concerts.html">Concerts</a><a href="repertoire.html">Repertoire</a><a href="/en/#contact">Contact</a></div>
+<div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation"><a href="media.html">Media</a><a href="concerts.html">Concerts</a><a href="repertoire.html">Repertoire</a>
+<details class="dep-mobile-services"><summary>Services</summary><div class="dep-mobile-service-links"><a class="drawer-close-on-click" href="bookings.html">Private Performances</a><a class="drawer-close-on-click" href="wedding-music.html">Wedding Music</a><a class="drawer-close-on-click" href="online-violin-lessons.html">Online Violin Lessons</a><a class="drawer-close-on-click" href="online-cello-lessons.html">Online Cello Lessons</a></div></details>
+<a href="/en/#contact">Contact</a></div>
 
 <main>
   <section class="hero" aria-labelledby="artist-name">
