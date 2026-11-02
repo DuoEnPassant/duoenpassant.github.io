@@ -1276,7 +1276,23 @@
         transition-duration: .01ms !important;
       }
     }
-  </style>
+  
+  /* Service discovery: existing header styling retained */
+  .service-nav {position:relative}
+  .service-nav summary {list-style:none;cursor:pointer;font-family:"Cinzel",serif;font-size:.62rem;letter-spacing:.30em;text-transform:uppercase;color:var(--muted)}
+  .service-nav summary::-webkit-details-marker {display:none}
+  .service-nav summary:hover,.service-nav[open] summary{color:var(--warm)}
+  .topbar.over-hero .service-nav summary{color:rgba(245,239,230,.78)}
+  .service-nav-panel{position:absolute;top:calc(100% + 1.5rem);left:50%;transform:translateX(-50%);min-width:255px;background:var(--cream);box-shadow:0 14px 35px rgba(30,22,18,.17);border:1px solid var(--line);padding:.4rem 0;z-index:120}
+  .service-nav-panel a{display:block;padding:12px 18px;color:var(--ink);font:400 .60rem/1.5 "Cinzel",serif;letter-spacing:.15em;text-transform:uppercase;white-space:nowrap}
+  .service-nav-panel a:hover{color:var(--warm);background:rgba(184,147,93,.08)}
+  .mobile-service-nav {text-align:center}
+  .mobile-service-nav summary{font-family:"Cinzel",serif;font-size:1rem;letter-spacing:.28em;text-transform:uppercase;cursor:pointer;list-style:none}
+  .mobile-service-nav summary::-webkit-details-marker{display:none}
+  .mobile-service-items{display:flex;flex-direction:column;gap:.85rem;padding:1.1rem 0 0}
+  .mobile-service-items a{font-family:"Cinzel",serif;font-size:.70rem;letter-spacing:.13em;color:var(--muted)}
+  @media(max-width:768px){.mobile-drawer{gap:1.5rem;overflow-y:auto;justify-content:safe center}}
+</style>
 </head>
 <body class="lang-en" id="top">
 <!-- =======================================================
@@ -1330,6 +1346,11 @@
 <a class="nav-link" href="repertoire.html">
 <span>Repertoire</span>
 </a>
+<details class="service-nav"><summary>Services</summary><div class="service-nav-panel">
+<a href="bookings.html">Private Performances</a>
+<a href="wedding-music.html">Wedding Music</a>
+<a href="online-violin-lessons.html">Online Violin Lessons</a>
+</div></details>
 <a class="nav-link" href="#contact">
 <span>Contact</span>
 </a>
@@ -1352,6 +1373,11 @@
 <a class="drawer-close-on-click" href="repertoire.html">
 <span>Repertoire</span>
 </a>
+<details class="mobile-service-nav"><summary>Services</summary><div class="mobile-service-items">
+<a class="drawer-close-on-click" href="bookings.html">Private Performances</a>
+<a class="drawer-close-on-click" href="wedding-music.html">Wedding Music</a>
+<a class="drawer-close-on-click" href="online-violin-lessons.html">Online Violin Lessons</a>
+</div></details>
 <a class="drawer-close-on-click" href="#contact">
 <span>Contact</span>
 </a>
@@ -1426,10 +1452,12 @@
 <div class="container">
 <div>
 <h2 class="contact-title">Contact</h2>
-<p class="contact-intro">Concerts, collaborations and private engagements.</p>
+<p class="contact-intro">Concerts, weddings, private engagements and online violin lessons.</p>
 <a class="contact-email" href="mailto:info@duoenpassant.com">info@duoenpassant.com</a>
 <div class="contact-resource-row">
 <a class="bookings-link" href="bookings.html">Private performances →</a>
+<a class="bookings-link" href="wedding-music.html">Wedding music →</a>
+<a class="bookings-link" href="online-violin-lessons.html">Online violin lessons →</a>
 <a class="press-link" href="press.html">Press &amp; presenters →</a>
 <a class="price-link" href="pricing.html">Pricing →</a></div>
 <p class="follow-text">Follow Duo EnPassant</p>
